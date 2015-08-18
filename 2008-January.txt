@@ -1,0 +1,419 @@
+From ernesto at ipimar.pt  Mon Jan  7 15:55:39 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 07 Jan 2008 14:55:39 +0000
+Subject: [cost-devel] Windows version of COSTcore 0.6
+Message-ID: <47823D6B.3070600@ipimar.pt>
+
+Hi,
+
+You may download COSTcore_0.6-0 for M$Win from 
+https://developer.berlios.de/project/showfiles.php?group_id=7299
+
+Best
+
+EJ
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Thu Jan 17 11:49:01 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Thu, 17 Jan 2008 11:49:01 +0100
+Subject: [cost-devel] Comments on COSTcore0.6
+Message-ID: <478F329D.9090205@ifremer.fr>
+
+Hi Ernesto and all,
+
+COSTcore0.6 seems really nice to me as far as I can say ; I've not made 
+any deep testing of it, but no problems've occured until now along EDA 
+development and concerning datasets creation.
+
+By the way, just one thing : I needed to write procedures to convert my 
+dfs because they didn't pass through 'checkTys' validity function (those 
+procedures just convert each columns with respect to objects definition 
+). I think these kind of procedure would be useful for the user to 
+create more easily COST objects. Don't you think it could be put in 
+COSTcore package ?(cf ConvertTabs.r)
+
+I've also created a new dataset that is joined to this mail 
+(sole2.RData). It's far more complete than the previous one as it 
+includes sea sampling data, market sampling data, and real "V"-type data 
+as CA table. CL and CE tables are also corrected as they were a bit 
+altered on previous one. It can be added to COSTcore package.
+
+An Eda folder will appear very very soon on CVS.
+
+
+Best
+Mathieu
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sole2.RData
+Type: application/octet-stream
+Size: 30279 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080117/303a0137/attachment.obj>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: ConvertTabs.r
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080117/303a0137/attachment.ksh>
+
+From ernesto at ipimar.pt  Thu Jan 17 23:27:23 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 17 Jan 2008 22:27:23 +0000
+Subject: [cost-devel] Comments on COSTcore0.6
+In-Reply-To: <478F329D.9090205@ifremer.fr>
+References: <478F329D.9090205@ifremer.fr>
+Message-ID: <478FD64B.7020803@ipimar.pt>
+
+Mathieu MERZEREAUD wrote:
+> Hi Ernesto and all,
+>
+> COSTcore0.6 seems really nice to me as far as I can say ; I've not 
+> made any deep testing of it, but no problems've occured until now 
+> along EDA development and concerning datasets creation.
+>
+> By the way, just one thing : I needed to write procedures to convert 
+> my dfs because they didn't pass through 'checkTys' validity function 
+> (those procedures just convert each columns with respect to objects 
+> definition ). I think these kind of procedure would be useful for the 
+> user to create more easily COST objects. Don't you think it could be 
+> put in COSTcore package ?(cf ConvertTabs.r)
+>
+> I've also created a new dataset that is joined to this mail 
+> (sole2.RData). It's far more complete than the previous one as it 
+> includes sea sampling data, market sampling data, and real "V"-type 
+> data as CA table. CL and CE tables are also corrected as they were a 
+> bit altered on previous one. It can be added to COSTcore package.
+>
+> An Eda folder will appear very very soon on CVS.
+>
+>
+> Best
+> Mathieu 
+Hi Mathieu,
+
+If you use the class creator that problem should be sorted out 
+internally. It uses the coerceDataFrameColumns method.
+
+If you have a TR dataframe named df0 and call csData(tr=df0) it should 
+work ...
+
+Can you post an example ?
+
+Best
+
+EJ
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Fri Jan 18 09:34:19 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Fri, 18 Jan 2008 09:34:19 +0100
+Subject: [cost-devel] Comments on COSTcore0.6
+In-Reply-To: <478FD64B.7020803@ipimar.pt>
+References: <478F329D.9090205@ifremer.fr> <478FD64B.7020803@ipimar.pt>
+Message-ID: <4790648B.2050900@ifremer.fr>
+
+
+
+ernesto a ?crit :
+> Mathieu MERZEREAUD wrote:
+>> Hi Ernesto and all,
+>>
+>> COSTcore0.6 seems really nice to me as far as I can say ; I've not 
+>> made any deep testing of it, but no problems've occured until now 
+>> along EDA development and concerning datasets creation.
+>>
+>> By the way, just one thing : I needed to write procedures to convert 
+>> my dfs because they didn't pass through 'checkTys' validity function 
+>> (those procedures just convert each columns with respect to objects 
+>> definition ). I think these kind of procedure would be useful for the 
+>> user to create more easily COST objects. Don't you think it could be 
+>> put in COSTcore package ?(cf ConvertTabs.r)
+>>
+>> I've also created a new dataset that is joined to this mail 
+>> (sole2.RData). It's far more complete than the previous one as it 
+>> includes sea sampling data, market sampling data, and real "V"-type 
+>> data as CA table. CL and CE tables are also corrected as they were a 
+>> bit altered on previous one. It can be added to COSTcore package.
+>>
+>> An Eda folder will appear very very soon on CVS.
+>>
+>>
+>> Best
+>> Mathieu 
+> Hi Mathieu,
+> 
+> If you use the class creator that problem should be sorted out 
+> internally. It uses the coerceDataFrameColumns method.
+> 
+> If you have a TR dataframe named df0 and call csData(tr=df0) it should 
+> work ...
+> 
+> Can you post an example ?
+> 
+> Best
+> 
+> EJ
+> 
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+Hi Ernesto,
+
+You're absolutely right. 'new("csData",tr=TR)' didn't work with my df 
+but 'csData(tr=TR)' works perfectly. So, you can forget the second 
+paragraph of my previous mail (and the joined .r file).
+Thanks
+
+Mathieu
+
+
+
+From ernesto at ipimar.pt  Fri Jan 18 17:23:43 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 18 Jan 2008 16:23:43 +0000
+Subject: [cost-devel] Version 0.7 now in CVS
+Message-ID: <4790D28F.3010007@ipimar.pt>
+
+Hi,
+
+I've uploaded version 0.7-0 to CVS. The main changes were on the class 
+definition of CONS classes and the changing of "factor" to "character" 
+on RAW class definition, as commented by Alastair some days a go.
+
+Note that I've kept factor for CONS classes. The rationale is that this 
+level of data is for modeling not for exploratory data analysis and the 
+classes of the data.frames must be properly formated.
+
+Also the man pages were reviewed but still need a little more work.
+
+It's still missing data integrity checking for CONS classes, but I 
+really need feedback before going any further.
+
+And the final decision about data, now being discussed on another 
+thread. I did not had time to look at it properly but I intend to do so.
+
+Mathieu, please rebuild the dataset with the new version.
+
+So we are approaching version 1 :-)
+
+We have to decide if we release version 1 with _untested_ CONS classes. 
+If so we may release next week. Otherwise we may release a 0.9-0 version 
+and wait for feedback from other packages, do the necessary adjustments 
+and release version 1 later. The last would be my favorite.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Sun Jan 20 20:55:46 2008
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Sun, 20 Jan 2008 20:55:46 +0100
+Subject: [cost-devel] Version 0.7 now in CVS
+In-Reply-To: <4790D28F.3010007@ipimar.pt>
+References: <4790D28F.3010007@ipimar.pt>
+Message-ID: <20080120205546.nyo37avyck8gsss8@www.ifremer.fr>
+
+ernesto <ernesto at ipimar.pt> a ?crit :
+
+> Hi,
+>
+> I've uploaded version 0.7-0 to CVS. The main changes were on the class
+> definition of CONS classes and the changing of "factor" to "character"
+> on RAW class definition, as commented by Alastair some days a go.
+>
+> Note that I've kept factor for CONS classes. The rationale is that this
+> level of data is for modeling not for exploratory data analysis and the
+> classes of the data.frames must be properly formated.
+>
+> Also the man pages were reviewed but still need a little more work.
+>
+> It's still missing data integrity checking for CONS classes, but I
+> really need feedback before going any further.
+>
+> And the final decision about data, now being discussed on another
+> thread. I did not had time to look at it properly but I intend to do so.
+>
+> Mathieu, please rebuild the dataset with the new version.
+>
+> So we are approaching version 1 :-)
+>
+> We have to decide if we release version 1 with _untested_ CONS classes.
+> If so we may release next week. Otherwise we may release a 0.9-0 version
+> and wait for feedback from other packages, do the necessary adjustments
+> and release version 1 later. The last would be my favorite.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+Dear Ernesto,
+
+first congratulations for all your work and energy you put in working 
+on this. The first data on CONS format will be closely scrutinised by 
+developers now, as they are their basic objects.
+
+I see that the CORE package is complete now, and if (almost) all the 
+methods are done, even if still untested, I would advocate for version 
+1. In fact, I anticipate a lot of feedback from the developers now, and 
+the package will keep on evolving, anyhow. I know everyone could start 
+developing on the previous objects but releasing Version 1, to me, 
+means that the objects have their final shape and all developers can 
+elaborate on them. It is a clear signal.
+
+Hopefully, the DEF will also be finalised very soon and I take 
+advantage of this mail to remind all the institutes to prepare 
+datasets. It is important that we all take time to prepare data in 
+order to have a complete view of the different case studies.
+
+Thanks again for your attention
+
+Best regards
+
+Joel
+
+
+
+
+
+
+
+
+
+
+
+From ernesto at ipimar.pt  Mon Jan 21 11:30:20 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 21 Jan 2008 10:30:20 +0000
+Subject: [cost-devel] Version 0.7 now in CVS
+In-Reply-To: <20080120205546.nyo37avyck8gsss8@www.ifremer.fr>
+References: <4790D28F.3010007@ipimar.pt>
+	<20080120205546.nyo37avyck8gsss8@www.ifremer.fr>
+Message-ID: <4794743C.3060802@ipimar.pt>
+
+Joel.Vigneau at ifremer.fr wrote:
+> ernesto <ernesto at ipimar.pt> a ?crit :
+>
+>   
+>> Hi,
+>>
+>> I've uploaded version 0.7-0 to CVS. The main changes were on the class
+>> definition of CONS classes and the changing of "factor" to "character"
+>> on RAW class definition, as commented by Alastair some days a go.
+>>
+>> Note that I've kept factor for CONS classes. The rationale is that this
+>> level of data is for modeling not for exploratory data analysis and the
+>> classes of the data.frames must be properly formated.
+>>
+>> Also the man pages were reviewed but still need a little more work.
+>>
+>> It's still missing data integrity checking for CONS classes, but I
+>> really need feedback before going any further.
+>>
+>> And the final decision about data, now being discussed on another
+>> thread. I did not had time to look at it properly but I intend to do so.
+>>
+>> Mathieu, please rebuild the dataset with the new version.
+>>
+>> So we are approaching version 1 :-)
+>>
+>> We have to decide if we release version 1 with _untested_ CONS classes.
+>> If so we may release next week. Otherwise we may release a 0.9-0 version
+>> and wait for feedback from other packages, do the necessary adjustments
+>> and release version 1 later. The last would be my favorite.
+>>
+>> Best
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>     
+>
+> Dear Ernesto,
+>
+> first congratulations for all your work and energy you put in working 
+> on this. The first data on CONS format will be closely scrutinised by 
+> developers now, as they are their basic objects.
+>
+> I see that the CORE package is complete now, and if (almost) all the 
+> methods are done, even if still untested, I would advocate for version 
+> 1. In fact, I anticipate a lot of feedback from the developers now, and 
+> the package will keep on evolving, anyhow. I know everyone could start 
+> developing on the previous objects but releasing Version 1, to me, 
+> means that the objects have their final shape and all developers can 
+> elaborate on them. It is a clear signal.
+>
+> Hopefully, the DEF will also be finalised very soon and I take 
+> advantage of this mail to remind all the institutes to prepare 
+> datasets. It is important that we all take time to prepare data in 
+> order to have a complete view of the different case studies.
+>
+> Thanks again for your attention
+>
+> Best regards
+>
+> Joel
+
+Hi Joel,
+
+My workplan will be:
+
+1) Finish the man pages and send them to Alastair. Today I hope.
+2) Wait for final decision on DEF  to adjust the class definition. 
+Please do it asap once that it will have an impact on the very basic 
+package structure.
+3) Ask Mathieu to update the dataset based on final DEF.
+4) Integrate everything and release version 1.
+
+The issues about CONS classes will be done _after_ receiving feedback 
+from other developers.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Mon Jan 21 13:49:34 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 21 Jan 2008 12:49:34 +0000
+Subject: [cost-devel] Version 0.7-5 on CVS now.
+Message-ID: <479494DE.80305@ipimar.pt>
+
+Dear all,
+
+I've committed version 0.7-5 to CVS. This version has complete man pages 
+revised by me and small revisions on CONS. Check the NEWS file.
+
+Please note that the data files are _not_ fully compliant with the new 
+class definition. We'll include a final version whenever we'll finish 
+the discussion about DEF.
+
+Alastair can you please revise the man pages. You can edit the Rd files 
+and commit to CVS after corrections. I'll be able to compare them with 
+the previous version and check changes.
+
+Best
+
+EJ
+
+
+

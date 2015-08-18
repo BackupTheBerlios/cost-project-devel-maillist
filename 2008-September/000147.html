@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] outPut format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20outPut%20format&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F87F1%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000148.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] outPut format</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20outPut%20format&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F87F1%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] outPut format">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Mon Sep  8 17:22:05 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000148.html">[cost-devel] outPut format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Reply is below
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>]
+Sent: 08 September 2008 15:23
+To: David Maxwell (Cefas)
+Subject: outPut format
+
+
+Hi David,
+
+just a little question about dbe outputs format. I suppose we have 2 
+possibilities for that :
+	* a data.frame with 'time', 'space', 'technical',  optionnaly 'length' 
+or 'age', and 'value'.
+	* a numerical array with one dimension per field (ie 3 or 4 dimensions)
+
+The second one is easier to use for calculation and is more 
+'illustrative', but the first one is clearer, is less ambiguous with 
+used stratification, and most of all, it's very easy to calculate 2 from 
+1 if it is needed (and graphical outputs should be easier to implement!!).
+
+To your mind, what is the best format ?
+
+Best
+Mathieu
+
+----------------------------
+Hi Mathieu,
+
+Using an array is probably better programming style but I think a data.frame is easier for people to understand so I suggest a data.frame. May need a column for iteration as well.
+
+Any comments from everyone else?
+David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000148.html">[cost-devel] outPut format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#147">[ date ]</a>
+              <a href="thread.html#147">[ thread ]</a>
+              <a href="subject.html#147">[ subject ]</a>
+              <a href="author.html#147">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

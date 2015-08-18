@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Recoding of $time in consolidated cs cl and	ce	classes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Recoding%20of%20%24time%20in%20consolidated%20cs%20cl%20and%0A%09ce%09classes&In-Reply-To=%3C48D2066B.6010408%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000151.html">
+   <LINK REL="Next"  HREF="000153.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Recoding of $time in consolidated cs cl and	ce	classes</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Recoding%20of%20%24time%20in%20consolidated%20cs%20cl%20and%0A%09ce%09classes&In-Reply-To=%3C48D2066B.6010408%40ifremer.fr%3E"
+       TITLE="[cost-devel] Recoding of $time in consolidated cs cl and	ce	classes">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Thu Sep 18 09:42:35 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000151.html">[cost-devel] Recoding of $time in consolidated cs cl and ce	classes
+</A></li>
+        <LI>Next message: <A HREF="000153.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+waking up from my long lethargy, I agree with this proposal which is in 
+line with the overall hierarchical coding of the variables.
+
+Best
+
+Joel
+
+Mathieu MERZEREAUD a &#233;crit :
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> if it's Ok for everyone, it should not be difficult to modify it in 
+</I>&gt;<i> consolidation methods.
+</I>&gt;<i>
+</I>&gt;<i> Best
+</I>&gt;<i> Mathieu
+</I>&gt;<i>
+</I>&gt;<i> David Maxwell (Cefas) a &#233;crit :
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi Alastair
+</I>&gt;&gt;<i> Sounds reasonable to me. How will you use the proposed strings?
+</I>&gt;&gt;<i> I do not think this will cause any problems to estimation functions, 
+</I>&gt;&gt;<i> they should just use whatever labels are given for the time strata.
+</I>&gt;&gt;<i> Regards, David
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     -----Original Message-----
+</I>&gt;&gt;<i>     *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+</I>&gt;&gt;<i>     [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]*On Behalf Of
+</I>&gt;&gt;<i>     *Alastair Pout
+</I>&gt;&gt;<i>     *Sent:* 17 September 2008 11:15
+</I>&gt;&gt;<i>     *To:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i>     *Subject:* [cost-devel] Recoding of $time in consolidated cs cl and
+</I>&gt;&gt;<i>     ce classes
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Dear All
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Recoding of $time in consolidated cs cl and ce classes
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     $time is a factor yyyy &#8211; 1 to yyyy &#8211; 4  when timestrata = &#8220;quarter&#8221;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     $time is a factor yyyy &#8211; 1 to yyyy &#8211; 12  when timestrata = &#8220;month&#8221;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     and
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     $time is a factor yyyy    when time = &#8220;year&#8221;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     and a factor      &#8220;all&#8221;   when timestrata is unspecified
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     So the problem I am encountering is that there is no way of
+</I>&gt;&gt;<i>     distinguishing eg 2005 &#8211; 1 from 1^st quarter 2005 and Jan 2005
+</I>&gt;&gt;<i>     unless you pass your function Mathieu&#8217;s &#8220;strDef&#8221; object which
+</I>&gt;&gt;<i>     defines how the user has stratified the data.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     To my mind it would make things very much easier if how the user has
+</I>&gt;&gt;<i>     stratified the data was apparent from the data itself.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     What does anybody think about $time in a consolidated class having
+</I>&gt;&gt;<i>     the form yyyy &#8211; q &#8211; m  for stratification by month so eg 2005 &#8211; 1 &#8211;
+</I>&gt;&gt;<i>     1 would be jan 2005 and 2005 &#8211; 1 would remain as 1^st quarter 2005.   
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Or is it too late for such changes? Would that cause more problems
+</I>&gt;&gt;<i>     than it solves?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     (the problem does not occur with $space and $technical because rects
+</I>&gt;&gt;<i>     can be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6
+</I>&gt;&gt;<i>     by the form of the data.)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     All the best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Alastair
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ***********************************************************************************
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This email and any attachments are intended for the named recipient 
+</I>&gt;&gt;<i> only. Its unauthorised use, distribution, disclosure, storage or copying 
+</I>&gt;&gt;<i> is not permitted. If you have received it in error, please destroy all 
+</I>&gt;&gt;<i> copies and notify the sender. In messages of a non-business nature, the 
+</I>&gt;&gt;<i> views and opinions expressed are the author's own and do not necessarily 
+</I>&gt;&gt;<i> reflect those of the organisation from which it is sent. All emails may 
+</I>&gt;&gt;<i> be subject to monitoring.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ***********************************************************************************
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i>   
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080918/4e1cc419/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080918/4e1cc419/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000151.html">[cost-devel] Recoding of $time in consolidated cs cl and ce	classes
+</A></li>
+	<LI>Next message: <A HREF="000153.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#152">[ date ]</a>
+              <a href="thread.html#152">[ thread ]</a>
+              <a href="subject.html#152">[ subject ]</a>
+              <a href="author.html#152">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

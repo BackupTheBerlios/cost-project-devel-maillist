@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] R libraries
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20R%20libraries&In-Reply-To=%3C49D5EF7B.3090700%40nr.no%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000193.html">
+   <LINK REL="Next"  HREF="000195.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] R libraries</H1>
+    <B>David Hirst</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20R%20libraries&In-Reply-To=%3C49D5EF7B.3090700%40nr.no%3E"
+       TITLE="[cost-devel] R libraries">david.hirst at nr.no
+       </A><BR>
+    <I>Fri Apr  3 13:14:03 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000193.html">[cost-devel] R libraries
+</A></li>
+        <LI>Next message: <A HREF="000195.html">[cost-devel] R libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The library is certainly in a subfolder called Rlib - this is exactly 
+where I want it, and where I have my mbe library. Using the full path 
+gives exactly the same message. The problem is not that R can't find the 
+library, if I give an entirely wrong path I get a different message. 
+Strangely however, this message depends on which wrong path I give. For 
+example:
+library(COSTcore,lib.loc=&quot;/nr/user/david&quot;)
+
+gives
+
+Error in library(COSTcore, lib.loc = &quot;/nr/user/david&quot;) :
+  there is no package called 'COSTcore'
+
+Which is fair enough. This however:
+
+library(COSTcore,lib.loc=&quot;/nr/user/david/COST&quot;)
+
+gives
+
+Error: invalid version specification
+
+Which is a bit odd, and this:
+
+library(COSTcore,lib.loc=&quot;/nr/user/david/COST/Rlib&quot;)
+
+gives
+
+-------------------------------------------------------------------
+Error in gzfile(file, &quot;r&quot;) : unable to open connection
+In addition: Warning message:
+In gzfile(file, &quot;r&quot;) : cannot open compressed file ''
+Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+Error: package/namespace load failed for 'COSTcore'
+
+
+Which is where we started.
+
+Not using the most recent version of R is clearly a problem, and I'll 
+try to get the most recent version installed. It isn't a problem 
+immediately, because we are going to make a Windows version which will 
+use the most recent version (hopefully), but it will be soon.
+
+David
+
+Ernesto Jardim wrote:
+&gt;<i> David Hirst wrote:
+</I>&gt;<i>   
+</I>&gt;&gt;<i> Hi, I only have version 2.6.1 of R on the machine I want to install the 
+</I>&gt;&gt;<i> library on, and I can't do anything about that in the short term. I can 
+</I>&gt;&gt;<i> get the latest version installed, but it will take a while, too long for 
+</I>&gt;&gt;<i> the final report. I think this  is a common problem, networks don't get 
+</I>&gt;&gt;<i> updated as often as we might like. Anyway, I have an old version of the 
+</I>&gt;&gt;<i> library (COSTcore_1.2-05.tar.gz) which only needs R 2.6. This installs 
+</I>&gt;&gt;<i> ok, ie the command R CMD INSTALL -l Rlib COSTcore_1.2-05.tar.gz gives 
+</I>&gt;&gt;<i> the output:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> * Installing *source* package 'COSTcore' ...
+</I>&gt;&gt;<i> ** R
+</I>&gt;&gt;<i> ** data
+</I>&gt;&gt;<i> **  moving datasets to lazyload DB
+</I>&gt;&gt;<i> ** preparing package for lazy loading
+</I>&gt;&gt;<i> ** help
+</I>&gt;&gt;<i>  &gt;&gt;&gt; Building/Updating help pages for package 'COSTcore'
+</I>&gt;&gt;<i>      Formats: text html latex example
+</I>&gt;&gt;<i>   accessor-methods                  text    html    latex   example
+</I>&gt;&gt;<i>   ceData-class                      text    html    latex   example
+</I>&gt;&gt;<i>   ceDataCons-class                  text    html    latex   example
+</I>&gt;&gt;<i>   ceDataVal-class                   text    html    latex   example
+</I>&gt;&gt;<i>   check-methods                     text    html    latex
+</I>&gt;&gt;<i>   check.fields                      text    html    latex   example
+</I>&gt;&gt;<i>   checkDataIntegrity-methods        text    html    latex
+</I>&gt;&gt;<i>   clData-class                      text    html    latex   example
+</I>&gt;&gt;<i>   clDataCons-class                  text    html    latex   example
+</I>&gt;&gt;<i>   clDataVal-class                   text    html    latex   example
+</I>&gt;&gt;<i>   code.list                         text    html    latex   example
+</I>&gt;&gt;<i>   coerceCons-methods                text    html    latex
+</I>&gt;&gt;<i>   coerceDataFrameColumns-methods    text    html    latex
+</I>&gt;&gt;<i>   csData-class                      text    html    latex   example
+</I>&gt;&gt;<i>   csDataCons-class                  text    html    latex   example
+</I>&gt;&gt;<i>   csDataVal-class                   text    html    latex   example
+</I>&gt;&gt;<i>   numeric.list                      text    html    latex   example
+</I>&gt;&gt;<i>   rbind2-methods                    text    html    latex
+</I>&gt;&gt;<i>   sole.ce                           text    html    latex   example
+</I>&gt;&gt;<i>   sole.cl                           text    html    latex   example
+</I>&gt;&gt;<i>   sole.cs                           text    html    latex   example
+</I>&gt;&gt;<i>   strIni-class                      text    html    latex   example
+</I>&gt;&gt;<i>   subset-methods                    text    html    latex
+</I>&gt;&gt;<i>   subsetSpp-method                  text    html    latex
+</I>&gt;&gt;<i>   test-functions                    text    html    latex
+</I>&gt;&gt;<i>   utils-methods                     text    html    latex
+</I>&gt;&gt;<i>   variable.list                     text    html    latex   example
+</I>&gt;&gt;<i> ** building package indices ...
+</I>&gt;&gt;<i> * DONE (COSTcore)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> This looks ok to me. However, when I start R and try 
+</I>&gt;&gt;<i> library(COSTcore,lib.loc=&quot;Rlib&quot;), I get this:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -------------------------------------------------------------------
+</I>&gt;&gt;<i> Error in gzfile(file, &quot;r&quot;) : unable to open connection
+</I>&gt;&gt;<i> In addition: Warning message:
+</I>&gt;&gt;<i> In gzfile(file, &quot;r&quot;) : cannot open compressed file ''
+</I>&gt;&gt;<i> Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+</I>&gt;&gt;<i> Error: package/namespace load failed for 'COSTcore'
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any ideas?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> David
+</I>&gt;&gt;<i>     
+</I>&gt;<i>
+</I>&gt;<i> You are not using a full path so COSTcore is likely to be on a &quot;Rlib&quot; 
+</I>&gt;<i> folder under the folder where you run the install command.
+</I>&gt;<i>
+</I>&gt;<i> Try something like
+</I>&gt;<i>
+</I>&gt;<i> R CMD INSTALL -l ~/Rlib COSTcore_1.2-05.tar.gz
+</I>&gt;<i>
+</I>&gt;<i> and load the library with
+</I>&gt;<i>
+</I>&gt;<i> library(COSTcore,lib.loc=&quot;~/Rlib&quot;)
+</I>&gt;<i>
+</I>&gt;<i> or else use a full path to where you want to install.
+</I>&gt;<i>
+</I>&gt;<i> A more important problem. We've decided to develop for the latest 
+</I>&gt;<i> version of R, if your library will be written in R261 it will not run on 
+</I>&gt;<i> the latest versions (there were some important changes since) which 
+</I>&gt;<i> means that to use your library users will have to have installed on 
+</I>&gt;<i> their computers two R versions and keep in 261 the old versions of COST 
+</I>&gt;<i> packages. It will be a mess !!
+</I>&gt;<i>
+</I>&gt;<i> Besides you will not be able to use the latest enhancements of COSTcore 
+</I>&gt;<i> and you maybe using an old data structure.
+</I>&gt;<i>
+</I>&gt;<i> Best
+</I>&gt;<i>
+</I>&gt;<i> EJ
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;<i>   
+</I>
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">david.hirst at nr.no</A>
+<A HREF="http://www.nr.no">http://www.nr.no</A>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000193.html">[cost-devel] R libraries
+</A></li>
+	<LI>Next message: <A HREF="000195.html">[cost-devel] R libraries
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#194">[ date ]</a>
+              <a href="thread.html#194">[ thread ]</a>
+              <a href="subject.html#194">[ subject ]</a>
+              <a href="author.html#194">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

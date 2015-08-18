@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] [Cost-project-members] Minutes of Ifremerbeta-testing session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Minutes%20of%0A%20Ifremerbeta-testing%20session&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B012579F3%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000178.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] [Cost-project-members] Minutes of Ifremerbeta-testing session</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Minutes%20of%0A%20Ifremerbeta-testing%20session&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B012579F3%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] [Cost-project-members] Minutes of Ifremerbeta-testing session">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Tue Mar 31 16:24:47 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000178.html">[cost-devel] [Cost-project-members] Minutes of	Ifremerbeta-testing session
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Paz,
+thanks for your reply. I think the commas ,,,,,, will still be a problem for InterCatch. We're all agreed that we want to avoid using Notepad so I'm going to try approach 1  for now (message to follow). It may be fast enough and probably faster than using Notepad!
+Best wishes,
+David
+
+-----Original Message-----
+From: Paz Sampedro [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">paz.sampedro at co.ieo.es</A>]
+Sent: 31 March 2009 14:49
+To: '<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>'
+Subject: RE: [cost-devel] [Cost-project-members] Minutes of
+Ifremerbeta-testing session
+
+
+
+Hi David, 
+ 
+I was trying to find out a way to eliminate the last step within Notepad or
+similar. 
+ 
+Using the option#2  you can leave empty cells using NA instead &quot;blank&quot;:
+ 
+&gt;<i> HI.2 = c(HI, rep(NA,21))
+</I>&gt;<i> SI.2 = c(SI, rep(NA,9))
+</I> 
+and then substitute NA by empty cells in the arguments of function
+write.table:
+
+&gt;<i> write.table(ICout2, &quot;ICout2.txt&quot;, row.names=F, col.names=F, quote=F,
+</I>sep=&quot;,&quot;, na=&quot;&quot;)
+
+This substitute all the NAs. I am not sure but I think that INTERCATH asks
+for NAs in missing character cells. A possible solution to keep the &quot;real&quot;
+NAs is to deal them as character (as &quot;-9&quot;):
+ 
+&gt;<i> HI =
+</I>c(&quot;HI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,&quot;NA&quot;,&quot;NA&quot;,&quot;-9&quot;,&quot;NA
+&quot;)
+&gt;<i> SI =
+</I>c(&quot;SI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,
+&quot;A&quot;,&quot;NA&quot;,&quot;NA&quot;,&quot;M&quot;,&quot;NA&quot;,&quot;T&quot;,&quot;1483.423&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;Gillnet&quot;,&quot;Maria&quot;,&quot;Second
+country&quot;)
+&gt;<i> SD = rbind
+</I>(c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,&quot;NA&quot;,&quot;cod&quot;,&quot;na&quot;,&quot;
+L&quot;,&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;3&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,&quot;NA&quot;,
+&quot;235.000&quot;,&quot;821&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;),
+ 
+c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,
+&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;4&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,&quot;NA&quot;,&quot;77
+5.000&quot;,&quot;1020&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;) )
+
+ 
+The file looks like this: 
+ 
+HI,SE,2005,Quarter,1,testA,SubDiv,BAL25,NA,NA,-9,NA,,,,,,,,,,,,,,,,,,,,,
+SI,SE,2005,Quarter,1,testA,SubDiv,BAL25,,cod,na,L,A,NA,NA,M,NA,T,1483.423,-9
+,-9,Gillnet,Maria,Second country,,,,,,,,,
+SD,SE,2005,Quarter,1,testA,SubDiv,BAL25,NA,cod,na,L,A,N,Age,3,10,-9,-9,-9,-9
+,-9,g,N,year,cm,NA,235.000,821,-9,-9,-9,-9
+SD,SE,2005,Quarter,1,testA,SubDiv,BAL25,,cod,na,L,A,N,Age,4,10,-9,-9,-9,-9,-
+9,g,N,year,cm,NA,775.000,1020,-9,-9,-9,-9
+ 
+ 
+Best wishes,
+ 
+Paz
+ 
+M. Paz Sampedro Pastor 
+Instituto Espa&#241;ol de Oceanograf&#237;a 
+C. O. A Coru&#241;a 
+Paseo Mar&#237;timo Alcalde Francisco V&#225;zquez n&#186; 10 
+15001 A Coru&#241;a, SPAIN 
+Tel.: +34 98 1218253 (ext 23253) 
+Fax: +34 981 22 90 77 
+<A HREF="http://www.ieo.es">http://www.ieo.es</A> &lt;<A HREF="http://www.ieo.es/">http://www.ieo.es/</A>&gt;  
+
+ 
+
+  _____  
+
+De: David Maxwell (Cefas) [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">david.maxwell at cefas.co.uk</A>] 
+Enviado el: martes, 31 de marzo de 2009 13:15
+Para: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Asunto: Re: [cost-devel] [Cost-project-members] Minutes of
+Ifremerbeta-testing session
+
+
+Hello Cost developers,
+&gt;<i>We need a method to export the dbe object in InterCatch standard. Who takes
+</I>care of this?
+
+Just when we thought formats had finished! I've started to think about how
+to do this, but not all the details of each field.
+InterCatch format wants a comma separated file with different length lines.
+I can see two approaches to do this, see below. I prefer approach 2 but it
+requires a step outside of R. Any comments or can anyone suggest
+improvements / alternatives?
+ 
+Joel, is it the correct standard &amp; version in the example? This will need
+csObject and clObject information as well as dbeOutput.
+ 
+Regards, David
+ 
+##  InterCatch Exchange Format Version 1.4
+#<A HREF="http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf">http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf</A>
+#Example Annex 1 lines 1-4
+
+HI =
+c(&quot;HI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,NA,&quot;-9&quot;,NA)
+SI =
+c(&quot;SI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,
+&quot;A&quot;,NA,NA,&quot;M&quot;,NA,&quot;T&quot;,&quot;1483.423&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;Gillnet&quot;,&quot;Maria&quot;,&quot;Second
+country&quot;)
+SD = rbind
+(c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;
+,&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;3&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,NA,&quot;235
+.000&quot;,&quot;821&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;),
+ 
+c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,
+&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;4&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,NA,&quot;775=
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000178.html">[cost-devel] [Cost-project-members] Minutes of	Ifremerbeta-testing session
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

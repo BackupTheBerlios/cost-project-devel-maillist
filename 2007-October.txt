@@ -1,0 +1,2826 @@
+From tej at difres.dk  Mon Oct  1 11:49:30 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Mon, 1 Oct 2007 11:49:30 +0200
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <40A15E1D8A76A949AF0271EF3133E1A9B2695D@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818C08@ch-mail01.dfu.local>
+
+
+
+reply is below
+-----------------------------------------
+
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format
+Description. I have changed where consensus seems so have been made on
+either the wiki or on the discussion list, plus some trivial
+improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: "duration" changed to "time" and "Haul" changed to
+"Fishing"
+2. Adding a "*" after field names to mark key fields 3. Reordering the
+last fields of HL and CA, so that key fields come first and value fields
+come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used "Fishing operation" or "Fishing activity"?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human
+consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be
+specified in XML for all data types. FishFrame is able to receive the
+data in either CSV or XML. CSV is best suited when humans upload the
+data although some prefer XML. XML is best for server-to-server data
+communication. We will use the XML format later to automate the upload
+from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers,
+numbers at length, numbers at age, mean weight at length, mean weight at
+age, mean length at age). This format for raised data can include
+extrapolated data (hole-filling of biological sampling and discard
+rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs,
+but they do not appear after upload. Some kind of "Approval" is
+needed...
+
+Best regards
+Teunis
+
+ 
+---------------------------------------------
+Hi,
+a reasonably long question, hopefully with a short answer.
+
+As an example to help me get the mapping to the FF5 format suppose we
+have two vessels
+
+vessel 1 which splits its landings into 2 categories  e.g. small fish,
+big fish which get local category codes 0 and 1
+
+this vessel is sampled, a sampleID number generated and recorded.
+Sampling gives data
+ category 0, landed weight 50kg, sampled weight 10kg, length
+distribution of sample  category 1, landed weight 100kg, sampled weight
+30kg, length distribution of sample
+
+
+Would this map to two CS SL records with record 1 as
+
+Trip number = sampleID
+Commercial Size category scale = "Landing specific" ??
+Commercial Size category = 0
+Subsampling category = NA
+Weight = 50000
+SubSample weight = 10000 
+
+and the length distribution creating CS CA records with
+
+Trip number = sampleID
+Size category scale = "Landing specific" 
+Size category = 0
+
+
+Next we have vessel 2 which is not sampled so we only have a vessel
+registration number and total landing.
+This does not get a CS SL record, it only contributes to a strata total
+in a CL record.
+
+Thanks, David
+
+
+************************************************************************
+***********
+This email and any attachments are intended for the named recipient
+only.  Its unauthorised use, distribution, disclosure, storage or
+copying is not permitted.  If you have received it in error, please
+destroy all copies and notify the sender.  In messages of a non-business
+nature, the views and opinions expressed are the author's own and do not
+necessarily reflect those of the organisation from which it is sent.
+All emails may be subject to monitoring.
+************************************************************************
+***********
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+------------------------------------------------------------------------
+-----------------------
+
+Hi David
+
+Yes, as I understand your sampling and raising, then that is correct,
+just with a small correction: You should have your own code for
+Commercial Size category scale. The one we use is just "EU", so I
+suggest your could be called "Eng".
+
+Trip number = sampleID
+Commercial Size category scale = "Eng"
+Commercial Size category = 0
+Subsampling category = NA
+Weight = 50000
+SubSample weight = 10000 
+
+BR
+Teunis
+
+
+From E.D.Clarke at marlab.ac.uk  Mon Oct  1 14:20:04 2007
+From: E.D.Clarke at marlab.ac.uk (Liz Clarke)
+Date: Mon, 1 Oct 2007 13:20:04 +0100
+Subject: [cost-devel] COST webpages - Mailing lists and forums
+In-Reply-To: <46FA687B.2090306@ipimar.pt>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C5812D69016@mail4.marlab.ac.uk>
+
+Dear all. 
+
+I am still struggling with using these web-pages efficiently! Ernesto suggests that it is a matter of choice as to whether to email a forum or a mailing list, and currently we have a combination of both. I do not see how this can work! 
+
+Discussions which take place on a forum are all archived for people to read later, and the full discussion is documented. Similarly if the discussion takes place on email, we can at least follow the thread, though storage is much less efficient. But now the discussions are jumping from one to the other. This might be OK for those taking part, but it is very confusing if you even miss a day, let alone a week, and neither archive is complete.  
+
+I have just forwarded 30 email messages from only 2 days of discussions to a colleague who is having problems registering on the site. Many of these were replies under the subject heading "FF5 data call", when in fact they covered topics such as the data exchange format, the data format in R, coding issues in R, and naming conventions in R. I think the latter 3 topics should have been discussed in a forum specific to the core package, rather than data exchange - I don't see how they affect the data exchange format. 
+
+I would like to suggest that the mailing list is kept for announcements such as the FF5 data call and updates of files and packages, and that ALL discussions take place on the web-site, in an appropriate forum - perhaps one for each work-package?
+
+all the best
+Liz 
+
+- - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
+
+Liz Clarke
+FRS Marine Laboratory              	Tel:  01224 295507(direct)
+PO Box 101, 375 Victoria Road          01224 876544
+Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511  
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+
+ 
+
+
+From ernesto at ipimar.pt  Mon Oct  1 17:02:21 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 01 Oct 2007 16:02:21 +0100
+Subject: [cost-devel] COSTcore version 0.0-2
+Message-ID: <47010BFD.6030600@ipimar.pt>
+
+Dear all,
+
+A new version of COSTcore Zero is out, 0.0-2. The csData definition is 
+done for the moment. The main changes are not user visible and refer to 
+data integrity checks for csData. I expect some minor changes when the 
+FF5 version is finished. The source code is in CVS 
+(http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/) and 
+you may download from 
+https://developer.berlios.de/project/showfiles.php?group_id=7299 .
+
+Try after install:
+
+library(COSTcore)
+data(soleData)
+csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1])
+
+or load the already generated csData object for sole
+
+data(sole.cs)
+
+There's some documentation now
+
+help(package=COSTcore)
+class?csData
+
+I need data for CA, CE and CL tables to proceed with the development of 
+S4 classes. Can someone provide these ?
+
+Best
+
+EJ
+
+ps: for those in trouble with berlios you still may subscribe the 
+mailing list here 
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From mathieu.merzereaud at yahoo.fr  Mon Oct  1 17:32:14 2007
+From: mathieu.merzereaud at yahoo.fr (=?iso-8859-1?q?Mathieu=20Merz=E9r=E9aud?=)
+Date: Mon, 1 Oct 2007 17:32:14 +0200 (CEST)
+Subject: [cost-devel] RE : COSTcore version 0.0-2
+In-Reply-To: <47010BFD.6030600@ipimar.pt>
+Message-ID: <273123.78164.qm@web27306.mail.ukl.yahoo.com>
+
+
+
+ernesto <ernesto at ipimar.pt> a ?crit : Dear all,
+
+A new version of COSTcore Zero is out, 0.0-2. The csData definition is 
+done for the moment. The main changes are not user visible and refer to 
+data integrity checks for csData. I expect some minor changes when the 
+FF5 version is finished. The source code is in CVS 
+(http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/) and 
+you may download from 
+https://developer.berlios.de/project/showfiles.php?group_id=7299 .
+
+Try after install:
+
+library(COSTcore)
+data(soleData)
+csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1])
+
+or load the already generated csData object for sole
+
+data(sole.cs)
+
+There's some documentation now
+
+help(package=COSTcore)
+class?csData
+
+I need data for CA, CE and CL tables to proceed with the development of 
+S4 classes. Can someone provide these ?
+
+Best
+
+EJ
+
+ps: for those in trouble with berlios you still may subscribe the 
+mailing list here 
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+Hi, Ernesto
+I can provide some CA datas, but there'll be no otolith information, and no maturity information (in brief, NA in 22-23-25-26 col). Is this a problem?
+
+Best 
+Mathieu
+
+       
+---------------------------------
+ Ne gardez plus qu'une seule adresse mail ! Copiez vos mails vers Yahoo! Mail 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071001/9db215e2/attachment.html>
+
+From ernesto at ipimar.pt  Tue Oct  2 11:37:44 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 02 Oct 2007 10:37:44 +0100
+Subject: [cost-devel] FF5 final version
+Message-ID: <47021168.9070009@ipimar.pt>
+
+Hi Teunis,
+
+When do you expect to have the final FF5 version ? I'd like to adjust 
+the R classes to it asap.
+
+Best
+
+EJ
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Mon Oct  1 17:15:42 2007
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Mon, 01 Oct 2007 17:15:42 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FBC80B.8070306@ipimar.pt>
+References: <46FA67BA.4070506@ifremer.fr> <46FA6B27.7080404@ipimar.pt>
+	<46FB6458.1090706@ifremer.fr> <46FB6BB8.8000700@ipimar.pt>
+	<46FB6CE3.8080803@ifremer.fr> <46FB6F77.6070906@ipimar.pt>
+	<46FBBDDD.2040600@ifremer.fr> <46FBC80B.8070306@ipimar.pt>
+Message-ID: <47010F1E.5010705@ifremer.fr>
+
+
+
+ernesto a ?crit :
+> Mathieu MERZEREAUD wrote:
+>> I've just finished this procedure that generates a list with the 3 
+>> classes (cs,cl,ce).
+>> You just have to unzip the folder, change the directory in the code, 
+>> and source.
+>> I've only tested it for those files, but it must be working for all 
+>> types of files.
+>> It's just a draft, so I send it to you directly. Is that close to your 
+>> idea concerning the use and the outcome?
+>>
+>> Best
+>> Mathieu
+>> #COST (pour ernesto)
+>> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper 
+>> tous les fichiers de travail, et construction des objets en cons?quence
+>>
+>> CSimport <- function(object,df){         #'object' de classe 'csData'
+>> tabnames <- c("TR","HH","SL","HL","CA")
+>> RecordType <- unique(as.character(df[,1]))
+>> if (length(RecordType)>1) stop("RecordType is not unique!!")
+>> if (!(RecordType%in%tabnames)) stop("RecordType is not valid!!")
+>> dimTest <- c(16,28,19,17,28)
+>> names(dimTest) <- tabnames
+>> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!")
+>> df <- df[,2:dim(df)[2]]
+>> eval(parse('',text=paste("names(df) <- 
+>> names(object@",tolower(RecordType),")",sep="")))
+>> eval(parse('',text=paste("object@",tolower(RecordType)," <- df",sep="")))
+>> return(object)
+>> }
+>>
+>> CEimport <- function(object,df){         #'object' de classe 'ceData'
+>> if (dim(df)[2]!=16) stop("Wrong size!!")
+>> df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at ce)
+>> object at ce <- df
+>> return(object)
+>> }
+>>
+>> CLimport <- function(object,df){         #'object' de classe 'clData'
+>> if (dim(df)[2]!=20) stop("Wrong size!!")
+>> df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at cl)
+>> object at cl <- df
+>> return(object)
+>> }
+>>
+>> ApplyDataCost <- function(file,list.object){
+>> df <- read.table(file,header=TRUE,sep=";")
+>> vec <- c(rep("CS",5),"CL","CE")
+>> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+>> val <- as.character(vec[as.character(df[1,1])])
+>> eval(parse('',text=paste("list.object$",tolower(val)," <- 
+>> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+>> return(list.object)
+>> }
+>>
+>> ####################
+>> ## Main procedure ##
+>> ####################
+>>
+>> ImportDataCOST <- function (directory,desc="My Stock") {    #directory 
+>> = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets 
+>> de type char()
+>> require(COSTcore)
+>> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+>> neodesc <- rep(desc,3)
+>> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc <- 
+>> neodesc[3]
+>> Files <- paste(directory,list.files(directory),sep="/")
+>> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+>> invisible(obj)
+>> }
+>>
+>> #Example
+>> #Put the .csv files in one folder directory <- "Q:/FF5_sole"   #path 
+>> of the folder
+>> obj <- ImportDataCOST(directory)
+>> #obj$cs, obj$cl, obj$ce
+> Hi,
+> 
+> It looks ok but you were faster than me :-)
+> 
+> These procedures should read the data but rely on the class constructor 
+> to create the objects, otherwise you'll be bypassing the validity checks.
+> 
+> You're validating based on ncol but I was about to write the validation 
+> based on col names. Do you think ncol is enough ?
+> 
+> EJ
+> 
+> ps: do you have CVS installed already ?
+> 
+> 
+> 
+Hi,
+I've updated the CVS with io methods ('ImportData.r' in COSTcore/R).
+This time, I think it considers the validity checks of the class 
+constructor. The only tests I've implemented are about 'Record Type' 
+field that doesn't appear in the objects.
+Best
+Mathieu
+
+
+From ernesto at ipimar.pt  Tue Oct  2 12:21:36 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 02 Oct 2007 11:21:36 +0100
+Subject: [cost-devel] io method
+Message-ID: <47021BB0.4010803@ipimar.pt>
+
+Hi Mathieu,
+
+I read your importData.R code. You don't need to do all the checking on 
+the tables once that it is already implemented on the class validity. 
+You may do something simpler like dispatching the constructor on a set 
+of character vectors. A user will have to remember a single function 
+"csData" and if the arguments are character vectors with the name of the 
+files the method reads the csv files and create the object. See code below.
+
+I'd prefer to have creators for each class than a single creator for all 
+classes at once.
+
+Best
+
+EJ
+
+#====================================================================
+# IO constructor
+#====================================================================
+
+setMethod("csData", signature("character", "character", "character", 
+"character", "missing"), function(tr, hh, sl, hl, desc="Unknown stock", 
+...){
+
+    # read CSV files
+    tr <- read.csv(tr)
+    hh <- read.csv(hh)
+    sl <- read.csv(sl)
+    hl <- read.csv(hl)
+
+    # check names are correct
+    checkTRnms(tr)
+    checkHHnms(hh)
+    checkSLnms(sl)
+    checkHLnms(hl)
+
+    # remove record type
+    tr <- tr[,-1]
+    hh <- hh[,-1]
+    sl <- sl[,-1]
+    hl <- hl[,-1]
+
+    # create object and name columns properly
+    obj <- new("csData")
+    names(tr) <- names(obj at tr)
+    names(hh) <- names(obj at hh)
+    names(sl) <- names(obj at sl)
+    names(hl) <- names(obj at hl)
+    new("csData", tr=tr, hh=hh, sl=sl, hl=hl, desc=desc)
+})
+
+
+
+From ernesto at ipimar.pt  Wed Oct  3 12:06:35 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 03 Oct 2007 11:06:35 +0100
+Subject: [cost-devel] COSTcore release 0.0-3 is out.
+Message-ID: <470369AB.6090307@ipimar.pt>
+
+Hi,
+
+This release is a milestone. It has the basic features of S4 programming
+(I hope): class definitions, validity checks, creator methods and
+accessor methods for CS, CE and CL data. Download from here:
+https://developer.berlios.de/project/showfiles.php?group_id=7299 ,
+install and try:
+
+library(COSTcore)
+help(package=COSTcore)
+?csData
+?ceData
+?clData
+data(soleData)
+csobj <- new("csData")
+is(csobj, "csData")
+csobj <- csData()
+is(csobj, "csData")
+csobj <- csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1], desc="My stock is
+better than yours!")
+is(csobj, "csData")
+tr(csobj)
+hh(csobj)
+sl(csobj)
+hl(csobj)
+ca(csobj)
+desc(csobj)
+
+ceobj <- new("ceData")
+is(ceobj, "ceData")
+ceobj <- ceData()
+is(ceobj, "ceData")
+ce(ceobj)
+
+clobj <- new("clData")
+is(clobj, "clData")
+clobj <- clData()
+is(clobj, "clData")
+cl(clobj)
+
+The R check is below. Some problems with documentation and comments on
+the data file. Quite easy to sort out.
+
+Best
+
+EJ
+
+
+ernesto at gandalf:~/ipimar/devel/R/COST$ R CMD check COSTcore
+* checking for working latex ... OK
+* using log directory '/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck'
+* using R version 2.5.1 (2007-06-27)
+* checking for file 'COSTcore/DESCRIPTION' ... OK
+* this is package 'COSTcore' version '0.0-3'
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking whether package 'COSTcore' can be installed ... OK
+* checking package directory ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the name space can be loaded with stated dependencies
+... OK
+* checking for unstated dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  checkEqual checkFail checkFalse checkIdentical checkRun checkTrue
+  finishTest setCon startTest tagTest
+All user-level objects in a package should have documentation entries.
+See the chapter 'Writing R documentation files' in manual 'Writing R
+Extensions'.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking data for non-ASCII characters ... WARNING
+  Warning: found non-ASCII string(s)
+  '8B-OTB-C<e9>teau'  'abim<e9>e'  'Cassign<e9> nu'
+  'Chaque poisson lune p<e8>se 6-7 kg'  'Nombre estim<e9>'
+  'Non tri<e9>'  'pas de pes<e9>e'
+  'Pas de pes<e9>e, 65 individus <e9>cras<e9>s.'  'pas de pes<e9>es'
+  'poids estim<e9>'  'Poids estim<e9> [AT]'  'poisson abim<e9>'
+  'poissons abim<e9>s'  'Poissons abim<e9>s'
+  'prel<e8>vements pour Ifremer'
+  'Rejet<e9> car p<ea>che thon rouge interdite'
+  'Rejet<e9>s car abim<e9>s'  '1/2 panier de juv<e9>niles : 15/20 cm'
+  '2 fl<e9>tans de 25 et 50 kg (vid<e9>)'
+  '2 tours de cul de chalut. 600 kg abim<e9>s.'
+  '3 fl<e9>tan de 30 kg (chacun) &1fl<e9>tan de 20 kg'
+  '50 kg <e9>toile (Echinodermes) et 50 kg de Araign<e9>e'
+  'cat 1/2 vid<e9>=10'  'cat 1/2vid<e9>=10'  '<e9>ponge (spongiaire)'
+  'et 1000 KG <e9>ponge (spongiaire)'
+  'et 800 kg <e9>ponge (spongiaire)'  'Femelle. pr<e9>sence d_oeufs'
+  'individus <e9>cras<e9>s'  'individus <e9>cras<e9>s.'
+  'Individus <e9>cras<e9>s.'
+  'Naissain. poids estim<e9> 1g pi<e8>ce [AT]'  'nombre estim<e9>'
+  'Nombre estim<e9>.'  'Non <e9>chantillonn<e9>e'  'non mesur<e9>'
+  'non mesur<e9>s'  'non sex<e9>'  'non sex<e9> . avarie .'
+  'non sex<e9>s'  'non sex<e9>s . maill<e9>s dans le cul de chalut .'
+  'pas de  pes<e9>e ni de mesure'  'pas de  pes<e9>es ni de mesures'
+  'pas de mesures ni de pes<e9>e'  'pas de mesures ni de pes<e9>es'
+  'pas de mesures. <e9>galement rejet de poissons lunes'
+  'pas de pes<e9>e ni de mesure'  'pas de pes<e9>e ni de mesures'
+  'Pas de pes<e9>e. 65 individus <e9>cras<e9>s.'
+  'pas de pes<e9>es ni de mesures'  'remont<e9> sur autre bateau'
+  'remont<e9>s sur autre bateau. rejet de poisson lunes'
+  'vat 1/2vid<e9>=10'
+Portable packages use only ASCII characters in their datasets.
+* creating COSTcore-Ex.R ... OK
+* checking examples ... OK
+* checking tests ...
+make[1]: Entering directory
+`/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/tests'
+  Running 'ceDataTest.R'
+  Running 'clDataTest.R'
+  Running 'csDataTest.R'
+make[1]: Leaving directory
+`/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/tests'
+OK
+* creating COSTcore-manual.tex ... OK
+* checking COSTcore-manual.tex ... OK
+
+WARNING: There were 2 warnings, see
+  /home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/00check.log
+for details
+
+
+
+
+
+From tej at difres.dk  Thu Oct  4 19:07:24 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 4 Oct 2007 19:07:24 +0200
+Subject: [cost-devel] FF5 final version
+In-Reply-To: <47021168.9070009@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290DEC1@ch-mail01.dfu.local>
+
+I'll do the last modifications listed in my last mail (below) next week. We should reach a consensus on the three mentioned points next week as well, so that can be implemented in the (hopefully) final version. You will then have that document to discuss further in Lisbon. I will unfortunately not be able to come to that meeting, but will be ready to participate in the mail-discussions in the week after.
+
+BR
+Teunis
+
+
+
+-----Oprindelig meddelelse-----
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+Sendt: 2. oktober 2007 11:38
+Til: Cost-devel Mailing List
+Emne: [cost-devel] FF5 final version
+
+Hi Teunis,
+
+When do you expect to have the final FF5 version ? I'd like to adjust the R classes to it asap.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-----------------------------------------
+
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format Description. I have changed where consensus seems so have been made on either the wiki or on the discussion list, plus some trivial improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: "duration" changed to "time" and "Haul" changed to "Fishing"
+2. Adding a "*" after field names to mark key fields 3. Reordering the last fields of HL and CA, so that key fields come first and value fields come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used "Fishing operation" or "Fishing activity"?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be specified in XML for all data types. FishFrame is able to receive the data in either CSV or XML. CSV is best suited when humans upload the data although some prefer XML. XML is best for server-to-server data communication. We will use the XML format later to automate the upload from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers, numbers at length, numbers at age, mean weight at length, mean weight at age, mean length at age). This format for raised data can include extrapolated data (hole-filling of biological sampling and discard rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs, but they do not appear after upload. Some kind of "Approval" is needed...
+
+Best regards
+Teunis
+
+ 
+---------------------------------------------
+
+
+From ernesto at ipimar.pt  Fri Oct  5 01:24:38 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 05 Oct 2007 00:24:38 +0100
+Subject: [cost-devel] FF5 final version
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290DEC1@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290DEC1@ch-mail01.dfu.local>
+Message-ID: <47057636.4010807@ipimar.pt>
+
+Teunis Jansen wrote:
+> I'll do the last modifications listed in my last mail (below) next week. We should reach a consensus on the three mentioned points next week as well, so that can be implemented in the (hopefully) final version. You will then have that document to discuss further in Lisbon. I will unfortunately not be able to come to that meeting, but will be ready to participate in the mail-discussions in the week after.
+>
+> BR
+> Teunis
+>   
+
+Ok,
+
+So, if all goes well, we'll have a final data structure by the end of 
+October, for both FF5 and COST. It's a good timing in my opinion.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Fri Oct  5 10:14:35 2007
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 05 Oct 2007 10:14:35 +0200
+Subject: [cost-devel] FF5 final version
+In-Reply-To: <47057636.4010807@ipimar.pt>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290DEC1@ch-mail01.dfu.local>
+	<47057636.4010807@ipimar.pt>
+Message-ID: <4705F26B.10703@ifremer.fr>
+
+Hi all,
+
+I really appreciate the work done by all of you on the data exchange 
+format, and especially Teunis and Ernesto for their fantastic job. Once 
+settled, I want to promote this exchange format everywhere so that we 
+get rid of all these exotic demands (dream!).
+
+Then, we need to name this exchange format so that it is generic and 
+usable for any purposes, and we need to refer to its origin : FishFrame.
+
+My proposal would be (by order of preference) :
+1 - Fish Data Frame (FDF)
+2 - Fish Data Exchange Frame (FiDEF)
+3 - Fisheries Science Data Frame (FSDF)
+of course, we can name it as it is
+4 - FishFrame Data Exchange Format (FFDEF)
+5 - FishFrame/COST Data Exchange Format (FF...)
+
+but I think that 4 and 5 will be seen by other bodies (JRC, STECF, ...) 
+like sticked to FF and/or COST
+
+Any proposals (especially from the authors) and we'll make our choice in 
+Lisbon.
+
+Stand the pace!
+
+Best regards
+
+Joel
+
+
+
+
+
+ernesto a ?crit :
+> Teunis Jansen wrote:
+>   
+>> I'll do the last modifications listed in my last mail (below) next week. We should reach a consensus on the three mentioned points next week as well, so that can be implemented in the (hopefully) final version. You will then have that document to discuss further in Lisbon. I will unfortunately not be able to come to that meeting, but will be ready to participate in the mail-discussions in the week after.
+>>
+>> BR
+>> Teunis
+>>   
+>>     
+>
+> Ok,
+>
+> So, if all goes well, we'll have a final data structure by the end of 
+> October, for both FF5 and COST. It's a good timing in my opinion.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+
+
+From tej at difres.dk  Mon Oct  8 09:50:25 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Mon, 8 Oct 2007 09:50:25 +0200
+Subject: [cost-devel] FF5 format
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290DFC1@ch-mail01.dfu.local>
+
+
+ Hi Mathieu
+
+Thanks for spotting it. The correct description was on SL, the CA description was not updated. The correct description is as follows:
+
+Length code
+String
+Code list:   1mm = "mm",  0.5cm="scm"; 1cm="cm"; 2?cm="25mm".
+
+This way it is readable in the file, in contrast to the former version where 0="mm" etc.
+
+This is corrected in the final version that will be mailed out later this week.
+
+BR
+Teunis
+
+
+-----Oprindelig meddelelse-----
+Fra: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr] 
+Sendt: 5. oktober 2007 09:41
+Til: Teunis Jansen
+Emne: FF5 format
+
+Hi Teunis,
+
+Just a little question about FF5 format.
+I've noticed in FF5's 'Exchange format description' that 'Length code' 
+classes were not labelled the same way in SL and in CA tables.
+Is it intended? If not, can you tell me which codification is right?
+
+Thanks
+Mathieu
+
+
+
+From david.maxwell at cefas.co.uk  Mon Oct  8 18:20:49 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Mon, 8 Oct 2007 17:20:49 +0100
+Subject: [cost-devel] Cefas market sampling data in FF5 format
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290DFC1@ch-mail01.dfu.local>
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B26981@LOWEXPRESS.corp.cefas.co.uk>
+
+Hello everyone,
+
+The attached zip file (Cefas_2006_ff5_cs.zip) contains some data to try out the input methods. It has csv files of Cefas market sampling data from 2006 for the five CS tables in the Fishframe5 format. The data set should be large enough to look at the fields in detail and to provide a realistic test of later functions. We will need to study if there is sufficient information in the tables or if the missing fields will cause problems for processing. 
+
+Although all the code for this project is open source, please remember that these data are not (see below).
+
+The attached spreadsheet shows our processing (Information on Cefas data to Fishframe5 format.xls). It is a copy of the FF5 table definitions with our comments. It can easily be extended so may be useful for other labs' data extractions.   
+
+Notice that the CS SL data provided does not fully match the FF5 format:
+
+# For Cefas cssl data we will need to account for some extra information.
+# In the data set there are two extra columns:
+# 20. presentationname e.g. gutted, whole,..
+# 21. discarded, defined as Number of fish in sample weight not measured for each one that is,
+# therefore I'd describe it as sub-sub-sampling.
+# To start with, I suggest we simply drop the two columns so we can test input code.
+
+# directory to read data from
+indir = "C:\\temp\\"
+# directory to write data to
+outdir = "C:\\temp\\"
+
+# read in data
+Cefas21.cssl = read.csv (paste (indir, "Cefas_2006_21columns_ff5_cssl.dat", sep=""))
+# subset
+Cefas19.cssl = Cefas21.cssl[,1:19]
+# write data with correct number of columns
+write.csv (Cefas19.cssl, file = paste (outdir, "Cefas_2006_19columns_ff5_cssl.dat", sep=""), row.names = FALSE)
+
+# start COST input functions...
+
+-----------
+Cefas data provided for COST (EU FISH/2006/15 Lot 2)
+The data are not official statistics. Please contact the Marine Fisheries Agency if official catch or landings statistics are required.
+The data are not to be used outside the current project (EU FISH/2006/15 Lot 2) or stored after the project.
+Defra must be acknowledged when the data are used.
+Cefas must give permission for any publication involving the data. 
+-----------
+
+Regards, David
+david.maxwell at cefas.co.uk
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cefas_2006_ff5_cs.zip
+Type: application/x-zip-compressed
+Size: 610746 bytes
+Desc: Cefas_2006_ff5_cs.zip
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Information on Cefas data to Fishframe5 format.xls
+Type: application/vnd.ms-excel
+Size: 65536 bytes
+Desc: Information on Cefas data to Fishframe5 format.xls
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.xls>
+
+From ernesto at ipimar.pt  Tue Oct  9 11:11:26 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 09 Oct 2007 10:11:26 +0100
+Subject: [cost-devel] Cefas market sampling data in FF5 format
+In-Reply-To: <40A15E1D8A76A949AF0271EF3133E1A9B26981@LOWEXPRESS.corp.cefas.co.uk>
+References: <40A15E1D8A76A949AF0271EF3133E1A9B26981@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <470B45BE.7010901@ipimar.pt>
+
+David Maxwell (Cefas) wrote:
+> Hello everyone,
+>
+> The attached zip file (Cefas_2006_ff5_cs.zip) contains some data to try out the input methods. It has csv files of Cefas market sampling data from 2006 for the five CS tables in the Fishframe5 format. The data set should be large enough to look at the fields in detail and to provide a realistic test of later functions. We will need to study if there is sufficient information in the tables or if the missing fields will cause problems for processing. 
+>
+> Although all the code for this project is open source, please remember that these data are not (see below).
+>
+> The attached spreadsheet shows our processing (Information on Cefas data to Fishframe5 format.xls). It is a copy of the FF5 table definitions with our comments. It can easily be extended so may be useful for other labs' data extractions.   
+>
+> Notice that the CS SL data provided does not fully match the FF5 format:
+>
+> # For Cefas cssl data we will need to account for some extra information.
+> # In the data set there are two extra columns:
+> # 20. presentationname e.g. gutted, whole,..
+> # 21. discarded, defined as Number of fish in sample weight not measured for each one that is,
+> # therefore I'd describe it as sub-sub-sampling.
+> # To start with, I suggest we simply drop the two columns so we can test input code.
+>
+> # directory to read data from
+> indir = "C:\\temp\\"
+> # directory to write data to
+> outdir = "C:\\temp\\"
+>
+> # read in data
+> Cefas21.cssl = read.csv (paste (indir, "Cefas_2006_21columns_ff5_cssl.dat", sep=""))
+> # subset
+> Cefas19.cssl = Cefas21.cssl[,1:19]
+> # write data with correct number of columns
+> write.csv (Cefas19.cssl, file = paste (outdir, "Cefas_2006_19columns_ff5_cssl.dat", sep=""), row.names = FALSE)
+>
+> # start COST input functions...
+>
+> -----------
+> Cefas data provided for COST (EU FISH/2006/15 Lot 2)
+> The data are not official statistics. Please contact the Marine Fisheries Agency if official catch or landings statistics are required.
+> The data are not to be used outside the current project (EU FISH/2006/15 Lot 2) or stored after the project.
+> Defra must be acknowledged when the data are used.
+> Cefas must give permission for any publication involving the data. 
+> -----------
+>
+> Regards, David
+> david.maxwell at cefas.co.uk
+>   
+Hi David,
+
+After reading the csv files into your R session try to create the csData 
+object with:
+
+cefas06.cs <- csData(tr=Cefas.cstr, hh=Cefas.cshh, sl=Cefas19.cssl, 
+hl=Cefas.cshl)
+
+Does it work ?
+
+Best
+
+EJ
+
+
+From ernesto at ipimar.pt  Tue Oct  9 11:18:25 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 09 Oct 2007 10:18:25 +0100
+Subject: [cost-devel] New core package by the end of this week.
+Message-ID: <470B4761.3000805@ipimar.pt>
+
+Hi,
+
+I'm currently working on other issues but I want to resume my COSTcore 
+package work on Thursday and release version 0.0-4 on Friday. We, 
+Mathieu and me, are working on the new FF5 datasets (UK & FR), IO 
+methods, summary, head, tail, dim, and subseting methods.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Wed Oct 10 18:42:17 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 10 Oct 2007 17:42:17 +0100
+Subject: [cost-devel] COSTcore version 0.0-4
+Message-ID: <470D00E9.2060600@ipimar.pt>
+
+Hi,
+
+I've just uploaded to CVS the latest version, 0.0-4. Check the NEWS file.
+
+Best
+
+EJ
+
+
+ 
+
+
+From tej at difres.dk  Thu Oct 11 15:16:58 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 11 Oct 2007 15:16:58 +0200
+Subject: [cost-devel] Latest version of the exchage format description
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290E31D@ch-mail01.dfu.local>
+
+Dear All
+
+You can find the latest version '11 October' of the format attached on
+both MS word and PDF.
+
+Changes since version '28 September' has been written to the COST
+discussion lists, here is a couple extra:
+1. "Time shot" renamed to "Time" (to make it more generic regarding
+different fisheries. Format changed from "HHMM" to "HH:MM" to match the
+date-field.
+2. Explicit describing weight as "Whole weight" (presentation name
+discussion raised by David)
+3. Addition of the CC format
+4. Addition of appendix II describing the XML format
+
+Coming planned additions / improvements to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human
+consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The last XML formats described
+3. Fill in appendix I (the list of all the codes). This will be auto
+generated by FishFrame.
+4. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+
+Have a nice meeting in Lisbon!
+Henrik & Teunis
+
+
+
+-----Oprindelig meddelelse-----
+Fra: Teunis Jansen 
+Sendt: 1. oktober 2007 11:50
+Til: 'cost-project-devel at lists.berlios.de'
+Emne: RE: [cost-devel] Latest version of the exchage format description
+
+
+-----------------------------------------
+
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format
+Description. I have changed where consensus seems so have been made on
+either the wiki or on the discussion list, plus some trivial
+improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: "duration" changed to "time" and "Haul" changed to
+"Fishing"
+2. Adding a "*" after field names to mark key fields 3. Reordering the
+last fields of HL and CA, so that key fields come first and value fields
+come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used "Fishing operation" or "Fishing activity"?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human
+consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be
+specified in XML for all data types. FishFrame is able to receive the
+data in either CSV or XML. CSV is best suited when humans upload the
+data although some prefer XML. XML is best for server-to-server data
+communication. We will use the XML format later to automate the upload
+from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers,
+numbers at length, numbers at age, mean weight at length, mean weight at
+age, mean length at age). This format for raised data can include
+extrapolated data (hole-filling of biological sampling and discard
+rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs,
+but they do not appear after upload. Some kind of "Approval" is
+needed...
+
+Best regards
+Teunis
+
+ 
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame 50 Data Exchange Format.pdf
+Type: application/octet-stream
+Size: 226333 bytes
+Desc: FishFrame 50 Data Exchange Format.pdf
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071011/f4e671e7/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame 50 Data Exchange Format.doc
+Type: application/msword
+Size: 1092608 bytes
+Desc: FishFrame 50 Data Exchange Format.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071011/f4e671e7/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Mon Oct 22 10:17:36 2007
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 22 Oct 2007 10:17:36 +0200
+Subject: [cost-devel] DEF modiif from the meeting
+Message-ID: <471C5CA0.8070203@ifremer.fr>
+
+Dear Teunis and Henrik,
+
+please find enclosed the modification of the data structure requested as 
+an outcome of the expert meeting. These changes are considered as the 
+last ones to finalise the Data Exchange Format we will use from now on. 
+These changes can be discussed in the developer mailing list as they are 
+technical issues that do not distort the overall structure.
+
+The enclosed file is an excerpt of the minutes of the meeting, which 
+will be distributed this week to the COST members.
+
+Best regards
+
+Joel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071022/854952b6/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Minutes COST expert meeting - section on DEF.doc
+Type: application/msword
+Size: 25088 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071022/854952b6/attachment.doc>
+
+From ernesto at ipimar.pt  Mon Oct 22 16:49:07 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 22 Oct 2007 15:49:07 +0100
+Subject: [cost-devel] New COSTcore version (0.2-0)
+Message-ID: <471CB863.3040500@ipimar.pt>
+
+Hi,
+
+The new COSTcore version, 0.2-0, is now out. You may check out or update 
+from CVS to get the source code, or download from file repository 
+(http://developer.berlios.de/project/showfiles.php?group_id=7299). All 
+class definitions are now updated to FF5 October, 11.
+
+This version is a major jump and implements 2 new set of S4 classes to 
+deal with validate datasets (csDataVal, ceDataVal, clDataVal) and 
+consolidated datasets (csDataCons, ceDataCons, clDataCons) as agreed in 
+Lisbon last week. I'm still not fully happy with the consolidated 
+classes, but I'll need some data to tweak them ...
+
+For those not familiar with these definitions you must read the meeting 
+report, when Joel finishes it.
+
+Notice that we still expect one more adjustment to FF5 format, based on 
+comments from last week, and the core package will be updated to match it.
+
+I anticipate the following features/revisions:
+    1) new replacement methods,
+    2) class revision based on FF5 final,
+    3) class revision to constraint field formats,
+    4) *Cons class revision,
+    5) documentation for everything.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Wed Oct 24 13:44:44 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Wed, 24 Oct 2007 13:44:44 +0200
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <471C5CA0.8070203@ifremer.fr>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290E94C@ch-mail01.dfu.local>
+
+Dear All
+ 
+Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+Comments to the survey data follow in a separate mail.
+ 
+We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+ 
+BR
+Teunis
+
+________________________________
+
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af Joel VIGNEAU
+Sendt: 22. oktober 2007 10:18
+Til: cost devel; Henrik Degel
+Emne: [cost-devel] DEF modiif from the meeting
+
+
+Dear Teunis and Henrik,
+
+please find enclosed the modification of the data structure requested as an outcome of the expert meeting. These changes are considered as the last ones to finalise the Data Exchange Format we will use from now on. These changes can be discussed in the developer mailing list as they are technical issues that do not distort the overall structure.
+
+The enclosed file is an excerpt of the minutes of the meeting, which will be distributed this week to the COST members.
+
+Best regards
+
+Joel
+
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071024/70155224/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Minutes COST expert meeting - section on DEF.doc
+Type: application/msword
+Size: 39424 bytes
+Desc: Minutes COST expert meeting - section on DEF.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071024/70155224/attachment.doc>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Minutes COST expert meeting - section on DEF.pdf
+Type: application/octet-stream
+Size: 22930 bytes
+Desc: Minutes COST expert meeting - section on DEF.pdf
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071024/70155224/attachment.obj>
+
+From ernesto at ipimar.pt  Wed Oct 24 16:01:06 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 24 Oct 2007 15:01:06 +0100
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290E94C@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290E94C@ch-mail01.dfu.local>
+Message-ID: <471F5022.6080606@ipimar.pt>
+
+Teunis Jansen wrote:
+> Dear All
+>  
+> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+> Comments to the survey data follow in a separate mail.
+>  
+> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+>  
+> BR
+> Teunis
+
+Hi Teunis,
+
+Below are my comments. Note that none of these comments are related with 
+R, we're trying to generalize the FF5 exchange format so that others can 
+used it and that means getting as much platform independent as possible.
+
+1) CS tables and vessels id
+    Our concern is that we need to identify the trip and in the case of 
+a "trip to the market" we can't, unless vessel id is included in the PK. 
+One trip to the market can sample several fishing trips. As you say it 
+can be encrypted or some kind of codification can be used, is just a 
+matter of identifying the trip.
+
+2) TR table and sampling type
+    The 2 new codes are used for biological sampling only, so you should 
+have related records in CA and eventually in HH (at least in the case of 
+surveys you should), not in SL/HL.
+
+3) SL/HL tables and sex
+    Removing from SL and keeping sex in HL can be a good way through. In 
+HL it must be included in the PK and it must have the "Unsexed" code 
+included (discussion about optional fields and PK later on).
+
+4) CA table
+    Ok, no comments.
+
+5) General cases
+
+5.1) Optional vs Mandatory
+    It does not make sense to have fields labeled as mandatory for which 
+you may not provide information. It's confusing and if you have the 
+opportunity to leave this fields blank then they are not mandatory 
+anymore. The only way to run checks on null fields is to assume "null" 
+mean something, in that case "something" must be provided and the field 
+is mandatory.
+
+5.2) Fields in PK must be mandatory
+    If you look at SQL92 definition 
+(http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt) it's clearly 
+stated that "if the unique constraint was defined with PRIMARY KEY, then 
+it requires that none of the values in the specified column or columns 
+be the null value." (page 42). Following your example about sex, note 
+that null means you don't have information about it while "unsexed" mean 
+you did not identified the individual's gender.
+
+5.3) Taxa mixture
+    Ok, no comments.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Thu Oct 25 13:49:45 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 25 Oct 2007 13:49:45 +0200
+Subject: [cost-devel] DEF modiif from the meeting: Survey data
+In-Reply-To: <471C5CA0.8070203@ifremer.fr>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290EA26@ch-mail01.dfu.local>
+
+
+
+
+Comments to the requested change for getting survey data into the systems
+
+
+
+
+CS Tables- TR table - SamplingType field
+
+
+ 
+
+Background: The data processing needs fisheries independent data from research surveys to create age-length-maturity keys. [question here: does anybody need the HH, SL and HL data from surveys or is it only CA? I heard that some countries in the Mediterranean used the catches, CPUE, species and length distributions when raising the commercial fisheries data.]
+
+See also the previous mail-discussion of this topic in the appendix below.
+
+ 
+
+Remember that this is about the data exchange format, not the database (class/table) structure.
+
+ 
+
+Solution 1 (suggested solution from Lisbon): Addition of the code "R" = research survey in the field Sampling Type. Then the survey SMAWLs will be in the same structure as the SMAWLs from commercial fisheries.
+
+ 
+
+Solution 2 (alternative): Add the survey data in the existing survey data exchange formats (FF acoustics + DATRAS).
+
+ 
+
+Solution 3 (alternative): COST goes for solution 1 and FF for solution 2.
+
+ 
+
+Discussion:
+
+------------------
+
+Henrik & Teunis (25/10):
+
+It is not an easy choice, because there are advantages and disadvantages for all solutions. We have already discussed this before the Lisbon-meeting, but there was not reached any consensus on this subject. The mails from that discussion is in the appendix at the end of this mail. We have tried to list the possible solutions with their respective advantages and disadvantages  below:
+
+ 
+
+Solution 1: 
+
+Advantages:
+
+?        Fast implementation in the code that pulls out data from input files and puts it into the database (classes/tables).
+
+Disadvantages:
+
+?        Double data. The survey data exist on both the designated survey formats (FF acoustic surveys and DATRAS) and on the CS format. This usually leads to decreased data quality.
+
+?        National data managers shall make scripts for putting their survey data in to two different formats.
+
+?        Risk of scope slide. Survey data offers much more information than what is available from commercial fisheries sampling. There is a risk that this will make the format grow increasing the inconsistency and number of notes like "this field is like this for those data, unavailable for other data etc. etc.". Gear-field was mentioned by Ernesto. Should that then be added to the Ca-record or should a HH accompany the CA's? What about the big difference between HH's? I have seen this happen before.
+
+Solution 2: 
+
+Advantages:
+
+?        None of the disadvantages from solution 1.
+
+Disadvantages:
+
+?        More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written.
+
+Solution 3:
+
+Disadvantages: 
+
+?        Not one single exchange format. This is however only a code, so the format is nearly the same, although the risk of scope sliding mentioned above might add more differences in a year or two.
+
+ 
+
+We have discussed this several times among the FishFrame developers and we have come to the conclusion that we can not go for solution 1. Solution 2 is what serves the FishFrame users best in the longer run. We think that this also applies to COST.
+
+ 
+
+So we are left with solution 2 or 3. Or maybe you can come up with other angles or solutions?
+
+ 
+
+Best regards
+
+Henrik & Teunis
+
+--------------------
+
+ 
+
+ Please add your contribution to the discussion here...
+
+ 
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+Appendix. 
+
+ 
+
+> ------------------------------------------------------
+
+> 
+
+> Dear All
+
+> 
+
+> So it is clear that FishFrame and COST needs SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings. COST 1 only contains full information from commercial fisheries data while FishFrame contains full information from all three. COST 2 might include all as well. 
+
+> We now have three well defined non-overlapping exchange formats for the sampling types (FF5.CS + FF5.AS + ICES.DATRAS).
+
+> 
+
+> 
+
+> So what to do?
+
+> Option 1:
+
+> We can create a new format for SMAWL and then use the other formats for HLs only. Then we would not need to create separate methods for reading the three formats into COST 1 (although we might have to do it in COST 2). This would be the easiest solution seen solely from the COST project side.
+
+> 
+
+> Option 2:
+
+> We can use the three formats for exchanging the data including the SMAWL data, and if needed (for COST) the formats can be used without adding the HL records. FishFrame stores the whole structure while COST 1 only stores the SMAWL, this could be in one shared SMAWL table or in three separate. The storage (internal database structure) is not depending on the exchange formats.
+
+> 
+
+> Option 3 (a mix of 1 and 2):
+
+> COST could use the CS format for SMAWL while additional SMAWLs from surveys would then be added in a new format. Inside COST we can keep them separate or in the same table as we want.
+
+> 
+
+> What option to choose?
+
+> In all three options FishFrame and COST applications can then let the user decide what SMAWL data to include during analysis, this is independent of exchange format and database design.
+
+> 
+
+> Seen from the data provider side, then option 2 is preferable because, the national data centers only needs to make sure that they extract and maintain one set of data. Having multiple versions of the same data in different overlapping formats easily leads to errors and outdated data.
+
+> 
+
+> Seen from the data quality perspective, I personally think data quality checking becomes more transparent and stronger when the types are kept apart in the more streamlined way (option 2). 
+
+> By the way we will add a feature on the FishFrame, that makes users able to validate their exchange files without uploading them. This is mainly for COST users and others who use same formatting. This can only be used if we have similar formats.
+
+> 
+
+> There is also some stratification issues to deal with. The age-length keys are different for different EU-size-sorting categories and for landed part vs. discarded part (see attached file). This makes the format for commercial SMAWL and survey SMAWL different pointing towards option 2 or 3.
+
+> 
+
+> Best regards
+
+> Teunis
+
+> 
+
+> _______________________________________________
+
+> Cost-project-members mailing list
+
+> Cost-project-members at lists.berlios.de
+
+> https://lists.berlios.de/mailman/listinfo/cost-project-members <https://lists.berlios.de/mailman/listinfo/cost-project-members> 
+
+> 
+
+> 
+
+>   
+
+> 
+
+> ----------------------------------------------------------------------
+
+> --
+
+> 
+
+> ----------------------------------------------------------------------
+
+> --
+
+> ________________________________
+
+> 
+
+> Fra: cost-project-members-bounces at lists.berlios.de 
+
+> [mailto:cost-project-members-bounces at lists.berlios.de] P? vegne af 
+
+> Joel VIGNEAU
+
+> Sendt: 11. oktober 2007 16:32
+
+> Til: ernesto
+
+> Cc: Cost-project-members at lists.berlios.de
+
+> Emne: Re: [Cost-project-members] COST: SMAWL data from trawl surveys, 
+
+> acoustic surveys and commercial fisheries samplings
+
+> 
+
+> 
+
+> ernesto a ?crit : 
+
+> 
+
+>          Joel VIGNEAU wrote: 
+
+>          
+
+> 
+
+> Hi all,
+
+>                     
+
+> let me summarise the situation to see if we have the same understanding
+
+>                     
+
+> What we agree : 
+
+> FF.CS + FF.AS + DATRAS make a complete and non-overlapping picture of all the fisheries information sampled. 
+
+>                     
+
+> COST has based its structure on FF.CS but needs biological 
+
+> parameters from surveys (FF.AS, DATRAS, and others...)
+
+>                     
+
+> The FF/COST DEF table CA now contains biological parameters from individual fish. 
+
+>                     
+
+> What remains under discussion : 
+
+> There are still different options and even variants within the options proposed by Teunis. The option 2, which seems to gather the most advantages, makes a CA table in COST DEF independent of CS in the sense that we would not mandatorily request related information in HL. There is a variant of 3 different CA tables or a unique one. My preference goes to a unique one (I think there are not many differences). For opening to the future, we could add a field DATA_SOURCE (CS, AS, Surveys, ...). When the source is CS, we need to have a related information in HL, otherwise, for the moment there is no integrity check. 
+
+> If we go that way, do we have sufficient information in the CA table, especially concerning the time period when the source is not HL? 
+
+> The stratification issue 
+
+> I'm not surprised with your graph. The CC is a stratification based on individual weight, which according to the length/weight allometry correspond approximately to a stratification by length. In the small fish category, the mean length-at-age for every ages will be smaller than in the medium fish category, which all will be smaller than in the big fish category. The only way to get out of this, is to combine all the CC into a complete matrix and multiply by the real length proportion of the population, before doing any estimates. 
+
+>                     
+
+> BR
+
+>                     
+
+> Joel
+
+> 
+
+>          Hi Joel,
+
+>          
+
+> I think your summary is correct but I'd like to elaborate a little bit more on CA tables. 
+
+>          
+
+> This information comes from 3 different sources, (i) market sampling, (ii) on-board sampling and (iii) surveys, which differ in their aggregation level. Most aggregated is market sampling where area and time units are, at the most, rectangle and day. After we have on-board sampling where sometimes its possible to have coordinates and time in hour:minutes. The most disaggregated is survey data where we have coordinates and time. The information related with the individual is the same for all, although sometimes there are some missing observations (one may sample age and not maturity, etc). 
+
+>          
+
+> Based on this rationale we may create a data structure that combines area, rectangle, coordinates, day, hour with data source (this is similar to sampling type so we may use that field): 
+
+>          
+
+> sampType; area, rectangle, latIni, lonIni, latFin, lonFin, dateIni, 
+
+> dateFin, hourIni, hourFin, stock, spp, sex, etc (country, length, age, 
+
+> blah blah blah)
+
+>          
+
+> area, rectangle and dateFin would be mandatory so that market sampling can be included and the other fields would be filled based on sampType. A survey could provide everything lat, lon, hour, etc, while on-board sampling could provide some of this information. This way we could develop a data structure for individual biopars and link with CS using rectangle, date, spp etc. 
+
+>          
+
+> My doubts are: 
+
+>          
+
+> 1) although biopars are independent from the fishery we know that the selectivity of the gear can bias the sampling, so I guess we should keep some information about the gear used to collect the sample; 
+
+> 2) how far can we go with this and still keep compatibility with FF ? A change like this would require some adjustments to FF5 and FF5 exchange format. Are you whiling to do it ? Otherwise it makes no sense implementing only in COST and we should just keep it as it is now. 
+
+>          
+
+> IMO if we go this path we should stop developing CA for now, discuss the data structure until we have an agreement and after implement FF5, FF5 exchange format and COST classes. In the mean time other packages could move on with length frequencies methods. 
+
+>          
+
+> Best
+
+>          
+
+> EJ
+
+>          
+
+>          
+
+> 
+
+> Hi Ernesto,
+
+> 
+
+> it's sure we have a structural problem here that cannot be resolved at a glance. So let's not hurry to find out the best solution keeping a full convergence between COST and FF.
+
+> 
+
+> I agree with your approach (Sampling type will give us the source; area, rectangle and datefin are mandatory fields, ...) and concerning your doubts, the linkage between CA and HH should provide the gear information and its basic characteristics (when the source is commercial). I think we can live for the moment without this info for the surveys.
+
+> 
+
+> If we can fix this (Teunis and Henrik, is it Ok for you?), I think we can begin COST development with this structure. In parallel, we can continue the work with FF and come much later with a revision of the DEF. Anyway, the development and the beta-testing will bring other issues at the surface ....
+
+> 
+
+> We will have to agree on the fact that from now on, and within the life of the project, we can only change the DEF once (so better be for good!).
+
+> 
+
+> BR
+
+> 
+
+> Joel
+
+> 
+
+>  -----------------------------------------------------------
+
+> 
+
+> Hi All
+
+>  
+
+> I am not sure exactly what to think is OK:-) I am uncertain about what in your mails refer to exchange formats and what refer to internal database structure in COST.
+
+> For now, lets focus on the exchange format (you might already be doing that - I was just in doubt). Remember that internal database structures can easily differ from the exch. format.
+
+>  
+
+> Seen from the FishFrame side, we can not go for a solution with SMAWL record in the exchange format that is shared between CS (Commercial fisheries sampling), AS (Acoustic survey) and TS (Trawl survey). The SMAWL record is however shared between on-board vessel sampling and market sampling, since both are in the CS format.
+
+> The main reason why this is not a solution we can implement in FF (exchange format), is that the data managers we know of, keep and handle their national data linked to the way they are sampled. Data from one survey is kept gathered and quality assured after the survey has finished. Then the surveys data is uploaded. Similarly with the commercial samplings. It is often separate people who are responsible for each type of sampling. So when it comes to uploading, correcting and approving datasets, then it is natural that this is done separately for CS (Commercial fisheries sampling), AS (Acoustic survey) and TS (Trawl survey). 
+
+>  
+
+> So it is option 2 for FF... I would also think that this would be the most long lasting solution for COST, especially seen in the light of the possibility of a COST 2 containing survey data. 
+
+> If you should decide in Lisbon to go for option 2 with COST as well and this requires modification / addition of single SMAWL fields, then we are ready to look into that.
+
+>  
+
+> Best regards
+
+> Teunis
+
+>   
+
+ 
+
+Hi Teunis,
+
+ 
+
+I was talking about both, exchange format and database structure. R classes are trying to replicate the database structure so we need both to implement classes and io methods.
+
+ 
+
+I see the point of keeping the exchange format like it is with small adjustments but we'll need a different data structure for biopars. How do you deal with it in FF ? If you need to aggregate individual data from surveys and market sampling to build an ALK how do you do it now ?
+
+ 
+
+Best
+
+ 
+
+EJ
+
+ ----------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/b79fecd9/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Thu Oct 25 15:32:05 2007
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Thu, 25 Oct 2007 15:32:05 +0200
+Subject: [cost-devel] DEF modiif from the meeting: Survey data
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290EA26@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290EA26@ch-mail01.dfu.local>
+Message-ID: <47209AD5.7050106@ifremer.fr>
+
+
+
+Teunis Jansen a ?crit :
+>
+>
+>     _Comments to the requested change for getting survey data into the
+>     systems_
+>
+>
+>     _CS Tables- TR table -- SamplingType field_
+>
+>  
+>
+> *Background:* The data processing needs fisheries independent data 
+> from research surveys to create age-length-maturity keys. [question 
+> here: does anybody need the HH, SL and HL data from surveys or is it 
+> only CA? I heard that some countries in the Mediterranean used the 
+> catches, CPUE, species and length distributions when raising the 
+> commercial fisheries data.]
+>
+> See also the previous mail-discussion of this topic in the appendix below.
+>
+>  
+>
+> Remember that this is about the data exchange format, /not /the 
+> database (class/table) structure.
+>
+>  
+>
+> *Solution 1 (suggested solution from Lisbon):* Addition of the code 
+> "R" = research survey in the field Sampling Type. Then the survey 
+> SMAWLs will be in the same structure as the SMAWLs from commercial 
+> fisheries.
+>
+>  
+>
+> *Solution 2 (alternative):* Add the survey data in the existing survey 
+> data exchange formats (FF acoustics + DATRAS).
+>
+>  
+>
+> *Solution 3 (alternative):* COST goes for solution 1 and FF for 
+> solution 2.
+>
+>  
+>
+> *Discussion:*
+>
+> ------------------
+>
+> Henrik & Teunis (25/10):
+>
+> It is not an easy choice, because there are advantages and 
+> disadvantages for all solutions. We have already discussed this before 
+> the Lisbon-meeting, but there was not reached any consensus on this 
+> subject. The mails from that discussion is in the appendix at the end 
+> of this mail. We have tried to list the possible solutions with their 
+> respective advantages and disadvantages  below:
+>
+>  
+>
+> Solution 1:
+>
+> Advantages:
+>
+> ?        Fast implementation in the code that pulls out data from 
+> input files and puts it into the database (classes/tables).
+>
+> Disadvantages:
+>
+> ?        Double data. The survey data exist on both the designated 
+> survey formats (FF acoustic surveys and DATRAS) and on the CS format. 
+> This usually leads to decreased data quality.
+>
+> ?        National data managers shall make scripts for putting their 
+> survey data in to two different formats.
+>
+> ?        Risk of scope slide. Survey data offers much more information 
+> than what is available from commercial fisheries sampling. There is a 
+> risk that this will make the format grow increasing the inconsistency 
+> and number of notes like "this field is like this for those data, 
+> unavailable for other data etc. etc.". Gear-field was mentioned by 
+> Ernesto. Should that then be added to the Ca-record or should a HH 
+> accompany the CA's? What about the big difference between HH's? I have 
+> seen this happen before.
+>
+> Solution 2:
+>
+> Advantages:
+>
+> ?        None of the disadvantages from solution 1.
+>
+> Disadvantages:
+>
+> ?        More code for pulling out data from input files and puts it 
+> into the database (classes/tables) needs to be written.
+>
+> Solution 3:
+>
+> Disadvantages:
+>
+> ?        Not one single exchange format. This is however only a code, 
+> so the format is nearly the same, although the risk of scope sliding 
+> mentioned above might add more differences in a year or two.
+>
+>  
+>
+> We have discussed this several times among the FishFrame developers 
+> and we have come to the conclusion that we can not go for solution 1. 
+> Solution 2 is what serves the FishFrame users best in the longer run. 
+> We think that this also applies to COST.
+>
+>  
+>
+> So we are left with solution 2 or 3. Or maybe you can come up with 
+> other angles or solutions?
+>
+>  
+>
+> Best regards
+>
+> Henrik & Teunis
+>
+> --------------------
+>
+>  
+>
+>  Please add your contribution to the discussion here...
+>
+Dear all,
+
+I want to shorten this discussion that impacts the structure of FF and I 
+understand Teunis and Hendrik are reticent to make too much change on 
+this issue.
+
+What I am sure is
+1 - there is no way we will implement a CA structure for CS and another 
+for Survey. This is confusing people that population parameters can have 
+a gear effect or what so ever link to a fishing activity.
+
+2 - we need to refer precisely every CA sample to a sampling source.
+
+3 - I understand that putting a code "Research survey" in a Commercial 
+Sampling table is kind of ...weird
+
+So, the solution would be to unlink CA from CS and let it independent 
+like are CE and CL tables. I understand there is an integrity problem 
+with difficulties to check a 1-to-1 link between a CA record and a 
+source if the source is either a CS-TR or a AS-AC or a Trawl Survey 
+TS-Whatever.
+
+My compromise would then be to create SI (Sample Identification) table
+This would give
+
+SI ___ CA
+  |____ TR ___ HH ___ HL ____ SL   (commercial sampling)
+  |____ AS ___ ....                                (acoustic survey, not 
+in COST)
+  |____ TS ___ .....                               (Trawl survey, not in 
+COST)
+
+In SI there would be the field Sampling Source (TR, AS or TS), Trip 
+number and Station number
+
+Can we elaborate on this, or simply unlink CA from TR and add Sampling 
+source in CA? The constraint is now to agree quickly on a long lasting 
+solution.
+
+Best regards
+
+Joel
+    
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/86e6956c/attachment.html>
+
+From ernesto at ipimar.pt  Thu Oct 25 16:19:35 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 25 Oct 2007 15:19:35 +0100
+Subject: [cost-devel] DEF modiif from the meeting: Survey data
+In-Reply-To: <47209AD5.7050106@ifremer.fr>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290EA26@ch-mail01.dfu.local>
+	<47209AD5.7050106@ifremer.fr>
+Message-ID: <4720A5F7.2010306@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+>
+> Teunis Jansen a ?crit :
+> Dear all,
+>
+> I want to shorten this discussion that impacts the structure of FF and 
+> I understand Teunis and Hendrik are reticent to make too much change 
+> on this issue.
+>
+> What I am sure is
+> 1 - there is no way we will implement a CA structure for CS and 
+> another for Survey. This is confusing people that population 
+> parameters can have a gear effect or what so ever link to a fishing 
+> activity.
+>
+> 2 - we need to refer precisely every CA sample to a sampling source.
+>
+> 3 - I understand that putting a code "Research survey" in a Commercial 
+> Sampling table is kind of ...weird
+>
+> So, the solution would be to unlink CA from CS and let it independent 
+> like are CE and CL tables. I understand there is an integrity problem 
+> with difficulties to check a 1-to-1 link between a CA record and a 
+> source if the source is either a CS-TR or a AS-AC or a Trawl Survey 
+> TS-Whatever.
+>
+> My compromise would then be to create SI (Sample Identification) table
+> This would give
+>
+> SI ___ CA
+>  |____ TR ___ HH ___ HL ____ SL   (commercial sampling)
+>  |____ AS ___ ....                                (acoustic survey, 
+> not in COST)
+>  |____ TS ___ .....                               (Trawl survey, not 
+> in COST)
+>
+> In SI there would be the field Sampling Source (TR, AS or TS), Trip 
+> number and Station number
+>
+> Can we elaborate on this, or simply unlink CA from TR and add Sampling 
+> source in CA? The constraint is now to agree quickly on a long lasting 
+> solution.
+>
+> Best regards
+>
+> Joel 
+
+Hi,
+
+All this is a bit trickier because we are discussing the data structure 
+while Henrik & Teunis are discussing the exchange format. The problem is 
+that the information we have on FF5 is the exchange format and we're 
+trying to implement a data structure based on it (which I think is ok 
+but creates some confusion). The other document we have "FF DB 
+Dokumentation" does not add much to the exchange format in terms of data 
+structures. IMO we'd need a data dictionary following SQL92 so that 
+everyone can implement it on their own systems, being those RDBMS, 
+statistical packages, or web pages. But that's something for later, now 
+we're engaged in FF5.
+
+What people do is borrow information from surveys to build ALK and 
+Maturity ogives and that's all we need for now. To be able to include 
+these information clearly identified. I guess if this is not possible 
+users will find a way of including that information unidentified.
+
+I still consider our proposal the most simple and easier to implement. A 
+long last solution will always depend on testing the data structures 
+we're implementing which as far as I understand are still in development.
+
+Best
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Thu Oct 25 18:21:44 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 25 Oct 2007 17:21:44 +0100
+Subject: [cost-devel] DEF modiif from the meeting: Survey data
+In-Reply-To: <47209AD5.7050106@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B0954F4@LOWEXPRESS.corp.cefas.co.uk>
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 25 October 2007 14:32
+To: cost-project-devel at lists.berlios.de
+Cc: Brian James Cowan; J?rgen Dalskov
+Subject: Re: [cost-devel] DEF modiif from the meeting: Survey data
+
+
+Teunis Jansen a ?crit : 
+
+
+
+
+
+Comments to the requested change for getting survey data into the systems
+
+
+
+
+
+CS Tables- TR table - SamplingType field
+
+
+
+
+Background: The data processing needs fisheries independent data from research surveys to create age-length-maturity keys. [question here: does anybody need the HH, SL and HL data from surveys or is it only CA? I heard that some countries in the Mediterranean used the catches, CPUE, species and length distributions when raising the commercial fisheries data.]
+
+See also the previous mail-discussion of this topic in the appendix below.
+
+
+
+Remember that this is about the data exchange format, not the database (class/table) structure.
+
+
+
+Solution 1 (suggested solution from Lisbon): Addition of the code "R" = research survey in the field Sampling Type. Then the survey SMAWLs will be in the same structure as the SMAWLs from commercial fisheries.
+
+
+
+Solution 2 (alternative): Add the survey data in the existing survey data exchange formats (FF acoustics + DATRAS).
+
+
+
+Solution 3 (alternative): COST goes for solution 1 and FF for solution 2.
+
+
+
+Discussion:
+
+------------------
+
+Henrik & Teunis (25/10):
+
+It is not an easy choice, because there are advantages and disadvantages for all solutions. We have already discussed this before the Lisbon-meeting, but there was not reached any consensus on this subject. The mails from that discussion is in the appendix at the end of this mail. We have tried to list the possible solutions with their respective advantages and disadvantages  below:
+
+
+
+Solution 1: 
+
+Advantages:
+
+?        Fast implementation in the code that pulls out data from input files and puts it into the database (classes/tables).
+
+Disadvantages:
+
+?        Double data. The survey data exist on both the designated survey formats (FF acoustic surveys and DATRAS) and on the CS format. This usually leads to decreased data quality.
+
+?        National data managers shall make scripts for putting their survey data in to two different formats.
+
+?        Risk of scope slide. Survey data offers much more information than what is available from commercial fisheries sampling. There is a risk that this will make the format grow increasing the inconsistency and number of notes like "this field is like this for those data, unavailable for other data etc. etc.". Gear-field was mentioned by Ernesto. Should that then be added to the Ca-record or should a HH accompany the CA's? What about the big difference between HH's? I have seen this happen before.
+
+Solution 2: 
+
+Advantages:
+
+?        None of the disadvantages from solution 1.
+
+Disadvantages:
+
+?        More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written.
+
+Solution 3:
+
+Disadvantages: 
+
+?        Not one single exchange format. This is however only a code, so the format is nearly the same, although the risk of scope sliding mentioned above might add more differences in a year or two.
+
+
+
+We have discussed this several times among the FishFrame developers and we have come to the conclusion that we can not go for solution 1. Solution 2 is what serves the FishFrame users best in the longer run. We think that this also applies to COST.
+
+
+
+So we are left with solution 2 or 3. Or maybe you can come up with other angles or solutions?
+
+
+
+Best regards
+
+Henrik & Teunis
+
+--------------------
+
+
+
+ Please add your contribution to the discussion here...
+
+
+Joel wrote Dear all,
+
+I want to shorten this discussion that impacts the structure of FF and I understand Teunis and Hendrik are reticent to make too much change on this issue.
+
+What I am sure is
+1 - there is no way we will implement a CA structure for CS and another for Survey. This is confusing people that population parameters can have a gear effect or what so ever link to a fishing activity.
+
+[..Cut..] 
+
+Best regards
+
+Joel
+--
+
+David Maxwell (Cefas) >
+ 
+To me the disadvantage of possibly "confusing people that population parameters can have a gear effect" seems smaller than the disadvantages for the other options in Teunis's message. Once the data are imported to R then we could choose if we combine the biological data from surveys and commercial sampling.
+As Teunis says this has the disadvantage of "More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written"  I leave it to the people writing the code to say how big this disadvantage is.
+ 
+ Regards, David
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/402f887e/attachment.html>
+
+From tej at difres.dk  Fri Oct 26 13:42:38 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Fri, 26 Oct 2007 13:42:38 +0200
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <471F5022.6080606@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB3C@ch-mail01.dfu.local>
+
+
+
+-----Oprindelig meddelelse-----
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+Sendt: 24. oktober 2007 16:01
+Til: cost-project-devel at lists.berlios.de
+Cc: Brian James Cowan; J?rgen Dalskov
+Emne: Re: [cost-devel] DEF modiif from the meeting
+
+Teunis Jansen wrote:
+> Dear All
+>  
+> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+> Comments to the survey data follow in a separate mail.
+>  
+> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+>  
+> BR
+> Teunis
+
+Hi Teunis,
+
+Below are my comments. Note that none of these comments are related with R, we're trying to generalize the FF5 exchange format so that others can used it and that means getting as much platform independent as possible.
+
+1) CS tables and vessels id
+    Our concern is that we need to identify the trip and in the case of a "trip to the market" we can't, unless vessel id is included in the PK. 
+One trip to the market can sample several fishing trips. As you say it can be encrypted or some kind of codification can be used, is just a matter of identifying the trip.
+
+2) TR table and sampling type
+    The 2 new codes are used for biological sampling only, so you should have related records in CA and eventually in HH (at least in the case of surveys you should), not in SL/HL.
+
+3) SL/HL tables and sex
+    Removing from SL and keeping sex in HL can be a good way through. In HL it must be included in the PK and it must have the "Unsexed" code included (discussion about optional fields and PK later on).
+
+4) CA table
+    Ok, no comments.
+
+5) General cases
+
+5.1) Optional vs Mandatory
+    It does not make sense to have fields labeled as mandatory for which you may not provide information. It's confusing and if you have the opportunity to leave this fields blank then they are not mandatory anymore. The only way to run checks on null fields is to assume "null" 
+mean something, in that case "something" must be provided and the field is mandatory.
+
+5.2) Fields in PK must be mandatory
+    If you look at SQL92 definition
+(http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt) it's clearly stated that "if the unique constraint was defined with PRIMARY KEY, then it requires that none of the values in the specified column or columns be the null value." (page 42). Following your example about sex, note that null means you don't have information about it while "unsexed" mean you did not identified the individual's gender.
+
+5.3) Taxa mixture
+    Ok, no comments.
+
+Best
+
+EJ
+--------------------------------------------------------
+
+Remaining issues for exchange format (not classes) is then: 1, 5.1, 5.2 (2 is in another thread)
+
+
+1) CS tables and vessels id
+The core of this is actually that there are two different sampling schemes for market samplings. We (Denmark) do not have the vessel-information, and there is no way we can get it. What we do is that we stratify on the commercial size sorting. Check the note 3 on CS.TR about the definition of a trip:
+"A trip is defined for
+	a. Sea sampling as: The period between a vessel departs from a port (or factory ship) and arrives to a port (or factory ship) for discharge.
+	b. Market sampling as: A sampling trip to a market. This would typically be just one day. If this grouping information is not available nationally, then any other grouping of market samples that gives sense can be used. The time span of the journey has no implication for the raising of the market samples"
+
+We would therefore suggest that:
+- We change this, so that market sampling "M" has the same definition as sea sampling "S". Then you can use this for your market samplings and you do not have mixed trips. 
+AND
+- We also add a new sampling type "D" that will we just like "M", just with the Market sampling definition of a trip adding the information that it can be from a mix of fishing trips. We will then use "D" for our market samplings.
+("D" is for Day-trip-to-market or Danish market sampling , not particularly good! If anybody can propose a more meaningful letter, then feel free).
+
+5.1) Optional vs. Mandatory
+Mandatory is mandatory. A mandatory field should always have a value, not NULL or "unknown" or "unsexed".
+Optional is optional - you do not have this information for some reason, the discussion here as I see it is how to represent "nothing".
+The question is how to handle it in the exchange format when the information is missing for some reason. Some prefer "Unknown" while other prefers just to leave the field blank.
+I consider this partly a matter of taste. Only "partly" because the first solution with having a specific code for "unknown" tends to evolve into more codes for "unknown" ("otholit lost", "otholit crystalline" etc.). Some even argue that this information is of relevance. It is not relevant at the level we operate on. It might in some cases be relevant in a national database, because you want to know how many otholits that was sampled for reporting the work done, this could include the crystalline, and so you would get paid for sampling them as well.
+We have used the second option with blank field during the last 6 years with FishFrame. The majority of users we have discussed this with are happy for this.
+Again this can be done in any of the two ways in the COST-classes, but we would be reluctant to change this policy in the exchange format. It should also be respected that the users are used to do it this way.
+
+
+5.2) Fields in PK must be mandatory
+SQl92 is correct for primary keys in a database. The primary key in a modern database should always be a unique auto generated integer that gives no sense in itself - it is just the Id of a record. This can not be NULL. The compound natural key however can include NULL's. In any case this is a database discussion we can save for the class design.
+For the exchange format it does not matter if the field is a part of compound natural key or not, the result from 5.1 would apply here as well.
+
+
+PS. There was an error in the last version of the exchange format. The note 1 and 4 on the CS.HL table should be deleted; it was a simple copy-paste error.
+
+Best regards
+Henrik and Teunis
+
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Fri Oct 26 14:10:50 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 26 Oct 2007 13:10:50 +0100
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB3C@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB3C@ch-mail01.dfu.local>
+Message-ID: <4721D94A.7070909@ipimar.pt>
+
+Teunis Jansen wrote:
+> -----Oprindelig meddelelse-----
+> Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+> Sendt: 24. oktober 2007 16:01
+> Til: cost-project-devel at lists.berlios.de
+> Cc: Brian James Cowan; J?rgen Dalskov
+> Emne: Re: [cost-devel] DEF modiif from the meeting
+>
+> Teunis Jansen wrote:
+>   
+>> Dear All
+>>  
+>> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+>> Comments to the survey data follow in a separate mail.
+>>  
+>> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+>>  
+>> BR
+>> Teunis
+>>     
+>
+> Hi Teunis,
+>
+> Below are my comments. Note that none of these comments are related with R, we're trying to generalize the FF5 exchange format so that others can used it and that means getting as much platform independent as possible.
+>
+> 1) CS tables and vessels id
+>     Our concern is that we need to identify the trip and in the case of a "trip to the market" we can't, unless vessel id is included in the PK. 
+> One trip to the market can sample several fishing trips. As you say it can be encrypted or some kind of codification can be used, is just a matter of identifying the trip.
+>
+> 2) TR table and sampling type
+>     The 2 new codes are used for biological sampling only, so you should have related records in CA and eventually in HH (at least in the case of surveys you should), not in SL/HL.
+>
+> 3) SL/HL tables and sex
+>     Removing from SL and keeping sex in HL can be a good way through. In HL it must be included in the PK and it must have the "Unsexed" code included (discussion about optional fields and PK later on).
+>
+> 4) CA table
+>     Ok, no comments.
+>
+> 5) General cases
+>
+> 5.1) Optional vs Mandatory
+>     It does not make sense to have fields labeled as mandatory for which you may not provide information. It's confusing and if you have the opportunity to leave this fields blank then they are not mandatory anymore. The only way to run checks on null fields is to assume "null" 
+> mean something, in that case "something" must be provided and the field is mandatory.
+>
+> 5.2) Fields in PK must be mandatory
+>     If you look at SQL92 definition
+> (http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt) it's clearly stated that "if the unique constraint was defined with PRIMARY KEY, then it requires that none of the values in the specified column or columns be the null value." (page 42). Following your example about sex, note that null means you don't have information about it while "unsexed" mean you did not identified the individual's gender.
+>
+> 5.3) Taxa mixture
+>     Ok, no comments.
+>
+> Best
+>
+> EJ
+> --------------------------------------------------------
+>
+> Remaining issues for exchange format (not classes) is then: 1, 5.1, 5.2 (2 is in another thread)
+>
+>
+> 1) CS tables and vessels id
+> The core of this is actually that there are two different sampling schemes for market samplings. We (Denmark) do not have the vessel-information, and there is no way we can get it. What we do is that we stratify on the commercial size sorting. Check the note 3 on CS.TR about the definition of a trip:
+> "A trip is defined for
+> 	a. Sea sampling as: The period between a vessel departs from a port (or factory ship) and arrives to a port (or factory ship) for discharge.
+> 	b. Market sampling as: A sampling trip to a market. This would typically be just one day. If this grouping information is not available nationally, then any other grouping of market samples that gives sense can be used. The time span of the journey has no implication for the raising of the market samples"
+>
+> We would therefore suggest that:
+> - We change this, so that market sampling "M" has the same definition as sea sampling "S". Then you can use this for your market samplings and you do not have mixed trips. 
+> AND
+> - We also add a new sampling type "D" that will we just like "M", just with the Market sampling definition of a trip adding the information that it can be from a mix of fishing trips. We will then use "D" for our market samplings.
+> ("D" is for Day-trip-to-market or Danish market sampling , not particularly good! If anybody can propose a more meaningful letter, then feel free).
+>
+> 5.1) Optional vs. Mandatory
+> Mandatory is mandatory. A mandatory field should always have a value, not NULL or "unknown" or "unsexed".
+> Optional is optional - you do not have this information for some reason, the discussion here as I see it is how to represent "nothing".
+> The question is how to handle it in the exchange format when the information is missing for some reason. Some prefer "Unknown" while other prefers just to leave the field blank.
+> I consider this partly a matter of taste. Only "partly" because the first solution with having a specific code for "unknown" tends to evolve into more codes for "unknown" ("otholit lost", "otholit crystalline" etc.). Some even argue that this information is of relevance. It is not relevant at the level we operate on. It might in some cases be relevant in a national database, because you want to know how many otholits that was sampled for reporting the work done, this could include the crystalline, and so you would get paid for sampling them as well.
+> We have used the second option with blank field during the last 6 years with FishFrame. The majority of users we have discussed this with are happy for this.
+> Again this can be done in any of the two ways in the COST-classes, but we would be reluctant to change this policy in the exchange format. It should also be respected that the users are used to do it this way.
+>
+>
+> 5.2) Fields in PK must be mandatory
+> SQl92 is correct for primary keys in a database. The primary key in a modern database should always be a unique auto generated integer that gives no sense in itself - it is just the Id of a record. This can not be NULL. The compound natural key however can include NULL's. In any case this is a database discussion we can save for the class design.
+> For the exchange format it does not matter if the field is a part of compound natural key or not, the result from 5.1 would apply here as well.
+>
+>
+> PS. There was an error in the last version of the exchange format. The note 1 and 4 on the CS.HL table should be deleted; it was a simple copy-paste error.
+>
+> Best regards
+> Henrik and Teunis
+
+Hi,
+
+WRT 1) It's not only Denmark that uses this sampling scheme. Your 
+solution looks ok and trip number will be used to identify the trip, 
+whatever that is (a trip to the market or a fishing trip).
+
+WRT 5.1) We simply need to clarify that a mandatory field can not have 
+the option of not providing information. If a field has that option then 
+the field is optional. That's all.
+
+WRT 5.2) If we're willing to use FF exchange format to share data we 
+need to make sure that people can build their PK from the CSV files and 
+we must assure that the unique identifiers are completely identified. 
+That's our request.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Fri Oct 26 14:21:21 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Fri, 26 Oct 2007 14:21:21 +0200
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <4721D94A.7070909@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB53@ch-mail01.dfu.local>
+
+ 
+
+-----Oprindelig meddelelse-----
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+Sendt: 26. oktober 2007 14:11
+Til: cost-project-devel at lists.berlios.de
+Cc: Brian James Cowan; J?rgen Dalskov
+Emne: Re: [cost-devel] DEF modiif from the meeting
+
+Teunis Jansen wrote:
+> -----Oprindelig meddelelse-----
+> Fra: cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af 
+> ernesto
+> Sendt: 24. oktober 2007 16:01
+> Til: cost-project-devel at lists.berlios.de
+> Cc: Brian James Cowan; J?rgen Dalskov
+> Emne: Re: [cost-devel] DEF modiif from the meeting
+>
+> Teunis Jansen wrote:
+>   
+>> Dear All
+>>  
+>> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+>> Comments to the survey data follow in a separate mail.
+>>  
+>> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+>>  
+>> BR
+>> Teunis
+>>     
+>
+> Hi Teunis,
+>
+> Below are my comments. Note that none of these comments are related with R, we're trying to generalize the FF5 exchange format so that others can used it and that means getting as much platform independent as possible.
+>
+> 1) CS tables and vessels id
+>     Our concern is that we need to identify the trip and in the case of a "trip to the market" we can't, unless vessel id is included in the PK. 
+> One trip to the market can sample several fishing trips. As you say it can be encrypted or some kind of codification can be used, is just a matter of identifying the trip.
+>
+> 2) TR table and sampling type
+>     The 2 new codes are used for biological sampling only, so you should have related records in CA and eventually in HH (at least in the case of surveys you should), not in SL/HL.
+>
+> 3) SL/HL tables and sex
+>     Removing from SL and keeping sex in HL can be a good way through. In HL it must be included in the PK and it must have the "Unsexed" code included (discussion about optional fields and PK later on).
+>
+> 4) CA table
+>     Ok, no comments.
+>
+> 5) General cases
+>
+> 5.1) Optional vs Mandatory
+>     It does not make sense to have fields labeled as mandatory for which you may not provide information. It's confusing and if you have the opportunity to leave this fields blank then they are not mandatory anymore. The only way to run checks on null fields is to assume "null" 
+> mean something, in that case "something" must be provided and the field is mandatory.
+>
+> 5.2) Fields in PK must be mandatory
+>     If you look at SQL92 definition
+> (http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt) it's clearly stated that "if the unique constraint was defined with PRIMARY KEY, then it requires that none of the values in the specified column or columns be the null value." (page 42). Following your example about sex, note that null means you don't have information about it while "unsexed" mean you did not identified the individual's gender.
+>
+> 5.3) Taxa mixture
+>     Ok, no comments.
+>
+> Best
+>
+> EJ
+> --------------------------------------------------------
+>
+> Remaining issues for exchange format (not classes) is then: 1, 5.1, 
+> 5.2 (2 is in another thread)
+>
+>
+> 1) CS tables and vessels id
+> The core of this is actually that there are two different sampling schemes for market samplings. We (Denmark) do not have the vessel-information, and there is no way we can get it. What we do is that we stratify on the commercial size sorting. Check the note 3 on CS.TR about the definition of a trip:
+> "A trip is defined for
+> 	a. Sea sampling as: The period between a vessel departs from a port (or factory ship) and arrives to a port (or factory ship) for discharge.
+> 	b. Market sampling as: A sampling trip to a market. This would typically be just one day. If this grouping information is not available nationally, then any other grouping of market samples that gives sense can be used. The time span of the journey has no implication for the raising of the market samples"
+>
+> We would therefore suggest that:
+> - We change this, so that market sampling "M" has the same definition as sea sampling "S". Then you can use this for your market samplings and you do not have mixed trips. 
+> AND
+> - We also add a new sampling type "D" that will we just like "M", just with the Market sampling definition of a trip adding the information that it can be from a mix of fishing trips. We will then use "D" for our market samplings.
+> ("D" is for Day-trip-to-market or Danish market sampling , not particularly good! If anybody can propose a more meaningful letter, then feel free).
+>
+> 5.1) Optional vs. Mandatory
+> Mandatory is mandatory. A mandatory field should always have a value, not NULL or "unknown" or "unsexed".
+> Optional is optional - you do not have this information for some reason, the discussion here as I see it is how to represent "nothing".
+> The question is how to handle it in the exchange format when the information is missing for some reason. Some prefer "Unknown" while other prefers just to leave the field blank.
+> I consider this partly a matter of taste. Only "partly" because the first solution with having a specific code for "unknown" tends to evolve into more codes for "unknown" ("otholit lost", "otholit crystalline" etc.). Some even argue that this information is of relevance. It is not relevant at the level we operate on. It might in some cases be relevant in a national database, because you want to know how many otholits that was sampled for reporting the work done, this could include the crystalline, and so you would get paid for sampling them as well.
+> We have used the second option with blank field during the last 6 years with FishFrame. The majority of users we have discussed this with are happy for this.
+> Again this can be done in any of the two ways in the COST-classes, but we would be reluctant to change this policy in the exchange format. It should also be respected that the users are used to do it this way.
+>
+>
+> 5.2) Fields in PK must be mandatory
+> SQl92 is correct for primary keys in a database. The primary key in a modern database should always be a unique auto generated integer that gives no sense in itself - it is just the Id of a record. This can not be NULL. The compound natural key however can include NULL's. In any case this is a database discussion we can save for the class design.
+> For the exchange format it does not matter if the field is a part of compound natural key or not, the result from 5.1 would apply here as well.
+>
+>
+> PS. There was an error in the last version of the exchange format. The note 1 and 4 on the CS.HL table should be deleted; it was a simple copy-paste error.
+>
+> Best regards
+> Henrik and Teunis
+
+Hi,
+
+WRT 1) It's not only Denmark that uses this sampling scheme. Your solution looks ok and trip number will be used to identify the trip, whatever that is (a trip to the market or a fishing trip).
+
+WRT 5.1) We simply need to clarify that a mandatory field can not have the option of not providing information. If a field has that option then the field is optional. That's all.
+
+WRT 5.2) If we're willing to use FF exchange format to share data we need to make sure that people can build their PK from the CSV files and we must assure that the unique identifiers are completely identified. 
+That's our request.
+
+Best
+
+EJ
+-----------------------------------------------
+
+Dear All
+
+5.1 OK - No problem. We change all the fields marked as "Mandatory - but optional if..." to "Optional - but mandatory if...".
+
+I'll implement the agreed changes in the final version of the Exchange format. I expect to mail it out Wednesday at the latest.
+
+Have a nice weekend
+Teunis
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Fri Oct 26 15:24:46 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 26 Oct 2007 14:24:46 +0100
+Subject: [cost-devel] DEF modiif from the meeting
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB53@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B0290EB53@ch-mail01.dfu.local>
+Message-ID: <4721EA9E.6020405@ipimar.pt>
+
+Teunis Jansen wrote:
+>  
+>
+> -----Oprindelig meddelelse-----
+> Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+> Sendt: 26. oktober 2007 14:11
+> Til: cost-project-devel at lists.berlios.de
+> Cc: Brian James Cowan; J?rgen Dalskov
+> Emne: Re: [cost-devel] DEF modiif from the meeting
+>
+> Teunis Jansen wrote:
+>   
+>> -----Oprindelig meddelelse-----
+>> Fra: cost-project-devel-bounces at lists.berlios.de 
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af 
+>> ernesto
+>> Sendt: 24. oktober 2007 16:01
+>> Til: cost-project-devel at lists.berlios.de
+>> Cc: Brian James Cowan; J?rgen Dalskov
+>> Emne: Re: [cost-devel] DEF modiif from the meeting
+>>
+>> Teunis Jansen wrote:
+>>   
+>>     
+>>> Dear All
+>>>  
+>>> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+>>> Comments to the survey data follow in a separate mail.
+>>>  
+>>> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+>>>  
+>>> BR
+>>> Teunis
+>>>     
+>>>       
+>> Hi Teunis,
+>>
+>> Below are my comments. Note that none of these comments are related with R, we're trying to generalize the FF5 exchange format so that others can used it and that means getting as much platform independent as possible.
+>>
+>> 1) CS tables and vessels id
+>>     Our concern is that we need to identify the trip and in the case of a "trip to the market" we can't, unless vessel id is included in the PK. 
+>> One trip to the market can sample several fishing trips. As you say it can be encrypted or some kind of codification can be used, is just a matter of identifying the trip.
+>>
+>> 2) TR table and sampling type
+>>     The 2 new codes are used for biological sampling only, so you should have related records in CA and eventually in HH (at least in the case of surveys you should), not in SL/HL.
+>>
+>> 3) SL/HL tables and sex
+>>     Removing from SL and keeping sex in HL can be a good way through. In HL it must be included in the PK and it must have the "Unsexed" code included (discussion about optional fields and PK later on).
+>>
+>> 4) CA table
+>>     Ok, no comments.
+>>
+>> 5) General cases
+>>
+>> 5.1) Optional vs Mandatory
+>>     It does not make sense to have fields labeled as mandatory for which you may not provide information. It's confusing and if you have the opportunity to leave this fields blank then they are not mandatory anymore. The only way to run checks on null fields is to assume "null" 
+>> mean something, in that case "something" must be provided and the field is mandatory.
+>>
+>> 5.2) Fields in PK must be mandatory
+>>     If you look at SQL92 definition
+>> (http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt) it's clearly stated that "if the unique constraint was defined with PRIMARY KEY, then it requires that none of the values in the specified column or columns be the null value." (page 42). Following your example about sex, note that null means you don't have information about it while "unsexed" mean you did not identified the individual's gender.
+>>
+>> 5.3) Taxa mixture
+>>     Ok, no comments.
+>>
+>> Best
+>>
+>> EJ
+>> --------------------------------------------------------
+>>
+>> Remaining issues for exchange format (not classes) is then: 1, 5.1, 
+>> 5.2 (2 is in another thread)
+>>
+>>
+>> 1) CS tables and vessels id
+>> The core of this is actually that there are two different sampling schemes for market samplings. We (Denmark) do not have the vessel-information, and there is no way we can get it. What we do is that we stratify on the commercial size sorting. Check the note 3 on CS.TR about the definition of a trip:
+>> "A trip is defined for
+>> 	a. Sea sampling as: The period between a vessel departs from a port (or factory ship) and arrives to a port (or factory ship) for discharge.
+>> 	b. Market sampling as: A sampling trip to a market. This would typically be just one day. If this grouping information is not available nationally, then any other grouping of market samples that gives sense can be used. The time span of the journey has no implication for the raising of the market samples"
+>>
+>> We would therefore suggest that:
+>> - We change this, so that market sampling "M" has the same definition as sea sampling "S". Then you can use this for your market samplings and you do not have mixed trips. 
+>> AND
+>> - We also add a new sampling type "D" that will we just like "M", just with the Market sampling definition of a trip adding the information that it can be from a mix of fishing trips. We will then use "D" for our market samplings.
+>> ("D" is for Day-trip-to-market or Danish market sampling , not particularly good! If anybody can propose a more meaningful letter, then feel free).
+>>
+>> 5.1) Optional vs. Mandatory
+>> Mandatory is mandatory. A mandatory field should always have a value, not NULL or "unknown" or "unsexed".
+>> Optional is optional - you do not have this information for some reason, the discussion here as I see it is how to represent "nothing".
+>> The question is how to handle it in the exchange format when the information is missing for some reason. Some prefer "Unknown" while other prefers just to leave the field blank.
+>> I consider this partly a matter of taste. Only "partly" because the first solution with having a specific code for "unknown" tends to evolve into more codes for "unknown" ("otholit lost", "otholit crystalline" etc.). Some even argue that this information is of relevance. It is not relevant at the level we operate on. It might in some cases be relevant in a national database, because you want to know how many otholits that was sampled for reporting the work done, this could include the crystalline, and so you would get paid for sampling them as well.
+>> We have used the second option with blank field during the last 6 years with FishFrame. The majority of users we have discussed this with are happy for this.
+>> Again this can be done in any of the two ways in the COST-classes, but we would be reluctant to change this policy in the exchange format. It should also be respected that the users are used to do it this way.
+>>
+>>
+>> 5.2) Fields in PK must be mandatory
+>> SQl92 is correct for primary keys in a database. The primary key in a modern database should always be a unique auto generated integer that gives no sense in itself - it is just the Id of a record. This can not be NULL. The compound natural key however can include NULL's. In any case this is a database discussion we can save for the class design.
+>> For the exchange format it does not matter if the field is a part of compound natural key or not, the result from 5.1 would apply here as well.
+>>
+>>
+>> PS. There was an error in the last version of the exchange format. The note 1 and 4 on the CS.HL table should be deleted; it was a simple copy-paste error.
+>>
+>> Best regards
+>> Henrik and Teunis
+>>     
+>
+> Hi,
+>
+> WRT 1) It's not only Denmark that uses this sampling scheme. Your solution looks ok and trip number will be used to identify the trip, whatever that is (a trip to the market or a fishing trip).
+>
+> WRT 5.1) We simply need to clarify that a mandatory field can not have the option of not providing information. If a field has that option then the field is optional. That's all.
+>
+> WRT 5.2) If we're willing to use FF exchange format to share data we need to make sure that people can build their PK from the CSV files and we must assure that the unique identifiers are completely identified. 
+> That's our request.
+>
+> Best
+>
+> EJ
+> -----------------------------------------------
+>
+> Dear All
+>
+> 5.1 OK - No problem. We change all the fields marked as "Mandatory - but optional if..." to "Optional - but mandatory if...".
+>
+> I'll implement the agreed changes in the final version of the Exchange format. I expect to mail it out Wednesday at the latest.
+>
+> Have a nice weekend
+> Teunis
+>   
+
+Thanks Teunis.
+
+Have a nice weekend.
+
+EJ
+
+
+
+From E.D.Clarke at marlab.ac.uk  Wed Oct 31 15:27:51 2007
+From: E.D.Clarke at marlab.ac.uk (Liz Clarke)
+Date: Wed, 31 Oct 2007 14:27:51 -0000
+Subject: [cost-devel] some comments and queries on FF5
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C58120100C90B@mail4.marlab.ac.uk>
+
+Dear all. 
+
+I have just been checking through the FF5 format and have several
+comments or queries or points of clarification. Apologies for not doing
+this in such detail sooner, but I think they are all probably quite
+easily resolved. I have put them in the attached word document, but have
+pasted the more important ones below.
+
+best wishes
+Liz
+
+1.	TR, CE: Days at sea. We need to specify exactly how to define
+days at sea in the comments. Is this arrival date - departure date?
+
+2.	HH: Date. What is fishing start date for a fishing trip? Comment
+2 states that for trips, it is the date of the first station number, but
+(a) there is only one station (number 999), and (b) we probably don't
+know the date of the first station. How does this work for mixed trips?
+Wouldn't departure date or landing date or sampling date be more
+suitable (but see also comment on landings statistics later).
+
+3.	HH: Rectangle. This is mandatory for a trip, when we should give
+the rectangle with the most fishing. How is this determined? By hours
+fished? Often not available. By reported landings? Not the same thing as
+the most fishing! Please clarify in comments. I'm not very happy with
+either definition as it creates the impression that we know more than we
+really do.
+
+4.	SL: Weight. Is this total landed weight by species, landings
+category and size/subsampling category? What is meant in the comments by
+"For market sampling: Catch weight is per definition equal to Sample
+weight."?
+
+5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+from? For CA, presumably they would match the corresponding date for
+that station in HH? Please clarify in the comments. For landing
+statistics, the natural date to take these from would be date of
+landing. However, if the date in HH is date of departure, samples landed
+at the beginning month will be allocated to the previous month (when the
+trip departed) rather than the correct landings month. I think it is
+important we make sure that all our dates are consistent.
+
+6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+have not yet decided how to allocate trips/landings to this activity
+level but this field is already mandatory. Is this wise?
+ <<Comments & Queries on FF5.doc>> 
+- - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
+
+Liz Clarke
+FRS Marine Laboratory              	Tel:  01224 295507(direct)
+PO Box 101, 375 Victoria Road          01224 876544
+Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511  
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Comments & Queries on FF5.doc
+Type: application/msword
+Size: 44032 bytes
+Desc: Comments & Queries on FF5.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.doc>
+
+From tej at difres.dk  Wed Oct 31 15:41:33 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Wed, 31 Oct 2007 15:41:33 +0100
+Subject: [cost-devel] some comments and queries on FF5
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C58120100C90B@mail4.marlab.ac.uk>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B029D53B1@ch-mail01.dfu.local>
+
+Dear All
+ 
+Attached is the latest version of the exch. format doc (31/11-07).
+ 
+RE 1:
+J?rgen Dalskov just added a piece of text from the EC about days at sea.
+" A day at sea shall be measured as any continuous period of 24 hours (or part thereof) where a vessel is absent from port. The time from which the continuous period is measured is at the discretion of the Member State whose flag is flown by the vessel concerned."
+
+ 
+BR
+Teunis
+
+________________________________
+
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af Liz Clarke
+Sendt: 31. oktober 2007 15:28
+Til: cost-project-devel at lists.berlios.de
+Emne: [cost-devel] some comments and queries on FF5
+
+
+
+Dear all. 
+
+I have just been checking through the FF5 format and have several comments or queries or points of clarification. Apologies for not doing this in such detail sooner, but I think they are all probably quite easily resolved. I have put them in the attached word document, but have pasted the more important ones below.
+
+best wishes 
+Liz 
+
+1.	TR, CE: Days at sea. We need to specify exactly how to define days at sea in the comments. Is this arrival date - departure date? 
+	
+
+2.      HH: Date. What is fishing start date for a fishing trip? Comment 2 states that for trips, it is the date of the first station number, but (a) there is only one station (number 999), and (b) we probably don't know the date of the first station. How does this work for mixed trips? Wouldn't departure date or landing date or sampling date be more suitable (but see also comment on landings statistics later).
+
+3.      HH: Rectangle. This is mandatory for a trip, when we should give the rectangle with the most fishing. How is this determined? By hours fished? Often not available. By reported landings? Not the same thing as the most fishing! Please clarify in comments. I'm not very happy with either definition as it creates the impression that we know more than we really do.
+
+4.      SL: Weight. Is this total landed weight by species, landings category and size/subsampling category? What is meant in the comments by "For market sampling: Catch weight is per definition equal to Sample weight."?
+
+5.      CA, CL, CE: Quarter & Month. What date are these to be taken from? For CA, presumably they would match the corresponding date for that station in HH? Please clarify in the comments. For landing statistics, the natural date to take these from would be date of landing. However, if the date in HH is date of departure, samples landed at the beginning month will be allocated to the previous month (when the trip departed) rather than the correct landings month. I think it is important we make sure that all our dates are consistent.
+
+6.      HH, CL, CE: Fishing activity level 5: FRS (and I suspect others) have not yet decided how to allocate trips/landings to this activity level but this field is already mandatory. Is this wise?
+
+<<Comments & Queries on FF5.doc>> 
+- - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - 
+Liz Clarke 
+FRS Marine Laboratory                   Tel:  01224 295507(direct) 
+PO Box 101, 375 Victoria Road          01224 876544 
+Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511  
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e7a56ae/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame exchangeformat.doc
+Type: application/msword
+Size: 6214144 bytes
+Desc: FishFrame exchangeformat.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e7a56ae/attachment.doc>
+

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COST/FLR interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C49DC64F5.6090601%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000215.html">
+   <LINK REL="Next"  HREF="000218.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COST/FLR interface</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C49DC64F5.6090601%40ifremer.fr%3E"
+       TITLE="[cost-devel] COST/FLR interface">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Wed Apr  8 10:48:53 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000215.html">[cost-devel] COST/FLR interface
+</A></li>
+        <LI>Next message: <A HREF="000218.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ernesto,
+
+your code is Ok, thanks for this. Mathieu is working on the manual for 
+the biological parameter estimates, so you should be able to see a 
+dbeObject with bp estimates early this afternoon.
+
+I have a question regarding the compilation of COSTdbe including your 
+code. You need the library FLCore to run the FLQuant creator, which is 
+logical, but do we want the COST user to install systematically the 
+FLCore library for loading COSTdbe? Is there an alternative to this, 
+like forcing the compilation and put an error message like  'this method 
+needs the library FLCore' that appears when you run FLQuant method. The 
+problem would be similar in case of including this method in FLCore, it 
+would necessitate COSdbe library to know about a dbeOutput!
+
+Best
+
+Joel
+
+
+
+Ernesto Jardim a &#233;crit :
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I've a method to produce a FLQuant from a dbeOutput object. It works 
+</I>&gt;<i> fine.
+</I>&gt;<i>
+</I>&gt;<i> Load FLCore, copy paste the code attached, run the examples on the manual
+</I>&gt;<i> (we need the lanEstim to test) and run
+</I>&gt;<i>
+</I>&gt;<i> flq &lt;- FLQuant(lanEstim)
+</I>&gt;<i>
+</I>&gt;<i> You can check the results
+</I>&gt;<i>
+</I>&gt;<i> head(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">lanEstim at ageStruc</A>)
+</I>&gt;<i>
+</I>&gt;<i> flq[&quot;4&quot;,&quot;2006&quot;,&quot;1&quot;,&quot;1&quot;,&quot;all&quot;,]
+</I>&gt;<i> flq[&quot;9&quot;,&quot;2006&quot;,&quot;1&quot;,&quot;1&quot;,&quot;all&quot;,]
+</I>&gt;<i>
+</I>&gt;&gt;<i> head(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">lanEstim at ageStruc</A>$estim)
+</I>&gt;<i>      time space technical age      value
+</I>&gt;<i> 1 2006 - 1   all         1   4   142.8222
+</I>&gt;<i> 2 2006 - 1   all         1   5  5451.3347
+</I>&gt;<i> 3 2006 - 1   all         1   6  9134.7380
+</I>&gt;<i> 4 2006 - 1   all         1   7  9972.9280
+</I>&gt;<i> 5 2006 - 1   all         1   8 19751.2635
+</I>&gt;<i> 6 2006 - 1   all         1   9  7239.5636
+</I>&gt;&gt;<i> flq[&quot;4&quot;,&quot;2006&quot;,&quot;1&quot;,&quot;1&quot;,&quot;all&quot;,]
+</I>&gt;<i> An object of class &quot;FLQuant&quot;
+</I>&gt;<i> , , unit = 1, season = 1, area = all
+</I>&gt;<i>
+</I>&gt;<i>   year
+</I>&gt;<i> age 2006
+</I>&gt;<i>  4 142.82
+</I>&gt;<i>
+</I>&gt;<i> units:  NA
+</I>&gt;&gt;<i> flq[&quot;9&quot;,&quot;2006&quot;,&quot;1&quot;,&quot;1&quot;,&quot;all&quot;,]
+</I>&gt;<i> An object of class &quot;FLQuant&quot;
+</I>&gt;<i> , , unit = 1, season = 1, area = all
+</I>&gt;<i>
+</I>&gt;<i>   year
+</I>&gt;<i> age 2006
+</I>&gt;<i>  9 7239.6
+</I>&gt;<i>
+</I>&gt;<i> units:  NA
+</I>&gt;<i>
+</I>&gt;<i> Welcome to the wonderful world of FLR ;-)
+</I>&gt;<i>
+</I>&gt;<i> xyplot(data~age|season,groups=unit, data=flq, auto.key=list(points=F,
+</I>&gt;<i> lines=T, space=&quot;right&quot;), type=&quot;l&quot;, as.table=T)
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure where this method should be included by I suppose COSTdbe
+</I>&gt;<i> is the candidate for now.
+</I>&gt;<i>
+</I>&gt;<i> This method can be applied to other parameters, but I need examples to
+</I>&gt;<i> check the code. Like mean weight, etc. I suppose all dbe methods will
+</I>&gt;<i> produce dbeOutput objects.
+</I>&gt;<i>
+</I>&gt;<i> Best
+</I>&gt;<i>
+</I>&gt;<i> EJ
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/5d24dbb6/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/5d24dbb6/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000215.html">[cost-devel] COST/FLR interface
+</A></li>
+	<LI>Next message: <A HREF="000218.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#217">[ date ]</a>
+              <a href="thread.html#217">[ thread ]</a>
+              <a href="subject.html#217">[ subject ]</a>
+              <a href="author.html#217">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

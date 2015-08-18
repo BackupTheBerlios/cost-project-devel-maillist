@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] fishing effort allocation
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20fishing%20effort%20allocation&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8913%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000174.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] fishing effort allocation</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20fishing%20effort%20allocation&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8913%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] fishing effort allocation">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Fri Dec  5 16:26:40 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000174.html">[cost-devel] Data Exchange Format 24Nov08 - Questions &amp; comments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Teunis, Joel et al,
+
+Thanks for posting the data exchange format 24Nov08 on the website. We are updating our market data extraction based on it.
+
+For the CE table note 1 says:
+
+If a trip is [sic] covers more than 1 rectangle/SubPolygon, then the rectangle with the most fishing is used
+
+1. Can you confirm 'most fishing' refers to most effort.
+
+2. What is the rule if two or more statistical rectangles have the same effort?
+
+3. Is the following very small example, with only one trip and species, correct (except for the format of division and rectangle)?
+
+The trip fishes in 3 rectangles:
+division  rectangle   hours_fished  official_landings
+VIIe	     29E6        6                500
+VIIe	     29E7        6                600
+VIId	     29E8        7                 10
+
+CL table is assigned
+division  rectangle    Official Landings weight
+VIIe	     29E6                    500
+VIIe	     29E7                    600
+VIId	     29E8                     10
+
+CE table is assigned
+division  rectangle   Fishing time  Number of trips
+VIIe	     29E6        6                0
+VIIe	     29E7        6                0
+VIId	     29E8        7                1
+
+
+Regards, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000174.html">[cost-devel] Data Exchange Format 24Nov08 - Questions &amp; comments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#170">[ date ]</a>
+              <a href="thread.html#170">[ thread ]</a>
+              <a href="subject.html#170">[ subject ]</a>
+              <a href="author.html#170">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

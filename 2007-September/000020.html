@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C46FB8C08.6010200%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000021.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C46FB8C08.6010200%40ipimar.pt%3E"
+       TITLE="[cost-devel] FF5 data call">ernesto at ipimar.pt
+       </A><BR>
+    <I>Thu Sep 27 12:55:04 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000021.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Maxwell (Cefas) wrote:
+&gt;<i> Hi Teunis , Ernesto
+</I>&gt;<i> thanks for your quick replies.
+</I>&gt;<i>
+</I>&gt;<i> The attached document (maturity keys example.doc) gives some maturity stage examples.
+</I>&gt;<i>
+</I>&gt;<i> At our markets the categories are only consistent within a landing (which is why we use vessel raising) it's not even a nationally fixed scaled. 
+</I>&gt;<i> The character format is because the field contains either category numbers 0 to 99 or it might contain EU grades coded as 
+</I>&gt;<i> grade            gradename
+</I>&gt;<i> 99                COLLECTIVE GRADE
+</I>&gt;<i> A1           
+</I>&gt;<i> A2           
+</I>&gt;<i> A3           
+</I>&gt;<i> A4           
+</I>&gt;<i> A5           
+</I>&gt;<i> B1           
+</I>&gt;<i> B2           
+</I>&gt;<i> B3           
+</I>&gt;<i> B4           
+</I>&gt;<i> B5           
+</I>&gt;<i> E1           
+</I>&gt;<i> E2           
+</I>&gt;<i> E3           
+</I>&gt;<i> E4           
+</I>&gt;<i> E5           
+</I>&gt;<i> G9                GRADED BUT DETAILS UNKNOWN
+</I>&gt;<i> N9                UNKNOWN
+</I>&gt;<i> U9                UNGRADED
+</I>&gt;<i> X9                QUALITY LOWER THAN EC STANDARDS
+</I>&gt;<i>
+</I>&gt;<i> I don't know why it is this combination of integer and character codes.
+</I>&gt;<i>
+</I>&gt;<i> For landings value the data will be recorded in national currency, I can't change that, so the question is at what point to convert them. I would prefer the format to be based on values collected and the COST code convert them so that
+</I>&gt;<i>  i) the conversion factors are stored
+</I>&gt;<i>  ii) for analyses run within a lab, which may be most of them given the political aspects of if and how to share landings data at vessel level, the values don't have to be re-converted to national currency (with the risk of a different conversion factor being used).
+</I>&gt;<i>
+</I>&gt;<i> BR, David
+</I>
+Hi,
+
+IMO categories should be stored as factors in R. If the category is 
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It 
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000021.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

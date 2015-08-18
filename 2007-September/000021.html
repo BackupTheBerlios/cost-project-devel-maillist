@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818AC0%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000020.html">
+   <LINK REL="Next"  HREF="000029.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818AC0%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] FF5 data call">tej at difres.dk
+       </A><BR>
+    <I>Thu Sep 27 15:00:19 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000020.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000029.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Look for the mail at the bottom of the text... 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] On Behalf Of
+ernesto
+Sent: 27. september 2007 12:55
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] FF5 data call
+
+David Maxwell (Cefas) wrote:
+&gt;<i> Hi Teunis , Ernesto
+</I>&gt;<i> thanks for your quick replies.
+</I>&gt;<i>
+</I>&gt;<i> The attached document (maturity keys example.doc) gives some maturity
+</I>stage examples.
+&gt;<i>
+</I>&gt;<i> At our markets the categories are only consistent within a landing
+</I>(which is why we use vessel raising) it's not even a nationally fixed
+scaled. 
+&gt;<i> The character format is because the field contains either category
+</I>numbers 0 to 99 or it might contain EU grades coded as 
+&gt;<i> grade            gradename
+</I>&gt;<i> 99                COLLECTIVE GRADE
+</I>&gt;<i> A1           
+</I>&gt;<i> A2           
+</I>&gt;<i> A3           
+</I>&gt;<i> A4           
+</I>&gt;<i> A5           
+</I>&gt;<i> B1           
+</I>&gt;<i> B2           
+</I>&gt;<i> B3           
+</I>&gt;<i> B4           
+</I>&gt;<i> B5           
+</I>&gt;<i> E1           
+</I>&gt;<i> E2           
+</I>&gt;<i> E3           
+</I>&gt;<i> E4           
+</I>&gt;<i> E5           
+</I>&gt;<i> G9                GRADED BUT DETAILS UNKNOWN
+</I>&gt;<i> N9                UNKNOWN
+</I>&gt;<i> U9                UNGRADED
+</I>&gt;<i> X9                QUALITY LOWER THAN EC STANDARDS
+</I>&gt;<i>
+</I>&gt;<i> I don't know why it is this combination of integer and character
+</I>codes.
+&gt;<i>
+</I>&gt;<i> For landings value the data will be recorded in national currency, I 
+</I>&gt;<i> can't change that, so the question is at what point to convert them. I
+</I>
+&gt;<i> would prefer the format to be based on values collected and the COST 
+</I>&gt;<i> code convert them so that
+</I>&gt;<i>  i) the conversion factors are stored
+</I>&gt;<i>  ii) for analyses run within a lab, which may be most of them given
+</I>the political aspects of if and how to share landings data at vessel
+level, the values don't have to be re-converted to national currency
+(with the risk of a different conversion factor being used).
+&gt;<i>
+</I>&gt;<i> BR, David
+</I>
+Hi,
+
+IMO categories should be stored as factors in R. If the category is
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+------------------------------------------------------------------------
+------------------------------------------------------------------
+Hi
+
+As I see it then the last four (G9, N9, U9, X9) should either be
+uploaded without any size category (unsorted) or the category should be
+estimated. We have Danish data where we know it was sorted, but the
+information is not available for some reason. What we do then is to
+split the landings up according to some distribution key we make out of
+the available data. If you can do the same, then it is just A1-5, B1-5,
+E1-5 that are left. You write that they are EU grades, so it must be
+possible to convert them to the integer EU size sortings, or?
+
+Br Teunis
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000020.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000029.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#21">[ date ]</a>
+              <a href="thread.html#21">[ thread ]</a>
+              <a href="subject.html#21">[ subject ]</a>
+              <a href="author.html#21">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

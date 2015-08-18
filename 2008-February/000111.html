@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Interim report
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Interim%20report&In-Reply-To=%3C47B3060E.9050102%40nr.no%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000110.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Interim report</H1>
+    <B>David Hirst</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Interim%20report&In-Reply-To=%3C47B3060E.9050102%40nr.no%3E"
+       TITLE="[cost-devel] Interim report">david.hirst at nr.no
+       </A><BR>
+    <I>Wed Feb 13 16:00:30 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000110.html">[cost-devel] Interim report
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[cost-devel] Version 1 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Interim report: Model based methods.
+
+Tasks:
+1) Develop model for discards
+2) Incorporate discard model with existing landings model
+3) Implement full model on COST data structures
+4) Test model
+5) Write simulation routines to simulate catch from model
+6) Test performance of model and design based methods on simulated data
+7) Document models and programs.
+
+Current status:
+1) Complete
+2) In progress. Estimated completion end April 2008
+3) Scheduled May 2008
+4) Ongoing. Finish end May 2008
+5) In progress. Estimated completion March 2008 (without discards), 
+April 2008 with discards
+6) Start at next expert meeting
+7) Ongoing.
+
+
+
+
+
+Joel VIGNEAU wrote:
+&gt;<i> Dear COST developers,
+</I>&gt;<i>
+</I>&gt;<i> it is time to write the interim report for the Commission and I've 
+</I>&gt;<i> promised one month ago to respect the new deadline of next Friday 
+</I>&gt;<i> (16/02). In order to finalise this document I still need some inputs. 
+</I>&gt;<i> Here is what I need based on the structure of the report :
+</I>&gt;<i>
+</I>&gt;<i>     * Data Exchange Format : Ok
+</I>&gt;<i>     * CORE package : Ernesto is finalising a version 1.0 for Friday. I
+</I>&gt;<i>       need Alastair's review of the documentation as the doc itself
+</I>&gt;<i>       will not be affected by Ernesto's updates to cope with the new
+</I>&gt;<i>       DEF structure.
+</I>&gt;<i>     * EDA package : Mathieu is working on the text of the report
+</I>&gt;<i>       (usage and outputs) together with the man pages. He has
+</I>&gt;<i>       Alastair's work on mapping but is missing the check functions
+</I>&gt;<i>     * DESIGN-BASED functions : I need David M. bullet points on the
+</I>&gt;<i>       state of development and short-term task forecast
+</I>&gt;<i>     * MODEL-BASED functions : id above by David H.
+</I>&gt;<i>
+</I>&gt;<i> The draft circulation will be rocket-like, if exists before Friday. 
+</I>&gt;<i> Anyhow, this report will be very useful for all developers to 
+</I>&gt;<i> understand the work done so far. It is one point to send the 
+</I>&gt;<i> Commission a report in order to respect the terms of the contract. It 
+</I>&gt;<i> is another point to make this baby grow further for our own purpose 
+</I>&gt;<i> and the purpose of the very final report.
+</I>&gt;<i>
+</I>&gt;<i> Thank you for your help
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i>
+</I>&gt;<i> Joel
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> .--
+</I>&gt;<i>
+</I>&gt;<i> /*Jo&#235;l VIGNEAU*/
+</I>&gt;<i>
+</I>&gt;<i> Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+</I>&gt;<i> IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+</I>&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;<i>
+</I>&gt;<i> T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;<i>   
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000110.html">[cost-devel] Interim report
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[cost-devel] Version 1 is out !
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

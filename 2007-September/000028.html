@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C20070927180009.a29l7j009wwg84o4%40www.ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000027.html">
+   <LINK REL="Next"  HREF="000030.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>Joel.Vigneau at ifremer.fr</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C20070927180009.a29l7j009wwg84o4%40www.ifremer.fr%3E"
+       TITLE="[cost-devel] FF5 data call">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Thu Sep 27 18:00:09 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000027.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000030.html">[cost-devel] CVS updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+I'm in favour of a COST convention for developers (naming, graphing, 
+presentation of the outputs, message boxes, etc... ). I let you start 
+with S4 class definition as suggested by Ernesto. We'll discuss this 
+during the meeting in Lisbon.
+
+Joel
+
+
+ernesto &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">ernesto at ipimar.pt</A>&gt; a &#233;crit :
+
+&gt;<i> Teunis Jansen wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> 
+</I>&gt;&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] On Behalf Of 
+</I>&gt;&gt;<i> ernesto
+</I>&gt;&gt;<i> Sent: 27. september 2007 17:29
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: Re: [cost-devel] FF5 data call
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Teunis Jansen wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Do we have a coding convention with common guidelines for naming 
+</I>&gt;&gt;&gt;<i> variables, in-line and function-header documentation etc?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> BR
+</I>&gt;&gt;&gt;<i> Teunis
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -----Original Message-----
+</I>&gt;&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] On Behalf Of
+</I>&gt;&gt;&gt;<i> ernesto
+</I>&gt;&gt;&gt;<i> Sent: 27. september 2007 17:11
+</I>&gt;&gt;&gt;<i> To: Cost-devel Mailing List
+</I>&gt;&gt;&gt;<i> Cc: Mathieu MERZEREAUD
+</I>&gt;&gt;&gt;<i> Subject: Re: [cost-devel] FF5 data call
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Mathieu MERZEREAUD wrote:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I've just finished this procedure that generates a list with the 3
+</I>&gt;&gt;&gt;&gt;<i> classes (cs,cl,ce).
+</I>&gt;&gt;&gt;&gt;<i> You just have to unzip the folder, change the directory in the code,
+</I>&gt;&gt;&gt;&gt;<i> and source.
+</I>&gt;&gt;&gt;&gt;<i> I've only tested it for those files, but it must be working for all
+</I>&gt;&gt;&gt;&gt;<i> types of files.
+</I>&gt;&gt;&gt;&gt;<i> It's just a draft, so I send it to you directly. Is that close to
+</I>&gt;&gt;&gt;&gt;<i> your idea concerning the use and the outcome?
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Best
+</I>&gt;&gt;&gt;&gt;<i> Mathieu
+</I>&gt;&gt;&gt;&gt;<i> #COST (pour ernesto)
+</I>&gt;&gt;&gt;&gt;<i> #Code de lecture des fichiers .csv dans un r&#233;pertoire cens&#233; regrouper
+</I>&gt;&gt;&gt;&gt;<i> tous les fichiers de travail, et construction des objets en
+</I>&gt;&gt;&gt;&gt;<i> cons&#233;quence
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> CSimport &lt;- function(object,df){         #'object' de classe 'csData'
+</I>&gt;&gt;&gt;&gt;<i> tabnames &lt;- c(&quot;TR&quot;,&quot;HH&quot;,&quot;SL&quot;,&quot;HL&quot;,&quot;CA&quot;) RecordType &lt;-
+</I>&gt;&gt;&gt;&gt;<i> unique(as.character(df[,1])) if (length(RecordType)&gt;1)
+</I>&gt;&gt;&gt;&gt;<i> stop(&quot;RecordType is not unique!!&quot;) if (!(RecordType%in%tabnames))
+</I>&gt;&gt;&gt;&gt;<i> stop(&quot;RecordType is not valid!!&quot;) dimTest &lt;- c(16,28,19,17,28)
+</I>&gt;&gt;&gt;&gt;<i> names(dimTest) &lt;- tabnames
+</I>&gt;&gt;&gt;&gt;<i> if (dimTest[RecordType]!=dim(df)[2]) stop(&quot;Wrong size!!&quot;) df &lt;-
+</I>&gt;&gt;&gt;&gt;<i> df[,2:dim(df)[2]]
+</I>&gt;&gt;&gt;&gt;<i> eval(parse('',text=paste(&quot;names(df) &lt;-
+</I>&gt;&gt;&gt;&gt;<i> names(object@&quot;,tolower(RecordType),&quot;)&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;&gt;&gt;<i> eval(parse('',text=paste(&quot;object@&quot;,tolower(RecordType),&quot; &lt;-
+</I>&gt;&gt;&gt;&gt;<i> df&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;&gt;&gt;<i> return(object)
+</I>&gt;&gt;&gt;&gt;<i> }
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> CEimport &lt;- function(object,df){         #'object' de classe 'ceData'
+</I>&gt;&gt;&gt;&gt;<i> if (dim(df)[2]!=16) stop(&quot;Wrong size!!&quot;) df &lt;- df[,2:dim(df)[2]]
+</I>&gt;&gt;&gt;&gt;<i> names(df) &lt;- names(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at ce</A>)
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at ce</A> &lt;- df
+</I>&gt;&gt;&gt;&gt;<i> return(object)
+</I>&gt;&gt;&gt;&gt;<i> }
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> CLimport &lt;- function(object,df){         #'object' de classe 'clData'
+</I>&gt;&gt;&gt;&gt;<i> if (dim(df)[2]!=20) stop(&quot;Wrong size!!&quot;) df &lt;- df[,2:dim(df)[2]]
+</I>&gt;&gt;&gt;&gt;<i> names(df) &lt;- names(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at cl</A>)
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at cl</A> &lt;- df
+</I>&gt;&gt;&gt;&gt;<i> return(object)
+</I>&gt;&gt;&gt;&gt;<i> }
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> ApplyDataCost &lt;- function(file,list.object){ df &lt;-
+</I>&gt;&gt;&gt;&gt;<i> read.table(file,header=TRUE,sep=&quot;;&quot;)
+</I>&gt;&gt;&gt;&gt;<i> vec &lt;- c(rep(&quot;CS&quot;,5),&quot;CL&quot;,&quot;CE&quot;)
+</I>&gt;&gt;&gt;&gt;<i> names(vec) &lt;- c(&quot;TR&quot;,&quot;HH&quot;,&quot;SL&quot;,&quot;HL&quot;,&quot;CA&quot;,&quot;CL&quot;,&quot;CE&quot;)
+</I>&gt;&gt;&gt;&gt;<i> val &lt;- as.character(vec[as.character(df[1,1])])
+</I>&gt;&gt;&gt;&gt;<i> eval(parse('',text=paste(&quot;list.object$&quot;,tolower(val),&quot; &lt;-
+</I>&gt;&gt;&gt;&gt;<i> &quot;,val,&quot;import(list.object$&quot;,tolower(val),&quot;,df)&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;&gt;&gt;<i> return(list.object)
+</I>&gt;&gt;&gt;&gt;<i> }
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> ####################
+</I>&gt;&gt;&gt;&gt;<i> ## Main procedure ##
+</I>&gt;&gt;&gt;&gt;<i> ####################
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> ImportDataCOST &lt;- function (directory,desc=&quot;My Stock&quot;) {    
+</I>&gt;&gt;&gt;&gt;<i> #directory = r&#233;pertoire contenant tous les .csv  ; desc = slot 
+</I>&gt;&gt;&gt;&gt;<i> 'desc' des objets de type char()
+</I>&gt;&gt;&gt;&gt;<i> require(COSTcore)
+</I>&gt;&gt;&gt;&gt;<i> obj &lt;- list(cs=new(&quot;csData&quot;),cl=new(&quot;clData&quot;),ce=new(&quot;ceData&quot;))
+</I>&gt;&gt;&gt;&gt;<i> neodesc &lt;- rep(desc,3)
+</I>&gt;&gt;&gt;&gt;<i> obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cs at desc</A> &lt;- neodesc[1] ; obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cl at desc</A> &lt;- neodesc[2] ; obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">ce at desc</A>
+</I>&gt;&gt;&gt;&gt;<i> &lt;- neodesc[3] Files &lt;- paste(directory,list.files(directory),sep=&quot;/&quot;)
+</I>&gt;&gt;&gt;&gt;<i> for (i in 1:length(Files)) obj &lt;- ApplyDataCost(Files[i],obj)
+</I>&gt;&gt;&gt;&gt;<i> invisible(obj)
+</I>&gt;&gt;&gt;&gt;<i> }
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> #Example
+</I>&gt;&gt;&gt;&gt;<i> #Put the .csv files in one folder
+</I>&gt;&gt;&gt;&gt;<i> directory &lt;- &quot;Q:/FF5_sole&quot;   #path of the folder
+</I>&gt;&gt;&gt;&gt;<i> obj &lt;- ImportDataCOST(directory)
+</I>&gt;&gt;&gt;&gt;<i> #obj$cs, obj$cl, obj$ce
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Hi,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> It looks ok but you were faster than me :-)
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> These procedures should read the data but rely on the class 
+</I>&gt;&gt;&gt;<i> constructor to create the objects, otherwise you'll be bypassing 
+</I>&gt;&gt;&gt;<i> the validity checks.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> You're validating based on ncol but I was about to write the 
+</I>&gt;&gt;&gt;<i> validation based on col names. Do you think ncol is enough ?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> EJ
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> ps: do you have CVS installed already ?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i> R does not have a name convention. I try to be consistent and keep a 
+</I>&gt;&gt;<i> list of acronyms (see the begining of csData.R). With regards to 
+</I>&gt;&gt;<i> documentation there's a latex like system. If you run
+</I>&gt;&gt;<i> promptClass(&quot;csData&quot;) you'll get an empty file of a man page for 
+</I>&gt;&gt;<i> class csData.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> There's a set of manuals you can read (<A HREF="http://www.r-project.org/">http://www.r-project.org/</A>) 
+</I>&gt;&gt;<i> with more info about it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> EJ
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -----------------------------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> OK, but should we not have a common naming convention for all COST 
+</I>&gt;&gt;<i> developers? It makes reading and reviewing other developers code 
+</I>&gt;&gt;<i> much easier. We always have that on software development projects.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Teunis
+</I>&gt;<i>
+</I>&gt;<i> That's a good idea if we don't spend lot's of effort doing it. Anyway
+</I>&gt;<i> the S4 class definition sets the names of the basic variable (the name
+</I>&gt;<i> of the columns in each data.frame). If other classes follow the same
+</I>&gt;<i> approach I guess we've covered most of it, don't we ?
+</I>&gt;<i>
+</I>&gt;<i> EJ
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000027.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000030.html">[cost-devel] CVS updated
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#28">[ date ]</a>
+              <a href="thread.html#28">[ thread ]</a>
+              <a href="subject.html#28">[ subject ]</a>
+              <a href="author.html#28">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

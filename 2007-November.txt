@@ -1,0 +1,748 @@
+From Joel.Vigneau at ifremer.fr  Thu Nov  1 12:48:27 2007
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 01 Nov 2007 12:48:27 +0100
+Subject: [cost-devel] Trans.: Re:  some comments and queries on FF5
+Message-ID: <20071101124827.9fuab0nli8okskss@www.ifremer.fr>
+
+Hi all,
+
+sorry when I replied to Liz, I forgot to send the message to the list. 
+Please find below and in the attached file my comments.
+
+Regards
+
+Joel
+
+----- Message transf?r? de jvigneau at ifremer.fr -----
+    Date : Thu, 01 Nov 2007 01:04:49 +0100
+     De : jvigneau at ifremer.fr
+R?pondre ? : jvigneau at ifremer.fr
+Sujet : Re: [cost-devel] some comments and queries on FF5
+      ? : Liz Clarke <E.D.Clarke at marlab.ac.uk>
+
+Liz Clarke <E.D.Clarke at marlab.ac.uk> a ?crit :
+
+> Dear all.
+>
+> I have just been checking through the FF5 format and have several
+> comments or queries or points of clarification. Apologies for not doing
+> this in such detail sooner, but I think they are all probably quite
+> easily resolved. I have put them in the attached word document, but have
+> pasted the more important ones below.
+>
+> best wishes
+> Liz
+>
+> 1.	TR, CE: Days at sea. We need to specify exactly how to define
+> days at sea in the comments. Is this arrival date - departure date?
+
+
+>
+> 2.	HH: Date. What is fishing start date for a fishing trip? Comment
+> 2 states that for trips, it is the date of the first station number, but
+> (a) there is only one station (number 999), and (b) we probably don't
+> know the date of the first station. How does this work for mixed trips?
+> Wouldn't departure date or landing date or sampling date be more
+> suitable (but see also comment on landings statistics later).
+>
+> 3.	HH: Rectangle. This is mandatory for a trip, when we should give
+> the rectangle with the most fishing. How is this determined? By hours
+> fished? Often not available. By reported landings? Not the same thing as
+> the most fishing! Please clarify in comments. I'm not very happy with
+> either definition as it creates the impression that we know more than we
+> really do.
+>
+> 4.	SL: Weight. Is this total landed weight by species, landings
+> category and size/subsampling category? What is meant in the comments by
+> "For market sampling: Catch weight is per definition equal to Sample
+> weight."?
+>
+> 5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+> from? For CA, presumably they would match the corresponding date for
+> that station in HH? Please clarify in the comments. For landing
+> statistics, the natural date to take these from would be date of
+> landing. However, if the date in HH is date of departure, samples landed
+> at the beginning month will be allocated to the previous month (when the
+> trip departed) rather than the correct landings month. I think it is
+> important we make sure that all our dates are consistent.
+>
+> 6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+> have not yet decided how to allocate trips/landings to this activity
+> level but this field is already mandatory. Is this wise?
+> <<Comments & Queries on FF5.doc>>
+> - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
+>
+> Liz Clarke
+> FRS Marine Laboratory              	Tel:  01224 295507(direct)
+> PO Box 101, 375 Victoria Road          01224 876544
+> Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511
+> - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+>
+>
+
+Hi Liz,
+
+please find my comments to the issues you have raised. They are 
+important points to clarify the definitions of the variables but they 
+mainly do not impact the structure of the DEF. I expect more issues to 
+be raised as and when each institute will prepare datasets. I'll have 
+to take care to keep track of our agreements so that future users 
+easily access to our comments.
+
+Best regards
+
+Joel
+
+
+
+
+
+----- Fin du message transf?r? -----
+
+
+-------------- next part --------------
+[Pi?ce jointe retir?e?: type d'origine de la pi?ce jointe: "application/msword", nom: "Comments & Queries on FF5 commented JV.doc"]
+
+From Joel.Vigneau at ifremer.fr  Thu Nov  1 12:52:47 2007
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 01 Nov 2007 12:52:47 +0100
+Subject: [cost-devel] Trans.: Re:  some comments and queries on FF5
+In-Reply-To: <20071101124827.9fuab0nli8okskss@www.ifremer.fr>
+References: <20071101124827.9fuab0nli8okskss@www.ifremer.fr>
+Message-ID: <20071101125247.36aunc9bkoo4oggg@www.ifremer.fr>
+
+Ok, sorry again! from home the mailing service is not the same!!
+Here is the atteched file
+
+Joel
+
+Joel.Vigneau at ifremer.fr a ?crit :
+
+> Hi all,
+>
+> sorry when I replied to Liz, I forgot to send the message to the 
+> list. Please find below and in the attached file my comments.
+>
+> Regards
+>
+> Joel
+>
+> ----- Message transf?r? de jvigneau at ifremer.fr -----
+>    Date : Thu, 01 Nov 2007 01:04:49 +0100
+>     De : jvigneau at ifremer.fr
+> R?pondre ? : jvigneau at ifremer.fr
+> Sujet : Re: [cost-devel] some comments and queries on FF5
+>      ? : Liz Clarke <E.D.Clarke at marlab.ac.uk>
+>
+> Liz Clarke <E.D.Clarke at marlab.ac.uk> a ?crit :
+>
+>> Dear all.
+>>
+>> I have just been checking through the FF5 format and have several
+>> comments or queries or points of clarification. Apologies for not doing
+>> this in such detail sooner, but I think they are all probably quite
+>> easily resolved. I have put them in the attached word document, but have
+>> pasted the more important ones below.
+>>
+>> best wishes
+>> Liz
+>>
+>> 1.	TR, CE: Days at sea. We need to specify exactly how to define
+>> days at sea in the comments. Is this arrival date - departure date?
+>
+>
+>>
+>> 2.	HH: Date. What is fishing start date for a fishing trip? Comment
+>> 2 states that for trips, it is the date of the first station number, but
+>> (a) there is only one station (number 999), and (b) we probably don't
+>> know the date of the first station. How does this work for mixed trips?
+>> Wouldn't departure date or landing date or sampling date be more
+>> suitable (but see also comment on landings statistics later).
+>>
+>> 3.	HH: Rectangle. This is mandatory for a trip, when we should give
+>> the rectangle with the most fishing. How is this determined? By hours
+>> fished? Often not available. By reported landings? Not the same thing as
+>> the most fishing! Please clarify in comments. I'm not very happy with
+>> either definition as it creates the impression that we know more than we
+>> really do.
+>>
+>> 4.	SL: Weight. Is this total landed weight by species, landings
+>> category and size/subsampling category? What is meant in the comments by
+>> "For market sampling: Catch weight is per definition equal to Sample
+>> weight."?
+>>
+>> 5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+>> from? For CA, presumably they would match the corresponding date for
+>> that station in HH? Please clarify in the comments. For landing
+>> statistics, the natural date to take these from would be date of
+>> landing. However, if the date in HH is date of departure, samples landed
+>> at the beginning month will be allocated to the previous month (when the
+>> trip departed) rather than the correct landings month. I think it is
+>> important we make sure that all our dates are consistent.
+>>
+>> 6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+>> have not yet decided how to allocate trips/landings to this activity
+>> level but this field is already mandatory. Is this wise?
+>> <<Comments & Queries on FF5.doc>>
+>> - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
+>>
+>> Liz Clarke
+>> FRS Marine Laboratory              	Tel:  01224 295507(direct)
+>> PO Box 101, 375 Victoria Road          01224 876544
+>> Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511
+>> - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+>>
+>>
+>
+> Hi Liz,
+>
+> please find my comments to the issues you have raised. They are 
+> important points to clarify the definitions of the variables but they 
+> mainly do not impact the structure of the DEF. I expect more issues 
+> to be raised as and when each institute will prepare datasets. I'll 
+> have to take care to keep track of our agreements so that future 
+> users easily access to our comments.
+>
+> Best regards
+>
+> Joel
+>
+>
+>
+>
+>
+> ----- Fin du message transf?r? -----
+>
+>
+>
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Comments & Queries on FF5 commented JV.doc
+Type: application/msword
+Size: 46080 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071101/1fcb7a04/attachment.doc>
+
+From tej at difres.dk  Thu Nov  1 13:03:56 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 1 Nov 2007 13:03:56 +0100
+Subject: [cost-devel] Trans.: Re:  some comments and queries on FF5
+In-Reply-To: <20071101125247.36aunc9bkoo4oggg@www.ifremer.fr>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B029D54A5@ch-mail01.dfu.local>
+
+ 
+
+-----Oprindelig meddelelse-----
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af Joel.Vigneau at ifremer.fr
+Sendt: 1. november 2007 12:53
+Til: cost-project-devel at lists.berlios.de
+Emne: Re: [cost-devel] Trans.: Re: some comments and queries on FF5
+
+Ok, sorry again! from home the mailing service is not the same!!
+Here is the atteched file
+
+Joel
+
+Joel.Vigneau at ifremer.fr a ?crit :
+
+> Hi all,
+>
+> sorry when I replied to Liz, I forgot to send the message to the list. 
+> Please find below and in the attached file my comments.
+>
+> Regards
+>
+> Joel
+>
+> ----- Message transf?r? de jvigneau at ifremer.fr -----
+>    Date : Thu, 01 Nov 2007 01:04:49 +0100
+>     De : jvigneau at ifremer.fr
+> R?pondre ? : jvigneau at ifremer.fr
+> Sujet : Re: [cost-devel] some comments and queries on FF5
+>      ? : Liz Clarke <E.D.Clarke at marlab.ac.uk>
+>
+> Liz Clarke <E.D.Clarke at marlab.ac.uk> a ?crit :
+>
+>> Dear all.
+>>
+>> I have just been checking through the FF5 format and have several 
+>> comments or queries or points of clarification. Apologies for not 
+>> doing this in such detail sooner, but I think they are all probably 
+>> quite easily resolved. I have put them in the attached word document, 
+>> but have pasted the more important ones below.
+>>
+>> best wishes
+>> Liz
+>>
+>> 1.	TR, CE: Days at sea. We need to specify exactly how to define
+>> days at sea in the comments. Is this arrival date - departure date?
+>
+>
+>>
+>> 2.	HH: Date. What is fishing start date for a fishing trip? Comment
+>> 2 states that for trips, it is the date of the first station number, 
+>> but
+>> (a) there is only one station (number 999), and (b) we probably don't 
+>> know the date of the first station. How does this work for mixed trips?
+>> Wouldn't departure date or landing date or sampling date be more 
+>> suitable (but see also comment on landings statistics later).
+>>
+>> 3.	HH: Rectangle. This is mandatory for a trip, when we should give
+>> the rectangle with the most fishing. How is this determined? By hours 
+>> fished? Often not available. By reported landings? Not the same thing 
+>> as the most fishing! Please clarify in comments. I'm not very happy 
+>> with either definition as it creates the impression that we know more 
+>> than we really do.
+>>
+>> 4.	SL: Weight. Is this total landed weight by species, landings
+>> category and size/subsampling category? What is meant in the comments 
+>> by "For market sampling: Catch weight is per definition equal to 
+>> Sample weight."?
+>>
+>> 5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+>> from? For CA, presumably they would match the corresponding date for 
+>> that station in HH? Please clarify in the comments. For landing 
+>> statistics, the natural date to take these from would be date of 
+>> landing. However, if the date in HH is date of departure, samples 
+>> landed at the beginning month will be allocated to the previous month 
+>> (when the trip departed) rather than the correct landings month. I 
+>> think it is important we make sure that all our dates are consistent.
+>>
+>> 6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+>> have not yet decided how to allocate trips/landings to this activity 
+>> level but this field is already mandatory. Is this wise?
+>> <<Comments & Queries on FF5.doc>>
+>> - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - 
+>> - -
+>>
+>> Liz Clarke
+>> FRS Marine Laboratory              	Tel:  01224 295507(direct)
+>> PO Box 101, 375 Victoria Road          01224 876544
+>> Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511
+>> - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - 
+>> - -
+>>
+>>
+>
+> Hi Liz,
+>
+> please find my comments to the issues you have raised. They are 
+> important points to clarify the definitions of the variables but they 
+> mainly do not impact the structure of the DEF. I expect more issues to 
+> be raised as and when each institute will prepare datasets. I'll have 
+> to take care to keep track of our agreements so that future users 
+> easily access to our comments.
+>
+> Best regards
+>
+> Joel
+
+>
+> ----- Fin du message transf?r? -----
+>
+>
+>Dear All
+
+RE: "I'll have to take care to keep track of our agreements so that future users easily access to our comments."
+There is a lot of additional information and definitions in the comments in the exchange format document. Whenever we agree on a piece of text for clarification / definition, then I think it should be added to the doc. This is the best way to get it out to the datamanagers that needs the information when making the data files.
+
+We are now in the final phase of the development of the data validation module in FishFrame 5.0. When this module is tested and our new production server is up and running, then we will put out a pre-release of this module without the security system. Then everybody, even those that are not registered FishFrame users, can get their files completely validated and see user-friendly error-reports if there is problems in the data. I'll get back to you with a link when this is on-line. I expect that will be around 1rst of December.
+
+BR
+Teunis
+
+
+
+
+
+
+From ernesto at ipimar.pt  Mon Nov  5 11:41:01 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 05 Nov 2007 10:41:01 +0000
+Subject: [cost-devel] Trans.: Re:  some comments and queries on FF5
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B029D54A5@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B029D54A5@ch-mail01.dfu.local>
+Message-ID: <472EF33D.7020300@ipimar.pt>
+
+Teunis Jansen wrote:
+>  
+>
+> -----Oprindelig meddelelse-----
+> Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af Joel.Vigneau at ifremer.fr
+> Sendt: 1. november 2007 12:53
+> Til: cost-project-devel at lists.berlios.de
+> Emne: Re: [cost-devel] Trans.: Re: some comments and queries on FF5
+>
+> Ok, sorry again! from home the mailing service is not the same!!
+> Here is the atteched file
+>
+> Joel
+>
+> Joel.Vigneau at ifremer.fr a ?crit :
+>
+>   
+>> Hi all,
+>>
+>> sorry when I replied to Liz, I forgot to send the message to the list. 
+>> Please find below and in the attached file my comments.
+>>
+>> Regards
+>>
+>> Joel
+>>
+>> ----- Message transf?r? de jvigneau at ifremer.fr -----
+>>    Date : Thu, 01 Nov 2007 01:04:49 +0100
+>>     De : jvigneau at ifremer.fr
+>> R?pondre ? : jvigneau at ifremer.fr
+>> Sujet : Re: [cost-devel] some comments and queries on FF5
+>>      ? : Liz Clarke <E.D.Clarke at marlab.ac.uk>
+>>
+>> Liz Clarke <E.D.Clarke at marlab.ac.uk> a ?crit :
+>>
+>>     
+>>> Dear all.
+>>>
+>>> I have just been checking through the FF5 format and have several 
+>>> comments or queries or points of clarification. Apologies for not 
+>>> doing this in such detail sooner, but I think they are all probably 
+>>> quite easily resolved. I have put them in the attached word document, 
+>>> but have pasted the more important ones below.
+>>>
+>>> best wishes
+>>> Liz
+>>>
+>>> 1.	TR, CE: Days at sea. We need to specify exactly how to define
+>>> days at sea in the comments. Is this arrival date - departure date?
+>>>       
+>>     
+>>> 2.	HH: Date. What is fishing start date for a fishing trip? Comment
+>>> 2 states that for trips, it is the date of the first station number, 
+>>> but
+>>> (a) there is only one station (number 999), and (b) we probably don't 
+>>> know the date of the first station. How does this work for mixed trips?
+>>> Wouldn't departure date or landing date or sampling date be more 
+>>> suitable (but see also comment on landings statistics later).
+>>>
+>>> 3.	HH: Rectangle. This is mandatory for a trip, when we should give
+>>> the rectangle with the most fishing. How is this determined? By hours 
+>>> fished? Often not available. By reported landings? Not the same thing 
+>>> as the most fishing! Please clarify in comments. I'm not very happy 
+>>> with either definition as it creates the impression that we know more 
+>>> than we really do.
+>>>
+>>> 4.	SL: Weight. Is this total landed weight by species, landings
+>>> category and size/subsampling category? What is meant in the comments 
+>>> by "For market sampling: Catch weight is per definition equal to 
+>>> Sample weight."?
+>>>
+>>> 5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+>>> from? For CA, presumably they would match the corresponding date for 
+>>> that station in HH? Please clarify in the comments. For landing 
+>>> statistics, the natural date to take these from would be date of 
+>>> landing. However, if the date in HH is date of departure, samples 
+>>> landed at the beginning month will be allocated to the previous month 
+>>> (when the trip departed) rather than the correct landings month. I 
+>>> think it is important we make sure that all our dates are consistent.
+>>>
+>>> 6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+>>> have not yet decided how to allocate trips/landings to this activity 
+>>> level but this field is already mandatory. Is this wise?
+>>> <<Comments & Queries on FF5.doc>>
+>>> - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - 
+>>> - -
+>>>
+>>> Liz Clarke
+>>> FRS Marine Laboratory              	Tel:  01224 295507(direct)
+>>> PO Box 101, 375 Victoria Road          01224 876544
+>>> Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511
+>>> - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - 
+>>> - -
+>>>
+>>>
+>>>       
+>> Hi Liz,
+>>
+>> please find my comments to the issues you have raised. They are 
+>> important points to clarify the definitions of the variables but they 
+>> mainly do not impact the structure of the DEF. I expect more issues to 
+>> be raised as and when each institute will prepare datasets. I'll have 
+>> to take care to keep track of our agreements so that future users 
+>> easily access to our comments.
+>>
+>> Best regards
+>>
+>> Joel
+>>     
+>
+>   
+>> ----- Fin du message transf?r? -----
+>>
+>>
+>> Dear All
+>>     
+>
+> RE: "I'll have to take care to keep track of our agreements so that future users easily access to our comments."
+> There is a lot of additional information and definitions in the comments in the exchange format document. Whenever we agree on a piece of text for clarification / definition, then I think it should be added to the doc. This is the best way to get it out to the datamanagers that needs the information when making the data files.
+>
+> We are now in the final phase of the development of the data validation module in FishFrame 5.0. When this module is tested and our new production server is up and running, then we will put out a pre-release of this module without the security system. Then everybody, even those that are not registered FishFrame users, can get their files completely validated and see user-friendly error-reports if there is problems in the data. I'll get back to you with a link when this is on-line. I expect that will be around 1rst of December.
+>
+> BR
+> Teunis
+
+Hi Teunis,
+
+Can you please distribute the latest version of the exchange format. I'd 
+like to finalize the classes definitions and upload it to our doc 
+repository in berlios.
+
+Thanks
+
+EJ
+
+
+
+From tej at difres.dk  Mon Nov  5 14:02:32 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Mon, 5 Nov 2007 14:02:32 +0100
+Subject: [cost-devel] Trans.: Re:  some comments and queries on FF5
+In-Reply-To: <472EF33D.7020300@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B029D56A4@ch-mail01.dfu.local>
+
+ 
+
+-----Oprindelig meddelelse-----
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af ernesto
+Sendt: 5. november 2007 11:41
+Til: cost-project-devel at lists.berlios.de
+Emne: Re: [cost-devel] Trans.: Re: some comments and queries on FF5
+
+Teunis Jansen wrote:
+>  
+>
+> -----Oprindelig meddelelse-----
+> Fra: cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af 
+> Joel.Vigneau at ifremer.fr
+> Sendt: 1. november 2007 12:53
+> Til: cost-project-devel at lists.berlios.de
+> Emne: Re: [cost-devel] Trans.: Re: some comments and queries on FF5
+>
+> Ok, sorry again! from home the mailing service is not the same!!
+> Here is the atteched file
+>
+> Joel
+>
+> Joel.Vigneau at ifremer.fr a ?crit :
+>
+>   
+>> Hi all,
+>>
+>> sorry when I replied to Liz, I forgot to send the message to the list. 
+>> Please find below and in the attached file my comments.
+>>
+>> Regards
+>>
+>> Joel
+>>
+>> ----- Message transf?r? de jvigneau at ifremer.fr -----
+>>    Date : Thu, 01 Nov 2007 01:04:49 +0100
+>>     De : jvigneau at ifremer.fr
+>> R?pondre ? : jvigneau at ifremer.fr
+>> Sujet : Re: [cost-devel] some comments and queries on FF5
+>>      ? : Liz Clarke <E.D.Clarke at marlab.ac.uk>
+>>
+>> Liz Clarke <E.D.Clarke at marlab.ac.uk> a ?crit :
+>>
+>>     
+>>> Dear all.
+>>>
+>>> I have just been checking through the FF5 format and have several 
+>>> comments or queries or points of clarification. Apologies for not 
+>>> doing this in such detail sooner, but I think they are all probably 
+>>> quite easily resolved. I have put them in the attached word 
+>>> document, but have pasted the more important ones below.
+>>>
+>>> best wishes
+>>> Liz
+>>>
+>>> 1.	TR, CE: Days at sea. We need to specify exactly how to define
+>>> days at sea in the comments. Is this arrival date - departure date?
+>>>       
+>>     
+>>> 2.	HH: Date. What is fishing start date for a fishing trip? Comment
+>>> 2 states that for trips, it is the date of the first station number, 
+>>> but
+>>> (a) there is only one station (number 999), and (b) we probably 
+>>> don't know the date of the first station. How does this work for mixed trips?
+>>> Wouldn't departure date or landing date or sampling date be more 
+>>> suitable (but see also comment on landings statistics later).
+>>>
+>>> 3.	HH: Rectangle. This is mandatory for a trip, when we should give
+>>> the rectangle with the most fishing. How is this determined? By 
+>>> hours fished? Often not available. By reported landings? Not the 
+>>> same thing as the most fishing! Please clarify in comments. I'm not 
+>>> very happy with either definition as it creates the impression that 
+>>> we know more than we really do.
+>>>
+>>> 4.	SL: Weight. Is this total landed weight by species, landings
+>>> category and size/subsampling category? What is meant in the 
+>>> comments by "For market sampling: Catch weight is per definition 
+>>> equal to Sample weight."?
+>>>
+>>> 5.	CA, CL, CE: Quarter & Month. What date are these to be taken
+>>> from? For CA, presumably they would match the corresponding date for 
+>>> that station in HH? Please clarify in the comments. For landing 
+>>> statistics, the natural date to take these from would be date of 
+>>> landing. However, if the date in HH is date of departure, samples 
+>>> landed at the beginning month will be allocated to the previous 
+>>> month (when the trip departed) rather than the correct landings 
+>>> month. I think it is important we make sure that all our dates are consistent.
+>>>
+>>> 6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+>>> have not yet decided how to allocate trips/landings to this activity 
+>>> level but this field is already mandatory. Is this wise?
+>>> <<Comments & Queries on FF5.doc>>
+>>> - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - -
+>>> - -
+>>>
+>>> Liz Clarke
+>>> FRS Marine Laboratory              	Tel:  01224 295507(direct)
+>>> PO Box 101, 375 Victoria Road          01224 876544
+>>> Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511
+>>> - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -
+>>> - -
+>>>
+>>>
+>>>       
+>> Hi Liz,
+>>
+>> please find my comments to the issues you have raised. They are 
+>> important points to clarify the definitions of the variables but they 
+>> mainly do not impact the structure of the DEF. I expect more issues 
+>> to be raised as and when each institute will prepare datasets. I'll 
+>> have to take care to keep track of our agreements so that future 
+>> users easily access to our comments.
+>>
+>> Best regards
+>>
+>> Joel
+>>     
+>
+>   
+>> ----- Fin du message transf?r? -----
+>>
+>>
+>> Dear All
+>>     
+>
+> RE: "I'll have to take care to keep track of our agreements so that future users easily access to our comments."
+> There is a lot of additional information and definitions in the comments in the exchange format document. Whenever we agree on a piece of text for clarification / definition, then I think it should be added to the doc. This is the best way to get it out to the datamanagers that needs the information when making the data files.
+>
+> We are now in the final phase of the development of the data validation module in FishFrame 5.0. When this module is tested and our new production server is up and running, then we will put out a pre-release of this module without the security system. Then everybody, even those that are not registered FishFrame users, can get their files completely validated and see user-friendly error-reports if there is problems in the data. I'll get back to you with a link when this is on-line. I expect that will be around 1rst of December.
+>
+> BR
+> Teunis
+
+Hi Teunis,
+
+Can you please distribute the latest version of the exchange format. I'd like to finalize the classes definitions and upload it to our doc repository in berlios.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+------------------------------------------------
+Dear All
+
+Version from 2/11 in word and pdf.
+
+BR
+Teunis
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame exchangeformat.pdf
+Type: application/octet-stream
+Size: 540272 bytes
+Desc: FishFrame exchangeformat.pdf
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071105/3b050b4b/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame exchangeformat.doc
+Type: application/msword
+Size: 5965312 bytes
+Desc: FishFrame exchangeformat.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071105/3b050b4b/attachment.doc>
+
+From david.hirst at nr.no  Tue Nov  6 18:02:05 2007
+From: david.hirst at nr.no (David Hirst)
+Date: Tue, 06 Nov 2007 17:02:05 +0000
+Subject: [cost-devel] raising
+Message-ID: <47309E0D.10508@nr.no>
+
+Can somebody confirm that this is correct:
+
+When raising to total catch weight, the relevant total is in the cl 
+data, and the totals for the sampled trips is in the sl data.
+
+If you want to raise to total effort, you use one of the totals in the 
+ce data, with the corresponding total from the tr data. I assume the 
+calculation is
+
+total numbers at age=total effort x sum(sample numbers at age x total 
+sample numbers/sample effort)
+
+Can anyone put a bit more detail on this?
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From teunisjansen at mail.dk  Fri Nov 16 16:33:50 2007
+From: teunisjansen at mail.dk (Teunis Jansen)
+Date: Fri, 16 Nov 2007 16:33:50 +0100
+Subject: [cost-devel] : Exchange format
+In-Reply-To: <47309E0D.10508@nr.no>
+Message-ID: <20071116153348.CRRZ21281.fep48.mail.dk@chpcbtej01>
+
+Dear All
+
+I was asked if the exchange format discussion was finished and the last
+document I mailed out (5/11) was the final version. I believe it is, so
+please correct me if you still have unsolved issues in this part.
+I have attached the document in a zipped 12/11 version in both word and pdf.
+There are no structural changes compared to 5/11. But I have corrected some
+smaller typos and added a couple of references. Please mail to me if you
+find more typos.
+If you do not get the file here, then it must be because of your firewall
+preventing larger files or zip-files. If you have problems, then mail me so
+you can get the docs via FTP.
+
+Best regards
+Teunis
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame exchangeformat.zip
+Type: application/x-zip-compressed
+Size: 1095756 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071116/d22dafeb/attachment.bin>
+

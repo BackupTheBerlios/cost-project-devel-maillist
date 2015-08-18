@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] &quot;raising&quot; questions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%22raising%22%20questions&In-Reply-To=%3C48E0DE56.7010609%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000160.html">
+   <LINK REL="Next"  HREF="000157.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] &quot;raising&quot; questions</H1>
+    <B>Mathieu MERZEREAUD</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%22raising%22%20questions&In-Reply-To=%3C48E0DE56.7010609%40ifremer.fr%3E"
+       TITLE="[cost-devel] &quot;raising&quot; questions">Mathieu.Merzereaud at ifremer.fr
+       </A><BR>
+    <I>Mon Sep 29 15:55:34 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000160.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+        <LI>Next message: <A HREF="000157.html">[cost-devel] COSTdbe v.0.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#161">[ date ]</a>
+              <a href="thread.html#161">[ thread ]</a>
+              <a href="subject.html#161">[ subject ]</a>
+              <a href="author.html#161">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I think the method to assess analytical estimates of biological 
+parameters (weight-at-length/age, maturity-at-length/age, 
+sex-ratio-at-length/age and variances) is, among what I've implemented 
+so far, the only one for which sampling strategy is a real issue 
+(COSTeda package and total volume estimates methods don't seem to be 
+concerned). For the moment, it follows the A strategy. Estimates at 
+length are calculated directly with CA information, but as length 
+distribution in CA is not supposed to follow the length distribution in 
+the catch, estimates at age are calculated by injecting HL information.
+As it needs only information from CA (info proportionnal to catch), the 
+method for B strategy should be more simple and straigthforward to 
+implement. I'll add it to COSTdbe package as soon as possible.
+
+Best
+Mathieu
+
+
+Joel VIGNEAU a &#233;crit :
+&gt;<i> Ok nice,
+</I>&gt;<i> 
+</I>&gt;<i> from what you describe, you are right to say it is A2, and to my 
+</I>&gt;<i> knowledge, it is the most common strategy used all around. Moreover, A1 
+</I>&gt;<i> is very close to A2 in term of coding, and if I understand well, the 
+</I>&gt;<i> discards information you have is A1. In fact, discards will never be A2!
+</I>&gt;<i> Concerning A3, the French sole dataset is a real example of that 
+</I>&gt;<i> strategy, but only for market sampling. As the commercial category is 
+</I>&gt;<i> sorted under auction, the onboard observer sampling is A1. Hope it is 
+</I>&gt;<i> easy to follow this explanation!!
+</I>&gt;<i> 
+</I>&gt;<i> At the end, your development is in line with the others, as I'm not 
+</I>&gt;<i> aware of any development of the B strategy. Can the other developers 
+</I>&gt;<i> confirm or not this statement.
+</I>&gt;<i> 
+</I>&gt;<i> Best regards
+</I>&gt;<i> 
+</I>&gt;<i> Joel
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> David Hirst a &#233;crit :
+</I>&gt;&gt;<i> Hi Joel,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Landings are A2 for market sampling (category is called commercial 
+</I>&gt;&gt;<i> category, but the categories only have meaning on the individual boats, 
+</I>&gt;&gt;<i> which make it A2 rather than A3 I think). The ALK is merged over 
+</I>&gt;&gt;<i> categories (or to be more precise, the category information is lost in 
+</I>&gt;&gt;<i> the age data). For observer sampling there is no ALK.  Discards are 
+</I>&gt;&gt;<i> similar except that the category is haul, with haul information lost for 
+</I>&gt;&gt;<i> the ALK.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> We will have to make some sort of change for commercial category 
+</I>&gt;&gt;<i> sampling, at least if the sampling unit is the cc rather than the trip 
+</I>&gt;&gt;<i> (ie there are no complete samples from trips). We might have to make 
+</I>&gt;&gt;<i> some changes also where there is no discard data.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> David
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> Hi David,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> sorry for the delay to comment your mail.
+</I>&gt;&gt;&gt;<i> Can you summarise what the English/Scottish data are, in term of 
+</I>&gt;&gt;&gt;<i> Sampling strategy as defined in the minutes of the 1st Expert meeting, 
+</I>&gt;&gt;&gt;<i> please:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> A1 - Sampling for length in unsorted catches + ALK
+</I>&gt;&gt;&gt;<i> A2 - Sampling for length in catches sorted by categories + ALK
+</I>&gt;&gt;&gt;<i> A3 - Sampling for length in commercial categories + ALK
+</I>&gt;&gt;&gt;<i> B1 - Sampling directly for age in unsorted catches
+</I>&gt;&gt;&gt;<i> B2 - Sampling directly for age in catches sorted by categories
+</I>&gt;&gt;&gt;<i> B3 - Sampling directly for age in commercial categories
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Considering the structure of the Data Exchange Format, all countries 
+</I>&gt;&gt;&gt;<i> applying the same strategy should be able to make use of your 
+</I>&gt;&gt;&gt;<i> developments. Moreover, the difference between 2 strategies are often 
+</I>&gt;&gt;&gt;<i> very weak and only minor adjustments are needed to extend the use of 
+</I>&gt;&gt;&gt;<i> the functions.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Best regards
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> David Hirst a &#233;crit :
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> *I would like to call all the developers to tell the group where they 
+</I>&gt;&gt;&gt;&gt;&gt;<i> are in their development and which kind of problem they are facing 
+</I>&gt;&gt;&gt;&gt;&gt;<i> and/or what is their agenda to finish their work. We should be 
+</I>&gt;&gt;&gt;&gt;&gt;<i> finalising both dbe and mbe packages now and the simulation package 
+</I>&gt;&gt;&gt;&gt;&gt;<i> should be beginning. Is it the case?*
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Best regards
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;<i> The mbe package is almost finished , at least for catch and discards at 
+</I>&gt;&gt;&gt;&gt;<i> age, but we have a bug somewhere that we are trying to find. The 
+</I>&gt;&gt;&gt;&gt;<i> simulation routines are also almost ready, but there is nothing to test 
+</I>&gt;&gt;&gt;&gt;<i> with them yet. We should soon (end of the month?) have a program that 
+</I>&gt;&gt;&gt;&gt;<i> works for the Scottish/English data, but we haven't tried anything else 
+</I>&gt;&gt;&gt;&gt;<i> and no doubt there will be other issues.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;<i> -- 
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> */Jo&#235;l VIGNEAU
+</I>&gt;&gt;&gt;<i> /*Laboratoire &quot;Ressources Halieutiques&quot;
+</I>&gt;&gt;&gt;<i> IFREMER
+</I>&gt;&gt;&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;&gt;&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;&gt;&gt;<i> <A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> ------------------------------------------------------------------------
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> 
+</I>&gt;<i> */Jo&#235;l VIGNEAU
+</I>&gt;<i> /*Laboratoire &quot;Ressources Halieutiques&quot;
+</I>&gt;<i> IFREMER
+</I>&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;<i> 
+</I>&gt;<i> T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;<i> <A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>
+-- 
+Mathieu Merz&#233;r&#233;aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G&#233;n&#233;ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T&#233;l : 02.31.51.56.46
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000160.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+	<LI>Next message: <A HREF="000157.html">[cost-devel] COSTdbe v.0.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#161">[ date ]</a>
+              <a href="thread.html#161">[ thread ]</a>
+              <a href="subject.html#161">[ subject ]</a>
+              <a href="author.html#161">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

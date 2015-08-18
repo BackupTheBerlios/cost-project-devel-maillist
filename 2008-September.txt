@@ -1,0 +1,1298 @@
+From david.maxwell at cefas.co.uk  Mon Sep  8 17:22:05 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Mon, 8 Sep 2008 16:22:05 +0100
+Subject: [cost-devel] outPut format
+In-Reply-To: <48C53533.1080109@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F87F1@LOWEXPRESS.corp.cefas.co.uk>
+
+Reply is below
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr]
+Sent: 08 September 2008 15:23
+To: David Maxwell (Cefas)
+Subject: outPut format
+
+
+Hi David,
+
+just a little question about dbe outputs format. I suppose we have 2 
+possibilities for that :
+	* a data.frame with 'time', 'space', 'technical',  optionnaly 'length' 
+or 'age', and 'value'.
+	* a numerical array with one dimension per field (ie 3 or 4 dimensions)
+
+The second one is easier to use for calculation and is more 
+'illustrative', but the first one is clearer, is less ambiguous with 
+used stratification, and most of all, it's very easy to calculate 2 from 
+1 if it is needed (and graphical outputs should be easier to implement!!).
+
+To your mind, what is the best format ?
+
+Best
+Mathieu
+
+----------------------------
+Hi Mathieu,
+
+Using an array is probably better programming style but I think a data.frame is easier for people to understand so I suggest a data.frame. May need a column for iteration as well.
+
+Any comments from everyone else?
+David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Thu Sep 11 15:25:13 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Thu, 11 Sep 2008 15:25:13 +0200
+Subject: [cost-devel] outPut format
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F87F1@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F87F1@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <48C91C39.2020109@ifremer.fr>
+
+
+
+David Maxwell (Cefas) a ?crit :
+> Reply is below
+> 
+> -----Original Message-----
+> From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr]
+> Sent: 08 September 2008 15:23
+> To: David Maxwell (Cefas)
+> Subject: outPut format
+> 
+> 
+> Hi David,
+> 
+> just a little question about dbe outputs format. I suppose we have 2 
+> possibilities for that :
+> 	* a data.frame with 'time', 'space', 'technical',  optionnaly 'length' 
+> or 'age', and 'value'.
+> 	* a numerical array with one dimension per field (ie 3 or 4 dimensions)
+> 
+> The second one is easier to use for calculation and is more 
+> 'illustrative', but the first one is clearer, is less ambiguous with 
+> used stratification, and most of all, it's very easy to calculate 2 from 
+> 1 if it is needed (and graphical outputs should be easier to implement!!).
+> 
+> To your mind, what is the best format ?
+> 
+> Best
+> Mathieu
+> 
+> ----------------------------
+> Hi Mathieu,
+> 
+> Using an array is probably better programming style but I think a data.frame is easier for people to understand so I suggest a data.frame. May need a column for iteration as well.
+> 
+> Any comments from everyone else?
+> David
+> 
+
+Hi David,
+
+each slot describing total estimates (ie lenStruc, ageStruc, totalN & 
+totalW) could be a list with 2 elements : '$estim' would be the final 
+estimates (df without 'iteration' field), and '$rep' would describe the 
+resampling replicates (df with 'iteration' field).
+
+Mathieu
+
+
+
+
+
+-- 
+Mathieu Merz?r?aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G?n?ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T?l : 02.31.51.56.46
+Email: Mathieu.Merzereaud at ifremer.fr
+
+
+From A.Pout at MARLAB.AC.UK  Wed Sep 17 12:15:06 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Wed, 17 Sep 2008 11:15:06 +0100
+Subject: [cost-devel] Recoding of $time in consolidated cs cl and ce classes
+In-Reply-To: <48916E65.4010509@ifremer.fr>
+References: <48916E65.4010509@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581202649562@mail4.marlab.ac.uk>
+
+Dear All 
+
+Recoding of $time in consolidated cs cl and ce classes 
+
+ 
+
+$time is a factor yyyy - 1 to yyyy - 4  when timestrata = "quarter"
+
+$time is a factor yyyy - 1 to yyyy - 12  when timestrata = "month"
+
+and 
+
+$time is a factor yyyy    when time = "year"
+
+and a factor      "all"   when timestrata is unspecified 
+
+ 
+
+So the problem I am encountering is that there is no way of
+distinguishing eg 2005 - 1 from 1st quarter 2005 and Jan 2005 unless you
+pass your function Mathieu's "strDef" object which defines how the user
+has stratified the data. 
+
+To my mind it would make things very much easier if how the user has
+stratified the data was apparent from the data itself. 
+
+ 
+
+What does anybody think about $time in a consolidated class having the
+form yyyy - q - m  for stratification by month so eg 2005 - 1 - 1 would
+be jan 2005 and 2005 - 1 would remain as 1st quarter 2005.   
+
+Or is it too late for such changes? Would that cause more problems than
+it solves? 
+
+ 
+
+(the problem does not occur with $space and $technical because rects can
+be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6 by the
+form of the data.) 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080917/524f8f52/attachment.html>
+
+From david.maxwell at cefas.co.uk  Wed Sep 17 15:50:01 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 17 Sep 2008 14:50:01 +0100
+Subject: [cost-devel] Recoding of $time in consolidated cs cl and ce
+ classes
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581202649562@mail4.marlab.ac.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F880D@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Alastair
+Sounds reasonable to me. How will you use the proposed strings?
+I do not think this will cause any problems to estimation functions, they should just use whatever labels are given for the time strata.
+Regards, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Alastair Pout
+Sent: 17 September 2008 11:15
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] Recoding of $time in consolidated cs cl and ce classes
+
+
+
+Dear All 
+
+Recoding of $time in consolidated cs cl and ce classes 
+
+ 
+
+$time is a factor yyyy - 1 to yyyy - 4  when timestrata = "quarter"
+
+$time is a factor yyyy - 1 to yyyy - 12  when timestrata = "month"
+
+and 
+
+$time is a factor yyyy    when time = "year"
+
+and a factor      "all"   when timestrata is unspecified 
+
+ 
+
+So the problem I am encountering is that there is no way of distinguishing eg 2005 - 1 from 1st quarter 2005 and Jan 2005 unless you pass your function Mathieu's "strDef" object which defines how the user has stratified the data. 
+
+To my mind it would make things very much easier if how the user has stratified the data was apparent from the data itself. 
+
+ 
+
+What does anybody think about $time in a consolidated class having the form yyyy - q - m  for stratification by month so eg 2005 - 1 - 1 would be jan 2005 and 2005 - 1 would remain as 1st quarter 2005.   
+
+Or is it too late for such changes? Would that cause more problems than it solves? 
+
+ 
+
+(the problem does not occur with $space and $technical because rects can be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6 by the form of the data.) 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080917/042c42bb/attachment.html>
+
+From Mathieu.Merzereaud at ifremer.fr  Wed Sep 17 16:24:39 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Wed, 17 Sep 2008 16:24:39 +0200
+Subject: [cost-devel] Recoding of $time in consolidated cs cl and ce
+	classes
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F880D@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F880D@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <48D11327.2040005@ifremer.fr>
+
+Hi,
+
+if it's Ok for everyone, it should not be difficult to modify it in 
+consolidation methods.
+
+Best
+Mathieu
+
+David Maxwell (Cefas) a ?crit :
+> Hi Alastair
+> Sounds reasonable to me. How will you use the proposed strings?
+> I do not think this will cause any problems to estimation functions, 
+> they should just use whatever labels are given for the time strata.
+> Regards, David
+> 
+>     -----Original Message-----
+>     *From:* cost-project-devel-bounces at lists.berlios.de
+>     [mailto:cost-project-devel-bounces at lists.berlios.de]*On Behalf Of
+>     *Alastair Pout
+>     *Sent:* 17 September 2008 11:15
+>     *To:* cost-project-devel at lists.berlios.de
+>     *Subject:* [cost-devel] Recoding of $time in consolidated cs cl and
+>     ce classes
+> 
+>     Dear All
+> 
+>     Recoding of $time in consolidated cs cl and ce classes
+> 
+>      
+> 
+>     $time is a factor yyyy ? 1 to yyyy ? 4  when timestrata = ?quarter?
+> 
+>     $time is a factor yyyy ? 1 to yyyy ? 12  when timestrata = ?month?
+> 
+>     and
+> 
+>     $time is a factor yyyy    when time = ?year?
+> 
+>     and a factor      ?all?   when timestrata is unspecified
+> 
+>      
+> 
+>     So the problem I am encountering is that there is no way of
+>     distinguishing eg 2005 ? 1 from 1^st quarter 2005 and Jan 2005
+>     unless you pass your function Mathieu?s ?strDef? object which
+>     defines how the user has stratified the data.
+> 
+>     To my mind it would make things very much easier if how the user has
+>     stratified the data was apparent from the data itself.
+> 
+>      
+> 
+>     What does anybody think about $time in a consolidated class having
+>     the form yyyy ? q ? m  for stratification by month so eg 2005 ? 1 ?
+>     1 would be jan 2005 and 2005 ? 1 would remain as 1^st quarter 2005.   
+> 
+>     Or is it too late for such changes? Would that cause more problems
+>     than it solves?
+> 
+>      
+> 
+>     (the problem does not occur with $space and $technical because rects
+>     can be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6
+>     by the form of the data.)
+> 
+>      
+> 
+>     All the best
+> 
+>     Alastair
+> 
+>      
+> 
+>  
+> 
+> ***********************************************************************************
+> 
+> This email and any attachments are intended for the named recipient 
+> only. Its unauthorised use, distribution, disclosure, storage or copying 
+> is not permitted. If you have received it in error, please destroy all 
+> copies and notify the sender. In messages of a non-business nature, the 
+> views and opinions expressed are the author's own and do not necessarily 
+> reflect those of the organisation from which it is sent. All emails may 
+> be subject to monitoring.
+> 
+> ***********************************************************************************
+> 
+>  
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+Mathieu Merz?r?aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G?n?ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T?l : 02.31.51.56.46
+Email: Mathieu.Merzereaud at ifremer.fr
+
+
+From Joel.Vigneau at ifremer.fr  Thu Sep 18 09:42:35 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Thu, 18 Sep 2008 09:42:35 +0200
+Subject: [cost-devel] Recoding of $time in consolidated cs cl and
+	ce	classes
+In-Reply-To: <48D11327.2040005@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F880D@LOWEXPRESS.corp.cefas.co.uk>
+	<48D11327.2040005@ifremer.fr>
+Message-ID: <48D2066B.6010408@ifremer.fr>
+
+Dear all,
+
+waking up from my long lethargy, I agree with this proposal which is in 
+line with the overall hierarchical coding of the variables.
+
+Best
+
+Joel
+
+Mathieu MERZEREAUD a ?crit :
+> Hi,
+>
+> if it's Ok for everyone, it should not be difficult to modify it in 
+> consolidation methods.
+>
+> Best
+> Mathieu
+>
+> David Maxwell (Cefas) a ?crit :
+>   
+>> Hi Alastair
+>> Sounds reasonable to me. How will you use the proposed strings?
+>> I do not think this will cause any problems to estimation functions, 
+>> they should just use whatever labels are given for the time strata.
+>> Regards, David
+>>
+>>     -----Original Message-----
+>>     *From:* cost-project-devel-bounces at lists.berlios.de
+>>     [mailto:cost-project-devel-bounces at lists.berlios.de]*On Behalf Of
+>>     *Alastair Pout
+>>     *Sent:* 17 September 2008 11:15
+>>     *To:* cost-project-devel at lists.berlios.de
+>>     *Subject:* [cost-devel] Recoding of $time in consolidated cs cl and
+>>     ce classes
+>>
+>>     Dear All
+>>
+>>     Recoding of $time in consolidated cs cl and ce classes
+>>
+>>      
+>>
+>>     $time is a factor yyyy ? 1 to yyyy ? 4  when timestrata = ?quarter?
+>>
+>>     $time is a factor yyyy ? 1 to yyyy ? 12  when timestrata = ?month?
+>>
+>>     and
+>>
+>>     $time is a factor yyyy    when time = ?year?
+>>
+>>     and a factor      ?all?   when timestrata is unspecified
+>>
+>>      
+>>
+>>     So the problem I am encountering is that there is no way of
+>>     distinguishing eg 2005 ? 1 from 1^st quarter 2005 and Jan 2005
+>>     unless you pass your function Mathieu?s ?strDef? object which
+>>     defines how the user has stratified the data.
+>>
+>>     To my mind it would make things very much easier if how the user has
+>>     stratified the data was apparent from the data itself.
+>>
+>>      
+>>
+>>     What does anybody think about $time in a consolidated class having
+>>     the form yyyy ? q ? m  for stratification by month so eg 2005 ? 1 ?
+>>     1 would be jan 2005 and 2005 ? 1 would remain as 1^st quarter 2005.   
+>>
+>>     Or is it too late for such changes? Would that cause more problems
+>>     than it solves?
+>>
+>>      
+>>
+>>     (the problem does not occur with $space and $technical because rects
+>>     can be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6
+>>     by the form of the data.)
+>>
+>>      
+>>
+>>     All the best
+>>
+>>     Alastair
+>>
+>>      
+>>
+>>  
+>>
+>> ***********************************************************************************
+>>
+>> This email and any attachments are intended for the named recipient 
+>> only. Its unauthorised use, distribution, disclosure, storage or copying 
+>> is not permitted. If you have received it in error, please destroy all 
+>> copies and notify the sender. In messages of a non-business nature, the 
+>> views and opinions expressed are the author's own and do not necessarily 
+>> reflect those of the organisation from which it is sent. All emails may 
+>> be subject to monitoring.
+>>
+>> ***********************************************************************************
+>>
+>>  
+>>
+>>
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>     
+>
+>   
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080918/4e1cc419/attachment.html>
+
+From david.maxwell at cefas.co.uk  Fri Sep 19 13:24:27 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 19 Sep 2008 12:24:27 +0100
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48D11327.2040005@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi all,
+
+The attached script is very early in the development process (seems like more comments than code!) but I find writing code a good way of understanding the details of the data format and all the work done so far. So please could you reply with any comments on how I've used the existing functions and in particular:
+
+In landings data (CL)
+1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+
+2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+
+
+3) Is my understanding of the technical strata in consolidated objects correct?...
+
+# Technical strata is always NA in ca table of consolidated objects (I think) so Length Distribution is processed by technical strata, aggregated across technical strata and then combined with ALK not stratified by technical strata
+
+Example data are in the attached Excel file rather than csv files, as it's an easy way to see and edit the data. Thanks to Marcel's code for the commands to read from Excel.
+
+Regards, David
+
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: vessel raising 0.1.r
+Type: application/octet-stream
+Size: 15322 bytes
+Desc: vessel raising 0.1.r
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.obj>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cefas example market data.xls
+Type: application/vnd.ms-excel
+Size: 69632 bytes
+Desc: Cefas example market data.xls
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.xls>
+
+From Joel.Vigneau at ifremer.fr  Fri Sep 19 14:32:29 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 19 Sep 2008 14:32:29 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <48D39BDD.2050700@ifremer.fr>
+
+
+
+David Maxwell (Cefas) a ?crit :
+> Hi all,
+>
+> The attached script is very early in the development process (seems like more comments than code!) but I find writing code a good way of understanding the details of the data format and all the work done so far. So please could you reply with any comments on how I've used the existing functions and in particular:
+>
+> In landings data (CL)
+> 1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+>
+> 2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+>
+>
+> 3) Is my understanding of the technical strata in consolidated objects correct?...
+>
+> # Technical strata is always NA in ca table of consolidated objects (I think) so Length Distribution is processed by technical strata, aggregated across technical strata and then combined with ALK not stratified by technical strata
+>
+> Example data are in the attached Excel file rather than csv files, as it's an easy way to see and edit the data. Thanks to Marcel's code for the commands to read from Excel.
+>
+> Regards, David
+>
+>
+>
+>   
+Dear David,
+
+good to see some piece of code. Looking forward to see all the codes 
+from every developer in the CVS folders....
+Mathieu is looking at it and I'll have a look also but not immediatly.
+
+Concerning your questions
+
+ 1) This is coming from the original FF DEF, so Henrik or Teunis would 
+be the ones to answer. To my understanding
+        _Total Landings_ = Official Landings * Multiplier + Unallocated 
+Catch + Misallocated Catch
+
+ Although I would be reluctant to do both multiplier and addition of the 
+Unallocated. This is something to discuss.
+
+2) The Landings Value corresponds to the Official Landings, so we should 
+find
+        Total Value = _Total Landings_ * Landings Value / Official Landings
+
+3) I agree with your understanding of Technical strata. It's Ok like this.
+
+
+*I would like to call all the developers to tell the group where they 
+are in their development and which kind of problem they are facing 
+and/or what is their agenda to finish their work. We should be 
+finalising both dbe and mbe packages now and the simulation package 
+should be beginning. Is it the case?*
+
+Best regards
+
+Joel
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/cf5a0c13/attachment.html>
+
+From david.maxwell at cefas.co.uk  Fri Sep 19 17:24:20 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 19 Sep 2008 16:24:20 +0100
+Subject: [cost-devel] dbe progress
+In-Reply-To: <48D39BDD.2050700@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F8814@LOWEXPRESS.corp.cefas.co.uk>
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 19 September 2008 13:32
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] "raising" questions
+
+
+
+I would like to call all the developers to tell the group where they are in their development and which kind of problem they are facing and/or what is their agenda to finish their work. We should be finalising both dbe and mbe packages now and the simulation package should be beginning. Is it the case?
+
+Best regards
+
+Joel
+
+
+-- 
+
+
+Jo?l VIGNEAU
+
+m?l :  <mailto:Joel.Vigneau at ifremer.fr> Joel.Vigneau at ifremer.fr 
+
+
+[David Maxwell (Cefas)] 
+ 
+Hi Joel,
+Welcome back!
+ 
+As I'm sure you know, Mathieu has made good progress with the dbe output object and recently released code for discards Total volume analytical estimates
+ 
+News from Marcel is that:
+"The estimation procedures for the one stage stratified sampling for age is nearly finished for 1 or 2 strata. I couldn't find example dataset which contained 3 strata. I'm also finishing the various procedures for the two stage sampling scheme, but still have to transfer them in generic procedures."
+ 
+We also have the code for biological parameters that was written before the 2nd COST meeting, it needs checking to see if it works with the new data definition. I don't know if Paz has a newer version of that code.
+ 
+So overall with some hard work next week we will have a reasonable collection of procedures. Then there will still be a considerable effort required to a make them into a coherent package.
+ 
+Regards, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/ddd58b26/attachment.html>
+
+From david.hirst at nr.no  Mon Sep 22 11:07:19 2008
+From: david.hirst at nr.no (David Hirst)
+Date: Mon, 22 Sep 2008 11:07:19 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48D39BDD.2050700@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>
+	<48D39BDD.2050700@ifremer.fr>
+Message-ID: <48D76047.80502@nr.no>
+
+
+
+Joel VIGNEAU wrote:
+>
+> *I would like to call all the developers to tell the group where they 
+> are in their development and which kind of problem they are facing 
+> and/or what is their agenda to finish their work. We should be 
+> finalising both dbe and mbe packages now and the simulation package 
+> should be beginning. Is it the case?*
+>
+> Best regards
+>
+> Joel
+>
+The mbe package is almost finished , at least for catch and discards at 
+age, but we have a bug somewhere that we are trying to find. The 
+simulation routines are also almost ready, but there is nothing to test 
+with them yet. We should soon (end of the month?) have a program that 
+works for the Scottish/English data, but we haven't tried anything else 
+and no doubt there will be other issues.
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From david.maxwell at cefas.co.uk  Thu Sep 25 16:02:28 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 25 Sep 2008 15:02:28 +0100
+Subject: [cost-devel] COSTdbe v.0.1
+In-Reply-To: <48D765B9.9050205@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F8825@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi all,
+
+Good work Mathieu.
+I installed the library from the zip file and the examples in the help files ran successfully.
+
+MATURITY
+Something for development -  Some maturity scales are character format not 1 to n and I think there are a few species, e.g. herring, in which Stages 1 & 2 are immature rather than just 1 so the current version of bpEstim code below won't work for these exceptions. 
+
+I think it's an general issue and we either need to 
+i) only accept Maturity scales with immature as 1
+ii) as part of validation convert the different Maturity scales to a common coding, at or least numeric with immature as 1
+iii) have functions that can deal with the matScale field and maybe have a immatureCodes argument, e.g. immatureCodes=c("I", 1)
+
+
+SPECIES
+Is my understanding of the functions correct? - the species argument allows a subset of the data to be used but the functions do not use species as a strata. So the correct way to use the functions for several species is to specify one at a time. Specifying more than one species e.g., species = c("Gadus morhua", "Solea solea") will select cod and sole then give one output using the data for both. 
+
+DATASETS
+Another step in testing the functions is to try some more datasets. I've lost track of which datasets have been altered to meet the latest format and the COSTdata folder on CVS is empty. Please can someone update me on this? 
+
+Thanks, David 
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr]
+Sent: 22 September 2008 10:31
+To: David Maxwell (Cefas); marcel machiels; Paz Sampedro;
+Joel.Vigneau at ifremer.fr
+Subject: COSTdbe v.0.1
+
+
+
+Hi all,
+
+I've updated CVS on Berlios site. Your updated local copy of 'COSTdbe' 
+package should compile without warnings. First versions of the codes (to 
+be improved) with 'man' help files and drafts of NAMESPACE and 
+DESCRIPTION files are there.
+
+Best
+Mathieu
+
+-- 
+Mathieu Merz?r?aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G?n?ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T?l : 02.31.51.56.46
+Email: Mathieu.Merzereaud at ifremer.fr
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From Joel.Vigneau at ifremer.fr  Mon Sep 29 11:45:39 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 29 Sep 2008 11:45:39 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48D76047.80502@nr.no>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>
+	<48D76047.80502@nr.no>
+Message-ID: <48E0A3C3.1030208@ifremer.fr>
+
+Hi David,
+
+sorry for the delay to comment your mail.
+Can you summarise what the English/Scottish data are, in term of 
+Sampling strategy as defined in the minutes of the 1st Expert meeting, 
+please:
+
+A1 - Sampling for length in unsorted catches + ALK
+A2 - Sampling for length in catches sorted by categories + ALK
+A3 - Sampling for length in commercial categories + ALK
+B1 - Sampling directly for age in unsorted catches
+B2 - Sampling directly for age in catches sorted by categories
+B3 - Sampling directly for age in commercial categories
+
+Considering the structure of the Data Exchange Format, all countries 
+applying the same strategy should be able to make use of your 
+developments. Moreover, the difference between 2 strategies are often 
+very weak and only minor adjustments are needed to extend the use of the 
+functions.
+
+Best regards
+
+Joel
+
+
+
+
+David Hirst a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> *I would like to call all the developers to tell the group where they 
+>> are in their development and which kind of problem they are facing 
+>> and/or what is their agenda to finish their work. We should be 
+>> finalising both dbe and mbe packages now and the simulation package 
+>> should be beginning. Is it the case?*
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>>     
+> The mbe package is almost finished , at least for catch and discards at 
+> age, but we have a bug somewhere that we are trying to find. The 
+> simulation routines are also almost ready, but there is nothing to test 
+> with them yet. We should soon (end of the month?) have a program that 
+> works for the Scottish/English data, but we haven't tried anything else 
+> and no doubt there will be other issues.
+>
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080929/0de5b842/attachment.html>
+
+From david.hirst at nr.no  Mon Sep 29 13:02:31 2008
+From: david.hirst at nr.no (David Hirst)
+Date: Mon, 29 Sep 2008 13:02:31 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48E0A3C3.1030208@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no>
+	<48E0A3C3.1030208@ifremer.fr>
+Message-ID: <48E0B5C7.3060504@nr.no>
+
+Hi Joel,
+
+Landings are A2 for market sampling (category is called commercial 
+category, but the categories only have meaning on the individual boats, 
+which make it A2 rather than A3 I think). The ALK is merged over 
+categories (or to be more precise, the category information is lost in 
+the age data). For observer sampling there is no ALK.  Discards are 
+similar except that the category is haul, with haul information lost for 
+the ALK.
+
+We will have to make some sort of change for commercial category 
+sampling, at least if the sampling unit is the cc rather than the trip 
+(ie there are no complete samples from trips). We might have to make 
+some changes also where there is no discard data.
+
+David
+
+Joel VIGNEAU wrote:
+> Hi David,
+>
+> sorry for the delay to comment your mail.
+> Can you summarise what the English/Scottish data are, in term of 
+> Sampling strategy as defined in the minutes of the 1st Expert meeting, 
+> please:
+>
+> A1 - Sampling for length in unsorted catches + ALK
+> A2 - Sampling for length in catches sorted by categories + ALK
+> A3 - Sampling for length in commercial categories + ALK
+> B1 - Sampling directly for age in unsorted catches
+> B2 - Sampling directly for age in catches sorted by categories
+> B3 - Sampling directly for age in commercial categories
+>
+> Considering the structure of the Data Exchange Format, all countries 
+> applying the same strategy should be able to make use of your 
+> developments. Moreover, the difference between 2 strategies are often 
+> very weak and only minor adjustments are needed to extend the use of 
+> the functions.
+>
+> Best regards
+>
+> Joel
+>
+>
+>
+>
+> David Hirst a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> *I would like to call all the developers to tell the group where they 
+>>> are in their development and which kind of problem they are facing 
+>>> and/or what is their agenda to finish their work. We should be 
+>>> finalising both dbe and mbe packages now and the simulation package 
+>>> should be beginning. Is it the case?*
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>>     
+>> The mbe package is almost finished , at least for catch and discards at 
+>> age, but we have a bug somewhere that we are trying to find. The 
+>> simulation routines are also almost ready, but there is nothing to test 
+>> with them yet. We should soon (end of the month?) have a program that 
+>> works for the Scottish/English data, but we haven't tried anything else 
+>> and no doubt there will be other issues.
+>>
+>>   
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Mon Sep 29 13:38:45 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 29 Sep 2008 13:38:45 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48E0B5C7.3060504@nr.no>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no>	<48E0A3C3.1030208@ifremer.fr>
+	<48E0B5C7.3060504@nr.no>
+Message-ID: <48E0BE45.6040804@ifremer.fr>
+
+Ok nice,
+
+from what you describe, you are right to say it is A2, and to my 
+knowledge, it is the most common strategy used all around. Moreover, A1 
+is very close to A2 in term of coding, and if I understand well, the 
+discards information you have is A1. In fact, discards will never be A2!
+Concerning A3, the French sole dataset is a real example of that 
+strategy, but only for market sampling. As the commercial category is 
+sorted under auction, the onboard observer sampling is A1. Hope it is 
+easy to follow this explanation!!
+
+At the end, your development is in line with the others, as I'm not 
+aware of any development of the B strategy. Can the other developers 
+confirm or not this statement.
+
+Best regards
+
+Joel
+
+
+
+
+David Hirst a ?crit :
+> Hi Joel,
+>
+> Landings are A2 for market sampling (category is called commercial 
+> category, but the categories only have meaning on the individual boats, 
+> which make it A2 rather than A3 I think). The ALK is merged over 
+> categories (or to be more precise, the category information is lost in 
+> the age data). For observer sampling there is no ALK.  Discards are 
+> similar except that the category is haul, with haul information lost for 
+> the ALK.
+>
+> We will have to make some sort of change for commercial category 
+> sampling, at least if the sampling unit is the cc rather than the trip 
+> (ie there are no complete samples from trips). We might have to make 
+> some changes also where there is no discard data.
+>
+> David
+>
+> Joel VIGNEAU wrote:
+>   
+>> Hi David,
+>>
+>> sorry for the delay to comment your mail.
+>> Can you summarise what the English/Scottish data are, in term of 
+>> Sampling strategy as defined in the minutes of the 1st Expert meeting, 
+>> please:
+>>
+>> A1 - Sampling for length in unsorted catches + ALK
+>> A2 - Sampling for length in catches sorted by categories + ALK
+>> A3 - Sampling for length in commercial categories + ALK
+>> B1 - Sampling directly for age in unsorted catches
+>> B2 - Sampling directly for age in catches sorted by categories
+>> B3 - Sampling directly for age in commercial categories
+>>
+>> Considering the structure of the Data Exchange Format, all countries 
+>> applying the same strategy should be able to make use of your 
+>> developments. Moreover, the difference between 2 strategies are often 
+>> very weak and only minor adjustments are needed to extend the use of 
+>> the functions.
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>>
+>>
+>>
+>> David Hirst a ?crit :
+>>     
+>>> Joel VIGNEAU wrote:
+>>>   
+>>>       
+>>>> *I would like to call all the developers to tell the group where they 
+>>>> are in their development and which kind of problem they are facing 
+>>>> and/or what is their agenda to finish their work. We should be 
+>>>> finalising both dbe and mbe packages now and the simulation package 
+>>>> should be beginning. Is it the case?*
+>>>>
+>>>> Best regards
+>>>>
+>>>> Joel
+>>>>
+>>>>     
+>>>>         
+>>> The mbe package is almost finished , at least for catch and discards at 
+>>> age, but we have a bug somewhere that we are trying to find. The 
+>>> simulation routines are also almost ready, but there is nothing to test 
+>>> with them yet. We should soon (end of the month?) have a program that 
+>>> works for the Scottish/English data, but we haven't tried anything else 
+>>> and no doubt there will be other issues.
+>>>
+>>>   
+>>>       
+>> -- 
+>>
+>> */Jo?l VIGNEAU
+>> /*Laboratoire "Ressources Halieutiques"
+>> IFREMER
+>> 14 520 Port-en-Bessin
+>>
+>> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>> http://www.ifremer.fr/drvpbessin/
+>>
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+>>     
+>
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080929/11d5cdf9/attachment.html>
+
+From Mathieu.Merzereaud at ifremer.fr  Mon Sep 29 15:55:34 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Mon, 29 Sep 2008 15:55:34 +0200
+Subject: [cost-devel] "raising" questions
+In-Reply-To: <48E0BE45.6040804@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no>	<48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no>
+	<48E0BE45.6040804@ifremer.fr>
+Message-ID: <48E0DE56.7010609@ifremer.fr>
+
+Hi,
+
+I think the method to assess analytical estimates of biological 
+parameters (weight-at-length/age, maturity-at-length/age, 
+sex-ratio-at-length/age and variances) is, among what I've implemented 
+so far, the only one for which sampling strategy is a real issue 
+(COSTeda package and total volume estimates methods don't seem to be 
+concerned). For the moment, it follows the A strategy. Estimates at 
+length are calculated directly with CA information, but as length 
+distribution in CA is not supposed to follow the length distribution in 
+the catch, estimates at age are calculated by injecting HL information.
+As it needs only information from CA (info proportionnal to catch), the 
+method for B strategy should be more simple and straigthforward to 
+implement. I'll add it to COSTdbe package as soon as possible.
+
+Best
+Mathieu
+
+
+Joel VIGNEAU a ?crit :
+> Ok nice,
+> 
+> from what you describe, you are right to say it is A2, and to my 
+> knowledge, it is the most common strategy used all around. Moreover, A1 
+> is very close to A2 in term of coding, and if I understand well, the 
+> discards information you have is A1. In fact, discards will never be A2!
+> Concerning A3, the French sole dataset is a real example of that 
+> strategy, but only for market sampling. As the commercial category is 
+> sorted under auction, the onboard observer sampling is A1. Hope it is 
+> easy to follow this explanation!!
+> 
+> At the end, your development is in line with the others, as I'm not 
+> aware of any development of the B strategy. Can the other developers 
+> confirm or not this statement.
+> 
+> Best regards
+> 
+> Joel
+> 
+> 
+> 
+> 
+> David Hirst a ?crit :
+>> Hi Joel,
+>>
+>> Landings are A2 for market sampling (category is called commercial 
+>> category, but the categories only have meaning on the individual boats, 
+>> which make it A2 rather than A3 I think). The ALK is merged over 
+>> categories (or to be more precise, the category information is lost in 
+>> the age data). For observer sampling there is no ALK.  Discards are 
+>> similar except that the category is haul, with haul information lost for 
+>> the ALK.
+>>
+>> We will have to make some sort of change for commercial category 
+>> sampling, at least if the sampling unit is the cc rather than the trip 
+>> (ie there are no complete samples from trips). We might have to make 
+>> some changes also where there is no discard data.
+>>
+>> David
+>>
+>> Joel VIGNEAU wrote:
+>>   
+>>> Hi David,
+>>>
+>>> sorry for the delay to comment your mail.
+>>> Can you summarise what the English/Scottish data are, in term of 
+>>> Sampling strategy as defined in the minutes of the 1st Expert meeting, 
+>>> please:
+>>>
+>>> A1 - Sampling for length in unsorted catches + ALK
+>>> A2 - Sampling for length in catches sorted by categories + ALK
+>>> A3 - Sampling for length in commercial categories + ALK
+>>> B1 - Sampling directly for age in unsorted catches
+>>> B2 - Sampling directly for age in catches sorted by categories
+>>> B3 - Sampling directly for age in commercial categories
+>>>
+>>> Considering the structure of the Data Exchange Format, all countries 
+>>> applying the same strategy should be able to make use of your 
+>>> developments. Moreover, the difference between 2 strategies are often 
+>>> very weak and only minor adjustments are needed to extend the use of 
+>>> the functions.
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>>
+>>>
+>>>
+>>> David Hirst a ?crit :
+>>>     
+>>>> Joel VIGNEAU wrote:
+>>>>   
+>>>>       
+>>>>> *I would like to call all the developers to tell the group where they 
+>>>>> are in their development and which kind of problem they are facing 
+>>>>> and/or what is their agenda to finish their work. We should be 
+>>>>> finalising both dbe and mbe packages now and the simulation package 
+>>>>> should be beginning. Is it the case?*
+>>>>>
+>>>>> Best regards
+>>>>>
+>>>>> Joel
+>>>>>
+>>>>>     
+>>>>>         
+>>>> The mbe package is almost finished , at least for catch and discards at 
+>>>> age, but we have a bug somewhere that we are trying to find. The 
+>>>> simulation routines are also almost ready, but there is nothing to test 
+>>>> with them yet. We should soon (end of the month?) have a program that 
+>>>> works for the Scottish/English data, but we haven't tried anything else 
+>>>> and no doubt there will be other issues.
+>>>>
+>>>>   
+>>>>       
+>>> -- 
+>>>
+>>> */Jo?l VIGNEAU
+>>> /*Laboratoire "Ressources Halieutiques"
+>>> IFREMER
+>>> 14 520 Port-en-Bessin
+>>>
+>>> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>>> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>>> http://www.ifremer.fr/drvpbessin/
+>>>
+>>> ------------------------------------------------------------------------
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>   
+>>>     
+>>
+>>   
+> 
+> -- 
+> 
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+> 
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+Mathieu Merz?r?aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G?n?ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T?l : 02.31.51.56.46
+Email: Mathieu.Merzereaud at ifremer.fr
+
+

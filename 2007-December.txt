@@ -1,0 +1,2718 @@
+From Joel.Vigneau at ifremer.fr  Wed Dec 12 13:58:14 2007
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 12 Dec 2007 13:58:14 +0100
+Subject: [cost-devel] State of the art
+Message-ID: <475FDAE6.4010901@ifremer.fr>
+
+Dear colleagues,
+
+There are some weeks now that you returned to your lab and were left by 
+yourself for developing COST functions with a nominative task list. It 
+is time before the end of the year to make the point and assess where we 
+are.
+
+First of all, I must say I am surprised the developer mailing list 
+stayed mute during the weeks following the meeting. I'm not sure if 
+everybody is developing by their own, stuck somewhere in waiting for 
+other's work, ...
+In any case, this is not the right way of doing. If you have questions, 
+doubts, suggestions please make use of the mailing list.
+
+For example, we need to ensure consistency between all plots during a 
+work session on COST. In order to do so, you must not define specific 
+arguments in your functions, but rather elaborate a generic way of 
+defining these so that every funcions refer to them. The ideas so far 
+are (i) to develop these arguments in the options() object (COSTcol, 
+COSTpch, ...) or (ii) define a control file for all options used for 
+plotting.
+
+There must be tens of issues like the one above, but we are not 
+discussing them. It is partly my fault of course as I failed to respond 
+to the only question raised so far but it is also a community work and 
+we must rely on the expertise from all the others.
+
+May I ask each of you to make the point on his/her own development, 
+summarise the blocking/struggling issues and propose the planned 
+programme to achieve the allocated task(s).
+
+Thank you for your attention
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071212/b6d211b3/attachment.html>
+
+From ernesto at ipimar.pt  Wed Dec 12 14:18:12 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 12 Dec 2007 13:18:12 +0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <475FDAE6.4010901@ifremer.fr>
+References: <475FDAE6.4010901@ifremer.fr>
+Message-ID: <475FDF94.4040708@ipimar.pt>
+
+Joel VIGNEAU wrote:
+> Dear colleagues,
+>
+> There are some weeks now that you returned to your lab and were left 
+> by yourself for developing COST functions with a nominative task list. 
+> It is time before the end of the year to make the point and assess 
+> where we are.
+>
+> First of all, I must say I am surprised the developer mailing list 
+> stayed mute during the weeks following the meeting. I'm not sure if 
+> everybody is developing by their own, stuck somewhere in waiting for 
+> other's work, ...
+> In any case, this is not the right way of doing. If you have 
+> questions, doubts, suggestions please make use of the mailing list.
+>
+> For example, we need to ensure consistency between all plots during a 
+> work session on COST. In order to do so, you must not define specific 
+> arguments in your functions, but rather elaborate a generic way of 
+> defining these so that every funcions refer to them. The ideas so far 
+> are (i) to develop these arguments in the options() object (COSTcol, 
+> COSTpch, ...) or (ii) define a control file for all options used for 
+> plotting.
+>
+> There must be tens of issues like the one above, but we are not 
+> discussing them. It is partly my fault of course as I failed to 
+> respond to the only question raised so far but it is also a community 
+> work and we must rely on the expertise from all the others.
+>
+> May I ask each of you to make the point on his/her own development, 
+> summarise the blocking/struggling issues and propose the planned 
+> programme to achieve the allocated task(s).
+>
+> Thank you for your attention
+>
+> Best regards
+>
+> Joel 
+
+Hi Joel,
+
+With regards to COSTcore I want to release the beta version still this 
+week. It will have all the classes implemented with the agreed methods, 
+constructors, accessors, io, utils, rbind2 and subset.
+
+It will still miss the coercing of columns to the types defined by FF5 
+and the replacement method (which I'm not so sure it will be of any help 
+...). Documentation will also be quite short for now but I'll be on the 
+mailing list to answer any doubts.
+
+I need to have feedback from others about this package to implement any 
+adjustments and fix bugs. After some testing I think it will take 1 or 2 
+weeks to release version 1.
+
+Best
+
+EJ
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Wed Dec 12 16:36:47 2007
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Wed, 12 Dec 2007 16:36:47 +0100
+Subject: [cost-devel] State of the art
+In-Reply-To: <475FDAE6.4010901@ifremer.fr>
+References: <475FDAE6.4010901@ifremer.fr>
+Message-ID: <4760000F.30507@ifremer.fr>
+
+
+
+Joel VIGNEAU a ?crit :
+> Dear colleagues,
+> 
+> There are some weeks now that you returned to your lab and were left by 
+> yourself for developing COST functions with a nominative task list. It 
+> is time before the end of the year to make the point and assess where we 
+> are.
+> 
+> First of all, I must say I am surprised the developer mailing list 
+> stayed mute during the weeks following the meeting. I'm not sure if 
+> everybody is developing by their own, stuck somewhere in waiting for 
+> other's work, ...
+> In any case, this is not the right way of doing. If you have questions, 
+> doubts, suggestions please make use of the mailing list.
+> 
+> For example, we need to ensure consistency between all plots during a 
+> work session on COST. In order to do so, you must not define specific 
+> arguments in your functions, but rather elaborate a generic way of 
+> defining these so that every funcions refer to them. The ideas so far 
+> are (i) to develop these arguments in the options() object (COSTcol, 
+> COSTpch, ...) or (ii) define a control file for all options used for 
+> plotting.
+> 
+> There must be tens of issues like the one above, but we are not 
+> discussing them. It is partly my fault of course as I failed to respond 
+> to the only question raised so far but it is also a community work and 
+> we must rely on the expertise from all the others.
+> 
+> May I ask each of you to make the point on his/her own development, 
+> summarise the blocking/struggling issues and propose the planned 
+> programme to achieve the allocated task(s).
+> 
+> Thank you for your attention
+> 
+> Best regards
+> 
+> Joel
+> 
+
+
+Hi,
+
+Here is the situation so far for my part.
+
+At first, new 'csData' datasets for market sampling are ready to be 
+joined to sea sampling datasets from COSTcore package (they will be as 
+soon as Version 1 is released).
+Various species (anchovy, cod, nephrops, plaice...) for various 
+combinations of available datas (maturity, age, length by mm, by 
+1/2cm...). It will probably be useful for the testing phase.
+
+With regards to EDA functions implementation, tasks related to Raw data 
+structure are on their way. A first version of 'Delta plots' procedures 
+(b) is ready and a set of 'Plotting of Volume of L/D per H/T' (a) 
+functions is almost finished. However, a few changes will have to be 
+done to generate the graphs under 'lattice' environment, to consider a 
+control file for default graphical parameters, and finally because the 
+procedures will have to be worked out with the forthcoming version of 
+COSTcore package.
+
+Best
+Mathieu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 09:53:46 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 08:53:46 -0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <475FDAE6.4010901@ifremer.fr>
+References: <475FDAE6.4010901@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D139@mail4.marlab.ac.uk>
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel
+VIGNEAU
+Sent: 12 December 2007 12:58
+To: cost devel
+Subject: [cost-devel] State of the art
+
+ 
+
+Dear colleagues,
+
+There are some weeks now that you returned to your lab and were left by
+yourself for developing COST functions with a nominative task list. It
+is time before the end of the year to make the point and assess where we
+are.
+
+First of all, I must say I am surprised the developer mailing list
+stayed mute during the weeks following the meeting. I'm not sure if
+everybody is developing by their own, stuck somewhere in waiting for
+other's work, ...
+In any case, this is not the right way of doing. If you have questions,
+doubts, suggestions please make use of the mailing list.
+
+For example, we need to ensure consistency between all plots during a
+work session on COST. In order to do so, you must not define specific
+arguments in your functions, but rather elaborate a generic way of
+defining these so that every funcions refer to them. The ideas so far
+are (i) to develop these arguments in the options() object (COSTcol,
+COSTpch, ...) or (ii) define a control file for all options used for
+plotting.
+
+There must be tens of issues like the one above, but we are not
+discussing them. It is partly my fault of course as I failed to respond
+to the only question raised so far but it is also a community work and
+we must rely on the expertise from all the others.
+
+May I ask each of you to make the point on his/her own development,
+summarise the blocking/struggling issues and propose the planned
+programme to achieve the allocated task(s).
+
+Thank you for your attention
+
+Best regards
+
+Joel
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+Dear Joel, and All
+
+ 
+
+Have been working on the validation functions and spatial plotting
+functions for EDA.  
+
+ 
+
+Validation function is of the form
+
+ 
+
+Check.fileds(costobj)
+
+ 
+
+Where costobj is either cs cl or ce 
+
+The function basically involves testing variables of fish frame "type"
+string against the appropriate code list, variables of fish frame "type"
+integer against integer values within the specified ranges and variables
+of fish frame "type" dec against min and max and using is.real. One
+implication of this is that the format for all sting variables has to be
+uniform and I have been working on the basis that the appendices of the
+FF exchange format 12/11 are the ones we are going to use (as
+data(code.list) within the package). As regards R type I convert all
+strings to character and integers and dec to numeric. Have not addressed
+mandatory field or optional field checking and the presence of NA's but
+this can be included in this if required. Prints output to the screen. 
+
+ 
+
+Questions suggestions and matters arising (from cs and cl)  on this:  
+
+ 
+
+1.             $area       might be useful to allow Roman numeral format
+e.g. VIIb as well as the "7b"                           format in FF 
+
+2.             Might be worth including 50E2a  50E2d 50E2c 50E2d and
+51E2a  51E2d 51E2c 51E2d in the stat rect code list as this would allow
+sub divisions Vb1 and Vb2 to be (more or less) uniquely defined in terms
+of statistical rectangles, and visa versa. 
+
+ 
+
+3.             $foCatNat              Can anyone give an example of the
+format of this? 
+
+ 
+
+4.             $dayAtSea            Are we happy this has to be an
+integer and can not be a real ?
+
+ 
+
+5.             $unallocCatchWt  Unallocated catch weight; why mandatory?
+And if so I suggest  "unknown"  be admissible because zero is not the
+same as unknown
+
+6.             $misRepCatchWt same as 5. above 
+
+ 
+
+7.             $landValue            Suggest range is increased to
+include zero  
+
+8.             Everyone happy with the formats in the appendices of the
+12/11 fish frame format? 
+
+ 
+
+ 
+
+ 
+
+Spatial plotting function is in progress but less advanced and is of the
+form
+
+ 
+
+spaceplot(variable, spacestrata, func, ......)
+
+ 
+
+where the variable is (more or less) any numeric variable from cs, ce ,
+cl to be plotted eg. $ landWt, 
+
+and strata is either stat square, or area, (ICES areas or any other
+sampling area that can be uniquely defined in terms of stat squares),
+and func is whatever function is required e.g. mean, or length, or can
+be user defined.  Plots can be image, contour, bubble or printed values.
+
+
+ 
+
+The time strata and gear elements would be handled as 
+
+ 
+
+spaceplot(variable[..$month==xx& ..$foCatEu5==xx] ,
+strata[..$month==xx&..$foCatEu5==xx], func, ......)
+
+ 
+
+etc either defined directly by the user or within a wrapper 
+
+ 
+
+The wrapper function would then have the form:  
+
+ 
+
+plotfunc(costobj, variable, spacestrata, timestrata, gearstrata,
+func.....)
+
+ 
+
+ 
+
+Questions suggestions and matters arising on this:  
+
+ 
+
+1.             Can anyone shed any light on area and statsq in the
+Mediterranean? Are there such things there?
+
+2.             If we want port to be a spatial strata we need to have
+that information, its not in FF.             
+
+3.             Do we want to specify some function names at this stage
+for consistency? 
+
+ 
+
+Any problems with any of this scream now please. 
+
+All the best
+
+Alastair
+
+ 
+
+p.s. also have some FRS data in ce and cl format but not cs yet. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071213/da378c10/attachment.html>
+
+From Hans.Bogaards at wur.nl  Thu Dec 13 10:38:33 2007
+From: Hans.Bogaards at wur.nl (Bogaards, Hans)
+Date: Thu, 13 Dec 2007 10:38:33 +0100
+Subject: [cost-devel] State of the art
+In-Reply-To: <475FDAE6.4010901@ifremer.fr>
+References: <475FDAE6.4010901@ifremer.fr>
+Message-ID: <ACDDBFFA28203C41A7144808EE3A08A8657CF3@scomp0038.wurnet.nl>
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel
+VIGNEAU
+Sent: Wednesday, December 12, 2007 1:58 PM
+To: cost devel
+Subject: [cost-devel] State of the art
+
+
+Dear colleagues,
+
+There are some weeks now that you returned to your lab and were left by
+yourself for developing COST functions with a nominative task list. It
+is time before the end of the year to make the point and assess where we
+are.
+
+First of all, I must say I am surprised the developer mailing list
+stayed mute during the weeks following the meeting. I'm not sure if
+everybody is developing by their own, stuck somewhere in waiting for
+other's work, ...
+In any case, this is not the right way of doing. If you have questions,
+doubts, suggestions please make use of the mailing list.
+
+For example, we need to ensure consistency between all plots during a
+work session on COST. In order to do so, you must not define specific
+arguments in your functions, but rather elaborate a generic way of
+defining these so that every funcions refer to them. The ideas so far
+are (i) to develop these arguments in the options() object (COSTcol,
+COSTpch, ...) or (ii) define a control file for all options used for
+plotting.
+
+There must be tens of issues like the one above, but we are not
+discussing them. It is partly my fault of course as I failed to respond
+to the only question raised so far but it is also a community work and
+we must rely on the expertise from all the others.
+
+May I ask each of you to make the point on his/her own development,
+summarise the blocking/struggling issues and propose the planned
+programme to achieve the allocated task(s).
+
+Thank you for your attention
+
+Best regards
+
+Joel
+
+ ------- 
+
+
+Dear Joel and others,
+ 
+Until now, I have mainly discussed the data exchange format with our
+discards expert and our datamanager.
+There are no real difficulties with getting the necessary tables,
+although the SL record in the CS table presented minor problems:
+ 
+-- the catch category for pelagic fish should also include an 'unsorted'
+option.
+-- it is not clear which scales are referred to in "commercial size
+category" and "subsampling category"
+-- in sea sampling the subsample weight is not recorded
+ 
+So, we are able to fill the tables from our database without much
+difficulty.
+As for progress made in development of R code; there is none, which has
+to with the following.
+ 
+
+From ernesto at ipimar.pt  Thu Dec 13 11:14:23 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 10:14:23 +0000
+Subject: [cost-devel] Validation function
+Message-ID: <476105FF.8000807@ipimar.pt>
+
+Hi,
+
+Alastair in his email mentions the "Check.fields" function which looks 
+like doing a very good job. My doubt is about what is being returned by 
+this method.
+
+Does it correct the fields or provide methods to correct them ? This 
+code checking together with error checking (mis allocations, outliers, 
+etc) should end up by creating VALIDATED objects, so we need to include 
+that functionality somewhere. My idea is that it should be included in 
+the creator function of the validated datasets csDataVal, ceDataVal and 
+clDataVal, which for the moment return empty objects. Try csDataVal().
+
+These methods can be moved to COSTEDA.
+
+Best
+
+EJ
+ 
+
+
+From ernesto at ipimar.pt  Thu Dec 13 11:39:22 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 10:39:22 +0000
+Subject: [cost-devel] COSTcore 0.5-0 released
+Message-ID: <47610BDA.9060400@ipimar.pt>
+
+Hi,
+
+I've uploaded the latest COSTcore version, 0.5-0, now in Beta status, to 
+our repository 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) and 
+CVS. All classes were adjusted to follow the latest FF5 version of 12 Nov.
+
+The data structures are now stabilized and the basic methods are 
+implemented, so all development can be done.
+
+Read the news file to get an overview of what's on this release. It 
+still misses some documentation and the replacement method, which I'm 
+not so sure it will be of any help, in particular in cs data it looks 
+quite messy ... Also the data integrity checks on VALIDATED data need to 
+be implemented.
+
+The pathway to version 1 is:
+    1) sort out the issues above on the next month and release a new 
+minor version, 0.6-0;
+    2) wait for your feedback to correct any bugs or implement missing 
+features;
+    3) release version 1 by February, before PGCCDBS where I hope Joel 
+can make a presentation of our work.
+
+Best
+
+EJ
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 12:20:50 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 11:20:50 -0000
+Subject: [cost-devel] Validation function
+In-Reply-To: <476105FF.8000807@ipimar.pt>
+References: <476105FF.8000807@ipimar.pt>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 13 December 2007 10:14
+To: Cost-devel Mailing List
+Subject: [cost-devel] Validation function
+
+Hi,
+
+Alastair in his email mentions the "Check.fields" function which looks 
+like doing a very good job. My doubt is about what is being returned by 
+this method.
+
+Does it correct the fields or provide methods to correct them ? This 
+code checking together with error checking (mis allocations, outliers, 
+etc) should end up by creating VALIDATED objects, so we need to include 
+that functionality somewhere. My idea is that it should be included in 
+the creator function of the validated datasets csDataVal, ceDataVal and 
+clDataVal, which for the moment return empty objects. Try csDataVal().
+
+These methods can be moved to COSTEDA.
+
+Best
+
+EJ
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+Hi Ernesto 
+
+At present my check.fileds checks strings against the code list and
+numerics for type and against the ranges specified in FF. 
+
+The output reports unrecognised values for strings and out of range
+values, non integer values and non real values for the numerics. For
+strings it prints out which string values are unrecognised and tells you
+how many. It also reports complete NA fields. 
+
+I don't correct anything as my understanding was that this was the users
+responsibility, we just say what is incompatible with the exchange
+format.  
+
+Again my understanding was that my function and Mathieu's error checking
+function (which does the misallocated values) formed the basis of the
+pre validation checks. 
+To create the validation stage objects we could can incorporate some
+correcting or get these functions to return only validated objects if
+that is the way we want to go. Need to coordinate that of course. 
+
+
+This is my output for 
+check.fields(solece) 
+
+> check.fields(solece)
+        This is a ce Data object
+
+         $vslFlgCtry is OK
+         $year is OK
+         $quarter is OK
+         $month contains non integer values
+         $area contains 112 unrecognised entries of values:
+                 27.7.e 27.7.d 
+         $rect is entirely NA 
+         $foCatNat is entirely NA 
+         $foCatEu5 contains 112 unrecognised entries of values:
+                 GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+OTB_Small_pelagic_fish 
+         $foCatEu6 is entirely NA 
+         $trpNum is OK
+         $foNum is entirely NA
+         $foDur is entirely NA
+         $effKwDays is entirely NA
+         $effGtDays is entirely NA
+         $daysAtSea is entirely NA
+>
+
+All the best
+Alastair
+
+
+From ernesto at ipimar.pt  Thu Dec 13 12:34:25 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 11:34:25 +0000
+Subject: [cost-devel] Validation function
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk>
+References: <476105FF.8000807@ipimar.pt>
+	<A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk>
+Message-ID: <476118C1.8070005@ipimar.pt>
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 10:14
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] Validation function
+>
+> Hi,
+>
+> Alastair in his email mentions the "Check.fields" function which looks 
+> like doing a very good job. My doubt is about what is being returned by 
+> this method.
+>
+> Does it correct the fields or provide methods to correct them ? This 
+> code checking together with error checking (mis allocations, outliers, 
+> etc) should end up by creating VALIDATED objects, so we need to include 
+> that functionality somewhere. My idea is that it should be included in 
+> the creator function of the validated datasets csDataVal, ceDataVal and 
+> clDataVal, which for the moment return empty objects. Try csDataVal().
+>
+> These methods can be moved to COSTEDA.
+>
+> Best
+>
+> EJ
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email 
+> ______________________________________________________________________
+>
+> Hi Ernesto 
+>
+> At present my check.fileds checks strings against the code list and
+> numerics for type and against the ranges specified in FF. 
+>
+> The output reports unrecognised values for strings and out of range
+> values, non integer values and non real values for the numerics. For
+> strings it prints out which string values are unrecognised and tells you
+> how many. It also reports complete NA fields. 
+>
+> I don't correct anything as my understanding was that this was the users
+> responsibility, we just say what is incompatible with the exchange
+> format.  
+>
+> Again my understanding was that my function and Mathieu's error checking
+> function (which does the misallocated values) formed the basis of the
+> pre validation checks. 
+> To create the validation stage objects we could can incorporate some
+> correcting or get these functions to return only validated objects if
+> that is the way we want to go. Need to coordinate that of course. 
+>
+>
+> This is my output for 
+> check.fields(solece) 
+>
+>   
+>> check.fields(solece)
+>>     
+>         This is a ce Data object
+>
+>          $vslFlgCtry is OK
+>          $year is OK
+>          $quarter is OK
+>          $month contains non integer values
+>          $area contains 112 unrecognised entries of values:
+>                  27.7.e 27.7.d 
+>          $rect is entirely NA 
+>          $foCatNat is entirely NA 
+>          $foCatEu5 contains 112 unrecognised entries of values:
+>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+> OTB_Small_pelagic_fish 
+>          $foCatEu6 is entirely NA 
+>          $trpNum is OK
+>          $foNum is entirely NA
+>          $foDur is entirely NA
+>          $effKwDays is entirely NA
+>          $effGtDays is entirely NA
+>          $daysAtSea is entirely NA
+>   
+>
+> All the best
+> Alastair
+
+Hi,
+
+The output looks ok, maybe you should include an option to print it or 
+save in a file.
+
+What I remember about our discussion was that the VALIDATED dataset 
+could be different from users databases and exchange files, because this 
+error checking was done inside R. In that case users may want to go back 
+to their databases or exchange file and fix the errors. But I understood 
+that we would provide methods for users to correct errors, coding 
+problems etc, within R and create the VALIDATED dataset. The alternative 
+option would be to ask users to fix errors outside R and read the 
+dataset a second time, but in that case we don't need to VALIDATED classes.
+
+I also remember we discussed the possibility of including the reports 
+(like yours) on the VALIDATED classes, to keep data and analysis 
+together, but did not conclude on anything. Looking at your report I 
+think we should include it on the class with a slot called "report" or 
+"checkReport".
+
+Best
+
+EJ
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 13:00:28 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 12:00:28 -0000
+Subject: [cost-devel] Validation function - clash of trpNum filed
+In-Reply-To: <476118C1.8070005@ipimar.pt>
+References: <476105FF.8000807@ipimar.pt><A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk>
+	<476118C1.8070005@ipimar.pt>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 13 December 2007 11:34
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Validation function
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 10:14
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] Validation function
+>
+> Hi,
+>
+> Alastair in his email mentions the "Check.fields" function which looks
+
+> like doing a very good job. My doubt is about what is being returned
+by 
+> this method.
+>
+> Does it correct the fields or provide methods to correct them ? This 
+> code checking together with error checking (mis allocations, outliers,
+
+> etc) should end up by creating VALIDATED objects, so we need to
+include 
+> that functionality somewhere. My idea is that it should be included in
+
+> the creator function of the validated datasets csDataVal, ceDataVal
+and 
+> clDataVal, which for the moment return empty objects. Try csDataVal().
+>
+> These methods can be moved to COSTEDA.
+>
+> Best
+>
+> EJ
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email 
+> ______________________________________________________________________
+>
+> Hi Ernesto 
+>
+> At present my check.fileds checks strings against the code list and
+> numerics for type and against the ranges specified in FF. 
+>
+> The output reports unrecognised values for strings and out of range
+> values, non integer values and non real values for the numerics. For
+> strings it prints out which string values are unrecognised and tells
+you
+> how many. It also reports complete NA fields. 
+>
+> I don't correct anything as my understanding was that this was the
+users
+> responsibility, we just say what is incompatible with the exchange
+> format.  
+>
+> Again my understanding was that my function and Mathieu's error
+checking
+> function (which does the misallocated values) formed the basis of the
+> pre validation checks. 
+> To create the validation stage objects we could can incorporate some
+> correcting or get these functions to return only validated objects if
+> that is the way we want to go. Need to coordinate that of course. 
+>
+>
+> This is my output for 
+> check.fields(solece) 
+>
+>   
+>> check.fields(solece)
+>>     
+>         This is a ce Data object
+>
+>          $vslFlgCtry is OK
+>          $year is OK
+>          $quarter is OK
+>          $month contains non integer values
+>          $area contains 112 unrecognised entries of values:
+>                  27.7.e 27.7.d 
+>          $rect is entirely NA 
+>          $foCatNat is entirely NA 
+>          $foCatEu5 contains 112 unrecognised entries of values:
+>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+> OTB_Small_pelagic_fish 
+>          $foCatEu6 is entirely NA 
+>          $trpNum is OK
+>          $foNum is entirely NA
+>          $foDur is entirely NA
+>          $effKwDays is entirely NA
+>          $effGtDays is entirely NA
+>          $daysAtSea is entirely NA
+>   
+>
+> All the best
+> Alastair
+
+Hi,
+
+The output looks ok, maybe you should include an option to print it or 
+save in a file.
+
+What I remember about our discussion was that the VALIDATED dataset 
+could be different from users databases and exchange files, because this
+
+error checking was done inside R. In that case users may want to go back
+
+to their databases or exchange file and fix the errors. But I understood
+
+that we would provide methods for users to correct errors, coding 
+problems etc, within R and create the VALIDATED dataset. The alternative
+
+option would be to ask users to fix errors outside R and read the 
+dataset a second time, but in that case we don't need to VALIDATED
+classes.
+
+I also remember we discussed the possibility of including the reports 
+(like yours) on the VALIDATED classes, to keep data and analysis 
+together, but did not conclude on anything. Looking at your report I 
+think we should include it on the class with a slot called "report" or 
+"checkReport".
+
+Best
+
+EJ
+
+
+Hi Ernesto
+Just noticed that we have 
+
+$trpNum in cs data for the individual national code number for the trip.
+
+
+and
+
+$trpNum in ce data for the number of trips as a measure of effort
+
+All the best
+Alastair
+
+
+
+
+
+
+
+
+
+
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+
+From david.maxwell at cefas.co.uk  Thu Dec 13 12:50:16 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 13 Dec 2007 11:50:16 -0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D139@mail4.marlab.ac.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B09559B@LOWEXPRESS.corp.cefas.co.uk>
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Alastair Pout
+Sent: 13 December 2007 08:54
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] State of the art
+
+
+
+Dear Joel, and All
+ 
+ One implication of this is that the format for all sting variables has to be uniform and I have been working on the basis that the appendices of the FF exchange format 12/11 are the ones we are going to use (as data(code.list) within the package).
+
+
+  Everyone happy with the formats in the appendices of the 12/11 fish frame format? 
+ 
+ Any problems with any of this scream now please. 
+All the best
+Alastair
+ 
+-----------------------  
+Hi everyone,
+
+The lastest version of the format I have is FishFrame 5.0 Exchange format specification 2 November 2007, that Teunis emailed on 5 Novermber 2007.
+
+Have I missed 12/11 fish frame format? Please can someone confirm if we now have a version of the exchange format that is agreed and will remain fixed for this project. Then we will provide a new version of the Cefas market sampling and survey data for 2006 in the required format.
+
+Thanks, David
+ 
+ 
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 13:16:06 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 12:16:06 -0000
+Subject: [cost-devel] Validation function - clash of Days at sea and
+	number of sets fields
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk>
+References: <476105FF.8000807@ipimar.pt><A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk><476118C1.8070005@ipimar.pt>
+	<A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D13E@mail4.marlab.ac.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+Alastair Pout
+Sent: 13 December 2007 12:00
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Validation function - clash of trpNum filed
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 13 December 2007 11:34
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Validation function
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 10:14
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] Validation function
+>
+> Hi,
+>
+> Alastair in his email mentions the "Check.fields" function which looks
+
+> like doing a very good job. My doubt is about what is being returned
+by 
+> this method.
+>
+> Does it correct the fields or provide methods to correct them ? This 
+> code checking together with error checking (mis allocations, outliers,
+
+> etc) should end up by creating VALIDATED objects, so we need to
+include 
+> that functionality somewhere. My idea is that it should be included in
+
+> the creator function of the validated datasets csDataVal, ceDataVal
+and 
+> clDataVal, which for the moment return empty objects. Try csDataVal().
+>
+> These methods can be moved to COSTEDA.
+>
+> Best
+>
+> EJ
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email 
+> ______________________________________________________________________
+>
+> Hi Ernesto 
+>
+> At present my check.fileds checks strings against the code list and
+> numerics for type and against the ranges specified in FF. 
+>
+> The output reports unrecognised values for strings and out of range
+> values, non integer values and non real values for the numerics. For
+> strings it prints out which string values are unrecognised and tells
+you
+> how many. It also reports complete NA fields. 
+>
+> I don't correct anything as my understanding was that this was the
+users
+> responsibility, we just say what is incompatible with the exchange
+> format.  
+>
+> Again my understanding was that my function and Mathieu's error
+checking
+> function (which does the misallocated values) formed the basis of the
+> pre validation checks. 
+> To create the validation stage objects we could can incorporate some
+> correcting or get these functions to return only validated objects if
+> that is the way we want to go. Need to coordinate that of course. 
+>
+>
+> This is my output for 
+> check.fields(solece) 
+>
+>   
+>> check.fields(solece)
+>>     
+>         This is a ce Data object
+>
+>          $vslFlgCtry is OK
+>          $year is OK
+>          $quarter is OK
+>          $month contains non integer values
+>          $area contains 112 unrecognised entries of values:
+>                  27.7.e 27.7.d 
+>          $rect is entirely NA 
+>          $foCatNat is entirely NA 
+>          $foCatEu5 contains 112 unrecognised entries of values:
+>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+> OTB_Small_pelagic_fish 
+>          $foCatEu6 is entirely NA 
+>          $trpNum is OK
+>          $foNum is entirely NA
+>          $foDur is entirely NA
+>          $effKwDays is entirely NA
+>          $effGtDays is entirely NA
+>          $daysAtSea is entirely NA
+>   
+>
+> All the best
+> Alastair
+
+Hi,
+
+The output looks ok, maybe you should include an option to print it or 
+save in a file.
+
+What I remember about our discussion was that the VALIDATED dataset 
+could be different from users databases and exchange files, because this
+
+error checking was done inside R. In that case users may want to go back
+
+to their databases or exchange file and fix the errors. But I understood
+
+that we would provide methods for users to correct errors, coding 
+problems etc, within R and create the VALIDATED dataset. The alternative
+
+option would be to ask users to fix errors outside R and read the 
+dataset a second time, but in that case we don't need to VALIDATED
+classes.
+
+I also remember we discussed the possibility of including the reports 
+(like yours) on the VALIDATED classes, to keep data and analysis 
+together, but did not conclude on anything. Looking at your report I 
+think we should include it on the class with a slot called "report" or 
+"checkReport".
+
+Best
+
+EJ
+
+
+Hi Ernesto
+Just noticed that we have 
+
+$trpNum in cs data for the individual national code number for the trip.
+
+
+and
+
+$trpNum in ce data for the number of trips as a measure of effort
+
+All the best
+Alastair
+
+
+
+Think similar (but lesser) problem applies to 
+$daysAtSea and $foNum in tr and ce tables in that they mean different
+things and as such they have different applicable range values.  
+
+All the best
+Alastair
+
+
+
+
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 13:21:17 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 12:21:17 -0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B09559B@LOWEXPRESS.corp.cefas.co.uk>
+References: <A0F8DAFB525DED4ABAF6841BB11C581221D139@mail4.marlab.ac.uk>
+	<8F90BAFE30CE2D458953FC0F1709830B09559B@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D13F@mail4.marlab.ac.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David
+Maxwell (Cefas)
+Sent: 13 December 2007 11:50
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] State of the art
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Alastair Pout
+Sent: 13 December 2007 08:54
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] State of the art
+
+
+
+Dear Joel, and All
+ 
+ One implication of this is that the format for all sting variables has
+to be uniform and I have been working on the basis that the appendices
+of the FF exchange format 12/11 are the ones we are going to use (as
+data(code.list) within the package).
+
+
+  Everyone happy with the formats in the appendices of the 12/11 fish
+frame format? 
+ 
+ Any problems with any of this scream now please. 
+All the best
+Alastair
+ 
+-----------------------  
+Hi everyone,
+
+The lastest version of the format I have is FishFrame 5.0 Exchange
+format specification 2 November 2007, that Teunis emailed on 5 Novermber
+2007.
+
+Have I missed 12/11 fish frame format? Please can someone confirm if we
+now have a version of the exchange format that is agreed and will remain
+fixed for this project. Then we will provide a new version of the Cefas
+market sampling and survey data for 2006 in the required format.
+
+Thanks, David
+ 
+ 
+
+
+************************************************************************
+***********
+This email and any attachments are intended for the named recipient
+only.  Its unauthorised use, distribution, disclosure, storage or
+copying is not permitted.  If you have received it in error, please
+destroy all copies and notify the sender.  In messages of a non-business
+nature, the views and opinions expressed are the author's own and do not
+necessarily reflect those of the organisation from which it is sent.
+All emails may be subject to monitoring.
+************************************************************************
+***********
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+
+Hi
+Yes sorry this should have been the FF 12/11 version (not 11/12) as
+e-mailed by Teunis on 16/11
+
+All the best
+Alastair 
+
+
+From ernesto at ipimar.pt  Thu Dec 13 13:26:33 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 12:26:33 +0000
+Subject: [cost-devel] Validation function - clash of Days at sea
+ and	number of sets fields
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D13E@mail4.marlab.ac.uk>
+References: <476105FF.8000807@ipimar.pt><A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk><476118C1.8070005@ipimar.pt>	<A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk>
+	<A0F8DAFB525DED4ABAF6841BB11C581221D13E@mail4.marlab.ac.uk>
+Message-ID: <476124F9.9080800@ipimar.pt>
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> Alastair Pout
+> Sent: 13 December 2007 12:00
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Validation function - clash of trpNum filed
+>
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 11:34
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Validation function
+>
+> Alastair Pout wrote:
+>   
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>> ernesto
+>> Sent: 13 December 2007 10:14
+>> To: Cost-devel Mailing List
+>> Subject: [cost-devel] Validation function
+>>
+>> Hi,
+>>
+>> Alastair in his email mentions the "Check.fields" function which looks
+>>     
+>
+>   
+>> like doing a very good job. My doubt is about what is being returned
+>>     
+> by 
+>   
+>> this method.
+>>
+>> Does it correct the fields or provide methods to correct them ? This 
+>> code checking together with error checking (mis allocations, outliers,
+>>     
+>
+>   
+>> etc) should end up by creating VALIDATED objects, so we need to
+>>     
+> include 
+>   
+>> that functionality somewhere. My idea is that it should be included in
+>>     
+>
+>   
+>> the creator function of the validated datasets csDataVal, ceDataVal
+>>     
+> and 
+>   
+>> clDataVal, which for the moment return empty objects. Try csDataVal().
+>>
+>> These methods can be moved to COSTEDA.
+>>
+>> Best
+>>
+>> EJ
+>>  
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>> ______________________________________________________________________
+>> This email has been scanned by the MessageLabs Email Security System.
+>> For more information please visit http://www.messagelabs.com/email 
+>> ______________________________________________________________________
+>>
+>> Hi Ernesto 
+>>
+>> At present my check.fileds checks strings against the code list and
+>> numerics for type and against the ranges specified in FF. 
+>>
+>> The output reports unrecognised values for strings and out of range
+>> values, non integer values and non real values for the numerics. For
+>> strings it prints out which string values are unrecognised and tells
+>>     
+> you
+>   
+>> how many. It also reports complete NA fields. 
+>>
+>> I don't correct anything as my understanding was that this was the
+>>     
+> users
+>   
+>> responsibility, we just say what is incompatible with the exchange
+>> format.  
+>>
+>> Again my understanding was that my function and Mathieu's error
+>>     
+> checking
+>   
+>> function (which does the misallocated values) formed the basis of the
+>> pre validation checks. 
+>> To create the validation stage objects we could can incorporate some
+>> correcting or get these functions to return only validated objects if
+>> that is the way we want to go. Need to coordinate that of course. 
+>>
+>>
+>> This is my output for 
+>> check.fields(solece) 
+>>
+>>   
+>>     
+>>> check.fields(solece)
+>>>     
+>>>       
+>>         This is a ce Data object
+>>
+>>          $vslFlgCtry is OK
+>>          $year is OK
+>>          $quarter is OK
+>>          $month contains non integer values
+>>          $area contains 112 unrecognised entries of values:
+>>                  27.7.e 27.7.d 
+>>          $rect is entirely NA 
+>>          $foCatNat is entirely NA 
+>>          $foCatEu5 contains 112 unrecognised entries of values:
+>>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+>> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+>> OTB_Small_pelagic_fish 
+>>          $foCatEu6 is entirely NA 
+>>          $trpNum is OK
+>>          $foNum is entirely NA
+>>          $foDur is entirely NA
+>>          $effKwDays is entirely NA
+>>          $effGtDays is entirely NA
+>>          $daysAtSea is entirely NA
+>>   
+>>
+>> All the best
+>> Alastair
+>>     
+>
+> Hi,
+>
+> The output looks ok, maybe you should include an option to print it or 
+> save in a file.
+>
+> What I remember about our discussion was that the VALIDATED dataset 
+> could be different from users databases and exchange files, because this
+>
+> error checking was done inside R. In that case users may want to go back
+>
+> to their databases or exchange file and fix the errors. But I understood
+>
+> that we would provide methods for users to correct errors, coding 
+> problems etc, within R and create the VALIDATED dataset. The alternative
+>
+> option would be to ask users to fix errors outside R and read the 
+> dataset a second time, but in that case we don't need to VALIDATED
+> classes.
+>
+> I also remember we discussed the possibility of including the reports 
+> (like yours) on the VALIDATED classes, to keep data and analysis 
+> together, but did not conclude on anything. Looking at your report I 
+> think we should include it on the class with a slot called "report" or 
+> "checkReport".
+>
+> Best
+>
+> EJ
+>
+>
+> Hi Ernesto
+> Just noticed that we have 
+>
+> $trpNum in cs data for the individual national code number for the trip.
+>
+>
+> and
+>
+> $trpNum in ce data for the number of trips as a measure of effort
+>
+> All the best
+> Alastair
+>
+>
+>
+> Think similar (but lesser) problem applies to 
+> $daysAtSea and $foNum in tr and ce tables in that they mean different
+> things and as such they have different applicable range values.  
+>
+> All the best
+> Alastair
+
+Hi,
+
+If you agree I'll change trpNum in cs to trpCode which is more explicit 
+regarding its usage.
+
+WRT to days at sea and foNum (this is the field called "Number of 
+sets/hauls"), these are different metrics, in a day at sea ($daysAtSea) 
+you may execute several fishing operations ($foNum).
+
+Best
+
+EJ
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Dec 13 13:53:04 2007
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 13 Dec 2007 12:53:04 -0000
+Subject: [cost-devel] Validation function - clash of Days at sea
+	and	number of sets fields
+In-Reply-To: <476124F9.9080800@ipimar.pt>
+References: <476105FF.8000807@ipimar.pt><A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk><476118C1.8070005@ipimar.pt>	<A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk><A0F8DAFB525DED4ABAF6841BB11C581221D13E@mail4.marlab.ac.uk>
+	<476124F9.9080800@ipimar.pt>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D140@mail4.marlab.ac.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 13 December 2007 12:27
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Validation function - clash of Days at sea and
+number of sets fields
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> Alastair Pout
+> Sent: 13 December 2007 12:00
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Validation function - clash of trpNum filed
+>
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 11:34
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Validation function
+>
+> Alastair Pout wrote:
+>   
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>> ernesto
+>> Sent: 13 December 2007 10:14
+>> To: Cost-devel Mailing List
+>> Subject: [cost-devel] Validation function
+>>
+>> Hi,
+>>
+>> Alastair in his email mentions the "Check.fields" function which
+looks
+>>     
+>
+>   
+>> like doing a very good job. My doubt is about what is being returned
+>>     
+> by 
+>   
+>> this method.
+>>
+>> Does it correct the fields or provide methods to correct them ? This 
+>> code checking together with error checking (mis allocations,
+outliers,
+>>     
+>
+>   
+>> etc) should end up by creating VALIDATED objects, so we need to
+>>     
+> include 
+>   
+>> that functionality somewhere. My idea is that it should be included
+in
+>>     
+>
+>   
+>> the creator function of the validated datasets csDataVal, ceDataVal
+>>     
+> and 
+>   
+>> clDataVal, which for the moment return empty objects. Try
+csDataVal().
+>>
+>> These methods can be moved to COSTEDA.
+>>
+>> Best
+>>
+>> EJ
+>>  
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>
+______________________________________________________________________
+>> This email has been scanned by the MessageLabs Email Security System.
+>> For more information please visit http://www.messagelabs.com/email 
+>>
+______________________________________________________________________
+>>
+>> Hi Ernesto 
+>>
+>> At present my check.fileds checks strings against the code list and
+>> numerics for type and against the ranges specified in FF. 
+>>
+>> The output reports unrecognised values for strings and out of range
+>> values, non integer values and non real values for the numerics. For
+>> strings it prints out which string values are unrecognised and tells
+>>     
+> you
+>   
+>> how many. It also reports complete NA fields. 
+>>
+>> I don't correct anything as my understanding was that this was the
+>>     
+> users
+>   
+>> responsibility, we just say what is incompatible with the exchange
+>> format.  
+>>
+>> Again my understanding was that my function and Mathieu's error
+>>     
+> checking
+>   
+>> function (which does the misallocated values) formed the basis of the
+>> pre validation checks. 
+>> To create the validation stage objects we could can incorporate some
+>> correcting or get these functions to return only validated objects if
+>> that is the way we want to go. Need to coordinate that of course. 
+>>
+>>
+>> This is my output for 
+>> check.fields(solece) 
+>>
+>>   
+>>     
+>>> check.fields(solece)
+>>>     
+>>>       
+>>         This is a ce Data object
+>>
+>>          $vslFlgCtry is OK
+>>          $year is OK
+>>          $quarter is OK
+>>          $month contains non integer values
+>>          $area contains 112 unrecognised entries of values:
+>>                  27.7.e 27.7.d 
+>>          $rect is entirely NA 
+>>          $foCatNat is entirely NA 
+>>          $foCatEu5 contains 112 unrecognised entries of values:
+>>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+>> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+>> OTB_Small_pelagic_fish 
+>>          $foCatEu6 is entirely NA 
+>>          $trpNum is OK
+>>          $foNum is entirely NA
+>>          $foDur is entirely NA
+>>          $effKwDays is entirely NA
+>>          $effGtDays is entirely NA
+>>          $daysAtSea is entirely NA
+>>   
+>>
+>> All the best
+>> Alastair
+>>     
+>
+> Hi,
+>
+> The output looks ok, maybe you should include an option to print it or
+
+> save in a file.
+>
+> What I remember about our discussion was that the VALIDATED dataset 
+> could be different from users databases and exchange files, because
+this
+>
+> error checking was done inside R. In that case users may want to go
+back
+>
+> to their databases or exchange file and fix the errors. But I
+understood
+>
+> that we would provide methods for users to correct errors, coding 
+> problems etc, within R and create the VALIDATED dataset. The
+alternative
+>
+> option would be to ask users to fix errors outside R and read the 
+> dataset a second time, but in that case we don't need to VALIDATED
+> classes.
+>
+> I also remember we discussed the possibility of including the reports 
+> (like yours) on the VALIDATED classes, to keep data and analysis 
+> together, but did not conclude on anything. Looking at your report I 
+> think we should include it on the class with a slot called "report" or
+
+> "checkReport".
+>
+> Best
+>
+> EJ
+>
+>
+> Hi Ernesto
+> Just noticed that we have 
+>
+> $trpNum in cs data for the individual national code number for the
+trip.
+>
+>
+> and
+>
+> $trpNum in ce data for the number of trips as a measure of effort
+>
+> All the best
+> Alastair
+>
+>
+>
+> Think similar (but lesser) problem applies to 
+> $daysAtSea and $foNum in tr and ce tables in that they mean different
+> things and as such they have different applicable range values.  
+>
+> All the best
+> Alastair
+
+Hi,
+
+If you agree I'll change trpNum in cs to trpCode which is more explicit 
+regarding its usage.
+
+WRT to days at sea and foNum (this is the field called "Number of 
+sets/hauls"), these are different metrics, in a day at sea ($daysAtSea) 
+you may execute several fishing operations ($foNum).
+
+Best
+
+EJ
+
+
+Hi 
+Yes changing $trpNum in cs to $trpCode would be good. 
+
+The thing with $daysAtSea and $foNum is that they both occur in tr
+tables and ce tables. 
+In tr tables they are a measure of days at sea per trip and hauls per
+trip and as such (in ff "basic checks") the ranges are 1-60 and 1-99
+respectively. 
+In ce tables $daysAtSea is summed for stock, gear, month, statrect etc
+etc as a measure of effort, as is $foNum. The ff basic checks give
+ranges of 1 to 1000 and 1 to 250000. 
+If we want a unique set of field names with a single code list or
+numeric range then we need to be able to distinguish between $daysAtSea
+and $foNum in tr and ce tables. Alternatively I can separate them within
+the function according to table name and range check them that way.
+In my opinion having a unique set of field names is much the better
+option.  
+  
+All the best
+Alastair
+
+
+
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+
+From david.maxwell at cefas.co.uk  Thu Dec 13 14:37:47 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 13 Dec 2007 13:37:47 -0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D13F@mail4.marlab.ac.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B09559C@LOWEXPRESS.corp.cefas.co.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Alastair Pout
+Sent: 13 December 2007 12:21
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] State of the art
+
+
+
+Hi
+Yes sorry this should have been the FF 12/11 version (not 11/12) as
+e-mailed by Teunis on 16/11
+
+All the best
+Alastair 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+----------------------
+I do have this FF version.
+
+Joel, is this the version of the exchange format that is agreed and will remain
+fixed for this project?
+
+Thanks, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From ernesto at ipimar.pt  Thu Dec 13 14:53:27 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 13:53:27 +0000
+Subject: [cost-devel] Validation function - clash of Days at
+ sea	and	number of sets fields
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D140@mail4.marlab.ac.uk>
+References: <476105FF.8000807@ipimar.pt><A0F8DAFB525DED4ABAF6841BB11C581221D13C@mail4.marlab.ac.uk><476118C1.8070005@ipimar.pt>	<A0F8DAFB525DED4ABAF6841BB11C581221D13D@mail4.marlab.ac.uk><A0F8DAFB525DED4ABAF6841BB11C581221D13E@mail4.marlab.ac.uk>	<476124F9.9080800@ipimar.pt>
+	<A0F8DAFB525DED4ABAF6841BB11C581221D140@mail4.marlab.ac.uk>
+Message-ID: <47613957.1030306@ipimar.pt>
+
+Alastair Pout wrote:
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 13 December 2007 12:27
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Validation function - clash of Days at sea and
+> number of sets fields
+>
+> Alastair Pout wrote:
+>   
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>> Alastair Pout
+>> Sent: 13 December 2007 12:00
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: Re: [cost-devel] Validation function - clash of trpNum filed
+>>
+>>
+>>
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>> ernesto
+>> Sent: 13 December 2007 11:34
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: Re: [cost-devel] Validation function
+>>
+>> Alastair Pout wrote:
+>>   
+>>     
+>>> -----Original Message-----
+>>> From: cost-project-devel-bounces at lists.berlios.de
+>>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>>> ernesto
+>>> Sent: 13 December 2007 10:14
+>>> To: Cost-devel Mailing List
+>>> Subject: [cost-devel] Validation function
+>>>
+>>> Hi,
+>>>
+>>> Alastair in his email mentions the "Check.fields" function which
+>>>       
+> looks
+>   
+>>>     
+>>>       
+>>   
+>>     
+>>> like doing a very good job. My doubt is about what is being returned
+>>>     
+>>>       
+>> by 
+>>   
+>>     
+>>> this method.
+>>>
+>>> Does it correct the fields or provide methods to correct them ? This 
+>>> code checking together with error checking (mis allocations,
+>>>       
+> outliers,
+>   
+>>>     
+>>>       
+>>   
+>>     
+>>> etc) should end up by creating VALIDATED objects, so we need to
+>>>     
+>>>       
+>> include 
+>>   
+>>     
+>>> that functionality somewhere. My idea is that it should be included
+>>>       
+> in
+>   
+>>>     
+>>>       
+>>   
+>>     
+>>> the creator function of the validated datasets csDataVal, ceDataVal
+>>>     
+>>>       
+>> and 
+>>   
+>>     
+>>> clDataVal, which for the moment return empty objects. Try
+>>>       
+> csDataVal().
+>   
+>>> These methods can be moved to COSTEDA.
+>>>
+>>> Best
+>>>
+>>> EJ
+>>>  
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>>
+>>>       
+> ______________________________________________________________________
+>   
+>>> This email has been scanned by the MessageLabs Email Security System.
+>>> For more information please visit http://www.messagelabs.com/email 
+>>>
+>>>       
+> ______________________________________________________________________
+>   
+>>> Hi Ernesto 
+>>>
+>>> At present my check.fileds checks strings against the code list and
+>>> numerics for type and against the ranges specified in FF. 
+>>>
+>>> The output reports unrecognised values for strings and out of range
+>>> values, non integer values and non real values for the numerics. For
+>>> strings it prints out which string values are unrecognised and tells
+>>>     
+>>>       
+>> you
+>>   
+>>     
+>>> how many. It also reports complete NA fields. 
+>>>
+>>> I don't correct anything as my understanding was that this was the
+>>>     
+>>>       
+>> users
+>>   
+>>     
+>>> responsibility, we just say what is incompatible with the exchange
+>>> format.  
+>>>
+>>> Again my understanding was that my function and Mathieu's error
+>>>     
+>>>       
+>> checking
+>>   
+>>     
+>>> function (which does the misallocated values) formed the basis of the
+>>> pre validation checks. 
+>>> To create the validation stage objects we could can incorporate some
+>>> correcting or get these functions to return only validated objects if
+>>> that is the way we want to go. Need to coordinate that of course. 
+>>>
+>>>
+>>> This is my output for 
+>>> check.fields(solece) 
+>>>
+>>>   
+>>>     
+>>>       
+>>>> check.fields(solece)
+>>>>     
+>>>>       
+>>>>         
+>>>         This is a ce Data object
+>>>
+>>>          $vslFlgCtry is OK
+>>>          $year is OK
+>>>          $quarter is OK
+>>>          $month contains non integer values
+>>>          $area contains 112 unrecognised entries of values:
+>>>                  27.7.e 27.7.d 
+>>>          $rect is entirely NA 
+>>>          $foCatNat is entirely NA 
+>>>          $foCatEu5 contains 112 unrecognised entries of values:
+>>>                  GNS_Crustaceans GNS_Demersal_fish GNS_Molluscs
+>>> GTR_Demersal_fish OTB_Crustaceans OTB_Demersal_fish OTB_Molluscs
+>>> OTB_Small_pelagic_fish 
+>>>          $foCatEu6 is entirely NA 
+>>>          $trpNum is OK
+>>>          $foNum is entirely NA
+>>>          $foDur is entirely NA
+>>>          $effKwDays is entirely NA
+>>>          $effGtDays is entirely NA
+>>>          $daysAtSea is entirely NA
+>>>   
+>>>
+>>> All the best
+>>> Alastair
+>>>     
+>>>       
+>> Hi,
+>>
+>> The output looks ok, maybe you should include an option to print it or
+>>     
+>
+>   
+>> save in a file.
+>>
+>> What I remember about our discussion was that the VALIDATED dataset 
+>> could be different from users databases and exchange files, because
+>>     
+> this
+>   
+>> error checking was done inside R. In that case users may want to go
+>>     
+> back
+>   
+>> to their databases or exchange file and fix the errors. But I
+>>     
+> understood
+>   
+>> that we would provide methods for users to correct errors, coding 
+>> problems etc, within R and create the VALIDATED dataset. The
+>>     
+> alternative
+>   
+>> option would be to ask users to fix errors outside R and read the 
+>> dataset a second time, but in that case we don't need to VALIDATED
+>> classes.
+>>
+>> I also remember we discussed the possibility of including the reports 
+>> (like yours) on the VALIDATED classes, to keep data and analysis 
+>> together, but did not conclude on anything. Looking at your report I 
+>> think we should include it on the class with a slot called "report" or
+>>     
+>
+>   
+>> "checkReport".
+>>
+>> Best
+>>
+>> EJ
+>>
+>>
+>> Hi Ernesto
+>> Just noticed that we have 
+>>
+>> $trpNum in cs data for the individual national code number for the
+>>     
+> trip.
+>   
+>> and
+>>
+>> $trpNum in ce data for the number of trips as a measure of effort
+>>
+>> All the best
+>> Alastair
+>>
+>>
+>>
+>> Think similar (but lesser) problem applies to 
+>> $daysAtSea and $foNum in tr and ce tables in that they mean different
+>> things and as such they have different applicable range values.  
+>>
+>> All the best
+>> Alastair
+>>     
+>
+> Hi,
+>
+> If you agree I'll change trpNum in cs to trpCode which is more explicit 
+> regarding its usage.
+>
+> WRT to days at sea and foNum (this is the field called "Number of 
+> sets/hauls"), these are different metrics, in a day at sea ($daysAtSea) 
+> you may execute several fishing operations ($foNum).
+>
+> Best
+>
+> EJ
+>
+>
+> Hi 
+> Yes changing $trpNum in cs to $trpCode would be good. 
+>
+> The thing with $daysAtSea and $foNum is that they both occur in tr
+> tables and ce tables. 
+> In tr tables they are a measure of days at sea per trip and hauls per
+> trip and as such (in ff "basic checks") the ranges are 1-60 and 1-99
+> respectively. 
+> In ce tables $daysAtSea is summed for stock, gear, month, statrect etc
+> etc as a measure of effort, as is $foNum. The ff basic checks give
+> ranges of 1 to 1000 and 1 to 250000. 
+> If we want a unique set of field names with a single code list or
+> numeric range then we need to be able to distinguish between $daysAtSea
+> and $foNum in tr and ce tables. Alternatively I can separate them within
+> the function according to table name and range check them that way.
+> In my opinion having a unique set of field names is much the better
+> option.  
+>   
+> All the best
+> Alastair
+
+Hi,
+
+I see your point about these fields but I'm a bit reluctant in changing 
+names. These fields refer to the same type of information but at 
+different levels of aggregation. In that sense I'd rather keep them with 
+the same name so that users know they're dealing with the same info. 
+Changing the names to match the aggregation level may be tricky because 
+we'd have to deal with all sorts of aggregation options.
+
+IMO you should include the table name on your report.
+
+Best
+
+EJ
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Thu Dec 13 15:02:44 2007
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Thu, 13 Dec 2007 15:02:44 +0100
+Subject: [cost-devel] State of the art
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B09559C@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B09559C@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <47613B84.3050304@ifremer.fr>
+
+David Maxwell (Cefas) a ?crit :
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+> Alastair Pout
+> Sent: 13 December 2007 12:21
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] State of the art
+>
+>
+>
+> Hi
+> Yes sorry this should have been the FF 12/11 version (not 11/12) as
+> e-mailed by Teunis on 16/11
+>
+> All the best
+> Alastair 
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+> ----------------------
+> I do have this FF version.
+>
+> Joel, is this the version of the exchange format that is agreed and will remain
+> fixed for this project?
+>
+> Thanks, David
+>
+>
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+Dear all,
+
+The latest version of FF DEF is the one sent by Teunis on 16/11. It is 
+the one used by Ernesto for the CORE package latest release.
+
+At some point you have to stop the changes, and we are here now.
+
+There can be marginal changes if there is good rationale to do so, but 
+I'll try to avoid them as much as possible. We'll gather all the 
+discrepancies after the first run of development and beta-testing, and 
+consider the possibility to make one modification of the DEF. To be 
+discussed during the next expert meeting.
+
+You can all begin to prepare datasets based on this format. If your data 
+does not fit, consider first the reason why it does not fit and the 
+possibility to amend your data parameters, before trying to modify the 
+DEF. This can be discussed in this forum.
+
+You can all begin the development of your package based on release 0.5 
+of the CORE package. The changes needed to release CORE package version 
+1.0 will not affect the structure of the objects. To be confirmed by 
+Ernesto.
+
+Those of you having began the development of package should consider 
+creating CVS, in order for all the other developers to be aware of what 
+is going on (especially the EDA package, which is probably more in 
+advance than the others). The developers are also reminded to 
+scrupulously look at the functions developed by others to borrow and 
+exchange the good ideas.
+
+I would also like to see in the Berlios website, a task list like did 
+Ernesto for his package, and based on the task allocation agreed during 
+the meeting.
+
+A good news to end : I have sent the FF/COST DEF to the JRC (STECF 
+ingineering and secretariat) for consideration with the idea of 
+elaborating a common DEF for the data issued from the DCR, whatever the 
+end-user. To be followed....
+
+Best regards
+
+Joel
+
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071213/d2954a83/attachment.html>
+
+From ernesto at ipimar.pt  Thu Dec 13 15:07:37 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 13 Dec 2007 14:07:37 +0000
+Subject: [cost-devel] State of the art
+In-Reply-To: <47613B84.3050304@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B09559C@LOWEXPRESS.corp.cefas.co.uk>
+	<47613B84.3050304@ifremer.fr>
+Message-ID: <47613CA9.6020909@ipimar.pt>
+
+Joel VIGNEAU wrote:
+> David Maxwell (Cefas) a ?crit :
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+>> Alastair Pout
+>> Sent: 13 December 2007 12:21
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: Re: [cost-devel] State of the art
+>>
+>>
+>>
+>> Hi
+>> Yes sorry this should have been the FF 12/11 version (not 11/12) as
+>> e-mailed by Teunis on 16/11
+>>
+>> All the best
+>> Alastair _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>
+>> ----------------------
+>> I do have this FF version.
+>>
+>> Joel, is this the version of the exchange format that is agreed and 
+>> will remain
+>> fixed for this project?
+>>
+>> Thanks, David
+>>
+>>
+>> *********************************************************************************** 
+>>
+>> This email and any attachments are intended for the named recipient 
+>> only.  Its unauthorised use, distribution, disclosure, storage or 
+>> copying is not permitted.  If you have received it in error, please 
+>> destroy all copies and notify the sender.  In messages of a 
+>> non-business nature, the views and opinions expressed are the 
+>> author's own and do not necessarily reflect those of the organisation 
+>> from which it is sent.  All emails may be subject to monitoring.
+>> *********************************************************************************** 
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+> Dear all,
+>
+> The latest version of FF DEF is the one sent by Teunis on 16/11. It is 
+> the one used by Ernesto for the CORE package latest release.
+>
+> At some point you have to stop the changes, and we are here now.
+>
+> There can be marginal changes if there is good rationale to do so, but 
+> I'll try to avoid them as much as possible. We'll gather all the 
+> discrepancies after the first run of development and beta-testing, and 
+> consider the possibility to make one modification of the DEF. To be 
+> discussed during the next expert meeting.
+>
+> You can all begin to prepare datasets based on this format. If your 
+> data does not fit, consider first the reason why it does not fit and 
+> the possibility to amend your data parameters, before trying to modify 
+> the DEF. This can be discussed in this forum.
+>
+> You can all begin the development of your package based on release 0.5 
+> of the CORE package. The changes needed to release CORE package 
+> version 1.0 will not affect the structure of the objects. To be 
+> confirmed by Ernesto.
+>
+> Those of you having began the development of package should consider 
+> creating CVS, in order for all the other developers to be aware of 
+> what is going on (especially the EDA package, which is probably more 
+> in advance than the others). The developers are also reminded to 
+> scrupulously look at the functions developed by others to borrow and 
+> exchange the good ideas.
+>
+> I would also like to see in the Berlios website, a task list like did 
+> Ernesto for his package, and based on the task allocation agreed 
+> during the meeting.
+>
+> A good news to end : I have sent the FF/COST DEF to the JRC (STECF 
+> ingineering and secretariat) for consideration with the idea of 
+> elaborating a common DEF for the data issued from the DCR, whatever 
+> the end-user. To be followed....
+>
+> Best regards
+>
+> Joel
+
+Hi,
+
+I confirm that only minor changes are expected (like the name change 
+discussed with Alastair) and it should not have major effects on other 
+packages. Anyway I'll try to release fixes quickly and inform about changes.
+
+Best
+
+EJ
+
+
+
+From david.hirst at nr.no  Thu Dec 13 15:21:09 2007
+From: david.hirst at nr.no (David Hirst)
+Date: Thu, 13 Dec 2007 15:21:09 +0100
+Subject: [cost-devel] COST travel expenses
+In-Reply-To: <47613B84.3050304@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B09559C@LOWEXPRESS.corp.cefas.co.uk>
+	<47613B84.3050304@ifremer.fr>
+Message-ID: <47613FD5.1060106@nr.no>
+
+Hi Joel, I have finally got round to claiming my expenses for the Lisbon 
+meeting from NR, so now NR needs to claim them from COST. What 
+information do you need (eg tickets, hotel bills etc)?
+
+David
+
+
+From tej at difres.dk  Thu Dec 13 17:39:49 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 13 Dec 2007 17:39:49 +0100
+Subject: [cost-devel] State of the art
+In-Reply-To: <47613B84.3050304@ifremer.fr>
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151178522@lu-mail-san.dfu.local>
+
+ 
+
+________________________________
+
+Fra: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] P? vegne af Joel VIGNEAU
+Sendt: 13. december 2007 15:03
+Til: cost-project-devel at lists.berlios.de
+Emne: Re: [cost-devel] State of the art
+
+
+David Maxwell (Cefas) a ?crit : 
+
+	-----Original Message-----
+	From: cost-project-devel-bounces at lists.berlios.de
+	[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+	Alastair Pout
+	Sent: 13 December 2007 12:21
+	To: cost-project-devel at lists.berlios.de
+	Subject: Re: [cost-devel] State of the art
+	
+	
+	
+	Hi
+	Yes sorry this should have been the FF 12/11 version (not 11/12) as
+	e-mailed by Teunis on 16/11
+	
+	All the best
+	Alastair 
+	_______________________________________________
+	Cost-project-devel mailing list
+	Cost-project-devel at lists.berlios.de
+	https://lists.berlios.de/mailman/listinfo/cost-project-devel
+	
+	
+	----------------------
+	I do have this FF version.
+	
+	Joel, is this the version of the exchange format that is agreed and will remain
+	fixed for this project?
+	
+	Thanks, David
+	
+	
+	***********************************************************************************
+	This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+	***********************************************************************************
+	
+	_______________________________________________
+	Cost-project-devel mailing list
+	Cost-project-devel at lists.berlios.de
+	https://lists.berlios.de/mailman/listinfo/cost-project-devel
+	  
+
+Dear all,
+
+The latest version of FF DEF is the one sent by Teunis on 16/11. It is the one used by Ernesto for the CORE package latest release.
+
+At some point you have to stop the changes, and we are here now.
+
+There can be marginal changes if there is good rationale to do so, but I'll try to avoid them as much as possible. We'll gather all the discrepancies after the first run of development and beta-testing, and consider the possibility to make one modification of the DEF. To be discussed during the next expert meeting.
+
+You can all begin to prepare datasets based on this format. If your data does not fit, consider first the reason why it does not fit and the possibility to amend your data parameters, before trying to modify the DEF. This can be discussed in this forum.
+
+You can all begin the development of your package based on release 0.5 of the CORE package. The changes needed to release CORE package version 1.0 will not affect the structure of the objects. To be confirmed by Ernesto.
+
+Those of you having began the development of package should consider creating CVS, in order for all the other developers to be aware of what is going on (especially the EDA package, which is probably more in advance than the others). The developers are also reminded to scrupulously look at the functions developed by others to borrow and exchange the good ideas.
+
+I would also like to see in the Berlios website, a task list like did Ernesto for his package, and based on the task allocation agreed during the meeting.
+
+A good news to end : I have sent the FF/COST DEF to the JRC (STECF ingineering and secretariat) for consideration with the idea of elaborating a common DEF for the data issued from the DCR, whatever the end-user. To be followed....
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+
+Jo?l VIGNEAU
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/> "
+IFREMER <http://www.ifremer.fr/> 
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr 
+
+
+
+------------------------------------------------------------------------------------------------
+ 
+Dear All
+ 
+We are now finished with an internal test version of the upload and validation module of FishFrame 5.0. This is being tested by DIFRES employees and we can put this out for the COST project ASAP so you can validate your data files without having to register or upload your data. The nice thing about this is the user-friendly error-reports.
+We are making a set of test files (with all possible kinds of errors), that could be used by COST developers as well.
+I hope we can have it online for you in late January.
+ 
+Best regards
+Teunis
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071213/5a6eb994/attachment.html>
+
+From tej at difres.dk  Thu Dec 13 18:02:05 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 13 Dec 2007 18:02:05 +0100
+Subject: [cost-devel] State of the art
+In-Reply-To: <ACDDBFFA28203C41A7144808EE3A08A8657CF3@scomp0038.wurnet.nl>
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151178523@lu-mail-san.dfu.local>
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel
+VIGNEAU
+Sent: Wednesday, December 12, 2007 1:58 PM
+To: cost devel
+Subject: [cost-devel] State of the art
+
+
+Dear colleagues,
+
+There are some weeks now that you returned to your lab and were left by
+yourself for developing COST functions with a nominative task list. It
+is time before the end of the year to make the point and assess where we
+are.
+
+First of all, I must say I am surprised the developer mailing list
+stayed mute during the weeks following the meeting. I'm not sure if
+everybody is developing by their own, stuck somewhere in waiting for
+other's work, ...
+In any case, this is not the right way of doing. If you have questions,
+doubts, suggestions please make use of the mailing list.
+
+For example, we need to ensure consistency between all plots during a
+work session on COST. In order to do so, you must not define specific
+arguments in your functions, but rather elaborate a generic way of
+defining these so that every funcions refer to them. The ideas so far
+are (i) to develop these arguments in the options() object (COSTcol,
+COSTpch, ...) or (ii) define a control file for all options used for
+plotting.
+
+There must be tens of issues like the one above, but we are not
+discussing them. It is partly my fault of course as I failed to respond
+to the only question raised so far but it is also a community work and
+we must rely on the expertise from all the others.
+
+May I ask each of you to make the point on his/her own development,
+summarise the blocking/struggling issues and propose the planned
+programme to achieve the allocated task(s).
+
+Thank you for your attention
+
+Best regards
+
+Joel
+
+ ------- 
+
+
+Dear Joel and others,
+ 
+Until now, I have mainly discussed the data exchange format with our
+discards expert and our datamanager.
+There are no real difficulties with getting the necessary tables,
+although the SL record in the CS table presented minor problems:
+ 
+-- the catch category for pelagic fish should also include an 'unsorted'
+option.
+-- it is not clear which scales are referred to in "commercial size
+category" and "subsampling category"
+-- in sea sampling the subsample weight is not recorded
+ 
+So, we are able to fill the tables from our database without much
+difficulty.
+As for progress made in development of R code; there is none, which has
+to with the following.
+ 
+
+From ernesto at ipimar.pt  Fri Dec 14 12:03:09 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 14 Dec 2007 11:03:09 +0000
+Subject: [cost-devel] COSTcore version 0.5-1
+Message-ID: <476262ED.1020306@ipimar.pt>
+
+Hi,
+
+I've just updated COSTcore changing the name trNum to trCode in csData 
+as discussed yesterday with Alastair. We are now in version 0.5-1.
+
+You may download from our repository or from CVS.
+
+Best
+
+EJ
+
+https://developer.berlios.de/project/showfiles.php?group_id=7299
+
+
+
+
+From ernesto at ipimar.pt  Fri Dec 28 17:24:50 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 28 Dec 2007 16:24:50 +0000
+Subject: [cost-devel] COSTcore 0.6-0 is out !
+Message-ID: <47752352.2090206@ipimar.pt>
+
+Hi,
+
+I've just uploaded to our file repository COSTcore 0.6-0 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) for 
+linux and R 2.6.1. Please Mathieu can you compile for windows and send 
+it to me !? Also the CVS repository is updated with this version.
+
+This is the first version to pass R check (try R CMD check COSTcore). 
+The news file is attached.
+    - It has all the man pages, although still in draft;
+    - the data.frame columns of the several classes are now check and 
+set up properly;
+    - validity for VAL classes is inherited from RAW classes;
+    - is.* methods were removed, in S4 one should use the method "is" to 
+check for an object class.
+
+Please Mathieu, take a look at the data files and check that the sole 
+dataset is correct. Also please check the man pages regarding these 
+datasets and correct whatever you consider necessary.
+
+I'd like one of our English speaking colleagues to take a look at the 
+man pages (attached is the pdf).
+
+Now I need your feedback from you to correct bugs and/or implement 
+missing features. Whenever we feel COSTcore is stable we may release 
+version 1.
+
+Best
+
+EJ
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: NEWS
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071228/82de8a2b/attachment.ksh>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COSTcore.pdf
+Type: application/pdf
+Size: 239108 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071228/82de8a2b/attachment.pdf>
+

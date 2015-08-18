@@ -1,0 +1,1089 @@
+From david.maxwell at cefas.co.uk  Tue Mar 31 13:14:47 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 31 Mar 2009 12:14:47 +0100
+Subject: [cost-devel] [Cost-project-members] Minutes of Ifremer
+	beta-testing session
+In-Reply-To: <49D0CDB0.6040200@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B012579F0@LOWEXPRESS.corp.cefas.co.uk>
+
+Hello Cost developers,
+>We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+
+Just when we thought formats had finished! I've started to think about how to do this, but not all the details of each field.
+InterCatch format wants a comma separated file with different length lines. I can see two approaches to do this, see below. I prefer approach 2 but it requires a step outside of R. Any comments or can anyone suggest improvements / alternatives?
+ 
+Joel, is it the correct standard & version in the example? This will need csObject and clObject information as well as dbeOutput.
+ 
+Regards, David
+ 
+##  InterCatch Exchange Format Version 1.4
+#http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+#Example Annex 1 lines 1-4
+
+HI = c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+SI = c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second country")
+SD = rbind (c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235.000","821","-9","-9","-9","-9"),
+            c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775.000","1020","-9","-9","-9","-9") )
+
+# Output file
+# Approach 1, line by line. Will require looping through different strata so may be slow.
+write.table(matrix(HI, nrow=1), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",")
+write.table(matrix(SI, nrow=1), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+write.table(matrix(SD, nrow=2), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+ 
+# Approach 2, combined data set
+length(HI);length(SI);dim(SD)[[2]]
+# make HI, SI, SD same length
+HI.2 = c(HI, rep("blank",21))
+SI.2 = c(SI, rep("blank",9))
+ 
+ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F, sep=",")
+# need to remove blanks
+# within Notepad, Open file, Edit, Replace,
+# Find what:,blank   Replace with:(leave empty), Replace All
+# Save
+ 
+ 
+
+-----Original Message-----
+From: cost-project-members-bounces at lists.berlios.de [mailto:cost-project-members-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 30 March 2009 14:49
+To: cost member
+Subject: [Cost-project-members] Minutes of Ifremer beta-testing session
+
+
+Dear all,
+
+last week in Ifremer, we had a working sesion with all responsibles for market sampling. 18 stocks were reviewed with the COST tools with people having very heterogeneous skills in R.
+
+The programme to follow was [.....] 
+
+ 
+ 
+The workshop was very successful in the sense that the 18 stocks performed the analysis up to step 5. YES! The step 6 was performed only by a few stocks because of lack of time (3 days meeting). The results of the length structure perfectly match the length structure given by our central software, except some cases which are under scrutiny now. We have not looked yet at the age structures.
+
+The strategies were all LS + ALK = AS (for stocks with age info, of course)
+There were some stocks with size increments of 1 mm (Nephrops), 5 mm (sardine) and 1 cm
+There were stocks with male and female mixed in the sampled boxes (Nephrops and megrim)
+There were stocks with different species mixed in the sampled boxes (Lophius sp.)
+
+The biggest issue was the importation phase. The error messages are difficult to interpret for a non expert. Once the datasets in the COST R environment, the level of stress goes down quickly :)
+
+Otherwise, we have a problem of code in the raise length method, since it is very penalised by the size of the samples (we had a 1000 samples stock!!). It is a 6 dimensional object on which we use tapply and apply. I do not imagine performing a bootstrap on this!! Mathieu is looking at optimizing it.
+The spatial plots did not work. It must be a minor issue, but we did not have time to fix it, plus the fact that for market sampling, we have not that much info to plot spatially.
+The ALK views and gaps filling were much appreciated. In case of changing the size increment, there is a relevant demand to also specify the starting point so that all years/data could be comparable. In case of changing the increment, the length measurements in HL must also change accordingly, or the length structure estimated in the dbe object (I personnally prefer the latter). In both cases, Mathieu has to work out the code.
+The bp estimates seem to work but they would deserve a special session.
+We need a method to sum the strata of the dbe object in order to estimate yearly, or m?tier or whatever combination of strata estimates with CV and CI. Mathieu will care of this.
+We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+
+6 weeks from the deadline of the project, I must admit I was quite happy with these results. I think we are very close from a DBE package and we'll need to perform this kind of beta-testing session in other institutes, including direct age structure estimates, bootstrap, biological parameters and discards raising. We have one person testing the discards raising procedures full-time here on the Ifremer datasets and it seems to work correctly.
+
+I'm a bit blind on what's going on for the MBE package, and also I would like some news from Dorleta on how we can proceed at best for the SIM package.
+
+For all the codes that has been tested, we need the developers to fill completely and properly the help pages, then we'll consider a user manual following the step approach drafted above, (plus discards, plus mbe, plus sim, plus ...). I will circulate a report frame among the leaders of packages very soon.
+
+I anticipate a demand for examples going through the whole process. I will draft some properly and tell you when I put them on the website.
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l :  <mailto:Joel.Vigneau at ifremer.fr> Joel.Vigneau at ifremer.fr 
+http://www.ifremer.fr/drvpbessin/
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/ca7009d9/attachment.html>
+
+From paz.sampedro at co.ieo.es  Tue Mar 31 15:49:05 2009
+From: paz.sampedro at co.ieo.es (Paz Sampedro)
+Date: Tue, 31 Mar 2009 15:49:05 +0200
+Subject: [cost-devel] [Cost-project-members] Minutes of
+	Ifremerbeta-testing session
+Message-ID: <4B4C7D394FD73F4490408D9706A296A64EEE55@ieocoruna.co.ieo.es>
+
+An embedded message was scrubbed...
+From: Paz Sampedro <paz.sampedro at co.ieo.es>
+Subject: RE: [cost-devel] [Cost-project-members] Minutes of  	Ifremerbeta-testing session
+Date: Tue, 31 Mar 2009 15:49:05 +0200
+Size: 5487
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/9aab8cc5/attachment.eml>
+-------------- next part --------------
+La informaci?n contenida en este e-mail y sus ficheros adjuntos es totalmente confidencial y no deber?a ser usado si no fuera usted alguno de los destinatarios. Si ha recibido este e-mail por error, por favor avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de almacenamiento.   This email is confidential and should not be used by anyone who is not the original intended  recipient. If you have received this e-mail in  error please inform the sender and delete it from  your mailbox or any other storage mechanism.
+
+From david.maxwell at cefas.co.uk  Tue Mar 31 16:24:47 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 31 Mar 2009 15:24:47 +0100
+Subject: [cost-devel] [Cost-project-members] Minutes of
+ Ifremerbeta-testing session
+In-Reply-To: <4B4C7D394FD73F4490408D9706A296A64EEE55@ieocoruna.co.ieo.es>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B012579F3@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Paz,
+thanks for your reply. I think the commas ,,,,,, will still be a problem for InterCatch. We're all agreed that we want to avoid using Notepad so I'm going to try approach 1  for now (message to follow). It may be fast enough and probably faster than using Notepad!
+Best wishes,
+David
+
+-----Original Message-----
+From: Paz Sampedro [mailto:paz.sampedro at co.ieo.es]
+Sent: 31 March 2009 14:49
+To: 'cost-project-devel at lists.berlios.de'
+Subject: RE: [cost-devel] [Cost-project-members] Minutes of
+Ifremerbeta-testing session
+
+
+
+Hi David, 
+ 
+I was trying to find out a way to eliminate the last step within Notepad or
+similar. 
+ 
+Using the option#2  you can leave empty cells using NA instead "blank":
+ 
+> HI.2 = c(HI, rep(NA,21))
+> SI.2 = c(SI, rep(NA,9))
+ 
+and then substitute NA by empty cells in the arguments of function
+write.table:
+
+> write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F,
+sep=",", na="")
+
+This substitute all the NAs. I am not sure but I think that INTERCATH asks
+for NAs in missing character cells. A possible solution to keep the "real"
+NAs is to deal them as character (as "-9"):
+ 
+> HI =
+c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25","NA","NA","-9","NA
+")
+> SI =
+c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L",
+"A","NA","NA","M","NA","T","1483.423","-9","-9","Gillnet","Maria","Second
+country")
+> SD = rbind
+(c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25","NA","cod","na","
+L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm","NA",
+"235.000","821","-9","-9","-9","-9"),
+ 
+c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L",
+"A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm","NA","77
+5.000","1020","-9","-9","-9","-9") )
+
+ 
+The file looks like this: 
+ 
+HI,SE,2005,Quarter,1,testA,SubDiv,BAL25,NA,NA,-9,NA,,,,,,,,,,,,,,,,,,,,,
+SI,SE,2005,Quarter,1,testA,SubDiv,BAL25,,cod,na,L,A,NA,NA,M,NA,T,1483.423,-9
+,-9,Gillnet,Maria,Second country,,,,,,,,,
+SD,SE,2005,Quarter,1,testA,SubDiv,BAL25,NA,cod,na,L,A,N,Age,3,10,-9,-9,-9,-9
+,-9,g,N,year,cm,NA,235.000,821,-9,-9,-9,-9
+SD,SE,2005,Quarter,1,testA,SubDiv,BAL25,,cod,na,L,A,N,Age,4,10,-9,-9,-9,-9,-
+9,g,N,year,cm,NA,775.000,1020,-9,-9,-9,-9
+ 
+ 
+Best wishes,
+ 
+Paz
+ 
+M. Paz Sampedro Pastor 
+Instituto Espa?ol de Oceanograf?a 
+C. O. A Coru?a 
+Paseo Mar?timo Alcalde Francisco V?zquez n? 10 
+15001 A Coru?a, SPAIN 
+Tel.: +34 98 1218253 (ext 23253) 
+Fax: +34 981 22 90 77 
+http://www.ieo.es <http://www.ieo.es/>  
+
+ 
+
+  _____  
+
+De: David Maxwell (Cefas) [mailto:david.maxwell at cefas.co.uk] 
+Enviado el: martes, 31 de marzo de 2009 13:15
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] [Cost-project-members] Minutes of
+Ifremerbeta-testing session
+
+
+Hello Cost developers,
+>We need a method to export the dbe object in InterCatch standard. Who takes
+care of this?
+
+Just when we thought formats had finished! I've started to think about how
+to do this, but not all the details of each field.
+InterCatch format wants a comma separated file with different length lines.
+I can see two approaches to do this, see below. I prefer approach 2 but it
+requires a step outside of R. Any comments or can anyone suggest
+improvements / alternatives?
+ 
+Joel, is it the correct standard & version in the example? This will need
+csObject and clObject information as well as dbeOutput.
+ 
+Regards, David
+ 
+##  InterCatch Exchange Format Version 1.4
+#http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+#Example Annex 1 lines 1-4
+
+HI =
+c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+SI =
+c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L",
+"A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second
+country")
+SD = rbind
+(c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L"
+,"A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235
+.000","821","-9","-9","-9","-9"),
+ 
+c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L",
+"A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775=
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From david.maxwell at cefas.co.uk  Tue Mar 31 16:42:49 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 31 Mar 2009 15:42:49 +0100
+Subject: [cost-devel] [Cost-project-members] Minutes of Ifremer
+	beta-testing session
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B012579F0@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B012579F4@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi all,
+Below is what I'll use for now. The example data is the appendix from the InterCatch document.
+Liz, it looks a bit more difficult to replace the write.tables with cat than in your example but I haven't spent much time on it.
+ 
+Now for the tricky bit, matching all the Cost variables to the InterCatch ones to create the HI, SI and SD datasets. Anyone dealt with the InterCatch format before?
+Cheers, David
+ 
+ 
+load("ICexample.RData")
+# I think Key fields are columns 2-8, using same collapse string as in Mathieu's code
+keyHI = apply(HI[,2:8],1,function(x) paste(x,collapse=":-:"))
+keySI = apply(SI[,2:8],1,function(x) paste(x,collapse=":-:"))
+keySD = apply(SD[,2:8],1,function(x) paste(x,collapse=":-:"))
+ 
+# Output file
+# Approach 1, write file types in required order, loop by strata defined by Key fields
+ 
+write.table(NULL, "ICout.txt", col.names=F, quote=F) # create empty file
+for (i in keyHI){
+write.table(HI[keyHI == i,,drop=F], "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+write.table(SI[keySI == i,,drop=F], "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+write.table(SD[keySD == i,,drop=F], "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+}
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of David Maxwell (Cefas)
+Sent: 31 March 2009 12:15
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] [Cost-project-members] Minutes of Ifremer beta-testing session
+
+
+Hello Cost developers,
+>We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+
+Just when we thought formats had finished! I've started to think about how to do this, but not all the details of each field.
+InterCatch format wants a comma separated file with different length lines. I can see two approaches to do this, see below. I prefer approach 2 but it requires a step outside of R. Any comments or can anyone suggest improvements / alternatives?
+ 
+Joel, is it the correct standard & version in the example? This will need csObject and clObject information as well as dbeOutput.
+ 
+Regards, David
+ 
+##  InterCatch Exchange Format Version 1.4
+#http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+#Example Annex 1 lines 1-4
+
+HI = c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+SI = c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second country")
+SD = rbind (c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235.000","821","-9","-9","-9","-9"),
+            c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775.000","1020","-9","-9","-9","-9") )
+
+# Output file
+# Approach 1, line by line. Will require looping through different strata so may be slow.
+write.table(matrix(HI, nrow=1), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",")
+write.table(matrix(SI, nrow=1), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+write.table(matrix(SD, nrow=2), "ICout.txt", row.names=F, col.names=F, quote=F, sep=",", append=T)
+ 
+# Approach 2, combined data set
+length(HI);length(SI);dim(SD)[[2]]
+# make HI, SI, SD same length
+HI.2 = c(HI, rep("blank",21))
+SI.2 = c(SI, rep("blank",9))
+ 
+ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F, sep=",")
+# need to remove blanks
+# within Notepad, Open file, Edit, Replace,
+# Find what:,blank   Replace with:(leave empty), Replace All
+# Save
+ 
+ 
+
+-----Original Message-----
+From: cost-project-members-bounces at lists.berlios.de [mailto:cost-project-members-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 30 March 2009 14:49
+To: cost member
+Subject: [Cost-project-members] Minutes of Ifremer beta-testing session
+
+
+Dear all,
+
+last week in Ifremer, we had a working sesion with all responsibles for market sampling. 18 stocks were reviewed with the COST tools with people having very heterogeneous skills in R.
+
+The programme to follow was [.....] 
+
+ 
+ 
+The workshop was very successful in the sense that the 18 stocks performed the analysis up to step 5. YES! The step 6 was performed only by a few stocks because of lack of time (3 days meeting). The results of the length structure perfectly match the length structure given by our central software, except some cases which are under scrutiny now. We have not looked yet at the age structures.
+
+The strategies were all LS + ALK = AS (for stocks with age info, of course)
+There were some stocks with size increments of 1 mm (Nephrops), 5 mm (sardine) and 1 cm
+There were stocks with male and female mixed in the sampled boxes (Nephrops and megrim)
+There were stocks with different species mixed in the sampled boxes (Lophius sp.)
+
+The biggest issue was the importation phase. The error messages are difficult to interpret for a non expert. Once the datasets in the COST R environment, the level of stress goes down quickly :)
+
+Otherwise, we have a problem of code in the raise length method, since it is very penalised by the size of the samples (we had a 1000 samples stock!!). It is a 6 dimensional object on which we use tapply and apply. I do not imagine performing a bootstrap on this!! Mathieu is looking at optimizing it.
+The spatial plots did not work. It must be a minor issue, but we did not have time to fix it, plus the fact that for market sampling, we have not that much info to plot spatially.
+The ALK views and gaps filling were much appreciated. In case of changing the size increment, there is a relevant demand to also specify the starting point so that all years/data could be comparable. In case of changing the increment, the length measurements in HL must also change accordingly, or the length structure estimated in the dbe object (I personnally prefer the latter). In both cases, Mathieu has to work out the code.
+The bp estimates seem to work but they would deserve a special session.
+We need a method to sum the strata of the dbe object in order to estimate yearly, or m?tier or whatever combination of strata estimates with CV and CI. Mathieu will care of this.
+We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+
+6 weeks from the deadline of the project, I must admit I was quite happy with these results. I think we are very close from a DBE package and we'll need to perform this kind of beta-testing session in other institutes, including direct age structure estimates, bootstrap, biological parameters and discards raising. We have one person testing the discards raising procedures full-time here on the Ifremer datasets and it seems to work correctly.
+
+I'm a bit blind on what's going on for the MBE package, and also I would like some news from Dorleta on how we can proceed at best for the SIM package.
+
+For all the codes that has been tested, we need the developers to fill completely and properly the help pages, then we'll consider a user manual following the step approach drafted above, (plus discards, plus mbe, plus sim, plus ...). I will circulate a report frame among the leaders of packages very soon.
+
+I anticipate a demand for examples going through the whole process. I will draft some properly and tell you when I put them on the website.
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l :  <mailto:Joel.Vigneau at ifremer.fr> Joel.Vigneau at ifremer.fr 
+http://www.ifremer.fr/drvpbessin/
+
+ 
+
+***********************************************************************************
+
+This email and any attachments are intended for the named recipient only. Its unauthorised use, distribution, disclosure, storage or copying is not permitted. If you have received it in error, please destroy all copies and notify the sender. In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent. All emails may be subject to monitoring.
+
+***********************************************************************************
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/8038fb4b/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ICexample.RData
+Type: application/octet-stream
+Size: 5692 bytes
+Desc: ICexample.RData
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/8038fb4b/attachment.obj>
+
+From ernesto at ipimar.pt  Tue Mar 31 16:39:32 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 31 Mar 2009 15:39:32 +0100
+Subject: [cost-devel] [Cost-project-members] Minutes of
+ Ifremer	beta-testing session
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B012579F0@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B012579F0@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <49D22B24.7050908@ipimar.pt>
+
+Hi David,
+
+IMO we should wait for InterCatch to enter production state. It's still 
+far from doing anything interesting and I expect a big review in the 
+next year or two.
+
+We should try to export to Lowestoft format (which I guess IC reads). It 
+can be done by generating FLR objects (FLStock and FLIndex) and using 
+the FLR export feature.
+
+Best
+
+EJ
+
+David Maxwell (Cefas) wrote:
+> Hello Cost developers,
+> >We need a method to export the dbe object in InterCatch standard. Who 
+> takes care of this?
+> Just when we thought formats had finished! I've started to think about 
+> how to do this, but not all the details of each field.
+> InterCatch format wants a comma separated file with different length 
+> lines. I can see two approaches to do this, see below. I prefer 
+> approach 2 but it requires a step outside of R. Any comments or can 
+> anyone suggest improvements / alternatives?
+>  
+> Joel, is it the correct standard & version in the example? This will 
+> need csObject and clObject information as well as dbeOutput.
+>  
+> Regards, David
+>  
+> ##  InterCatch Exchange Format Version 1.4
+> #http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+> #Example Annex 1 lines 1-4
+> HI = 
+> c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+> SI = 
+> c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second 
+> country")
+> SD = rbind 
+> (c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235.000","821","-9","-9","-9","-9"),
+>             
+> c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775.000","1020","-9","-9","-9","-9") 
+> )
+> # Output file
+> # Approach 1, line by line. Will require looping through different 
+> strata so may be slow.
+> write.table(matrix(HI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",")
+> write.table(matrix(SI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",", append=T)
+> write.table(matrix(SD, nrow=2), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",", append=T)
+>  
+> # Approach 2, combined data set
+> length(HI);length(SI);dim(SD)[[2]]
+> # make HI, SI, SD same length
+> HI.2 = c(HI, rep("blank",21))
+> SI.2 = c(SI, rep("blank",9))
+>  
+> ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+> write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F, 
+> sep=",")
+> # need to remove blanks
+> # within Notepad, Open file, Edit, Replace,
+> # Find what:,blank   Replace with:(leave empty), Replace All
+> # Save
+>  
+>  
+>
+>     -----Original Message-----
+>     *From:* cost-project-members-bounces at lists.berlios.de
+>     [mailto:cost-project-members-bounces at lists.berlios.de]*On Behalf
+>     Of *Joel VIGNEAU
+>     *Sent:* 30 March 2009 14:49
+>     *To:* cost member
+>     *Subject:* [Cost-project-members] Minutes of Ifremer beta-testing
+>     session
+>
+>     Dear all,
+>
+>     last week in Ifremer, we had a working sesion with all
+>     responsibles for market sampling. 18 stocks were reviewed with the
+>     COST tools with people having very heterogeneous skills in R.
+>
+>     The programme to follow was [.....] 
+>      
+>      
+>     The workshop was very successful in the sense that the 18 stocks
+>     performed the analysis up to step 5. YES! The step 6 was performed
+>     only by a few stocks because of lack of time (3 days meeting). The
+>     results of the length structure perfectly match the length
+>     structure given by our central software, except some cases which
+>     are under scrutiny now. We have not looked yet at the age structures.
+>
+>     The strategies were all LS + ALK = AS (for stocks with age info,
+>     of course)
+>     There were some stocks with size increments of 1 mm (Nephrops), 5
+>     mm (sardine) and 1 cm
+>     There were stocks with male and female mixed in the sampled boxes
+>     (Nephrops and megrim)
+>     There were stocks with different species mixed in the sampled
+>     boxes (Lophius sp.)
+>
+>     The biggest issue was the importation phase. The error messages
+>     are difficult to interpret for a non expert. Once the datasets in
+>     the COST R environment, the level of stress goes down quickly :)
+>
+>     Otherwise, we have a problem of code in the raise length method,
+>     since it is very penalised by the size of the samples (we had a
+>     1000 samples stock!!). It is a 6 dimensional object on which we
+>     use tapply and apply. I do not imagine performing a bootstrap on
+>     this!! Mathieu is looking at optimizing it.
+>     The spatial plots did not work. It must be a minor issue, but we
+>     did not have time to fix it, plus the fact that for market
+>     sampling, we have not that much info to plot spatially.
+>     The ALK views and gaps filling were much appreciated. In case of
+>     changing the size increment, there is a relevant demand to also
+>     specify the starting point so that all years/data could be
+>     comparable. In case of changing the increment, the length
+>     measurements in HL must also change accordingly, or the length
+>     structure estimated in the dbe object (I personnally prefer the
+>     latter). In both cases, Mathieu has to work out the code.
+>     The bp estimates seem to work but they would deserve a special
+>     session.
+>     We need a method to sum the strata of the dbe object in order to
+>     estimate yearly, or m?tier or whatever combination of strata
+>     estimates with CV and CI. Mathieu will care of this.
+>     We need a method to export the dbe object in InterCatch standard.
+>     Who takes care of this?
+>
+>     6 weeks from the deadline of the project, I must admit I was quite
+>     happy with these results. I think we are very close from a DBE
+>     package and we'll need to perform this kind of beta-testing
+>     session in other institutes, including direct age structure
+>     estimates, bootstrap, biological parameters and discards raising.
+>     We have one person testing the discards raising procedures
+>     full-time here on the Ifremer datasets and it seems to work correctly.
+>
+>     I'm a bit blind on what's going on for the MBE package, and also I
+>     would like some news from Dorleta on how we can proceed at best
+>     for the SIM package.
+>
+>     For all the codes that has been tested, we need the developers to
+>     fill completely and properly the help pages, then we'll consider a
+>     user manual following the step approach drafted above, (plus
+>     discards, plus mbe, plus sim, plus ...). I will circulate a report
+>     frame among the leaders of packages very soon.
+>
+>     I anticipate a demand for examples going through the whole
+>     process. I will draft some properly and tell you when I put them
+>     on the website.
+>
+>     Best regards
+>
+>     Joel
+>
+>
+>     -- 
+>
+>     */Jo?l VIGNEAU
+>     /*Laboratoire "Ressources Halieutiques"
+>     IFREMER
+>     14 520 Port-en-Bessin
+>
+>     T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>     m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>     http://www.ifremer.fr/drvpbessin/
+>
+>  
+>
+> ***********************************************************************************
+>
+> This email and any attachments are intended for the named recipient 
+> only. Its unauthorised use, distribution, disclosure, storage or 
+> copying is not permitted. If you have received it in error, please 
+> destroy all copies and notify the sender. In messages of a 
+> non-business nature, the views and opinions expressed are the author's 
+> own and do not necessarily reflect those of the organisation from 
+> which it is sent. All emails may be subject to monitoring.
+>
+> ***********************************************************************************
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+
+From david.maxwell at cefas.co.uk  Tue Mar 31 17:30:45 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 31 Mar 2009 16:30:45 +0100
+Subject: [cost-devel] [Cost-project-members] Minutes of Ifremer
+	beta-testing session
+In-Reply-To: <49D22B24.7050908@ipimar.pt>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B012579F6@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Ernesto,
+Generating FLR objects will also be useful for simulations. You know FLR a lot better than me so is this something you can do? I could then work on other functions.
+Regards, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Ernesto
+Jardim
+Sent: 31 March 2009 15:40
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] [Cost-project-members] Minutes of Ifremer
+beta-testing session
+
+
+Hi David,
+
+IMO we should wait for InterCatch to enter production state. It's still 
+far from doing anything interesting and I expect a big review in the 
+next year or two.
+
+We should try to export to Lowestoft format (which I guess IC reads). It 
+can be done by generating FLR objects (FLStock and FLIndex) and using 
+the FLR export feature.
+
+Best
+
+EJ
+
+David Maxwell (Cefas) wrote:
+> Hello Cost developers,
+> >We need a method to export the dbe object in InterCatch standard. Who 
+> takes care of this?
+> Just when we thought formats had finished! I've started to think about 
+> how to do this, but not all the details of each field.
+> InterCatch format wants a comma separated file with different length 
+> lines. I can see two approaches to do this, see below. I prefer 
+> approach 2 but it requires a step outside of R. Any comments or can 
+> anyone suggest improvements / alternatives?
+>  
+> Joel, is it the correct standard & version in the example? This will 
+> need csObject and clObject information as well as dbeOutput.
+>  
+> Regards, David
+>  
+> ##  InterCatch Exchange Format Version 1.4
+> #http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+> #Example Annex 1 lines 1-4
+> HI = 
+> c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+> SI = 
+> c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second 
+> country")
+> SD = rbind 
+> (c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235.000","821","-9","-9","-9","-9"),
+>             
+> c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775.000","1020","-9","-9","-9","-9") 
+> )
+> # Output file
+> # Approach 1, line by line. Will require looping through different 
+> strata so may be slow.
+> write.table(matrix(HI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",")
+> write.table(matrix(SI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",", append=T)
+> write.table(matrix(SD, nrow=2), "ICout.txt", row.names=F, col.names=F, 
+> quote=F, sep=",", append=T)
+>  
+> # Approach 2, combined data set
+> length(HI);length(SI);dim(SD)[[2]]
+> # make HI, SI, SD same length
+> HI.2 = c(HI, rep("blank",21))
+> SI.2 = c(SI, rep("blank",9))
+>  
+> ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+> write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F, 
+> sep=",")
+> # need to remove blanks
+> # within Notepad, Open file, Edit, Replace,
+> # Find what:,blank   Replace with:(leave empty), Replace All
+> # Save
+>  
+>  
+>
+>     -----Original Message-----
+>     *From:* cost-project-members-bounces at lists.berlios.de
+>     [mailto:cost-project-members-bounces at lists.berlios.de]*On Behalf
+>     Of *Joel VIGNEAU
+>     *Sent:* 30 March 2009 14:49
+>     *To:* cost member
+>     *Subject:* [Cost-project-members] Minutes of Ifremer beta-testing
+>     session
+>
+>     Dear all,
+>
+>     last week in Ifremer, we had a working sesion with all
+>     responsibles for market sampling. 18 stocks were reviewed with the
+>     COST tools with people having very heterogeneous skills in R.
+>
+>     The programme to follow was [.....] 
+>      
+>      
+>     The workshop was very successful in the sense that the 18 stocks
+>     performed the analysis up to step 5. YES! The step 6 was performed
+>     only by a few stocks because of lack of time (3 days meeting). The
+>     results of the length structure perfectly match the length
+>     structure given by our central software, except some cases which
+>     are under scrutiny now. We have not looked yet at the age structures.
+>
+>     The strategies were all LS + ALK = AS (for stocks with age info,
+>     of course)
+>     There were some stocks with size increments of 1 mm (Nephrops), 5
+>     mm (sardine) and 1 cm
+>     There were stocks with male and female mixed in the sampled boxes
+>     (Nephrops and megrim)
+>     There were stocks with different species mixed in the sampled
+>     boxes (Lophius sp.)
+>
+>     The biggest issue was the importation phase. The error messages
+>     are difficult to interpret for a non expert. Once the datasets in
+>     the COST R environment, the level of stress goes down quickly :)
+>
+>     Otherwise, we have a problem of code in the raise length method,
+>     since it is very penalised by the size of the samples (we had a
+>     1000 samples stock!!). It is a 6 dimensional object on which we
+>     use tapply and apply. I do not imagine performing a bootstrap on
+>     this!! Mathieu is looking at optimizing it.
+>     The spatial plots did not work. It must be a minor issue, but we
+>     did not have time to fix it, plus the fact that for market
+>     sampling, we have not that much info to plot spatially.
+>     The ALK views and gaps filling were much appreciated. In case of
+>     changing the size increment, there is a relevant demand to also
+>     specify the starting point so that all years/data could be
+>     comparable. In case of changing the increment, the length
+>     measurements in HL must also change accordingly, or the length
+>     structure estimated in the dbe object (I personnally prefer the
+>     latter). In both cases, Mathieu has to work out the code.
+>     The bp estimates seem to work but they would deserve a special
+>     session.
+>     We need a method to sum the strata of the dbe object in order to
+>     estimate yearly, or m?tier or whatever combination of strata
+>     estimates with CV and CI. Mathieu will care of this.
+>     We need a method to export the dbe object in InterCatch standard.
+>     Who takes care of this?
+>
+>     6 weeks from the deadline of the project, I must admit I was quite
+>     happy with these results. I think we are very close from a DBE
+>     package and we'll need to perform this kind of beta-testing
+>     session in other institutes, including direct age structure
+>     estimates, bootstrap, biological parameters and discards raising.
+>     We have one person testing the discards raising procedures
+>     full-time here on the Ifremer datasets and it seems to work correctly.
+>
+>     I'm a bit blind on what's going on for the MBE package, and also I
+>     would like some news from Dorleta on how we can proceed at best
+>     for the SIM package.
+>
+>     For all the codes that has been tested, we need the developers to
+>     fill completely and properly the help pages, then we'll consider a
+>     user manual following the step approach drafted above, (plus
+>     discards, plus mbe, plus sim, plus ...). I will circulate a report
+>     frame among the leaders of packages very soon.
+>
+>     I anticipate a demand for examples going through the whole
+>     process. I will draft some properly and tell you when I put them
+>     on the website.
+>
+>     Best regards
+>
+>     Joel
+>
+>
+>     -- 
+>
+>     */Jo?l VIGNEAU
+>     /*Laboratoire "Ressources Halieutiques"
+>     IFREMER
+>     14 520 Port-en-Bessin
+>
+>     T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>     m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>     http://www.ifremer.fr/drvpbessin/
+>
+>  
+>
+> ***********************************************************************************
+>
+> This email and any attachments are intended for the named recipient 
+> only. Its unauthorised use, distribution, disclosure, storage or 
+> copying is not permitted. If you have received it in error, please 
+> destroy all copies and notify the sender. In messages of a 
+> non-business nature, the views and opinions expressed are the author's 
+> own and do not necessarily reflect those of the organisation from 
+> which it is sent. All emails may be subject to monitoring.
+>
+> ***********************************************************************************
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From Joel.Vigneau at ifremer.fr  Tue Mar 31 17:20:31 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 31 Mar 2009 17:20:31 +0200
+Subject: [cost-devel] [Cost-project-members] Minutes of
+ Ifremer	beta-testing session
+In-Reply-To: <49D22B24.7050908@ipimar.pt>
+References: <8F90BAFE30CE2D458953FC0F1709830B012579F0@LOWEXPRESS.corp.cefas.co.uk>
+	<49D22B24.7050908@ipimar.pt>
+Message-ID: <49D234BF.1080008@ifremer.fr>
+
+Hi all,
+
+I've heard from ICES that every single stock should have all info stored 
+in IC before the assessment WGs this year!
+I begin to know how the Commission acts, this method is epsilon part of 
+the project and can earn big in some reviewer evaluation.
+By the occasion, I also buy your idea to create FLR objects :) I think 
+it was in the original plans.
+
+Best
+
+Joel
+
+Ernesto Jardim a ?crit :
+> Hi David,
+>
+> IMO we should wait for InterCatch to enter production state. It's still 
+> far from doing anything interesting and I expect a big review in the 
+> next year or two.
+>
+> We should try to export to Lowestoft format (which I guess IC reads). It 
+> can be done by generating FLR objects (FLStock and FLIndex) and using 
+> the FLR export feature.
+>
+> Best
+>
+> EJ
+>
+> David Maxwell (Cefas) wrote:
+>   
+>> Hello Cost developers,
+>>     
+>>> We need a method to export the dbe object in InterCatch standard. Who 
+>>>       
+>> takes care of this?
+>> Just when we thought formats had finished! I've started to think about 
+>> how to do this, but not all the details of each field.
+>> InterCatch format wants a comma separated file with different length 
+>> lines. I can see two approaches to do this, see below. I prefer 
+>> approach 2 but it requires a step outside of R. Any comments or can 
+>> anyone suggest improvements / alternatives?
+>>  
+>> Joel, is it the correct standard & version in the example? This will 
+>> need csObject and clObject information as well as dbeOutput.
+>>  
+>> Regards, David
+>>  
+>> ##  InterCatch Exchange Format Version 1.4
+>> #http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf
+>> #Example Annex 1 lines 1-4
+>> HI = 
+>> c("HI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,NA,"-9",NA)
+>> SI = 
+>> c("SI","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A",NA,NA,"M",NA,"T","1483.423","-9","-9","Gillnet","Maria","Second 
+>> country")
+>> SD = rbind 
+>> (c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","3","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"235.000","821","-9","-9","-9","-9"),
+>>             
+>> c("SD","SE","2005","Quarter","1","testA","SubDiv","BAL25",NA,"cod","na","L","A","N","Age","4","10","-9","-9","-9","-9","-9","g","N","year","cm",NA,"775.000","1020","-9","-9","-9","-9") 
+>> )
+>> # Output file
+>> # Approach 1, line by line. Will require looping through different 
+>> strata so may be slow.
+>> write.table(matrix(HI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+>> quote=F, sep=",")
+>> write.table(matrix(SI, nrow=1), "ICout.txt", row.names=F, col.names=F, 
+>> quote=F, sep=",", append=T)
+>> write.table(matrix(SD, nrow=2), "ICout.txt", row.names=F, col.names=F, 
+>> quote=F, sep=",", append=T)
+>>  
+>> # Approach 2, combined data set
+>> length(HI);length(SI);dim(SD)[[2]]
+>> # make HI, SI, SD same length
+>> HI.2 = c(HI, rep("blank",21))
+>> SI.2 = c(SI, rep("blank",9))
+>>  
+>> ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+>> write.table(ICout2, "ICout2.txt", row.names=F, col.names=F, quote=F, 
+>> sep=",")
+>> # need to remove blanks
+>> # within Notepad, Open file, Edit, Replace,
+>> # Find what:,blank   Replace with:(leave empty), Replace All
+>> # Save
+>>  
+>>  
+>>
+>>     -----Original Message-----
+>>     *From:* cost-project-members-bounces at lists.berlios.de
+>>     [mailto:cost-project-members-bounces at lists.berlios.de]*On Behalf
+>>     Of *Joel VIGNEAU
+>>     *Sent:* 30 March 2009 14:49
+>>     *To:* cost member
+>>     *Subject:* [Cost-project-members] Minutes of Ifremer beta-testing
+>>     session
+>>
+>>     Dear all,
+>>
+>>     last week in Ifremer, we had a working sesion with all
+>>     responsibles for market sampling. 18 stocks were reviewed with the
+>>     COST tools with people having very heterogeneous skills in R.
+>>
+>>     The programme to follow was [.....] 
+>>      
+>>      
+>>     The workshop was very successful in the sense that the 18 stocks
+>>     performed the analysis up to step 5. YES! The step 6 was performed
+>>     only by a few stocks because of lack of time (3 days meeting). The
+>>     results of the length structure perfectly match the length
+>>     structure given by our central software, except some cases which
+>>     are under scrutiny now. We have not looked yet at the age structures.
+>>
+>>     The strategies were all LS + ALK = AS (for stocks with age info,
+>>     of course)
+>>     There were some stocks with size increments of 1 mm (Nephrops), 5
+>>     mm (sardine) and 1 cm
+>>     There were stocks with male and female mixed in the sampled boxes
+>>     (Nephrops and megrim)
+>>     There were stocks with different species mixed in the sampled
+>>     boxes (Lophius sp.)
+>>
+>>     The biggest issue was the importation phase. The error messages
+>>     are difficult to interpret for a non expert. Once the datasets in
+>>     the COST R environment, the level of stress goes down quickly :)
+>>
+>>     Otherwise, we have a problem of code in the raise length method,
+>>     since it is very penalised by the size of the samples (we had a
+>>     1000 samples stock!!). It is a 6 dimensional object on which we
+>>     use tapply and apply. I do not imagine performing a bootstrap on
+>>     this!! Mathieu is looking at optimizing it.
+>>     The spatial plots did not work. It must be a minor issue, but we
+>>     did not have time to fix it, plus the fact that for market
+>>     sampling, we have not that much info to plot spatially.
+>>     The ALK views and gaps filling were much appreciated. In case of
+>>     changing the size increment, there is a relevant demand to also
+>>     specify the starting point so that all years/data could be
+>>     comparable. In case of changing the increment, the length
+>>     measurements in HL must also change accordingly, or the length
+>>     structure estimated in the dbe object (I personnally prefer the
+>>     latter). In both cases, Mathieu has to work out the code.
+>>     The bp estimates seem to work but they would deserve a special
+>>     session.
+>>     We need a method to sum the strata of the dbe object in order to
+>>     estimate yearly, or m?tier or whatever combination of strata
+>>     estimates with CV and CI. Mathieu will care of this.
+>>     We need a method to export the dbe object in InterCatch standard.
+>>     Who takes care of this?
+>>
+>>     6 weeks from the deadline of the project, I must admit I was quite
+>>     happy with these results. I think we are very close from a DBE
+>>     package and we'll need to perform this kind of beta-testing
+>>     session in other institutes, including direct age structure
+>>     estimates, bootstrap, biological parameters and discards raising.
+>>     We have one person testing the discards raising procedures
+>>     full-time here on the Ifremer datasets and it seems to work correctly.
+>>
+>>     I'm a bit blind on what's going on for the MBE package, and also I
+>>     would like some news from Dorleta on how we can proceed at best
+>>     for the SIM package.
+>>
+>>     For all the codes that has been tested, we need the developers to
+>>     fill completely and properly the help pages, then we'll consider a
+>>     user manual following the step approach drafted above, (plus
+>>     discards, plus mbe, plus sim, plus ...). I will circulate a report
+>>     frame among the leaders of packages very soon.
+>>
+>>     I anticipate a demand for examples going through the whole
+>>     process. I will draft some properly and tell you when I put them
+>>     on the website.
+>>
+>>     Best regards
+>>
+>>     Joel
+>>
+>>
+>>     -- 
+>>
+>>     */Jo?l VIGNEAU
+>>     /*Laboratoire "Ressources Halieutiques"
+>>     IFREMER
+>>     14 520 Port-en-Bessin
+>>
+>>     T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>>     m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>>     http://www.ifremer.fr/drvpbessin/
+>>
+>>  
+>>
+>> ***********************************************************************************
+>>
+>> This email and any attachments are intended for the named recipient 
+>> only. Its unauthorised use, distribution, disclosure, storage or 
+>> copying is not permitted. If you have received it in error, please 
+>> destroy all copies and notify the sender. In messages of a 
+>> non-business nature, the views and opinions expressed are the author's 
+>> own and do not necessarily reflect those of the organisation from 
+>> which it is sent. All emails may be subject to monitoring.
+>>
+>> ***********************************************************************************
+>>
+>>  
+>>
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+>>     
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/40bb3562/attachment.html>
+

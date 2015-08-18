@@ -1,0 +1,384 @@
+From david.maxwell at cefas.co.uk  Wed May  7 11:22:26 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 7 May 2008 10:22:26 +0100
+Subject: [cost-devel] CVS and packages
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F86B7@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi all,
+What have you found is the best way to work with CVS and our packages? 
+
+I can install and run COSTcore and COSTeda packages ok. 
+ Also I can use CVS to get files but using CVS update directly on the library directory e.g. C:\Program Files\R\R-2.7.0\library\COSTeda  leads to errors when I use library(COSTeda) in R
+
+Is it best to run the scripts from CVS to create a workspace with all the COST functions in and use that for development rather than using the packages?
+
+Thanks, David
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From Joel.Vigneau at ifremer.fr  Wed May  7 12:27:24 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 07 May 2008 12:27:24 +0200
+Subject: [cost-devel] CVS and packages
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F86B7@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F86B7@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <4821840C.2050106@ifremer.fr>
+
+Hi David,
+
+I would advise to use the packages, to be in the same conditions as the 
+final users, and open the CVS files to understand how the functions you 
+are using are implemented.
+By doing this, if you find a bug in a function you can either point out 
+exactly where the problem is or propose a solution by testing a new code 
+only on the given function.
+
+By the way, I wanted to know where the developers are, with regards 
+design-based and model-based packages.
+Do you have all the elements you need to work?
+I don't have the physical time to resume the discussions we had on the 
+raising procedures. I hope this is not too much of a problem at this 
+stage, and that this will be sorted out before the meeting in June.
+
+Best regards
+
+Joel
+
+
+
+
+David Maxwell (Cefas) a ?crit :
+> Hi all,
+> What have you found is the best way to work with CVS and our packages? 
+>
+> I can install and run COSTcore and COSTeda packages ok. 
+>  Also I can use CVS to get files but using CVS update directly on the library directory e.g. C:\Program Files\R\R-2.7.0\library\COSTeda  leads to errors when I use library(COSTeda) in R
+>
+> Is it best to run the scripts from CVS to create a workspace with all the COST functions in and use that for development rather than using the packages?
+>
+> Thanks, David
+>
+>
+>
+>
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080507/ed43008a/attachment.html>
+
+From ernesto at ipimar.pt  Thu May  8 10:48:42 2008
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Thu, 08 May 2008 09:48:42 +0100
+Subject: [cost-devel] CVS and packages
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F86B7@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F86B7@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <4822BE6A.4060204@ipimar.pt>
+
+David Maxwell (Cefas) wrote:
+> Hi all,
+> What have you found is the best way to work with CVS and our packages? 
+>
+> I can install and run COSTcore and COSTeda packages ok. 
+>  Also I can use CVS to get files but using CVS update directly on the library directory e.g. C:\Program Files\R\R-2.7.0\library\COSTeda  leads to errors when I use library(COSTeda) in R
+>
+> Is it best to run the scripts from CVS to create a workspace with all the COST functions in and use that for development rather than using the packages?
+>
+> Thanks, David
+
+Hi David,
+
+You can not update the R library tree from CVS. In CVS you have the 
+source code and in R library you have the compiled code. If you look at 
+the tree structure you'll notice they're different.
+
+What you can do is install directly from the source tree.
+
+1) Update the local copy from CVS
+2) run R CMD INSTALL on your local copy
+
+In this case R compiles and install simultaneously and you don't need to 
+build the zip file.
+
+Major warning with CVS: ALWAYS UPDATE YOUR LOCAL COPY BEFORE COMMITTING 
+CHANGES.
+
+Best
+
+EJ
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Mon May 19 18:06:32 2008
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Mon, 19 May 2008 18:06:32 +0200
+Subject: [cost-devel] [Cost-project-members] Design based package begins
+In-Reply-To: <4B4C7D394FD73F4490408D9706A296A64EECD4@ieocoruna.co.ieo.es>
+References: <4B4C7D394FD73F4490408D9706A296A64EECD4@ieocoruna.co.ieo.es>
+Message-ID: <4831A588.5070309@ifremer.fr>
+
+
+
+Paz Sampedro a ?crit :
+>  
+> *De:* Joel VIGNEAU [mailto:Joel.Vigneau at ifremer.fr]
+> *Enviado el:* viernes, 16 de mayo de 2008 14:01
+> *Para:* cost member
+> *Asunto:* Re: [Cost-project-members] Design based package begins
+> 
+> David Maxwell (Cefas) a ?crit :
+>> reply below
+>>
+>>  -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+>> Sent: 07 May 2008 11:27
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: Re: [cost-devel] CVS and packages
+>>
+>>
+>> Hi David,
+>>
+>> I would advise to use the packages, to be in the same conditions as the final users, and open the CVS files to understand how the functions you are using are implemented.
+>> By doing this, if you find a bug in a function you can either point out exactly where the problem is or propose a solution by testing a new code only on the given function.
+>>
+>> By the way, I wanted to know where the developers are, with regards design-based and model-based packages. 
+>> Do you have all the elements you need to work? 
+>> I don't have the physical time to resume the discussions we had on the raising procedures. I hope this is not too much of a problem at this stage, and that this will be sorted out before the meeting in June.
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>>
+>> Jo?l VIGNEAU
+>> Laboratoire "Ressources Halieutiques"
+>> IFREMER
+>> 14 520 Port-en-Bessin
+>> T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>> m?l : Joel.Vigneau at ifremer.fr 
+>>
+>>
+>> ----------------------------------
+>>
+>> Hi all,
+>>
+>> Joel, I think the COSTCore and COSTeda packages now allow us to start on the design based estimates, although we need to check the post-stratification is ok to use. 
+>>
+>> I've attached the list of actions that we agreed at the first project meeting, so it's the responsibility of all members of the project to agree the methods and for me, Marcel, Paz and Mathieu to produce the code.
+>>  <<WP4 tasks draft v1_rev JV.xls>> 
+>>
+>> Two immediate actions
+>>
+>> 1. Paz and Marcel please email to say if you are ready to start or if you have any questions or problems about setting up the COSTCore and COSTeda packages and Tortoise CVS and WinMerge to share code via our berlios website.
+>>
+>> 2. All, Confirm a name for the package - is COSTdbe (short for design-based estimates) ok or does anyone have other suggestions? 
+>>  (Fitting a maturity ogive is a model based estimate if we worry about the details)
+>>
+>>
+>> Then, I think we should use the open-source coding approach - do something now then modify it:
+>>  
+>> 3. Paz, Mathieu  I would really like the proportion mature estimates to be done first so suggest we work on them together. If we can produce the code before 30th May it can be used at the WKMOG meeting.
+>>
+>> 4. Machel, I suggest coding a prototype for the catch numbers at age rather than waiting for the discussions about how to weight the estimates to conclude. You could use either your institute's raising procedure or the one in Joel's working document.
+>>
+>> All the best from sunny Lowestoft!
+>> David
+>>
+>>   
+> Hi all,
+> 
+> thanks David for your organisational email. I wish to read the response 
+> to your queries from all the persons you have named in your message (be 
+> it negative, positive, critical or even providing solutions,...).
+> 
+> It's Ok for me to chose COSTdbe for this package
+> 
+> Concerning the implementation, here are some points :
+> 1 - For proportion mature estimates (as for sex-ratio), we need 
+> maturity-at-length and maturity-at-age estimated at the population 
+> level. The M-at-length estimates is straightforward as we can use the 
+> information available in the CA table as such, but it is not always the 
+> case for M-at-age. If the information in the CA is coming from a random 
+> sampling of the population itself (scientific survey) then we can take 
+> this for granted and calculate directly M-at-Age. If not, we need to 
+> weight the M-at-Length we have in the CA by the length structure of the 
+> population. This we don't have, but we have a length structure of the 
+> catches (see point 2) which can be used for the ages fully recruited. My 
+> point would be not to try to do what we cannot do or force the system, 
+> at the exception of the assumption that under a certain L, all 
+> individuals are considered Immature.
+> 
+> 2 -Mathieu has developed some analytical estimates of the length 
+> structure from market sampling (for Ifremer use) based on the COST 
+> objects, so I ask him to tell the group (especially for Marcel) which 
+> functions he already wrote and provide the code to the group. As a 
+> general statement, always make use of already defined functions in COST, 
+> (at least internally within the package and those defined in COSTcore 
+> and COSTeda).
+> 
+> 3 - We are not talking here about GLM or any kind of modelling. It is 
+> design-based estimates of the means at length/age and the associated 
+> variances.
+> 
+> Best regards
+> 
+> Joel
+> 
+> 
+> /*Jo?l VIGNEAU*/
+> 
+> Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+> IFREMER <http://www.ifremer.fr/>
+> 14 520 Port-en-Bessin
+> 
+> T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> 
+>  
+> Hi all,
+>  
+> Using the same scheme from David:
+>  
+> 
+> 1. I have already installed the COSTCore and COSTeda packages, no 
+> problem, but I must remember the lessons to use of Tortoise CVS and 
+> WinMerge to share code via our berlios website.
+> 
+>  
+> 
+> 2. Name of package: I agree with COSTdbe.
+> 
+>  
+> 
+> 3. Ok, we can start by the propotion mature estimates.
+> 
+>  
+> 
+> All the best,
+> 
+>  
+> 
+> Paz
+> 
+>  
+> 
+>  
+>  
+> 
+> M. Paz Sampedro Pastor
+> Instituto Espa?ol de Oceanograf?a
+> C. O. A Coru?a
+> Paseo Mar?timo Alcalde Francisco V?zquez n? 10
+> 15001 A Coru?a, SPAIN
+> Tel.: (+34) 981 20 53 62
+> Fax: (+34) 981 22 90 77
+> http://www.ieo.es <http://www.ieo.es/>
+> 
+> 
+>  
+> 
+> ------------------------------------------------------------------------
+> La informaci?n contenida en este e-mail y sus ficheros adjuntos es 
+> totalmente confidencial y no deber?a ser usado si no fuera usted alguno 
+> de los destinatarios. Si ha recibido este e-mail por error, por favor 
+> avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de 
+> almacenamiento. This email is confidential and should not be used by 
+> anyone who is not the original intended recipient. If you have received 
+> this e-mail in error please inform the sender and delete it from your 
+> mailbox or any other storage mechanism.
+> 
+> 
+> ------------------------------------------------------------------------
+> 
+> _______________________________________________
+> Cost-project-members mailing list
+> Cost-project-members at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-members
+
+
+Hi all,
+
+please find enclosed the code that has been done for an Ifremer working 
+group on samplings. All this was made very quickly (15 days) so it's an 
+ugly code that for sure can be simplified, optimized and made more 
+robust(too many classes, too many functions,...).
+
+Implemented functions are the following : stratified ALK creator, 
+various functions for stratified total landed weight matrix, raised 
+stratified numbers at length and at age, functions for homogenization of 
+vectors dimensions, variance at length & at age (Kimura methods), 
+graphical procedures...
+
+Raising factor used here is landed weight at population level ('cl' 
+table). There's still a lot of work on this to make it complete and more 
+user-friendly, but it may be a starting point. The main problem, as 
+you'll see, is that all those procedures are working with 'csData' (& 
+'csDataVal') objects, and not with consolidated ones.
+
+I've also made an illustrative code that you will be able to run after 
+having sourced 'LD_AD_Estimate.r' file and loaded 
+'ArpegeSole2006CA.RData' environment (attached files).
+
+By the way, OK for COSTdbe.
+
+
+Best
+Mathieu
+
+
+
+
+
+-- 
+Mathieu Merz?r?aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G?n?ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T?l : 02.31.51.56.46
+Email: Mathieu.Merzereaud at ifremer.fr
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ArpegeSole2006CA.RData
+Type: application/octet-stream
+Size: 172843 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.obj>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: LD_AD_Estimate.r
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.ksh>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: LD_AD_Estimate_Usage.r
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment-0001.ksh>
+

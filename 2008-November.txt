@@ -1,0 +1,380 @@
+From dgarcia at azti.es  Fri Nov 14 12:19:08 2008
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Fri, 14 Nov 2008 12:19:08 +0100
+Subject: [cost-devel] error in clData  check
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>
+	<48E0B5C7.3060504@nr.no>
+Message-ID: <5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>
+
+
+Hi,
+
+I'm creating Azti's data sets in Cost format and I get en error in the
+validity check for landings data. I get the error:
+
+Error in validityMethod(object) : 
+  Primary key not unique in slot candidate "cl".
+
+This happens because the uniqueness is only checked for the 15 first
+columns in the clData in which 'harbour' is not included. 'harbour' is
+in the 16th columns so I suppose that this is a bug. The corresponding
+code is in 'check.methods.R' script line 178.
+
+
+Regards,
+
+Dorleta
+
+ 
+
+
+From ernesto at ipimar.pt  Fri Nov 14 12:44:40 2008
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 14 Nov 2008 11:44:40 +0000
+Subject: [cost-devel] error in clData  check
+In-Reply-To: <5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no>
+	<5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>
+Message-ID: <491D64A8.10300@ipimar.pt>
+
+Dorleta Garcia wrote:
+> Hi,
+>
+> I'm creating Azti's data sets in Cost format and I get en error in the
+> validity check for landings data. I get the error:
+>
+> Error in validityMethod(object) : 
+>   Primary key not unique in slot candidate "cl".
+>
+> This happens because the uniqueness is only checked for the 15 first
+> columns in the clData in which 'harbour' is not included. 'harbour' is
+> in the 16th columns so I suppose that this is a bug. The corresponding
+> code is in 'check.methods.R' script line 178.
+>
+>
+> Regards,
+>
+> Dorleta
+Hi Dorleta,
+
+Are you coming to SGMAS next week in Lisbon ? If yes can we look at this 
+then ?
+
+Best
+
+EJ
+
+
+
+From dgarcia at azti.es  Fri Nov 14 12:54:50 2008
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Fri, 14 Nov 2008 12:54:50 +0100
+Subject: [cost-devel] error in clData  check
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no><5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>
+	<491D64A8.10300@ipimar.pt>
+Message-ID: <5222D071B410AC489A62C2EBA183858A02C879CF@SSRCorreo.azti.local>
+
+
+No, I'm not going... but is there any reason for not including 'harbour'
+in the check? It is a qualitative variable as the previous 15...
+
+  
+
+-----Mensaje original-----
+De: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de
+Ernesto Jardim
+Enviado el: 14 November 2008 12:45
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] error in clData check
+
+Dorleta Garcia wrote:
+> Hi,
+>
+> I'm creating Azti's data sets in Cost format and I get en error in the
+> validity check for landings data. I get the error:
+>
+> Error in validityMethod(object) : 
+>   Primary key not unique in slot candidate "cl".
+>
+> This happens because the uniqueness is only checked for the 15 first
+> columns in the clData in which 'harbour' is not included. 'harbour' is
+> in the 16th columns so I suppose that this is a bug. The corresponding
+> code is in 'check.methods.R' script line 178.
+>
+>
+> Regards,
+>
+> Dorleta
+Hi Dorleta,
+
+Are you coming to SGMAS next week in Lisbon ? If yes can we look at this
+
+then ?
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From ernesto at ipimar.pt  Fri Nov 14 12:57:53 2008
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 14 Nov 2008 11:57:53 +0000
+Subject: [cost-devel] error in clData  check
+In-Reply-To: <5222D071B410AC489A62C2EBA183858A02C879CF@SSRCorreo.azti.local>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no><5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>	<491D64A8.10300@ipimar.pt>
+	<5222D071B410AC489A62C2EBA183858A02C879CF@SSRCorreo.azti.local>
+Message-ID: <491D67C1.7080900@ipimar.pt>
+
+Dorleta Garcia wrote:
+> No, I'm not going... but is there any reason for not including 'harbour'
+> in the check? It is a qualitative variable as the previous 15...
+>   
+No, there's no reason.
+
+The problem is that the code was working before so I need to check what 
+happened. Also I need to check with the FF5 format if harbour is 
+included on the primary key or not, I can't do it at the moment because 
+I'm away from my office.
+
+Best
+
+EJ
+
+
+
+From dgarcia at azti.es  Fri Nov 14 13:08:56 2008
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Fri, 14 Nov 2008 13:08:56 +0100
+Subject: [cost-devel] error in clData  check
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no><5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>	<491D64A8.10300@ipimar.pt><5222D071B410AC489A62C2EBA183858A02C879CF@SSRCorreo.azti.local>
+	<491D67C1.7080900@ipimar.pt>
+Message-ID: <5222D071B410AC489A62C2EBA183858A02C879E7@SSRCorreo.azti.local>
+
+
+Ok. I am using the repository code version, 1.2-3. I think is the last
+one. 
+
+In the FF5 document I've (25 January 08) in the CL data table 'harbour'
+doesn't appear... so I can't know if this is a key field. 
+
+Regards,
+
+Dorleta
+
+-----Mensaje original-----
+De: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de
+Ernesto Jardim
+Enviado el: 14 November 2008 12:58
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] error in clData check
+
+Dorleta Garcia wrote:
+> No, I'm not going... but is there any reason for not including
+'harbour'
+> in the check? It is a qualitative variable as the previous 15...
+>   
+No, there's no reason.
+
+The problem is that the code was working before so I need to check what 
+happened. Also I need to check with the FF5 format if harbour is 
+included on the primary key or not, I can't do it at the moment because 
+I'm away from my office.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From ernesto at ipimar.pt  Fri Nov 14 13:15:44 2008
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 14 Nov 2008 12:15:44 +0000
+Subject: [cost-devel] error in clData  check
+In-Reply-To: <5222D071B410AC489A62C2EBA183858A02C879E7@SSRCorreo.azti.local>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F8812@LOWEXPRESS.corp.cefas.co.uk>	<48D39BDD.2050700@ifremer.fr>	<48D76047.80502@nr.no><48E0A3C3.1030208@ifremer.fr>	<48E0B5C7.3060504@nr.no><5222D071B410AC489A62C2EBA183858A02C8799D@SSRCorreo.azti.local>	<491D64A8.10300@ipimar.pt><5222D071B410AC489A62C2EBA183858A02C879CF@SSRCorreo.azti.local>	<491D67C1.7080900@ipimar.pt>
+	<5222D071B410AC489A62C2EBA183858A02C879E7@SSRCorreo.azti.local>
+Message-ID: <491D6BF0.6050101@ipimar.pt>
+
+Dorleta Garcia wrote:
+> Ok. I am using the repository code version, 1.2-3. I think is the last
+> one. 
+>
+> In the FF5 document I've (25 January 08) in the CL data table 'harbour'
+> doesn't appear... so I can't know if this is a key field. 
+>
+> Regards,
+>
+> Dorleta
+Ok,
+
+That was what I was afraid of. I'll need to check FF5 to understand 
+what's the problem.
+
+Best
+
+EJ
+
+
+From david.maxwell at cefas.co.uk  Fri Nov 14 13:43:02 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 14 Nov 2008 12:43:02 -0000
+Subject: [cost-devel] error in clData  check
+In-Reply-To: <491D6BF0.6050101@ipimar.pt>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F88BE@LOWEXPRESS.corp.cefas.co.uk>
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Ernesto
+Jardim
+Sent: 14 November 2008 12:16
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] error in clData check
+
+
+Dorleta Garcia wrote:
+> Ok. I am using the repository code version, 1.2-3. I think is the last
+> one. 
+>
+> In the FF5 document I've (25 January 08) in the CL data table 'harbour'
+> doesn't appear... so I can't know if this is a key field. 
+>
+> Regards,
+>
+> Dorleta
+Ok,
+
+That was what I was afraid of. I'll need to check FF5 to understand 
+what's the problem.
+
+Best
+
+EJ
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+Hi,
+
+Yes we have that problem as well, the COST check function does not match the current FF format.
+
+I think the 25 January 08 doc is two versions old. There was FishFrame-COST data exchange format description 26Feb2008 and then modifications including 'harbour' were given in an separate file (attached below) in the message with the following header.
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 08 July 2008 14:51
+To: cost devel; Henrik Degel; Teunis Jansen
+Subject: [cost-devel] Data Exchange Format Modifications
+
+This shows that harbour is optional not a key field
+ 
+Regards, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ATT19915662.doc
+Type: application/msword
+Size: 91136 bytes
+Desc: ATT19915662.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20081114/9a01b070/attachment.doc>
+
+From dgarcia at azti.es  Fri Nov 14 14:58:05 2008
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Fri, 14 Nov 2008 14:58:05 +0100
+Subject: [cost-devel] error in clData  check
+References: <8F90BAFE30CE2D458953FC0F1709830B5F88BE@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <5222D071B410AC489A62C2EBA183858A02C87A96@SSRCorreo.azti.local>
+
+
+
+-----Mensaje original-----
+De: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de David
+Maxwell (Cefas)
+Enviado el: 14 November 2008 13:43
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] error in clData check
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Ernesto
+Jardim
+Sent: 14 November 2008 12:16
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] error in clData check
+
+
+Dorleta Garcia wrote:
+> Ok. I am using the repository code version, 1.2-3. I think is the last
+> one. 
+>
+> In the FF5 document I've (25 January 08) in the CL data table
+'harbour'
+> doesn't appear... so I can't know if this is a key field. 
+>
+> Regards,
+>
+> Dorleta
+Ok,
+
+That was what I was afraid of. I'll need to check FF5 to understand 
+what's the problem.
+
+Best
+
+EJ
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+Hi,
+
+Yes we have that problem as well, the COST check function does not match
+the current FF format.
+
+I think the 25 January 08 doc is two versions old. There was
+FishFrame-COST data exchange format description 26Feb2008 and then
+modifications including 'harbour' were given in an separate file
+(attached below) in the message with the following header.
+
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel
+VIGNEAU
+Sent: 08 July 2008 14:51
+To: cost devel; Henrik Degel; Teunis Jansen
+Subject: [cost-devel] Data Exchange Format Modifications
+
+This shows that harbour is optional not a key field
+ 
+Regards, David
+
+---------
+
+In the attached field it says optional but key field.
+
+'CL.Harbour (New field). Optional, key field.'
+
+So the columns in the checkCLpk method should be changed to 1:16?
+
+Dorleta
+
+
+

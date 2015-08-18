@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Comments on FF data format 5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Comments%20on%20FF%20data%20format%205&In-Reply-To=%3C46F92F71.4040700%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Comments on FF data format 5</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Comments%20on%20FF%20data%20format%205&In-Reply-To=%3C46F92F71.4040700%40ipimar.pt%3E"
+       TITLE="[cost-devel] Comments on FF data format 5">ernesto at ipimar.pt
+       </A><BR>
+    <I>Tue Sep 25 17:55:29 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[cost-devel] new version of data format
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[cost-devel] FishFrame database documentation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>HI Teunis,
+
+I read the document you posted. The data structure is much better than 
+the first one and clearly shows a mature analysis of fisheries data 
+needs. I'd like to have the data dictionary if possible as I don't fully 
+understand the relations between tables. The indices like primary keys 
+and foreign keys are not clear to me, check this ones regarding CS data:
+
+1) TR primary key looks like a concatenation of Sampling Type, Year, 
+Trip number and Vessel identifier.
+
+2) If TR is correct it should constitute a foreign key in HH, however HH 
+does not have Vessel identifier. HH primary key would be a concatenation 
+of the foreign key with Station number and Date.
+
+3) SL does not have a foreign key in agreement with previous tables (no 
+vessel identifier, no date, etc) and its primary key should concatenate 
+the foreign key with fields 9-15.
+
+4) HL also does not have a complete foreign key but it's consistent with 
+SL. The primary key concatenates the foreign key with length class.
+
+5) CA stores individual information !? If so the single fish number will 
+provide a primary key concatenated with fields 1-17 !?
+
+6) I'm not sure I understand why you're including codes with 
+observations like maturity scale and maturity stage, can you explain a 
+little more !?
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[cost-devel] new version of data format
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[cost-devel] FishFrame database documentation
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

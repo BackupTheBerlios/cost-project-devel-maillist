@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] DEF modiif from the meeting: Survey data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B0954F4%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000061.html">
+   <LINK REL="Next"  HREF="000056.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] DEF modiif from the meeting: Survey data</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B0954F4%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] DEF modiif from the meeting: Survey data">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Thu Oct 25 18:21:44 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000061.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+        <LI>Next message: <A HREF="000056.html">[cost-devel] New COSTcore version (0.2-0)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Joel VIGNEAU
+Sent: 25 October 2007 14:32
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Cc: Brian James Cowan; J&#248;rgen Dalskov
+Subject: Re: [cost-devel] DEF modiif from the meeting: Survey data
+
+
+Teunis Jansen a &#233;crit : 
+
+
+
+
+
+Comments to the requested change for getting survey data into the systems
+
+
+
+
+
+CS Tables- TR table - SamplingType field
+
+
+
+
+Background: The data processing needs fisheries independent data from research surveys to create age-length-maturity keys. [question here: does anybody need the HH, SL and HL data from surveys or is it only CA? I heard that some countries in the Mediterranean used the catches, CPUE, species and length distributions when raising the commercial fisheries data.]
+
+See also the previous mail-discussion of this topic in the appendix below.
+
+
+
+Remember that this is about the data exchange format, not the database (class/table) structure.
+
+
+
+Solution 1 (suggested solution from Lisbon): Addition of the code &quot;R&quot; = research survey in the field Sampling Type. Then the survey SMAWLs will be in the same structure as the SMAWLs from commercial fisheries.
+
+
+
+Solution 2 (alternative): Add the survey data in the existing survey data exchange formats (FF acoustics + DATRAS).
+
+
+
+Solution 3 (alternative): COST goes for solution 1 and FF for solution 2.
+
+
+
+Discussion:
+
+------------------
+
+Henrik &amp; Teunis (25/10):
+
+It is not an easy choice, because there are advantages and disadvantages for all solutions. We have already discussed this before the Lisbon-meeting, but there was not reached any consensus on this subject. The mails from that discussion is in the appendix at the end of this mail. We have tried to list the possible solutions with their respective advantages and disadvantages  below:
+
+
+
+Solution 1: 
+
+Advantages:
+
+&#183;        Fast implementation in the code that pulls out data from input files and puts it into the database (classes/tables).
+
+Disadvantages:
+
+&#183;        Double data. The survey data exist on both the designated survey formats (FF acoustic surveys and DATRAS) and on the CS format. This usually leads to decreased data quality.
+
+&#183;        National data managers shall make scripts for putting their survey data in to two different formats.
+
+&#183;        Risk of scope slide. Survey data offers much more information than what is available from commercial fisheries sampling. There is a risk that this will make the format grow increasing the inconsistency and number of notes like &quot;this field is like this for those data, unavailable for other data etc. etc.&quot;. Gear-field was mentioned by Ernesto. Should that then be added to the Ca-record or should a HH accompany the CA's? What about the big difference between HH's? I have seen this happen before.
+
+Solution 2: 
+
+Advantages:
+
+&#183;        None of the disadvantages from solution 1.
+
+Disadvantages:
+
+&#183;        More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written.
+
+Solution 3:
+
+Disadvantages: 
+
+&#183;        Not one single exchange format. This is however only a code, so the format is nearly the same, although the risk of scope sliding mentioned above might add more differences in a year or two.
+
+
+
+We have discussed this several times among the FishFrame developers and we have come to the conclusion that we can not go for solution 1. Solution 2 is what serves the FishFrame users best in the longer run. We think that this also applies to COST.
+
+
+
+So we are left with solution 2 or 3. Or maybe you can come up with other angles or solutions?
+
+
+
+Best regards
+
+Henrik &amp; Teunis
+
+--------------------
+
+
+
+ Please add your contribution to the discussion here...
+
+
+Joel wrote Dear all,
+
+I want to shorten this discussion that impacts the structure of FF and I understand Teunis and Hendrik are reticent to make too much change on this issue.
+
+What I am sure is
+1 - there is no way we will implement a CA structure for CS and another for Survey. This is confusing people that population parameters can have a gear effect or what so ever link to a fishing activity.
+
+[..Cut..] 
+
+Best regards
+
+Joel
+--
+
+David Maxwell (Cefas) &gt;
+ 
+To me the disadvantage of possibly &quot;confusing people that population parameters can have a gear effect&quot; seems smaller than the disadvantages for the other options in Teunis's message. Once the data are imported to R then we could choose if we combine the biological data from surveys and commercial sampling.
+As Teunis says this has the disadvantage of &quot;More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written&quot;  I leave it to the people writing the code to say how big this disadvantage is.
+ 
+ Regards, David
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/402f887e/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/402f887e/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000061.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+	<LI>Next message: <A HREF="000056.html">[cost-devel] New COSTcore version (0.2-0)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#62">[ date ]</a>
+              <a href="thread.html#62">[ thread ]</a>
+              <a href="subject.html#62">[ subject ]</a>
+              <a href="author.html#62">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Data for COST
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20for%20COST&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D1B4%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000121.html">
+   <LINK REL="Next"  HREF="000135.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Data for COST</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20for%20COST&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D1B4%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] Data for COST">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Thu Apr 17 10:37:14 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000121.html">[cost-devel] Data for COST
+</A></li>
+        <LI>Next message: <A HREF="000135.html">[cost-devel] Data for COST
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+	-------[David Maxwell (Cefas)]
+---------------------------------------------
+
+	 
+
+	Dear COST developers,
+
+	The attached zip file contains a fairly large set of market
+sampling data to test the import and EDA functions. See the file Cefas
+BSS to FF_COST 26Feb08 formatting.doc for more information on the data. 
+
+	I do not expect it to directly read in and pass all the
+validation checks but you should be able to read it in to R then create
+the COST objects. I found a few odd records in an earlier version of the
+data but I haven't edited any records in the attached, I don't want to
+take the fun out of your exploratory analysis!
+
+	(Cefas market data 2006 for COST.zip)
+
+	 
+
+	Regards, David
+
+	 
+
+	 
+
+	Hi David 
+
+	Idle moment and I thought I would have a play around with your
+data
+
+	 
+
+	library(COSTcore)
+
+	 
+
+	# attached costtest2 package is my stuff until COSTeda is ready
+to go 
+
+	# save with same name, install from local zip and load from the
+package list  
+
+	library(costtest2)
+
+	 
+
+	            # reading your files into R 
+
+	filename &lt;-&quot;C:\\&quot;where ever they are saved&quot;\\2006_csca.dat&quot;
+
+	 
+
+	ca &lt;-read.table(filename,sep=&quot;,&quot;,header=T)
+
+	 
+
+	# etc for each of the cl ce and all the cs tables 
+
+	 
+
+	# then converting to COST objects
+
+	 
+
+	cefascl &lt;-clData(cl[,-1], desc=&quot;&quot;)
+
+	 
+
+	cefasce &lt;-ceData(ce[,-1], desc=&quot;&quot;)
+
+	 
+
+	cefascs &lt;-csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1],ca[,-1],
+desc=&quot;&quot;) 
+
+	 
+
+	# this fails I'm getting:
+
+	# Error in validityMethod(object) : 
+
+	#  Data integrity problem in table &quot;sl&quot;. Missing related records
+in &quot;hh&quot;.
+
+	# which is back to you, Ernesto might elaborate on this.  
+
+	 
+
+	 
+
+	# these are the incompatibilities with what we have in the
+code.list which is based on 
+
+	# the last FISH FRAME doc. 
+
+	 
+
+	 
+
+	check.fields(cefascl)
+
+	 
+
+	check.fields(cefasce)
+
+	 
+
+	 
+
+	# taking out the entries where there are no $rect (this seems to
+be just blanks rather than NA's) 
+
+	 
+
+	 
+
+	cefasce2 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">-cefasce at ce</A>[-which(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cefasce at ce</A>$rect %in%
+code.list$rect$statsq==FALSE),]
+
+	 
+
+	# number of trips by rect
+
+	 
+
+	space.plot(cefasce2$trpNum,cefasce2$rect,length)
+
+	 
+
+	 
+
+	# removing the missing $rect for the cl
+
+	 
+
+	cefascl2 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">-cefascl at cl</A>[-which(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cefascl at cl</A>$rect %in%
+code.list$rect$statsq==FALSE),]
+
+	# total landed wt by rect
+
+	 
+
+	space.plot(cefascl2$landWt,cefascl2$rect,sum,scale=T)
+
+	 
+
+	# total landed wt for cod by rect
+
+	
+space.plot(cefascl2$landWt[cefascl2$spp==&quot;COD&quot;],cefascl2$rect[cefascl2$s
+pp==&quot;COD&quot;],sum,scale=T,
+
+	scale.title=&quot;Landed wgt for CEFAS cod 2006 (KG)&quot;)
+
+	 
+
+	# different plot types
+
+	
+space.plot(cefascl2$landWt,cefascl2$rect,sum,maptype=&quot;bubble&quot;,col.pch=1,
+cex.max.bubble=4
+
+	,scaleplace=&quot;topleft&quot;,scale=T)
+
+	 
+
+	 
+
+	# getting rid of missing $area  
+
+	 
+
+	cefascl3 &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">-cefascl at cl</A>[-which(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cefascl at cl</A>$area %in%
+toupper(code.list$area$code)==FALSE),]
+
+	 
+
+	# total landed wt by area, seems to have some distant locations
+in this which would need to be 
+
+	            # checked e.g. you have some $area == &quot;I&quot; in there
+which dont tally with your $rect values 
+
+	# also this needs a bit of work on my part 
+
+	 
+
+	
+space.plot(cefascl3$landWt,cefascl3$area,sum,maptype=&quot;image&quot;,scale=T,
+
+	scale.title=&quot;Landed wgt (kg) by ICES area&quot;)
+
+	 
+
+	 
+
+	# and redoing as a cl object 
+
+	cefas.cl2 &lt;-clData(cefascl2,desc=&quot;&quot;)
+
+	# and by quarter
+
+	
+strata.space.plot(cefas.cl2,&quot;landWt&quot;,&quot;rect&quot;,TimeStrat=&quot;quarter&quot;,TechStra
+t=NULL,sum,nplots=4)
+
+	# I need to do some work on the scale of this function. 
+
+	 
+
+	# would be interested to know if you can reproduce this little
+script.  
+
+	            
+
+	All the best
+
+	Alastair 
+
+	 
+
+	 
+
+	 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+************************************************************************
+***********
+
+This email and any attachments are intended for the named recipient
+only. Its unauthorised use, distribution, disclosure, storage or copying
+is not permitted. If you have received it in error, please destroy all
+copies and notify the sender. In messages of a non-business nature, the
+views and opinions expressed are the author's own and do not necessarily
+reflect those of the organisation from which it is sent. All emails may
+be subject to monitoring.
+
+************************************************************************
+***********
+
+ 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A> 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: costtest2_1.0.zip
+Type: application/x-zip-compressed
+Size: 3133132 bytes
+Desc: costtest2_1.0.zip
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.bin">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000121.html">[cost-devel] Data for COST
+</A></li>
+	<LI>Next message: <A HREF="000135.html">[cost-devel] Data for COST
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

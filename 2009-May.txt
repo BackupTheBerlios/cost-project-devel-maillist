@@ -1,0 +1,1807 @@
+From dgarcia at azti.es  Mon May  4 11:03:25 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Mon, 4 May 2009 11:03:25 +0200
+Subject: [cost-devel] 2 general  questions
+Message-ID: <5CD78996B8F8844D963C875D3159B94A64B7D0@dsrcorreo>
+
+
+Hi all,
+
+I need some help/clarification to calculate the performance statistics,
+
+At what scale should be measured the performance of discards estimators?
+Total weigth or length, depending on the method used? Discards are never
+estimated at age level?
+
+Which are the units in lenStruc and ageStruc? Numbers? 
+ 
+
+Dorleta
+
+
+
+From david.maxwell at cefas.co.uk  Tue May  5 10:56:44 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 5 May 2009 09:56:44 +0100
+Subject: [cost-devel] 2 general  questions
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A64B7D0@dsrcorreo>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A65@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi,
+>Which are the units in lenStruc and ageStruc? Numbers?
+Yes, 
+if the input format has been followed and RaiseLgth & RaiseAge have been used then 'value' is in numbers.
+
+Joel is the best person to reply about the discard methods.
+
+Regards, David
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Dorleta
+Garcia
+Sent: 04 May 2009 10:03
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] 2 general questions
+
+
+
+Hi all,
+
+I need some help/clarification to calculate the performance statistics,
+
+At what scale should be measured the performance of discards estimators?
+Total weigth or length, depending on the method used? Discards are never
+estimated at age level?
+
+Which are the units in lenStruc and ageStruc? Numbers? 
+ 
+
+Dorleta
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From dgarcia at azti.es  Tue May  5 15:23:18 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Tue, 5 May 2009 15:23:18 +0200
+Subject: [cost-devel] Problem with COSTdbe CVS version
+Message-ID: <5CD78996B8F8844D963C875D3159B94A673280@dsrcorreo>
+
+Hi all,
+
+ 
+
+This morning I've downloaded the CVS version of COSTdbe package and it
+seems that RaiseLgth function does not work properly (I've not tried
+RaiseLgthBoot or RaiseAge). I'm using quarterly data and results are
+only given for some of the quarters. 
+
+ 
+
+ 
+
+Best Regards,
+
+ 
+
+Dorleta
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090505/e070a12a/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Tue May  5 15:26:30 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 05 May 2009 15:26:30 +0200
+Subject: [cost-devel] Problem with COSTdbe CVS version
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A673280@dsrcorreo>
+References: <5CD78996B8F8844D963C875D3159B94A673280@dsrcorreo>
+Message-ID: <4A003E86.6060205@ifremer.fr>
+
+Hi Dorleta,
+
+can you send your objects and code in order to repeat the error?
+thank you
+
+Cheers
+
+Joel
+
+
+Dorleta Garcia a ?crit :
+>
+> Hi all,
+>
+>  
+>
+> This morning I've downloaded the CVS version of COSTdbe package and it 
+> seems that RaiseLgth function does not work properly (I've not tried 
+> RaiseLgthBoot or RaiseAge). I'm using quarterly data and results are 
+> only given for some of the quarters.
+>
+>  
+>
+>  
+>
+> Best Regards,
+>
+>  
+>
+> Dorleta
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090505/a5af93a2/attachment.html>
+
+From dgarcia at azti.es  Tue May  5 16:41:30 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Tue, 5 May 2009 16:41:30 +0200
+Subject: [cost-devel] Problem with COSTdbe CVS version
+References: <5CD78996B8F8844D963C875D3159B94A673280@dsrcorreo>
+	<4A003E86.6060205@ifremer.fr>
+Message-ID: <5CD78996B8F8844D963C875D3159B94A673322@dsrcorreo>
+
+Hi Joel,
+
+I attach the data neccesary to run: 
+       a <- RaiseLgth(anal.est,csc, clc)
+In this specific example I only get estimates for 3th and 4th quarters.
+       
+Dorleta
+       
+________________________________________
+De: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de Joel VIGNEAU
+Enviado el: 05 May 2009 15:27
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] Problem with COSTdbe CVS version
+
+Hi Dorleta,
+
+can you send your objects and code in order to repeat the error?
+thank you
+
+Cheers
+
+Joel
+
+
+Dorleta Garcia a ?crit?: 
+Hi all,
+?
+This morning I've downloaded the CVS version of COSTdbe package and it seems that RaiseLgth function does not work properly (I've not tried RaiseLgthBoot or RaiseAge). I'm using quarterly data and results are only given for some of the quarters. 
+?
+?
+Best Regards,
+?
+Dorleta
+?
+
+________________________________________
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+  
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+T?l. (33)2 31 51 56 41? - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr 
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: data.RData
+Type: application/octet-stream
+Size: 92268 bytes
+Desc: data.RData
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090505/df40d3b6/attachment.obj>
+
+From Joel.Vigneau at ifremer.fr  Thu May 14 15:44:45 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 14 May 2009 15:44:45 +0200
+Subject: [cost-devel] End of the project
+Message-ID: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+
+
+Dear all,
+
+my antennas here in Copenhagen have reported me that the Commission  
+has demanded to ICES to review the project and ICES has attributed the  
+task to some experts already. This means that, basically, the COST  
+review process has started !!
+
+I've then quickly updated the website to put the frame of what is left  
+to do and ... the expected (short) agenda.
+
+I'm going to provide some examples this evening, but I need all the  
+developers to tell me how they can contribute to, mainly, providing  
+examples, even on cases not listed on the website.
+
+Where are we in term of work package
+
+COSTcore is finished. Is there a need to compile what is there in the  
+CVS? Ernesto has tested R 2.9.0 and it works so normally COST should  
+run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+
+COSTeda has had some recent updates. Alastair provided me today with a  
+1.3-1 version. Mathieu can you put on the N drive the unix version so  
+that I upload them in BerliOS tonight.
+
+COSTdbe has had recent updates. we were working recently on a 1.1  
+version, is there a need to do a 1.2 version now?
+
+COSTmbe is about to deliver a compiled version. The deadline we agreed  
+is tomorrow. Does this still stand?
+
+COSTsim is the one under consideration these days with a lot of mail  
+exchange between Dorleta, David hirst, Mathieu and I. We can take  
+another week to produce the best package we can do, given that some  
+non minor modifications were still discussed yesterday.
+
+The thing is that now we have to be very precise on the remaining  
+agenda. I don't know the agenda of the reviewers and whether they will  
+be able to wait for the production of the last bits or not, but I want  
+them to see that all the remaining stuff to be done is programmed for  
+the very short time.
+
+Please express your views on this
+
+Best regards
+
+Joel
+
+
+
+From Mathieu.Merzereaud at ifremer.fr  Thu May 14 17:13:55 2009
+From: Mathieu.Merzereaud at ifremer.fr (Mathieu MERZEREAUD)
+Date: Thu, 14 May 2009 17:13:55 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+Message-ID: <4A0C3533.2090009@ifremer.fr>
+
+Hi Joel,
+
+COSTeda_1.3.1.tar.gz and COSTeda_1.3.1.zip are in "N:/COST" folder
+
+There are new features in COSTdbe (mainly 'rbind2' and "+" methods), so 
+I'll compile a 1.2 version in few minutes and will put it with new 
+COSTeda packages.
+
+I've also made a minor modification in COSTcore, so I can compile it. Is 
+this a problem for the moment if it is compiled under R 2.8.1?
+
+Best
+Mathieu
+
+
+Joel.Vigneau at ifremer.fr a ?crit :
+> Dear all,
+> 
+> my antennas here in Copenhagen have reported me that the Commission  
+> has demanded to ICES to review the project and ICES has attributed the  
+> task to some experts already. This means that, basically, the COST  
+> review process has started !!
+> 
+> I've then quickly updated the website to put the frame of what is left  
+> to do and ... the expected (short) agenda.
+> 
+> I'm going to provide some examples this evening, but I need all the  
+> developers to tell me how they can contribute to, mainly, providing  
+> examples, even on cases not listed on the website.
+> 
+> Where are we in term of work package
+> 
+> COSTcore is finished. Is there a need to compile what is there in the  
+> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should  
+> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+> 
+> COSTeda has had some recent updates. Alastair provided me today with a  
+> 1.3-1 version. Mathieu can you put on the N drive the unix version so  
+> that I upload them in BerliOS tonight.
+> 
+> COSTdbe has had recent updates. we were working recently on a 1.1  
+> version, is there a need to do a 1.2 version now?
+> 
+> COSTmbe is about to deliver a compiled version. The deadline we agreed  
+> is tomorrow. Does this still stand?
+> 
+> COSTsim is the one under consideration these days with a lot of mail  
+> exchange between Dorleta, David hirst, Mathieu and I. We can take  
+> another week to produce the best package we can do, given that some  
+> non minor modifications were still discussed yesterday.
+> 
+> The thing is that now we have to be very precise on the remaining  
+> agenda. I don't know the agenda of the reviewers and whether they will  
+> be able to wait for the production of the last bits or not, but I want  
+> them to see that all the remaining stuff to be done is programmed for  
+> the very short time.
+> 
+> Please express your views on this
+> 
+> Best regards
+> 
+> Joel
+> 
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From david.hirst at nr.no  Thu May 14 18:12:38 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Thu, 14 May 2009 17:12:38 +0100
+Subject: [cost-devel] End of the project
+In-Reply-To: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+Message-ID: <4A0C42F6.4090801@nr.no>
+
+Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts 
+to integrate it with the rest of COST. I've also written a simulation 
+program that only stores the minimum data. You can use it as you see 
+fit. It will produce some plots that are quite informative, or at least 
+they would be if the analytical method didn't give negative variances. I 
+gather this is something to do with units. If you can explain what needs 
+changing, I can change it. If you want plots for the report (and I think 
+you should) I'll do them, it will save time.
+
+
+Joel.Vigneau at ifremer.fr wrote:
+> Dear all,
+>
+> my antennas here in Copenhagen have reported me that the Commission  
+> has demanded to ICES to review the project and ICES has attributed the  
+> task to some experts already. This means that, basically, the COST  
+> review process has started !!
+>
+> I've then quickly updated the website to put the frame of what is left  
+> to do and ... the expected (short) agenda.
+>
+> I'm going to provide some examples this evening, but I need all the  
+> developers to tell me how they can contribute to, mainly, providing  
+> examples, even on cases not listed on the website.
+>
+> Where are we in term of work package
+>
+> COSTcore is finished. Is there a need to compile what is there in the  
+> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should  
+> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>
+> COSTeda has had some recent updates. Alastair provided me today with a  
+> 1.3-1 version. Mathieu can you put on the N drive the unix version so  
+> that I upload them in BerliOS tonight.
+>
+> COSTdbe has had recent updates. we were working recently on a 1.1  
+> version, is there a need to do a 1.2 version now?
+>
+> COSTmbe is about to deliver a compiled version. The deadline we agreed  
+> is tomorrow. Does this still stand?
+>
+> COSTsim is the one under consideration these days with a lot of mail  
+> exchange between Dorleta, David hirst, Mathieu and I. We can take  
+> another week to produce the best package we can do, given that some  
+> non minor modifications were still discussed yesterday.
+>
+> The thing is that now we have to be very precise on the remaining  
+> agenda. I don't know the agenda of the reviewers and whether they will  
+> be able to wait for the production of the last bits or not, but I want  
+> them to see that all the remaining stuff to be done is programmed for  
+> the very short time.
+>
+> Please express your views on this
+>
+> Best regards
+>
+> Joel
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Thu May 14 18:38:26 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 14 May 2009 18:38:26 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <4A0C42F6.4090801@nr.no>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+	<4A0C42F6.4090801@nr.no>
+Message-ID: <20090514183826.66326dsd4nslu800@efflammail.ifremer.fr>
+
+Hi
+
+that's good news. If you can do one example of running COSTmbe, that  
+you be excellent.
+The report will not be updated, so far as I understand. The man pages  
+and the user manual will. That's why a well documented example would  
+be good with the use of the magic function Sweave() for doing the  
+manual.
+
+best
+
+
+Joel
+
+
+
+David Hirst <david.hirst at nr.no> a ?crit?:
+
+> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+> to integrate it with the rest of COST. I've also written a simulation
+> program that only stores the minimum data. You can use it as you see
+> fit. It will produce some plots that are quite informative, or at least
+> they would be if the analytical method didn't give negative variances. I
+> gather this is something to do with units. If you can explain what needs
+> changing, I can change it. If you want plots for the report (and I think
+> you should) I'll do them, it will save time.
+>
+>
+> Joel.Vigneau at ifremer.fr wrote:
+>> Dear all,
+>>
+>> my antennas here in Copenhagen have reported me that the Commission
+>> has demanded to ICES to review the project and ICES has attributed the
+>> task to some experts already. This means that, basically, the COST
+>> review process has started !!
+>>
+>> I've then quickly updated the website to put the frame of what is left
+>> to do and ... the expected (short) agenda.
+>>
+>> I'm going to provide some examples this evening, but I need all the
+>> developers to tell me how they can contribute to, mainly, providing
+>> examples, even on cases not listed on the website.
+>>
+>> Where are we in term of work package
+>>
+>> COSTcore is finished. Is there a need to compile what is there in the
+>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>
+>> COSTeda has had some recent updates. Alastair provided me today with a
+>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>> that I upload them in BerliOS tonight.
+>>
+>> COSTdbe has had recent updates. we were working recently on a 1.1
+>> version, is there a need to do a 1.2 version now?
+>>
+>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>> is tomorrow. Does this still stand?
+>>
+>> COSTsim is the one under consideration these days with a lot of mail
+>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>> another week to produce the best package we can do, given that some
+>> non minor modifications were still discussed yesterday.
+>>
+>> The thing is that now we have to be very precise on the remaining
+>> agenda. I don't know the agenda of the reviewers and whether they will
+>> be able to wait for the production of the last bits or not, but I want
+>> them to see that all the remaining stuff to be done is programmed for
+>> the very short time.
+>>
+>> Please express your views on this
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+> --
+> David Hirst
+> Norsk Regnesentral (Norwegian Computing Center)
+> Strathweltie,
+> Tarland,
+> Aboyne AB34 4YS
+> tel/fax 01339881448
+> email david.hirst at nr.no
+> http://www.nr.no
+>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+
+
+
+From A.Pout at MARLAB.AC.UK  Fri May 15 12:08:01 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Fri, 15 May 2009 11:08:01 +0100
+Subject: [cost-devel] End of the project
+In-Reply-To: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C58120264965D@mail4.marlab.ac.uk>
+
+Hi Joel 
+Here is bit of Sweave for the user manual for the new functions in
+COSTeda
+All the best
+Alastair 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+Joel.Vigneau at ifremer.fr
+Sent: 14 May 2009 14:45
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] End of the project
+
+
+Dear all,
+
+my antennas here in Copenhagen have reported me that the Commission  
+has demanded to ICES to review the project and ICES has attributed the  
+task to some experts already. This means that, basically, the COST  
+review process has started !!
+
+I've then quickly updated the website to put the frame of what is left  
+to do and ... the expected (short) agenda.
+
+I'm going to provide some examples this evening, but I need all the  
+developers to tell me how they can contribute to, mainly, providing  
+examples, even on cases not listed on the website.
+
+Where are we in term of work package
+
+COSTcore is finished. Is there a need to compile what is there in the  
+CVS? Ernesto has tested R 2.9.0 and it works so normally COST should  
+run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+
+COSTeda has had some recent updates. Alastair provided me today with a  
+1.3-1 version. Mathieu can you put on the N drive the unix version so  
+that I upload them in BerliOS tonight.
+
+COSTdbe has had recent updates. we were working recently on a 1.1  
+version, is there a need to do a 1.2 version now?
+
+COSTmbe is about to deliver a compiled version. The deadline we agreed  
+is tomorrow. Does this still stand?
+
+COSTsim is the one under consideration these days with a lot of mail  
+exchange between Dorleta, David hirst, Mathieu and I. We can take  
+another week to produce the best package we can do, given that some  
+non minor modifications were still discussed yesterday.
+
+The thing is that now we have to be very precise on the remaining  
+agenda. I don't know the agenda of the reviewers and whether they will  
+be able to wait for the production of the last bits or not, but I want  
+them to see that all the remaining stuff to be done is programmed for  
+the very short time.
+
+Please express your views on this
+
+Best regards
+
+Joel
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sec3extra.rnw
+Type: application/octet-stream
+Size: 2829 bytes
+Desc: sec3extra.rnw
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090515/e7ff9630/attachment.obj>
+
+From Joel.Vigneau at ifremer.fr  Fri May 15 12:21:48 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Fri, 15 May 2009 12:21:48 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C58120264965D@mail4.marlab.ac.uk>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C58120264965D@mail4.marlab.ac.uk>
+Message-ID: <20090515122148.16944u8nqdsiacys@efflammail.ifremer.fr>
+
+Hi Alastair,
+
+
+thanks for this. Can you write an example script showing the  
+possibility of spatial plots, starting from only a CL and/or a CE table?
+
+See the new Documentation/example page on the website to see how it  
+goes in the general frame. I have struggles to update the website from  
+Copenhagen for the moment, but am in contact with Ifremer IT people,  
+so I'm confident I can put files on the website very soon.
+
+Best
+
+Joel
+
+
+
+Alastair Pout <A.Pout at marlab.ac.uk> a ?crit?:
+
+> Hi Joel
+> Here is bit of Sweave for the user manual for the new functions in
+> COSTeda
+> All the best
+> Alastair
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> Joel.Vigneau at ifremer.fr
+> Sent: 14 May 2009 14:45
+> To: cost-project-devel at lists.berlios.de
+> Subject: [cost-devel] End of the project
+>
+>
+> Dear all,
+>
+> my antennas here in Copenhagen have reported me that the Commission
+> has demanded to ICES to review the project and ICES has attributed the
+> task to some experts already. This means that, basically, the COST
+> review process has started !!
+>
+> I've then quickly updated the website to put the frame of what is left
+> to do and ... the expected (short) agenda.
+>
+> I'm going to provide some examples this evening, but I need all the
+> developers to tell me how they can contribute to, mainly, providing
+> examples, even on cases not listed on the website.
+>
+> Where are we in term of work package
+>
+> COSTcore is finished. Is there a need to compile what is there in the
+> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>
+> COSTeda has had some recent updates. Alastair provided me today with a
+> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+> that I upload them in BerliOS tonight.
+>
+> COSTdbe has had recent updates. we were working recently on a 1.1
+> version, is there a need to do a 1.2 version now?
+>
+> COSTmbe is about to deliver a compiled version. The deadline we agreed
+> is tomorrow. Does this still stand?
+>
+> COSTsim is the one under consideration these days with a lot of mail
+> exchange between Dorleta, David hirst, Mathieu and I. We can take
+> another week to produce the best package we can do, given that some
+> non minor modifications were still discussed yesterday.
+>
+> The thing is that now we have to be very precise on the remaining
+> agenda. I don't know the agenda of the reviewers and whether they will
+> be able to wait for the production of the last bits or not, but I want
+> them to see that all the remaining stuff to be done is programmed for
+> the very short time.
+>
+> Please express your views on this
+>
+> Best regards
+>
+> Joel
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email
+> ______________________________________________________________________
+>
+
+
+
+
+From dgarcia at azti.es  Mon May 18 10:04:32 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Mon, 18 May 2009 10:04:32 +0200
+Subject: [cost-devel] End of the project
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no>
+	<20090514183826.66326dsd4nslu800@efflammail.ifremer.fr>
+Message-ID: <5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+
+
+Hi all,
+
+The COSTsim package is almost finished, there is a working example for analytical and bootstrap methods, we are waiting to COSmbe package to incluye it in the example and modificate, if neccesary, the already defined methods within the package. There will be memory allocation problems with bootstrap and bayesian methods, but we will not be able to solve them under Cost Project, the Project is alredy finished!
+
+Joel, in a previous mail I send you a document with a description of accuracy, bias and precision statistics calculated in COSTsim, in pdf, Word and latex, that can be added to the report and manual. We have written man pages that we will revise after including bayesian methods.
+
+Best regards,
+
+Dorleta 
+    
+
+-----Mensaje original-----
+De: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de Joel.Vigneau at ifremer.fr
+Enviado el: 14 May 2009 18:38
+Para: cost-project-devel at lists.berlios.de; David Hirst
+Asunto: Re: [cost-devel] End of the project
+
+Hi
+
+that's good news. If you can do one example of running COSTmbe, that  
+you be excellent.
+The report will not be updated, so far as I understand. The man pages  
+and the user manual will. That's why a well documented example would  
+be good with the use of the magic function Sweave() for doing the  
+manual.
+
+best
+
+
+Joel
+
+
+
+David Hirst <david.hirst at nr.no> a ?crit?:
+
+> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+> to integrate it with the rest of COST. I've also written a simulation
+> program that only stores the minimum data. You can use it as you see
+> fit. It will produce some plots that are quite informative, or at least
+> they would be if the analytical method didn't give negative variances. I
+> gather this is something to do with units. If you can explain what needs
+> changing, I can change it. If you want plots for the report (and I think
+> you should) I'll do them, it will save time.
+>
+>
+> Joel.Vigneau at ifremer.fr wrote:
+>> Dear all,
+>>
+>> my antennas here in Copenhagen have reported me that the Commission
+>> has demanded to ICES to review the project and ICES has attributed the
+>> task to some experts already. This means that, basically, the COST
+>> review process has started !!
+>>
+>> I've then quickly updated the website to put the frame of what is left
+>> to do and ... the expected (short) agenda.
+>>
+>> I'm going to provide some examples this evening, but I need all the
+>> developers to tell me how they can contribute to, mainly, providing
+>> examples, even on cases not listed on the website.
+>>
+>> Where are we in term of work package
+>>
+>> COSTcore is finished. Is there a need to compile what is there in the
+>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>
+>> COSTeda has had some recent updates. Alastair provided me today with a
+>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>> that I upload them in BerliOS tonight.
+>>
+>> COSTdbe has had recent updates. we were working recently on a 1.1
+>> version, is there a need to do a 1.2 version now?
+>>
+>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>> is tomorrow. Does this still stand?
+>>
+>> COSTsim is the one under consideration these days with a lot of mail
+>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>> another week to produce the best package we can do, given that some
+>> non minor modifications were still discussed yesterday.
+>>
+>> The thing is that now we have to be very precise on the remaining
+>> agenda. I don't know the agenda of the reviewers and whether they will
+>> be able to wait for the production of the last bits or not, but I want
+>> them to see that all the remaining stuff to be done is programmed for
+>> the very short time.
+>>
+>> Please express your views on this
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+> --
+> David Hirst
+> Norsk Regnesentral (Norwegian Computing Center)
+> Strathweltie,
+> Tarland,
+> Aboyne AB34 4YS
+> tel/fax 01339881448
+> email david.hirst at nr.no
+> http://www.nr.no
+>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From Joel.Vigneau at ifremer.fr  Mon May 18 10:57:43 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Mon, 18 May 2009 10:57:43 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no>
+	<20090514183826.66326dsd4nslu800@efflammail.ifremer.fr>
+	<5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+Message-ID: <20090518105743.15947hmpjkqqg2kg@efflammail.ifremer.fr>
+
+Hi Dorleta,
+
+everything concerning the updating of the report and the manual will  
+be done next week.
+For the moment, I'm trying to fill the voids, i.e. proposing a version  
+1 of every package, and examples of use for the different fields.
+
+The external evaluators have to provide their review for ... after tomorrow!
+
+Best
+
+Joel
+
+
+Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+
+>
+> Hi all,
+>
+> The COSTsim package is almost finished, there is a working example  
+> for analytical and bootstrap methods, we are waiting to COSmbe  
+> package to incluye it in the example and modificate, if neccesary,  
+> the already defined methods within the package. There will be memory  
+> allocation problems with bootstrap and bayesian methods, but we will  
+> not be able to solve them under Cost Project, the Project is alredy  
+> finished!
+>
+> Joel, in a previous mail I send you a document with a description of  
+> accuracy, bias and precision statistics calculated in COSTsim, in  
+> pdf, Word and latex, that can be added to the report and manual. We  
+> have written man pages that we will revise after including bayesian  
+> methods.
+>
+> Best regards,
+>
+> Dorleta
+>
+>
+> -----Mensaje original-----
+> De: cost-project-devel-bounces at lists.berlios.de  
+> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de  
+> Joel.Vigneau at ifremer.fr
+> Enviado el: 14 May 2009 18:38
+> Para: cost-project-devel at lists.berlios.de; David Hirst
+> Asunto: Re: [cost-devel] End of the project
+>
+> Hi
+>
+> that's good news. If you can do one example of running COSTmbe, that
+> you be excellent.
+> The report will not be updated, so far as I understand. The man pages
+> and the user manual will. That's why a well documented example would
+> be good with the use of the magic function Sweave() for doing the
+> manual.
+>
+> best
+>
+>
+> Joel
+>
+>
+>
+> David Hirst <david.hirst at nr.no> a ?crit?:
+>
+>> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+>> to integrate it with the rest of COST. I've also written a simulation
+>> program that only stores the minimum data. You can use it as you see
+>> fit. It will produce some plots that are quite informative, or at least
+>> they would be if the analytical method didn't give negative variances. I
+>> gather this is something to do with units. If you can explain what needs
+>> changing, I can change it. If you want plots for the report (and I think
+>> you should) I'll do them, it will save time.
+>>
+>>
+>> Joel.Vigneau at ifremer.fr wrote:
+>>> Dear all,
+>>>
+>>> my antennas here in Copenhagen have reported me that the Commission
+>>> has demanded to ICES to review the project and ICES has attributed the
+>>> task to some experts already. This means that, basically, the COST
+>>> review process has started !!
+>>>
+>>> I've then quickly updated the website to put the frame of what is left
+>>> to do and ... the expected (short) agenda.
+>>>
+>>> I'm going to provide some examples this evening, but I need all the
+>>> developers to tell me how they can contribute to, mainly, providing
+>>> examples, even on cases not listed on the website.
+>>>
+>>> Where are we in term of work package
+>>>
+>>> COSTcore is finished. Is there a need to compile what is there in the
+>>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>>
+>>> COSTeda has had some recent updates. Alastair provided me today with a
+>>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>>> that I upload them in BerliOS tonight.
+>>>
+>>> COSTdbe has had recent updates. we were working recently on a 1.1
+>>> version, is there a need to do a 1.2 version now?
+>>>
+>>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>>> is tomorrow. Does this still stand?
+>>>
+>>> COSTsim is the one under consideration these days with a lot of mail
+>>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>>> another week to produce the best package we can do, given that some
+>>> non minor modifications were still discussed yesterday.
+>>>
+>>> The thing is that now we have to be very precise on the remaining
+>>> agenda. I don't know the agenda of the reviewers and whether they will
+>>> be able to wait for the production of the last bits or not, but I want
+>>> them to see that all the remaining stuff to be done is programmed for
+>>> the very short time.
+>>>
+>>> Please express your views on this
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>
+>> --
+>> David Hirst
+>> Norsk Regnesentral (Norwegian Computing Center)
+>> Strathweltie,
+>> Tarland,
+>> Aboyne AB34 4YS
+>> tel/fax 01339881448
+>> email david.hirst at nr.no
+>> http://www.nr.no
+>>
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Mon May 18 10:57:46 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Mon, 18 May 2009 10:57:46 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no>
+	<20090514183826.66326dsd4nslu800@efflammail.ifremer.fr>
+	<5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+Message-ID: <20090518105746.1990108kukhzy4nk@efflammail.ifremer.fr>
+
+Hi Dorleta,
+
+everything concerning the updating of the report and the manual will  
+be done next week.
+For the moment, I'm trying to fill the voids, i.e. proposing a version  
+1 of every package, and examples of use for the different fields.
+
+The external evaluators have to provide their review for ... after tomorrow!
+
+Best
+
+Joel
+
+
+Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+
+>
+> Hi all,
+>
+> The COSTsim package is almost finished, there is a working example  
+> for analytical and bootstrap methods, we are waiting to COSmbe  
+> package to incluye it in the example and modificate, if neccesary,  
+> the already defined methods within the package. There will be memory  
+> allocation problems with bootstrap and bayesian methods, but we will  
+> not be able to solve them under Cost Project, the Project is alredy  
+> finished!
+>
+> Joel, in a previous mail I send you a document with a description of  
+> accuracy, bias and precision statistics calculated in COSTsim, in  
+> pdf, Word and latex, that can be added to the report and manual. We  
+> have written man pages that we will revise after including bayesian  
+> methods.
+>
+> Best regards,
+>
+> Dorleta
+>
+>
+> -----Mensaje original-----
+> De: cost-project-devel-bounces at lists.berlios.de  
+> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de  
+> Joel.Vigneau at ifremer.fr
+> Enviado el: 14 May 2009 18:38
+> Para: cost-project-devel at lists.berlios.de; David Hirst
+> Asunto: Re: [cost-devel] End of the project
+>
+> Hi
+>
+> that's good news. If you can do one example of running COSTmbe, that
+> you be excellent.
+> The report will not be updated, so far as I understand. The man pages
+> and the user manual will. That's why a well documented example would
+> be good with the use of the magic function Sweave() for doing the
+> manual.
+>
+> best
+>
+>
+> Joel
+>
+>
+>
+> David Hirst <david.hirst at nr.no> a ?crit?:
+>
+>> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+>> to integrate it with the rest of COST. I've also written a simulation
+>> program that only stores the minimum data. You can use it as you see
+>> fit. It will produce some plots that are quite informative, or at least
+>> they would be if the analytical method didn't give negative variances. I
+>> gather this is something to do with units. If you can explain what needs
+>> changing, I can change it. If you want plots for the report (and I think
+>> you should) I'll do them, it will save time.
+>>
+>>
+>> Joel.Vigneau at ifremer.fr wrote:
+>>> Dear all,
+>>>
+>>> my antennas here in Copenhagen have reported me that the Commission
+>>> has demanded to ICES to review the project and ICES has attributed the
+>>> task to some experts already. This means that, basically, the COST
+>>> review process has started !!
+>>>
+>>> I've then quickly updated the website to put the frame of what is left
+>>> to do and ... the expected (short) agenda.
+>>>
+>>> I'm going to provide some examples this evening, but I need all the
+>>> developers to tell me how they can contribute to, mainly, providing
+>>> examples, even on cases not listed on the website.
+>>>
+>>> Where are we in term of work package
+>>>
+>>> COSTcore is finished. Is there a need to compile what is there in the
+>>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>>
+>>> COSTeda has had some recent updates. Alastair provided me today with a
+>>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>>> that I upload them in BerliOS tonight.
+>>>
+>>> COSTdbe has had recent updates. we were working recently on a 1.1
+>>> version, is there a need to do a 1.2 version now?
+>>>
+>>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>>> is tomorrow. Does this still stand?
+>>>
+>>> COSTsim is the one under consideration these days with a lot of mail
+>>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>>> another week to produce the best package we can do, given that some
+>>> non minor modifications were still discussed yesterday.
+>>>
+>>> The thing is that now we have to be very precise on the remaining
+>>> agenda. I don't know the agenda of the reviewers and whether they will
+>>> be able to wait for the production of the last bits or not, but I want
+>>> them to see that all the remaining stuff to be done is programmed for
+>>> the very short time.
+>>>
+>>> Please express your views on this
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>
+>> --
+>> David Hirst
+>> Norsk Regnesentral (Norwegian Computing Center)
+>> Strathweltie,
+>> Tarland,
+>> Aboyne AB34 4YS
+>> tel/fax 01339881448
+>> email david.hirst at nr.no
+>> http://www.nr.no
+>>
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Mon May 18 12:26:42 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Mon, 18 May 2009 12:26:42 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no>
+	<20090514183826.66326dsd4nslu800@efflammail.ifremer.fr>
+	<5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+Message-ID: <20090518122642.861348uu67ffokcg@efflammail.ifremer.fr>
+
+Dorleta,
+
+can you confirm that you cannot compile COSTsim as long as a COSTmbe  
+is available. Otherwise, it would be possible to position the package  
+on the website waiting for COSTmbe.
+
+Best
+
+Joel
+
+
+Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+
+>
+> Hi all,
+>
+> The COSTsim package is almost finished, there is a working example  
+> for analytical and bootstrap methods, we are waiting to COSmbe  
+> package to incluye it in the example and modificate, if neccesary,  
+> the already defined methods within the package. There will be memory  
+> allocation problems with bootstrap and bayesian methods, but we will  
+> not be able to solve them under Cost Project, the Project is alredy  
+> finished!
+>
+> Joel, in a previous mail I send you a document with a description of  
+> accuracy, bias and precision statistics calculated in COSTsim, in  
+> pdf, Word and latex, that can be added to the report and manual. We  
+> have written man pages that we will revise after including bayesian  
+> methods.
+>
+> Best regards,
+>
+> Dorleta
+>
+>
+> -----Mensaje original-----
+> De: cost-project-devel-bounces at lists.berlios.de  
+> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de  
+> Joel.Vigneau at ifremer.fr
+> Enviado el: 14 May 2009 18:38
+> Para: cost-project-devel at lists.berlios.de; David Hirst
+> Asunto: Re: [cost-devel] End of the project
+>
+> Hi
+>
+> that's good news. If you can do one example of running COSTmbe, that
+> you be excellent.
+> The report will not be updated, so far as I understand. The man pages
+> and the user manual will. That's why a well documented example would
+> be good with the use of the magic function Sweave() for doing the
+> manual.
+>
+> best
+>
+>
+> Joel
+>
+>
+>
+> David Hirst <david.hirst at nr.no> a ?crit?:
+>
+>> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+>> to integrate it with the rest of COST. I've also written a simulation
+>> program that only stores the minimum data. You can use it as you see
+>> fit. It will produce some plots that are quite informative, or at least
+>> they would be if the analytical method didn't give negative variances. I
+>> gather this is something to do with units. If you can explain what needs
+>> changing, I can change it. If you want plots for the report (and I think
+>> you should) I'll do them, it will save time.
+>>
+>>
+>> Joel.Vigneau at ifremer.fr wrote:
+>>> Dear all,
+>>>
+>>> my antennas here in Copenhagen have reported me that the Commission
+>>> has demanded to ICES to review the project and ICES has attributed the
+>>> task to some experts already. This means that, basically, the COST
+>>> review process has started !!
+>>>
+>>> I've then quickly updated the website to put the frame of what is left
+>>> to do and ... the expected (short) agenda.
+>>>
+>>> I'm going to provide some examples this evening, but I need all the
+>>> developers to tell me how they can contribute to, mainly, providing
+>>> examples, even on cases not listed on the website.
+>>>
+>>> Where are we in term of work package
+>>>
+>>> COSTcore is finished. Is there a need to compile what is there in the
+>>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>>
+>>> COSTeda has had some recent updates. Alastair provided me today with a
+>>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>>> that I upload them in BerliOS tonight.
+>>>
+>>> COSTdbe has had recent updates. we were working recently on a 1.1
+>>> version, is there a need to do a 1.2 version now?
+>>>
+>>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>>> is tomorrow. Does this still stand?
+>>>
+>>> COSTsim is the one under consideration these days with a lot of mail
+>>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>>> another week to produce the best package we can do, given that some
+>>> non minor modifications were still discussed yesterday.
+>>>
+>>> The thing is that now we have to be very precise on the remaining
+>>> agenda. I don't know the agenda of the reviewers and whether they will
+>>> be able to wait for the production of the last bits or not, but I want
+>>> them to see that all the remaining stuff to be done is programmed for
+>>> the very short time.
+>>>
+>>> Please express your views on this
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>
+>> --
+>> David Hirst
+>> Norsk Regnesentral (Norwegian Computing Center)
+>> Strathweltie,
+>> Tarland,
+>> Aboyne AB34 4YS
+>> tel/fax 01339881448
+>> email david.hirst at nr.no
+>> http://www.nr.no
+>>
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+
+
+From dgarcia at azti.es  Mon May 18 12:42:51 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Mon, 18 May 2009 12:42:51 +0200
+Subject: [cost-devel] End of the project
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no><20090514183826.66326dsd4nslu800@efflammail.ifremer.fr><5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+	<20090518122642.861348uu67ffokcg@efflammail.ifremer.fr>
+Message-ID: <5CD78996B8F8844D963C875D3159B94A70CFA3@dsrcorreo>
+
+
+
+Hi Joel,
+
+It is possible to compile the package, the problem with mbe is that some methods have been developed only for analytical and bootstrap methods. problems. We will adapt these methods to bayesian output when the package is available.
+
+You can download the source code from the CVS and compile it, I've only compile it for Windows but I hope it can be compile for linux without
+
+RegaRDS,
+
+Dorleta
+
+
+-----Mensaje original-----
+De: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de Joel.Vigneau at ifremer.fr
+Enviado el: 18 May 2009 12:27
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] End of the project
+
+Dorleta,
+
+can you confirm that you cannot compile COSTsim as long as a COSTmbe  
+is available. Otherwise, it would be possible to position the package  
+on the website waiting for COSTmbe.
+
+Best
+
+Joel
+
+
+Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+
+>
+> Hi all,
+>
+> The COSTsim package is almost finished, there is a working example  
+> for analytical and bootstrap methods, we are waiting to COSmbe  
+> package to incluye it in the example and modificate, if neccesary,  
+> the already defined methods within the package. There will be memory  
+> allocation problems with bootstrap and bayesian methods, but we will  
+> not be able to solve them under Cost Project, the Project is alredy  
+> finished!
+>
+> Joel, in a previous mail I send you a document with a description of  
+> accuracy, bias and precision statistics calculated in COSTsim, in  
+> pdf, Word and latex, that can be added to the report and manual. We  
+> have written man pages that we will revise after including bayesian  
+> methods.
+>
+> Best regards,
+>
+> Dorleta
+>
+>
+> -----Mensaje original-----
+> De: cost-project-devel-bounces at lists.berlios.de  
+> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de  
+> Joel.Vigneau at ifremer.fr
+> Enviado el: 14 May 2009 18:38
+> Para: cost-project-devel at lists.berlios.de; David Hirst
+> Asunto: Re: [cost-devel] End of the project
+>
+> Hi
+>
+> that's good news. If you can do one example of running COSTmbe, that
+> you be excellent.
+> The report will not be updated, so far as I understand. The man pages
+> and the user manual will. That's why a well documented example would
+> be good with the use of the magic function Sweave() for doing the
+> manual.
+>
+> best
+>
+>
+> Joel
+>
+>
+>
+> David Hirst <david.hirst at nr.no> a ?crit?:
+>
+>> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+>> to integrate it with the rest of COST. I've also written a simulation
+>> program that only stores the minimum data. You can use it as you see
+>> fit. It will produce some plots that are quite informative, or at least
+>> they would be if the analytical method didn't give negative variances. I
+>> gather this is something to do with units. If you can explain what needs
+>> changing, I can change it. If you want plots for the report (and I think
+>> you should) I'll do them, it will save time.
+>>
+>>
+>> Joel.Vigneau at ifremer.fr wrote:
+>>> Dear all,
+>>>
+>>> my antennas here in Copenhagen have reported me that the Commission
+>>> has demanded to ICES to review the project and ICES has attributed the
+>>> task to some experts already. This means that, basically, the COST
+>>> review process has started !!
+>>>
+>>> I've then quickly updated the website to put the frame of what is left
+>>> to do and ... the expected (short) agenda.
+>>>
+>>> I'm going to provide some examples this evening, but I need all the
+>>> developers to tell me how they can contribute to, mainly, providing
+>>> examples, even on cases not listed on the website.
+>>>
+>>> Where are we in term of work package
+>>>
+>>> COSTcore is finished. Is there a need to compile what is there in the
+>>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>>
+>>> COSTeda has had some recent updates. Alastair provided me today with a
+>>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>>> that I upload them in BerliOS tonight.
+>>>
+>>> COSTdbe has had recent updates. we were working recently on a 1.1
+>>> version, is there a need to do a 1.2 version now?
+>>>
+>>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>>> is tomorrow. Does this still stand?
+>>>
+>>> COSTsim is the one under consideration these days with a lot of mail
+>>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>>> another week to produce the best package we can do, given that some
+>>> non minor modifications were still discussed yesterday.
+>>>
+>>> The thing is that now we have to be very precise on the remaining
+>>> agenda. I don't know the agenda of the reviewers and whether they will
+>>> be able to wait for the production of the last bits or not, but I want
+>>> them to see that all the remaining stuff to be done is programmed for
+>>> the very short time.
+>>>
+>>> Please express your views on this
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>
+>> --
+>> David Hirst
+>> Norsk Regnesentral (Norwegian Computing Center)
+>> Strathweltie,
+>> Tarland,
+>> Aboyne AB34 4YS
+>> tel/fax 01339881448
+>> email david.hirst at nr.no
+>> http://www.nr.no
+>>
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+From Joel.Vigneau at ifremer.fr  Mon May 18 12:46:24 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Mon, 18 May 2009 12:46:24 +0200
+Subject: [cost-devel] End of the project
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A70CFA3@dsrcorreo>
+References: <20090514154445.113065l3z9kderok@efflammail.ifremer.fr><4A0C42F6.4090801@nr.no><20090514183826.66326dsd4nslu800@efflammail.ifremer.fr><5CD78996B8F8844D963C875D3159B94A70CD96@dsrcorreo>
+	<20090518122642.861348uu67ffokcg@efflammail.ifremer.fr>
+	<5CD78996B8F8844D963C875D3159B94A70CFA3@dsrcorreo>
+Message-ID: <20090518124624.93497533ram9nog0@efflammail.ifremer.fr>
+
+Ok, but this can take a bit of a time. I would go for the compilation  
+of a version 1.0 now and 1.1 when you include all methods, even if the  
+version 1.1 comes this week.
+
+Best
+
+Joel
+
+
+Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+
+>
+>
+> Hi Joel,
+>
+> It is possible to compile the package, the problem with mbe is that  
+> some methods have been developed only for analytical and bootstrap  
+> methods. problems. We will adapt these methods to bayesian output  
+> when the package is available.
+>
+> You can download the source code from the CVS and compile it, I've  
+> only compile it for Windows but I hope it can be compile for linux  
+> without
+>
+> RegaRDS,
+>
+> Dorleta
+>
+>
+> -----Mensaje original-----
+> De: cost-project-devel-bounces at lists.berlios.de  
+> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de  
+> Joel.Vigneau at ifremer.fr
+> Enviado el: 18 May 2009 12:27
+> Para: cost-project-devel at lists.berlios.de
+> Asunto: Re: [cost-devel] End of the project
+>
+> Dorleta,
+>
+> can you confirm that you cannot compile COSTsim as long as a COSTmbe
+> is available. Otherwise, it would be possible to position the package
+> on the website waiting for COSTmbe.
+>
+> Best
+>
+> Joel
+>
+>
+> Dorleta Garcia <dgarcia at azti.es> a ?crit?:
+>
+>>
+>> Hi all,
+>>
+>> The COSTsim package is almost finished, there is a working example
+>> for analytical and bootstrap methods, we are waiting to COSmbe
+>> package to incluye it in the example and modificate, if neccesary,
+>> the already defined methods within the package. There will be memory
+>> allocation problems with bootstrap and bayesian methods, but we will
+>> not be able to solve them under Cost Project, the Project is alredy
+>> finished!
+>>
+>> Joel, in a previous mail I send you a document with a description of
+>> accuracy, bias and precision statistics calculated in COSTsim, in
+>> pdf, Word and latex, that can be added to the report and manual. We
+>> have written man pages that we will revise after including bayesian
+>> methods.
+>>
+>> Best regards,
+>>
+>> Dorleta
+>>
+>>
+>> -----Mensaje original-----
+>> De: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] En nombre de
+>> Joel.Vigneau at ifremer.fr
+>> Enviado el: 14 May 2009 18:38
+>> Para: cost-project-devel at lists.berlios.de; David Hirst
+>> Asunto: Re: [cost-devel] End of the project
+>>
+>> Hi
+>>
+>> that's good news. If you can do one example of running COSTmbe, that
+>> you be excellent.
+>> The report will not be updated, so far as I understand. The man pages
+>> and the user manual will. That's why a well documented example would
+>> be good with the use of the magic function Sweave() for doing the
+>> manual.
+>>
+>> best
+>>
+>>
+>> Joel
+>>
+>>
+>>
+>> David Hirst <david.hirst at nr.no> a ?crit?:
+>>
+>>> Hi, COSTmbe will be delivered tomorrow. I'm still writing a few scripts
+>>> to integrate it with the rest of COST. I've also written a simulation
+>>> program that only stores the minimum data. You can use it as you see
+>>> fit. It will produce some plots that are quite informative, or at least
+>>> they would be if the analytical method didn't give negative variances. I
+>>> gather this is something to do with units. If you can explain what needs
+>>> changing, I can change it. If you want plots for the report (and I think
+>>> you should) I'll do them, it will save time.
+>>>
+>>>
+>>> Joel.Vigneau at ifremer.fr wrote:
+>>>> Dear all,
+>>>>
+>>>> my antennas here in Copenhagen have reported me that the Commission
+>>>> has demanded to ICES to review the project and ICES has attributed the
+>>>> task to some experts already. This means that, basically, the COST
+>>>> review process has started !!
+>>>>
+>>>> I've then quickly updated the website to put the frame of what is left
+>>>> to do and ... the expected (short) agenda.
+>>>>
+>>>> I'm going to provide some examples this evening, but I need all the
+>>>> developers to tell me how they can contribute to, mainly, providing
+>>>> examples, even on cases not listed on the website.
+>>>>
+>>>> Where are we in term of work package
+>>>>
+>>>> COSTcore is finished. Is there a need to compile what is there in the
+>>>> CVS? Ernesto has tested R 2.9.0 and it works so normally COST should
+>>>> run with R 2.8.1 (approved) and R 2.9.1 (tested and Ok).
+>>>>
+>>>> COSTeda has had some recent updates. Alastair provided me today with a
+>>>> 1.3-1 version. Mathieu can you put on the N drive the unix version so
+>>>> that I upload them in BerliOS tonight.
+>>>>
+>>>> COSTdbe has had recent updates. we were working recently on a 1.1
+>>>> version, is there a need to do a 1.2 version now?
+>>>>
+>>>> COSTmbe is about to deliver a compiled version. The deadline we agreed
+>>>> is tomorrow. Does this still stand?
+>>>>
+>>>> COSTsim is the one under consideration these days with a lot of mail
+>>>> exchange between Dorleta, David hirst, Mathieu and I. We can take
+>>>> another week to produce the best package we can do, given that some
+>>>> non minor modifications were still discussed yesterday.
+>>>>
+>>>> The thing is that now we have to be very precise on the remaining
+>>>> agenda. I don't know the agenda of the reviewers and whether they will
+>>>> be able to wait for the production of the last bits or not, but I want
+>>>> them to see that all the remaining stuff to be done is programmed for
+>>>> the very short time.
+>>>>
+>>>> Please express your views on this
+>>>>
+>>>> Best regards
+>>>>
+>>>> Joel
+>>>>
+>>>> _______________________________________________
+>>>> Cost-project-devel mailing list
+>>>> Cost-project-devel at lists.berlios.de
+>>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>>
+>>>
+>>> --
+>>> David Hirst
+>>> Norsk Regnesentral (Norwegian Computing Center)
+>>> Strathweltie,
+>>> Tarland,
+>>> Aboyne AB34 4YS
+>>> tel/fax 01339881448
+>>> email david.hirst at nr.no
+>>> http://www.nr.no
+>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>
+>
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+
+

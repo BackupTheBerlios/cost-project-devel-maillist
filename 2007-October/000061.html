@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] DEF modiif from the meeting: Survey data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C4720A5F7.2010306%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000060.html">
+   <LINK REL="Next"  HREF="000062.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] DEF modiif from the meeting: Survey data</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C4720A5F7.2010306%40ipimar.pt%3E"
+       TITLE="[cost-devel] DEF modiif from the meeting: Survey data">ernesto at ipimar.pt
+       </A><BR>
+    <I>Thu Oct 25 16:19:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000060.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+        <LI>Next message: <A HREF="000062.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Joel VIGNEAU wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Teunis Jansen a &#233;crit :
+</I>&gt;<i> Dear all,
+</I>&gt;<i>
+</I>&gt;<i> I want to shorten this discussion that impacts the structure of FF and 
+</I>&gt;<i> I understand Teunis and Hendrik are reticent to make too much change 
+</I>&gt;<i> on this issue.
+</I>&gt;<i>
+</I>&gt;<i> What I am sure is
+</I>&gt;<i> 1 - there is no way we will implement a CA structure for CS and 
+</I>&gt;<i> another for Survey. This is confusing people that population 
+</I>&gt;<i> parameters can have a gear effect or what so ever link to a fishing 
+</I>&gt;<i> activity.
+</I>&gt;<i>
+</I>&gt;<i> 2 - we need to refer precisely every CA sample to a sampling source.
+</I>&gt;<i>
+</I>&gt;<i> 3 - I understand that putting a code &quot;Research survey&quot; in a Commercial 
+</I>&gt;<i> Sampling table is kind of ...weird
+</I>&gt;<i>
+</I>&gt;<i> So, the solution would be to unlink CA from CS and let it independent 
+</I>&gt;<i> like are CE and CL tables. I understand there is an integrity problem 
+</I>&gt;<i> with difficulties to check a 1-to-1 link between a CA record and a 
+</I>&gt;<i> source if the source is either a CS-TR or a AS-AC or a Trawl Survey 
+</I>&gt;<i> TS-Whatever.
+</I>&gt;<i>
+</I>&gt;<i> My compromise would then be to create SI (Sample Identification) table
+</I>&gt;<i> This would give
+</I>&gt;<i>
+</I>&gt;<i> SI ___ CA
+</I>&gt;<i>  |____ TR ___ HH ___ HL ____ SL   (commercial sampling)
+</I>&gt;<i>  |____ AS ___ ....                                (acoustic survey, 
+</I>&gt;<i> not in COST)
+</I>&gt;<i>  |____ TS ___ .....                               (Trawl survey, not 
+</I>&gt;<i> in COST)
+</I>&gt;<i>
+</I>&gt;<i> In SI there would be the field Sampling Source (TR, AS or TS), Trip 
+</I>&gt;<i> number and Station number
+</I>&gt;<i>
+</I>&gt;<i> Can we elaborate on this, or simply unlink CA from TR and add Sampling 
+</I>&gt;<i> source in CA? The constraint is now to agree quickly on a long lasting 
+</I>&gt;<i> solution.
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i>
+</I>&gt;<i> Joel 
+</I>
+Hi,
+
+All this is a bit trickier because we are discussing the data structure 
+while Henrik &amp; Teunis are discussing the exchange format. The problem is 
+that the information we have on FF5 is the exchange format and we're 
+trying to implement a data structure based on it (which I think is ok 
+but creates some confusion). The other document we have &quot;FF DB 
+Dokumentation&quot; does not add much to the exchange format in terms of data 
+structures. IMO we'd need a data dictionary following SQL92 so that 
+everyone can implement it on their own systems, being those RDBMS, 
+statistical packages, or web pages. But that's something for later, now 
+we're engaged in FF5.
+
+What people do is borrow information from surveys to build ALK and 
+Maturity ogives and that's all we need for now. To be able to include 
+these information clearly identified. I guess if this is not possible 
+users will find a way of including that information unidentified.
+
+I still consider our proposal the most simple and easier to implement. A 
+long last solution will always depend on testing the data structures 
+we're implementing which as far as I understand are still in development.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000060.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+	<LI>Next message: <A HREF="000062.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#61">[ date ]</a>
+              <a href="thread.html#61">[ thread ]</a>
+              <a href="subject.html#61">[ subject ]</a>
+              <a href="author.html#61">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

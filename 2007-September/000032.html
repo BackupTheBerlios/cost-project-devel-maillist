@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C46FCC5B4.4040400%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C46FCC5B4.4040400%40ipimar.pt%3E"
+       TITLE="[cost-devel] FF5 data call">ernesto at ipimar.pt
+       </A><BR>
+    <I>Fri Sep 28 11:13:24 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Teunis Jansen wrote:
+&gt;<i> About &quot;Size Sorting Categories&quot;
+</I>&gt;<i>
+</I>&gt;<i> Well yes, unless there is actually a meaning of the letters. Values like
+</I>&gt;<i> this always turns on the alarm for database designers, because it might
+</I>&gt;<i> not be completely normalised. It is often two separate informations
+</I>&gt;<i> concatenated into some kind of code. If  that is the case and the system
+</I>&gt;<i> takes it in as one field, then the problem always pop up late in the
+</I>&gt;<i> development phase, that certain values should be handled in certain
+</I>&gt;<i> ways, so you either need to split up the field in two or make a special
+</I>&gt;<i> parser for that field - every time the field is used.
+</I>&gt;<i> I would say that if you can not map these values into integers, then
+</I>&gt;<i> that is because there is more information hidden in the code that just
+</I>&gt;<i> the size. That information could very well be relevant, but it should be
+</I>&gt;<i> pulled out into a separate field.
+</I>&gt;<i>
+</I>&gt;<i> BR
+</I>&gt;<i> Teunis
+</I>[snip]
+
+Hi,
+
+I agree with Teunis, if a code entangles more than a simple grouping 
+you'll end up having to split it into 2 different fields later on.
+
+Anyway using integers may also have more info than we desire. Factors in 
+R can be unordered on ordered. The first are used for groups like, e.g, 
+&quot;rain&quot; &quot;no rain&quot; where you don't establish a hierarchical relation 
+between levels of the factor. The second are used when you have a 
+relation between levels, e.g., age groups &quot;0&quot;, &quot;1&quot;, etc. My remark is 
+about having integers for factors that do not have a relation between 
+then. For size it's the correct option, as Teunis says. If more info is 
+entangled on those codes you'll have to judge if they have a relation 
+between them or not, if not they should be store as unordered factors, 
+at least in R.
+
+Please note that we don't need, and IMHO we should not use, the same 
+storage mode in R and in FF. They are different programs with different 
+aims, we simply need to clarify what we're storing and use the best 
+storage mode for it.
+
+Best
+
+EJ
+
+
+ps: please reply emails at the end of the messages, it will be easier to 
+read the discussion.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

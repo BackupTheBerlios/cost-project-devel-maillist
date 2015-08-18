@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTdbe and memory limits
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20and%20memory%20limits&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257BDA%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000266.html">
+   <LINK REL="Next"  HREF="000268.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTdbe and memory limits</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20and%20memory%20limits&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257BDA%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] COSTdbe and memory limits">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Wed Oct 14 15:17:03 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000266.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+        <LI>Next message: <A HREF="000268.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Ernesto
+Jardim
+Sent: 14 October 2009 13:37
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] COSTdbe and memory limits
+
+
+Alastair Pout wrote:
+&gt;<i>
+</I>&gt;<i> Hi David, All
+</I>&gt;<i>
+</I>&gt;<i> Playing around with raising COSTdbe
+</I>&gt;<i>
+</I>&gt;<i> I&#8217;m trying in the first instance to raise our 2008 North Sea haddock
+</I>&gt;<i>
+</I>&gt;<i> and with stratification of 1 area, 4 quarter and 4 gear types i.e. 16 
+</I>&gt;<i> cells in total and I run into memory problems
+</I>&gt;<i>
+</I>&gt;<i> Error: cannot allocate vector of size 295.6 Mb
+</I>&gt;<i>
+</I>&gt;<i> I can raise by gear type over the year,
+</I>&gt;<i>
+</I>&gt;<i> I can raise by quarter over all gears
+</I>&gt;<i>
+</I>&gt;<i> i.e. 4 cells for each of the above,
+</I>&gt;<i>
+</I>&gt;<i> I can split my area into 2 and raise by area x quarter and by area x 
+</I>&gt;<i> gear as well, i.e. 8 cells
+</I>&gt;<i>
+</I>&gt;<i> but not the 16 cells required to raise by quarter and gear.
+</I>&gt;<i>
+</I>&gt;<i> Any suggestions ?
+</I>&gt;<i>
+</I>&gt;<i> What is the greatest number of cells anyone has managed to raise by?
+</I>&gt;<i>
+</I>&gt;<i> Cheers
+</I>&gt;<i>
+</I>&gt;<i> Alastair
+</I>&gt;<i>
+</I>Hi Alastair,
+
+The easiest way to fix the problem is to run this method on a computer 
+with more memory. The hard way is to go through the code, find out which 
+snippets are creating the problem and replace them with code that does 
+not eat all your memory. I'd say the second option should be a task for 
+COST 2.0.
+
+Best
+
+EJ
+------------------
+Hi Alastair
+
+A few ideas but nothing definite
+
+setting memory.limit() to the max you have available might help a bit
+and Unix version of R has higher limits than windows.
+
+Doing the calculations in 8 cells sections, i.e. gear x area, separately and join the results together is ugly but may be needed
+
+Otherwise, I think the calculations create a big, mostly empty, array based on all combinations of the space, time, tech strata and PSUid, SSUid, TSUid, QSUid. A workaround may be to create a strata or id variable that only has the combinations that actually occur, e.g. if not all areas are sampled in every quarter*area then replace quarter with paste(quarter,area) and area with NA.
+
+Finally you could have a look at vesselRaise. This was my attempt to replicate the current E&amp;W raising before Mathieu created the much more general versions of RaiseLgth and RaiseAge. 
+
+Good Luck!
+David  
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000266.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+	<LI>Next message: <A HREF="000268.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#267">[ date ]</a>
+              <a href="thread.html#267">[ thread ]</a>
+              <a href="subject.html#267">[ subject ]</a>
+              <a href="author.html#267">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

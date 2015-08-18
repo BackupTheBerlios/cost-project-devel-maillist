@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTcore version 0.0-2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%20version%200.0-2&In-Reply-To=%3C47010BFD.6030600%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000039.html">
+   <LINK REL="Next"  HREF="000041.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTcore version 0.0-2</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%20version%200.0-2&In-Reply-To=%3C47010BFD.6030600%40ipimar.pt%3E"
+       TITLE="[cost-devel] COSTcore version 0.0-2">ernesto at ipimar.pt
+       </A><BR>
+    <I>Mon Oct  1 17:02:21 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000039.html">[cost-devel] COST webpages - Mailing lists and forums
+</A></li>
+        <LI>Next message: <A HREF="000041.html">[cost-devel] RE : COSTcore version 0.0-2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+A new version of COSTcore Zero is out, 0.0-2. The csData definition is 
+done for the moment. The main changes are not user visible and refer to 
+data integrity checks for csData. I expect some minor changes when the 
+FF5 version is finished. The source code is in CVS 
+(<A HREF="http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/">http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/</A>) and 
+you may download from 
+<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7299">https://developer.berlios.de/project/showfiles.php?group_id=7299</A> .
+
+Try after install:
+
+library(COSTcore)
+data(soleData)
+csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1])
+
+or load the already generated csData object for sole
+
+data(sole.cs)
+
+There's some documentation now
+
+help(package=COSTcore)
+class?csData
+
+I need data for CA, CE and CL tables to proceed with the development of 
+S4 classes. Can someone provide these ?
+
+Best
+
+EJ
+
+ps: for those in trouble with berlios you still may subscribe the 
+mailing list here 
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000039.html">[cost-devel] COST webpages - Mailing lists and forums
+</A></li>
+	<LI>Next message: <A HREF="000041.html">[cost-devel] RE : COSTcore version 0.0-2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#40">[ date ]</a>
+              <a href="thread.html#40">[ thread ]</a>
+              <a href="subject.html#40">[ subject ]</a>
+              <a href="author.html#40">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

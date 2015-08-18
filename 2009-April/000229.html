@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COST/FLR interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C49DCB6CB.8000204%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000230.html">
+   <LINK REL="Next"  HREF="000216.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COST/FLR interface</H1>
+    <B>Ernesto Jardim</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C49DCB6CB.8000204%40ipimar.pt%3E"
+       TITLE="[cost-devel] COST/FLR interface">ernesto at ipimar.pt
+       </A><BR>
+    <I>Wed Apr  8 16:38:03 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000230.html">[cost-devel] COST/FLR interface
+</A></li>
+        <LI>Next message: <A HREF="000216.html">[cost-devel] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Joel VIGNEAU wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Ernesto Jardim a &#233;crit :
+</I>&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> Ernesto Jardim a &#233;crit :
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> Hi Ernesto,
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> your code is Ok, thanks for this. Mathieu is working on the manual for 
+</I>&gt;&gt;&gt;&gt;&gt;<i> the biological parameter estimates, so you should be able to see a 
+</I>&gt;&gt;&gt;&gt;&gt;<i> dbeObject with bp estimates early this afternoon.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> I have a question regarding the compilation of COSTdbe including your 
+</I>&gt;&gt;&gt;&gt;&gt;<i> code. You need the library FLCore to run the FLQuant creator, which is 
+</I>&gt;&gt;&gt;&gt;&gt;<i> logical, but do we want the COST user to install systematically the 
+</I>&gt;&gt;&gt;&gt;&gt;<i> FLCore library for loading COSTdbe? Is there an alternative to this, 
+</I>&gt;&gt;&gt;&gt;&gt;<i> like forcing the compilation and put an error message like  'this 
+</I>&gt;&gt;&gt;&gt;&gt;<i> method needs the library FLCore' that appears when you run FLQuant 
+</I>&gt;&gt;&gt;&gt;&gt;<i> method. The problem would be similar in case of including this method 
+</I>&gt;&gt;&gt;&gt;&gt;<i> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Best
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;<i> Hi Joel,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I see two alternatves:
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+</I>&gt;&gt;&gt;&gt;<i> means including the R files and the man pages from FLQuant into our 
+</I>&gt;&gt;&gt;&gt;<i> packages (that's the beauty of open source). The problem will be with 
+</I>&gt;&gt;&gt;&gt;<i> new developments of FLCore that must be included.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> (ii) Create a new package COSTimex to deal with import/export methods. 
+</I>&gt;&gt;&gt;&gt;<i> In that case only this package will depend on both FLR and COST 
+</I>&gt;&gt;&gt;&gt;<i> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I guess ii) is the safest.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Best
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> EJ
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;<i> Hi Ernesto,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> (ii) was Mathieu's proposal this morning...
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+</I>&gt;&gt;&gt;<i> export to InterCatch where there's no need. Everything we can do by 
+</I>&gt;&gt;&gt;<i> ourselves should be kept in the COST original packages. Would it be a 
+</I>&gt;&gt;&gt;<i> better option to create a COSTtoFLR package with your code in and the 
+</I>&gt;&gt;&gt;<i> dynamic link? that's a tiny package, and there would be a 
+</I>&gt;&gt;&gt;<i> COSTtoANYTHING if there is a need to connect to .. anything.
+</I>&gt;&gt;&gt;<i> Is it agreeable by everyone?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Best
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi Joel,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I don't think it will be a problem to have FLCore installed to export 
+</I>&gt;&gt;<i> FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+</I>&gt;&gt;<i> which mean more maintenance, documenting, examples, etc. We may start 
+</I>&gt;&gt;<i> with a single package and, if necessary, we'll fork it into distinct 
+</I>&gt;&gt;<i> packages by system. What do you think ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> EJ
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;<i> Hi Ernesto,
+</I>&gt;<i>
+</I>&gt;<i> exporting to FF is  : write.csv(validated tables)
+</I>&gt;<i> as we have the same format.
+</I>&gt;<i>
+</I>&gt;<i> That's why today, there would be the InterCatch export which is also a 
+</I>&gt;<i> write.csv of a dbe object with some preparational work before and the 
+</I>&gt;<i> FLQuant which needs FLCore. I was thinking also of letting the 
+</I>&gt;<i> InterCatch method in COSTdbe and creating a COSTlink package where we 
+</I>&gt;<i> would put all the methods needing an external package. Like this, 
+</I>&gt;<i> there would be only one such a package.
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>&gt;<i>
+</I>&gt;<i> Joel
+</I>
+Ok,
+
+So I guess only FLR will require importing class specifications. In that 
+case a COST2FLR package as suggested by you before can be developed.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000230.html">[cost-devel] COST/FLR interface
+</A></li>
+	<LI>Next message: <A HREF="000216.html">[cost-devel] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#229">[ date ]</a>
+              <a href="thread.html#229">[ thread ]</a>
+              <a href="subject.html#229">[ subject ]</a>
+              <a href="author.html#229">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

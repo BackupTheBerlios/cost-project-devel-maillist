@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] &quot;raising&quot; questions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%22raising%22%20questions&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8812%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] &quot;raising&quot; questions</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%22raising%22%20questions&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8812%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] &quot;raising&quot; questions">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Fri Sep 19 13:24:27 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[cost-devel] Recoding of $time in consolidated cs cl and	ce	classes
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+The attached script is very early in the development process (seems like more comments than code!) but I find writing code a good way of understanding the details of the data format and all the work done so far. So please could you reply with any comments on how I've used the existing functions and in particular:
+
+In landings data (CL)
+1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+
+2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+
+
+3) Is my understanding of the technical strata in consolidated objects correct?...
+
+# Technical strata is always NA in ca table of consolidated objects (I think) so Length Distribution is processed by technical strata, aggregated across technical strata and then combined with ALK not stratified by technical strata
+
+Example data are in the attached Excel file rather than csv files, as it's an easy way to see and edit the data. Thanks to Marcel's code for the commands to read from Excel.
+
+Regards, David
+
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: vessel raising 0.1.r
+Type: application/octet-stream
+Size: 15322 bytes
+Desc: vessel raising 0.1.r
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.obj">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.obj</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cefas example market data.xls
+Type: application/vnd.ms-excel
+Size: 69632 bytes
+Desc: Cefas example market data.xls
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.xls">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080919/acef9734/attachment.xls</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[cost-devel] Recoding of $time in consolidated cs cl and	ce	classes
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

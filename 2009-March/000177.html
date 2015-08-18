@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] [Cost-project-members] Minutes of Ifremer	beta-testing session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Minutes%20of%20Ifremer%0A%09beta-testing%20session&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B012579F0%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000181.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] [Cost-project-members] Minutes of Ifremer	beta-testing session</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Minutes%20of%20Ifremer%0A%09beta-testing%20session&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B012579F0%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] [Cost-project-members] Minutes of Ifremer	beta-testing session">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Tue Mar 31 13:14:47 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000181.html">[cost-devel] [Cost-project-members] Minutes of Ifremer	beta-testing session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Cost developers,
+&gt;<i>We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+</I>
+Just when we thought formats had finished! I've started to think about how to do this, but not all the details of each field.
+InterCatch format wants a comma separated file with different length lines. I can see two approaches to do this, see below. I prefer approach 2 but it requires a step outside of R. Any comments or can anyone suggest improvements / alternatives?
+ 
+Joel, is it the correct standard &amp; version in the example? This will need csObject and clObject information as well as dbeOutput.
+ 
+Regards, David
+ 
+##  InterCatch Exchange Format Version 1.4
+#<A HREF="http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf">http://www.ices.dk/datacentre/InterCatch/IC-ExchFormat1-0%20Doc1-4.pdf</A>
+#Example Annex 1 lines 1-4
+
+HI = c(&quot;HI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,NA,&quot;-9&quot;,NA)
+SI = c(&quot;SI&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,&quot;A&quot;,NA,NA,&quot;M&quot;,NA,&quot;T&quot;,&quot;1483.423&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;Gillnet&quot;,&quot;Maria&quot;,&quot;Second country&quot;)
+SD = rbind (c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;3&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,NA,&quot;235.000&quot;,&quot;821&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;),
+            c(&quot;SD&quot;,&quot;SE&quot;,&quot;2005&quot;,&quot;Quarter&quot;,&quot;1&quot;,&quot;testA&quot;,&quot;SubDiv&quot;,&quot;BAL25&quot;,NA,&quot;cod&quot;,&quot;na&quot;,&quot;L&quot;,&quot;A&quot;,&quot;N&quot;,&quot;Age&quot;,&quot;4&quot;,&quot;10&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;g&quot;,&quot;N&quot;,&quot;year&quot;,&quot;cm&quot;,NA,&quot;775.000&quot;,&quot;1020&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;,&quot;-9&quot;) )
+
+# Output file
+# Approach 1, line by line. Will require looping through different strata so may be slow.
+write.table(matrix(HI, nrow=1), &quot;ICout.txt&quot;, row.names=F, col.names=F, quote=F, sep=&quot;,&quot;)
+write.table(matrix(SI, nrow=1), &quot;ICout.txt&quot;, row.names=F, col.names=F, quote=F, sep=&quot;,&quot;, append=T)
+write.table(matrix(SD, nrow=2), &quot;ICout.txt&quot;, row.names=F, col.names=F, quote=F, sep=&quot;,&quot;, append=T)
+ 
+# Approach 2, combined data set
+length(HI);length(SI);dim(SD)[[2]]
+# make HI, SI, SD same length
+HI.2 = c(HI, rep(&quot;blank&quot;,21))
+SI.2 = c(SI, rep(&quot;blank&quot;,9))
+ 
+ICout2 = rbind(HI.2, SI.2, SD) # can sort this on columns 1-8
+write.table(ICout2, &quot;ICout2.txt&quot;, row.names=F, col.names=F, quote=F, sep=&quot;,&quot;)
+# need to remove blanks
+# within Notepad, Open file, Edit, Replace,
+# Find what:,blank   Replace with:(leave empty), Replace All
+# Save
+ 
+ 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-members-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-members-bounces at lists.berlios.de</A>]On Behalf Of Joel VIGNEAU
+Sent: 30 March 2009 14:49
+To: cost member
+Subject: [Cost-project-members] Minutes of Ifremer beta-testing session
+
+
+Dear all,
+
+last week in Ifremer, we had a working sesion with all responsibles for market sampling. 18 stocks were reviewed with the COST tools with people having very heterogeneous skills in R.
+
+The programme to follow was [.....] 
+
+ 
+ 
+The workshop was very successful in the sense that the 18 stocks performed the analysis up to step 5. YES! The step 6 was performed only by a few stocks because of lack of time (3 days meeting). The results of the length structure perfectly match the length structure given by our central software, except some cases which are under scrutiny now. We have not looked yet at the age structures.
+
+The strategies were all LS + ALK = AS (for stocks with age info, of course)
+There were some stocks with size increments of 1 mm (Nephrops), 5 mm (sardine) and 1 cm
+There were stocks with male and female mixed in the sampled boxes (Nephrops and megrim)
+There were stocks with different species mixed in the sampled boxes (Lophius sp.)
+
+The biggest issue was the importation phase. The error messages are difficult to interpret for a non expert. Once the datasets in the COST R environment, the level of stress goes down quickly :)
+
+Otherwise, we have a problem of code in the raise length method, since it is very penalised by the size of the samples (we had a 1000 samples stock!!). It is a 6 dimensional object on which we use tapply and apply. I do not imagine performing a bootstrap on this!! Mathieu is looking at optimizing it.
+The spatial plots did not work. It must be a minor issue, but we did not have time to fix it, plus the fact that for market sampling, we have not that much info to plot spatially.
+The ALK views and gaps filling were much appreciated. In case of changing the size increment, there is a relevant demand to also specify the starting point so that all years/data could be comparable. In case of changing the increment, the length measurements in HL must also change accordingly, or the length structure estimated in the dbe object (I personnally prefer the latter). In both cases, Mathieu has to work out the code.
+The bp estimates seem to work but they would deserve a special session.
+We need a method to sum the strata of the dbe object in order to estimate yearly, or m&#233;tier or whatever combination of strata estimates with CV and CI. Mathieu will care of this.
+We need a method to export the dbe object in InterCatch standard. Who takes care of this?
+
+6 weeks from the deadline of the project, I must admit I was quite happy with these results. I think we are very close from a DBE package and we'll need to perform this kind of beta-testing session in other institutes, including direct age structure estimates, bootstrap, biological parameters and discards raising. We have one person testing the discards raising procedures full-time here on the Ifremer datasets and it seems to work correctly.
+
+I'm a bit blind on what's going on for the MBE package, and also I would like some news from Dorleta on how we can proceed at best for the SIM package.
+
+For all the codes that has been tested, we need the developers to fill completely and properly the help pages, then we'll consider a user manual following the step approach drafted above, (plus discards, plus mbe, plus sim, plus ...). I will circulate a report frame among the leaders of packages very soon.
+
+I anticipate a demand for examples going through the whole process. I will draft some properly and tell you when I put them on the website.
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+
+Jo&#235;l VIGNEAU
+Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l :  &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> 
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/ca7009d9/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090331/ca7009d9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000181.html">[cost-devel] [Cost-project-members] Minutes of Ifremer	beta-testing session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#177">[ date ]</a>
+              <a href="thread.html#177">[ thread ]</a>
+              <a href="subject.html#177">[ subject ]</a>
+              <a href="author.html#177">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

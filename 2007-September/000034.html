@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Latest version of the exchage format description
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Latest%20version%20of%20the%20exchage%20format%20description&In-Reply-To=%3C46FCD763.3020404%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000033.html">
+   <LINK REL="Next"  HREF="000035.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Latest version of the exchage format description</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Latest%20version%20of%20the%20exchage%20format%20description&In-Reply-To=%3C46FCD763.3020404%40ipimar.pt%3E"
+       TITLE="[cost-devel] Latest version of the exchage format description">ernesto at ipimar.pt
+       </A><BR>
+    <I>Fri Sep 28 12:28:51 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000033.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+        <LI>Next message: <A HREF="000035.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Teunis Jansen wrote:
+&gt;<i> Dear All
+</I>&gt;<i>
+</I>&gt;<i> Attached is the latest version (28/9) of the Exchange Format
+</I>&gt;<i> Description. I have changed where consensus seems so have been made on
+</I>&gt;<i> either the wiki or on the discussion list, plus some trivial
+</I>&gt;<i> improvements.
+</I>&gt;<i>
+</I>&gt;<i> Changes since ver.27/9:
+</I>&gt;<i> 1. HH field renaming: &quot;duration&quot; changed to &quot;time&quot; and &quot;Haul&quot; changed to
+</I>&gt;<i> &quot;Fishing&quot;
+</I>&gt;<i> 2. Adding a &quot;*&quot; after field names to mark key fields
+</I>&gt;<i> 3. Reordering the last fields of HL and CA, so that key fields come
+</I>&gt;<i> first and value fields come last.
+</I>&gt;<i>
+</I>&gt;<i> Open discussions (correct me if I forgot any):
+</I>&gt;<i> 1. What name is to be used &quot;Fishing operation&quot; or &quot;Fishing activity&quot;?
+</I>&gt;<i> 2. CL.OfficialLandingsValue: Currency field or just always in euro?
+</I>&gt;<i> 3. Size Sorting as a string or as an integer?
+</I>&gt;<i>
+</I>&gt;<i> Coming planned additions to the document:
+</I>&gt;<i> 1. More detailed descriptions of the fields
+</I>&gt;<i>    -&quot;Landing category&quot; (the nature of &quot;industrial&quot; landings vs. &quot;human
+</I>&gt;<i> consumption&quot; landings)
+</I>&gt;<i>    -&quot;Age&quot; (how different aging methods should map to this field).
+</I>&gt;<i>    - The 3 fisheries fields and their coding and internal relations.
+</I>&gt;<i> 2. The format is now specified for CSV. The format will also be
+</I>&gt;<i> specified in XML for all data types. FishFrame is able to receive the
+</I>&gt;<i> data in either CSV or XML. CSV is best suited when humans upload the
+</I>&gt;<i> data although some prefer XML. XML is best for server-to-server data
+</I>&gt;<i> communication. We will use the XML format later to automate the upload
+</I>&gt;<i> from our national raw-database to FishFrame.
+</I>&gt;<i> 2. A format for raised commercial fisheries data (total weight, numbers,
+</I>&gt;<i> numbers at length, numbers at age, mean weight at length, mean weight at
+</I>&gt;<i> age, mean length at age). This format for raised data can include
+</I>&gt;<i> extrapolated data (hole-filling of biological sampling and discard
+</I>&gt;<i> rates).
+</I>&gt;<i> 3. Possibly a format for bottom trawl surveys. This will be coordinated
+</I>&gt;<i> with ICES and their DATRAS database.
+</I>&gt;<i>
+</I>&gt;<i> I would like to upload each new version on BerliOS Developer under Docs,
+</I>&gt;<i> but they do not appear after upload. Some kind of &quot;Approval&quot; is
+</I>&gt;<i> needed...
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i> Teunis
+</I>
+Hi,
+
+I've looked at the docs in berlios, there's a field called &quot;state&quot; that 
+by default is &quot;pending&quot; and you need to change it to &quot;active&quot;. Do you 
+see that field or is it just for site administrators ?
+
+Let me clarify the naming I used WRT fishing:
+
+TR field 12 &quot;Number of hauls&quot; = foNum (number of fishing operations)
+HH field 9 &quot;Haul validity&quot; = foVal
+HH field 13 &quot;Fishing time&quot; = foDur
+HH field 20 &quot;Main fishing depth&quot; = foDep
+HH field 22 &quot;Fishing activity category national&quot; = foCatNat
+HH field 23 &quot;Fishing activity category european lvl 5&quot; = foCatEu5
+HH field 24 &quot;Fishing activity category european lvl 6&quot; = foCatEu6
+
+It looks more consistent to me but if people feel &quot;fishing activity&quot; 
+should be kept I can change csData definition into faCatNat and so on.
+
+Best
+
+EJ
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000033.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+	<LI>Next message: <A HREF="000035.html">[cost-devel] Latest version of the exchage format description
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#34">[ date ]</a>
+              <a href="thread.html#34">[ thread ]</a>
+              <a href="subject.html#34">[ subject ]</a>
+              <a href="author.html#34">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818A3F%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000013.html">
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818A3F%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] FF5 data call">tej at difres.dk
+       </A><BR>
+    <I>Thu Sep 27 09:59:48 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000013.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000017.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi David
+
+RE: &quot;In our data, size category and maturity stage are string not integer.&quot;
+I had understood that you used a number-system for &quot;Size category&quot; - just like the EU defined size sorting categories, except that they are nationally defined and can not be mapped to the EU categories? Could you give data examples of your &quot;Size category&quot; and &quot;Maturity stage&quot;?
+
+RE: &quot;if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.&quot;
+Why in different currencies? Is it not more useful to have the data in the same unit?
+
+BR
+Teunis
+
+
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] On Behalf Of David Maxwell (Cefas)
+Sent: 26. september 2007 18:53
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] FF5 data call
+
+
+David H and Liz, given your experience applying the catch-at-age modelling to FRS data is there enough information in the FF5 format for that?
+I expect it will be fine for design based raising calculations.
+
+For the format
+ if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.
+
+ In our data, size category and maturity stage are string not integer.
+
+Ernesto, I'm going to wait a few days for everyone to agree the format before we extract our data again.
+
+regards, David 
+
+-----Original Message-----
+From: ernesto [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">ernesto at ipimar.pt</A>]
+Sent: 26 September 2007 17:00
+To: Cost-devel Mailing List; Liz Clarke; Alastair Pout; Hans; Joel VIGNEAU; Marie-Joelle ROCHET; Stephanie MAHEVAS; david hirst; David Maxwell (Cefas); Deborah Gillatt (Cefas); Dorleta Garcia; ernesto JARDIM; Henrik Degel; I&#241;aki Artetxe; Isabel Gonzalez; Leire Ibaibarriaga; MERZEREAUD; Paz SamPedro; Romano Baino; Richard M; Steve Warnes (Cefas); Sue Bramford (Cefas); Teunis Jansen; Valentin Trujillo IEO
+Subject: Release 0.0-1 of COSTcore
+
+
+Dear all,
+
+The first release is out. A prebeta alpha gamma release, code name &quot;0&quot;. 
+Meaning it does nothing except providing the S4 classes. No documentation, no data, nothing :-)
+
+This is a R251 release. Please download from file repository
+(<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7299">https://developer.berlios.de/project/showfiles.php?group_id=7299</A>) and install. Those using linux should use the tar.gz file, those using windows use the zip file. Then try:
+
+library(COSTcore)
+showClass(&quot;csData&quot;)
+showClass(&quot;ceData&quot;)
+showClass(&quot;clData&quot;)
+new(&quot;csData&quot;)
+new(&quot;ceData&quot;)
+new(&quot;clData&quot;)
+
+Those interested on the code please check out from CVS or take a look at <A HREF="http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/">http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/</A>
+
+I'd like to have opinions on the doubts posted to the forum and based on those finalize the S4 definitions and start working on methods, validity, tests, etc.
+
+This is my last message to the group outside the mailing list. Please subscribe berlios and the cost-project-devel mailing list to keep updated with COSTcore development.
+
+Best
+
+EJ
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of ernesto
+Sent: 26 September 2007 14:47
+To: Cost-devel Mailing List
+Subject: [cost-devel] FF5 data call
+
+
+Hi,
+
+Can someone provide data following the FF5 format ? I'm testing the class definition and need some data.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000013.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000017.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

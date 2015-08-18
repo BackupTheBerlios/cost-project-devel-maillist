@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C47010F1E.5010705%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000041.html">
+   <LINK REL="Next"  HREF="000042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>Mathieu MERZEREAUD</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C47010F1E.5010705%40ifremer.fr%3E"
+       TITLE="[cost-devel] FF5 data call">Mathieu.Merzereaud at ifremer.fr
+       </A><BR>
+    <I>Mon Oct  1 17:15:42 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000041.html">[cost-devel] RE : COSTcore version 0.0-2
+</A></li>
+        <LI>Next message: <A HREF="000042.html">[cost-devel] FF5 final version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+ernesto a &#233;crit :
+&gt;<i> Mathieu MERZEREAUD wrote:
+</I>&gt;&gt;<i> I've just finished this procedure that generates a list with the 3 
+</I>&gt;&gt;<i> classes (cs,cl,ce).
+</I>&gt;&gt;<i> You just have to unzip the folder, change the directory in the code, 
+</I>&gt;&gt;<i> and source.
+</I>&gt;&gt;<i> I've only tested it for those files, but it must be working for all 
+</I>&gt;&gt;<i> types of files.
+</I>&gt;&gt;<i> It's just a draft, so I send it to you directly. Is that close to your 
+</I>&gt;&gt;<i> idea concerning the use and the outcome?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i> Mathieu
+</I>&gt;&gt;<i> #COST (pour ernesto)
+</I>&gt;&gt;<i> #Code de lecture des fichiers .csv dans un r&#233;pertoire cens&#233; regrouper 
+</I>&gt;&gt;<i> tous les fichiers de travail, et construction des objets en cons&#233;quence
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> CSimport &lt;- function(object,df){         #'object' de classe 'csData'
+</I>&gt;&gt;<i> tabnames &lt;- c(&quot;TR&quot;,&quot;HH&quot;,&quot;SL&quot;,&quot;HL&quot;,&quot;CA&quot;)
+</I>&gt;&gt;<i> RecordType &lt;- unique(as.character(df[,1]))
+</I>&gt;&gt;<i> if (length(RecordType)&gt;1) stop(&quot;RecordType is not unique!!&quot;)
+</I>&gt;&gt;<i> if (!(RecordType%in%tabnames)) stop(&quot;RecordType is not valid!!&quot;)
+</I>&gt;&gt;<i> dimTest &lt;- c(16,28,19,17,28)
+</I>&gt;&gt;<i> names(dimTest) &lt;- tabnames
+</I>&gt;&gt;<i> if (dimTest[RecordType]!=dim(df)[2]) stop(&quot;Wrong size!!&quot;)
+</I>&gt;&gt;<i> df &lt;- df[,2:dim(df)[2]]
+</I>&gt;&gt;<i> eval(parse('',text=paste(&quot;names(df) &lt;- 
+</I>&gt;&gt;<i> names(object@&quot;,tolower(RecordType),&quot;)&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;<i> eval(parse('',text=paste(&quot;object@&quot;,tolower(RecordType),&quot; &lt;- df&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;<i> return(object)
+</I>&gt;&gt;<i> }
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> CEimport &lt;- function(object,df){         #'object' de classe 'ceData'
+</I>&gt;&gt;<i> if (dim(df)[2]!=16) stop(&quot;Wrong size!!&quot;)
+</I>&gt;&gt;<i> df &lt;- df[,2:dim(df)[2]]
+</I>&gt;&gt;<i> names(df) &lt;- names(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at ce</A>)
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at ce</A> &lt;- df
+</I>&gt;&gt;<i> return(object)
+</I>&gt;&gt;<i> }
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> CLimport &lt;- function(object,df){         #'object' de classe 'clData'
+</I>&gt;&gt;<i> if (dim(df)[2]!=20) stop(&quot;Wrong size!!&quot;)
+</I>&gt;&gt;<i> df &lt;- df[,2:dim(df)[2]]
+</I>&gt;&gt;<i> names(df) &lt;- names(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at cl</A>)
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">object at cl</A> &lt;- df
+</I>&gt;&gt;<i> return(object)
+</I>&gt;&gt;<i> }
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ApplyDataCost &lt;- function(file,list.object){
+</I>&gt;&gt;<i> df &lt;- read.table(file,header=TRUE,sep=&quot;;&quot;)
+</I>&gt;&gt;<i> vec &lt;- c(rep(&quot;CS&quot;,5),&quot;CL&quot;,&quot;CE&quot;)
+</I>&gt;&gt;<i> names(vec) &lt;- c(&quot;TR&quot;,&quot;HH&quot;,&quot;SL&quot;,&quot;HL&quot;,&quot;CA&quot;,&quot;CL&quot;,&quot;CE&quot;)
+</I>&gt;&gt;<i> val &lt;- as.character(vec[as.character(df[1,1])])
+</I>&gt;&gt;<i> eval(parse('',text=paste(&quot;list.object$&quot;,tolower(val),&quot; &lt;- 
+</I>&gt;&gt;<i> &quot;,val,&quot;import(list.object$&quot;,tolower(val),&quot;,df)&quot;,sep=&quot;&quot;)))
+</I>&gt;&gt;<i> return(list.object)
+</I>&gt;&gt;<i> }
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ####################
+</I>&gt;&gt;<i> ## Main procedure ##
+</I>&gt;&gt;<i> ####################
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ImportDataCOST &lt;- function (directory,desc=&quot;My Stock&quot;) {    #directory 
+</I>&gt;&gt;<i> = r&#233;pertoire contenant tous les .csv  ; desc = slot 'desc' des objets 
+</I>&gt;&gt;<i> de type char()
+</I>&gt;&gt;<i> require(COSTcore)
+</I>&gt;&gt;<i> obj &lt;- list(cs=new(&quot;csData&quot;),cl=new(&quot;clData&quot;),ce=new(&quot;ceData&quot;))
+</I>&gt;&gt;<i> neodesc &lt;- rep(desc,3)
+</I>&gt;&gt;<i> obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cs at desc</A> &lt;- neodesc[1] ; obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cl at desc</A> &lt;- neodesc[2] ; obj$<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">ce at desc</A> &lt;- 
+</I>&gt;&gt;<i> neodesc[3]
+</I>&gt;&gt;<i> Files &lt;- paste(directory,list.files(directory),sep=&quot;/&quot;)
+</I>&gt;&gt;<i> for (i in 1:length(Files)) obj &lt;- ApplyDataCost(Files[i],obj)
+</I>&gt;&gt;<i> invisible(obj)
+</I>&gt;&gt;<i> }
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> #Example
+</I>&gt;&gt;<i> #Put the .csv files in one folder directory &lt;- &quot;Q:/FF5_sole&quot;   #path 
+</I>&gt;&gt;<i> of the folder
+</I>&gt;&gt;<i> obj &lt;- ImportDataCOST(directory)
+</I>&gt;&gt;<i> #obj$cs, obj$cl, obj$ce
+</I>&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> It looks ok but you were faster than me :-)
+</I>&gt;<i> 
+</I>&gt;<i> These procedures should read the data but rely on the class constructor 
+</I>&gt;<i> to create the objects, otherwise you'll be bypassing the validity checks.
+</I>&gt;<i> 
+</I>&gt;<i> You're validating based on ncol but I was about to write the validation 
+</I>&gt;<i> based on col names. Do you think ncol is enough ?
+</I>&gt;<i> 
+</I>&gt;<i> EJ
+</I>&gt;<i> 
+</I>&gt;<i> ps: do you have CVS installed already ?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>Hi,
+I've updated the CVS with io methods ('ImportData.r' in COSTcore/R).
+This time, I think it considers the validity checks of the class 
+constructor. The only tests I've implemented are about 'Record Type' 
+field that doesn't appear in the objects.
+Best
+Mathieu
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000041.html">[cost-devel] RE : COSTcore version 0.0-2
+</A></li>
+	<LI>Next message: <A HREF="000042.html">[cost-devel] FF5 final version
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#43">[ date ]</a>
+              <a href="thread.html#43">[ thread ]</a>
+              <a href="subject.html#43">[ subject ]</a>
+              <a href="author.html#43">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

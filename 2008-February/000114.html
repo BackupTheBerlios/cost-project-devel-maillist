@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FishFrame-COST data exchange format MINOR	CORRECTION...
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FishFrame-COST%20data%20exchange%20format%20MINOR%0A%09CORRECTION...&In-Reply-To=%3C47C3EA89.5080403%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000113.html">
+   <LINK REL="Next"  HREF="000115.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FishFrame-COST data exchange format MINOR	CORRECTION...</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FishFrame-COST%20data%20exchange%20format%20MINOR%0A%09CORRECTION...&In-Reply-To=%3C47C3EA89.5080403%40ipimar.pt%3E"
+       TITLE="[cost-devel] FishFrame-COST data exchange format MINOR	CORRECTION...">ernesto at ipimar.pt
+       </A><BR>
+    <I>Tue Feb 26 11:31:37 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000113.html">[cost-devel] FishFrame-COST data exchange format MINOR CORRECTION...
+</A></li>
+        <LI>Next message: <A HREF="000115.html">[cost-devel] The 26 February 2008 version of FishFrame5/COST1 DEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#114">[ date ]</a>
+              <a href="thread.html#114">[ thread ]</a>
+              <a href="subject.html#114">[ subject ]</a>
+              <a href="author.html#114">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Teunis Jansen wrote:
+&gt;<i> Dear All
+</I>&gt;<i>  
+</I>&gt;<i> We have unfortunately found another inconsistence in the DEF, I would 
+</I>&gt;<i> like to suggest that we correct that plus another small improvement:
+</I>&gt;<i>
+</I>&gt;<i>    1. The key fields on a record should according to the logic rules
+</I>&gt;<i>       of the format be inherited from the parent record and be in the
+</I>&gt;<i>       same order. This was corrected for SL recently. We have now
+</I>&gt;<i>       found that there is an error in the field order on HL. The
+</I>&gt;<i>       sex-field should be moved from position 10 (after species) to
+</I>&gt;<i>       position 15 (between SubSamplingCategory and LengthClass).
+</I>&gt;<i>    2. The HH field &quot;Fishing activity category European lvl 5&quot; is
+</I>&gt;<i>       mandatory while &quot;Fishing activity category European lvl 6&quot; is
+</I>&gt;<i>       optional, this means that if you provide lvl6, then you also
+</I>&gt;<i>       have to provide lvl5. So this opens for inconsistency. Easy to
+</I>&gt;<i>       check, but unnecessary and not following the principles of the
+</I>&gt;<i>       format. This should be changed so that is is /&quot;either or&quot;. /One
+</I>&gt;<i>       of the fields /has/ to be given, but not both.
+</I>&gt;<i>
+</I>&gt;<i> Number 1 looks small, but it breaks our generic code.
+</I>&gt;<i>  
+</I>&gt;<i> Best regards
+</I>&gt;<i> Teunis
+</I>Hi Teunis,
+
+No problem about those changes. I'll have to update the COSTcore class 
+definition but the impact shouldn't be to high. I don't know when I'll 
+be able to do it ...
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000113.html">[cost-devel] FishFrame-COST data exchange format MINOR CORRECTION...
+</A></li>
+	<LI>Next message: <A HREF="000115.html">[cost-devel] The 26 February 2008 version of FishFrame5/COST1 DEF
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#114">[ date ]</a>
+              <a href="thread.html#114">[ thread ]</a>
+              <a href="subject.html#114">[ subject ]</a>
+              <a href="author.html#114">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Recoding of $time in consolidated cs cl and ce classes
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Recoding%20of%20%24time%20in%20consolidated%20cs%20cl%20and%20ce%20classes&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649562%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000148.html">
+   <LINK REL="Next"  HREF="000150.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Recoding of $time in consolidated cs cl and ce classes</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Recoding%20of%20%24time%20in%20consolidated%20cs%20cl%20and%20ce%20classes&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649562%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] Recoding of $time in consolidated cs cl and ce classes">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Wed Sep 17 12:15:06 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000148.html">[cost-devel] outPut format
+</A></li>
+        <LI>Next message: <A HREF="000150.html">[cost-devel] Recoding of $time in consolidated cs cl and ce classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear All 
+
+Recoding of $time in consolidated cs cl and ce classes 
+
+ 
+
+$time is a factor yyyy - 1 to yyyy - 4  when timestrata = &quot;quarter&quot;
+
+$time is a factor yyyy - 1 to yyyy - 12  when timestrata = &quot;month&quot;
+
+and 
+
+$time is a factor yyyy    when time = &quot;year&quot;
+
+and a factor      &quot;all&quot;   when timestrata is unspecified 
+
+ 
+
+So the problem I am encountering is that there is no way of
+distinguishing eg 2005 - 1 from 1st quarter 2005 and Jan 2005 unless you
+pass your function Mathieu's &quot;strDef&quot; object which defines how the user
+has stratified the data. 
+
+To my mind it would make things very much easier if how the user has
+stratified the data was apparent from the data itself. 
+
+ 
+
+What does anybody think about $time in a consolidated class having the
+form yyyy - q - m  for stratification by month so eg 2005 - 1 - 1 would
+be jan 2005 and 2005 - 1 would remain as 1st quarter 2005.   
+
+Or is it too late for such changes? Would that cause more problems than
+it solves? 
+
+ 
+
+(the problem does not occur with $space and $technical because rects can
+be distinguished from FAO codes and e.g. foCatEu5 from foCatEu6 by the
+form of the data.) 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080917/524f8f52/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080917/524f8f52/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000148.html">[cost-devel] outPut format
+</A></li>
+	<LI>Next message: <A HREF="000150.html">[cost-devel] Recoding of $time in consolidated cs cl and ce classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#149">[ date ]</a>
+              <a href="thread.html#149">[ thread ]</a>
+              <a href="subject.html#149">[ subject ]</a>
+              <a href="author.html#149">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

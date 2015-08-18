@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] outPut format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20outPut%20format&In-Reply-To=%3C48C91C39.2020109%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000147.html">
+   <LINK REL="Next"  HREF="000149.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] outPut format</H1>
+    <B>Mathieu MERZEREAUD</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20outPut%20format&In-Reply-To=%3C48C91C39.2020109%40ifremer.fr%3E"
+       TITLE="[cost-devel] outPut format">Mathieu.Merzereaud at ifremer.fr
+       </A><BR>
+    <I>Thu Sep 11 15:25:13 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000147.html">[cost-devel] outPut format
+</A></li>
+        <LI>Next message: <A HREF="000149.html">[cost-devel] Recoding of $time in consolidated cs cl and ce classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+David Maxwell (Cefas) a &#233;crit :
+&gt;<i> Reply is below
+</I>&gt;<i> 
+</I>&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Mathieu MERZEREAUD [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>]
+</I>&gt;<i> Sent: 08 September 2008 15:23
+</I>&gt;<i> To: David Maxwell (Cefas)
+</I>&gt;<i> Subject: outPut format
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi David,
+</I>&gt;<i> 
+</I>&gt;<i> just a little question about dbe outputs format. I suppose we have 2 
+</I>&gt;<i> possibilities for that :
+</I>&gt;<i> 	* a data.frame with 'time', 'space', 'technical',  optionnaly 'length' 
+</I>&gt;<i> or 'age', and 'value'.
+</I>&gt;<i> 	* a numerical array with one dimension per field (ie 3 or 4 dimensions)
+</I>&gt;<i> 
+</I>&gt;<i> The second one is easier to use for calculation and is more 
+</I>&gt;<i> 'illustrative', but the first one is clearer, is less ambiguous with 
+</I>&gt;<i> used stratification, and most of all, it's very easy to calculate 2 from 
+</I>&gt;<i> 1 if it is needed (and graphical outputs should be easier to implement!!).
+</I>&gt;<i> 
+</I>&gt;<i> To your mind, what is the best format ?
+</I>&gt;<i> 
+</I>&gt;<i> Best
+</I>&gt;<i> Mathieu
+</I>&gt;<i> 
+</I>&gt;<i> ----------------------------
+</I>&gt;<i> Hi Mathieu,
+</I>&gt;<i> 
+</I>&gt;<i> Using an array is probably better programming style but I think a data.frame is easier for people to understand so I suggest a data.frame. May need a column for iteration as well.
+</I>&gt;<i> 
+</I>&gt;<i> Any comments from everyone else?
+</I>&gt;<i> David
+</I>&gt;<i> 
+</I>
+Hi David,
+
+each slot describing total estimates (ie lenStruc, ageStruc, totalN &amp; 
+totalW) could be a list with 2 elements : '$estim' would be the final 
+estimates (df without 'iteration' field), and '$rep' would describe the 
+resampling replicates (df with 'iteration' field).
+
+Mathieu
+
+
+
+
+
+-- 
+Mathieu Merz&#233;r&#233;aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G&#233;n&#233;ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T&#233;l : 02.31.51.56.46
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000147.html">[cost-devel] outPut format
+</A></li>
+	<LI>Next message: <A HREF="000149.html">[cost-devel] Recoding of $time in consolidated cs cl and ce classes
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

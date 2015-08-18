@@ -1,0 +1,663 @@
+From Joel.Vigneau at ifremer.fr  Wed Apr 13 13:40:52 2011
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Wed, 13 Apr 2011 13:40:52 +0200
+Subject: [cost-devel] COST and SOP
+Message-ID: <20110413134052.39561gkkek7i9wp0@vdmz1mail.ifremer.fr>
+
+Hi all
+
+we are working the French data in an internal WS in Ifremer with COST,  
+and the SOP discrepancy has not been dealt with in the project.  
+Indeed, the weight at length and @age are estimated independently from  
+the N at length and N at age, so we see that it often leads to SOP  
+discrepancies.
+
+My question is, did you also face this problem and of course, did you  
+write some code to deal with this. IMO, there are easy solutions  
+(translation on w at length) that  would prefer avoiding, and more  
+complex/proper solution (do you know some papers on this issue?),  
+that's why I would like your comments on this.
+
+Thanks in advance
+
+Joel
+
+
+
+From hgerritsen at marine.ie  Thu Apr 14 15:58:33 2011
+From: hgerritsen at marine.ie (Hans Gerritsen)
+Date: Thu, 14 Apr 2011 14:58:33 +0100
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de>
+Message-ID: <80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>
+
+Hello Joel
+For what it's worth: we (Ireland) substitute the individual weights for the modelled weights. This is a practice we had before COST. This seems to circumvent any SOP problems.
+Hans
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of cost-project-devel-request at lists.berlios.de
+Sent: 14 April 2011 11:00
+To: cost-project-devel at lists.berlios.de
+Subject: Cost-project-devel Digest, Vol 25, Issue 1
+
+Send Cost-project-devel mailing list submissions to
+        cost-project-devel at lists.berlios.de
+
+To subscribe or unsubscribe via the World Wide Web, visit
+        https://lists.berlios.de/mailman/listinfo/cost-project-devel
+or, via email, send a message with subject or body 'help' to
+        cost-project-devel-request at lists.berlios.de
+
+You can reach the person managing the list at
+        cost-project-devel-owner at lists.berlios.de
+
+When replying, please edit your Subject line so it is more specific
+than "Re: Contents of Cost-project-devel digest..."
+
+
+Today's Topics:
+
+   1. COST and SOP (Joel.Vigneau at ifremer.fr)
+
+
+----------------------------------------------------------------------
+
+Message: 1
+Date: Wed, 13 Apr 2011 13:40:52 +0200
+From: Joel.Vigneau at ifremer.fr
+To: "hans.gerritsen at marine.ie" <hans.gerritsen at marine.ie>,
+        "Cost-project-devel at lists.berlios.de"
+        <Cost-project-devel at lists.berlios.de>,
+        "cost-project-users at lists.berlios.de"
+        <cost-project-users at lists.berlios.de>
+Subject: [cost-devel] COST and SOP
+Message-ID: <20110413134052.39561gkkek7i9wp0 at vdmz1mail.ifremer.fr>
+Content-Type: text/plain; charset=ISO-8859-1; DelSp="Yes";
+        format="flowed"
+
+Hi all
+
+we are working the French data in an internal WS in Ifremer with COST,
+and the SOP discrepancy has not been dealt with in the project.
+Indeed, the weight at length and @age are estimated independently from
+the N at length and N at age, so we see that it often leads to SOP
+discrepancies.
+
+My question is, did you also face this problem and of course, did you
+write some code to deal with this. IMO, there are easy solutions
+(translation on w at length) that  would prefer avoiding, and more
+complex/proper solution (do you know some papers on this issue?),
+that's why I would like your comments on this.
+
+Thanks in advance
+
+Joel
+
+
+
+------------------------------
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+End of Cost-project-devel Digest, Vol 25, Issue 1
+*************************************************
+
+This message contains confidential information and is intended only for the individual(s) named. If you are not the named addressee you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately by e-mail if you have received this e-mail by mistake and delete this e-mail from your system. E-mail transmission cannot be guaranteed to be secure or error-free as information could be intercepted, corrupted, lost, destroyed, arrive late or incomplete, or contain viruses. The sender therefore does not accept liability for any errors or omissions in the contents of this message, which arise as a result of e-mail transmission.
+
+Is don t? at? ainmithe an teachtaireacht seo agus inte t? eolas r?nda. Muna t? an t? at? ainmithe n?or ch?ir duit an r?omhphost seo a eis-sheacada, scaipeadh n? a choip?il. M? fuir t? an r?omhphost seo tr? thimpist cur a t? a sheol ? ar an eolas l?thaireach tr? r?omhphost agus scrios ? ? do choras f?in. N? f?idir a ch?nti? go bhfuil r?omhphost gan lucht n? s?bhailte de bharr m?dh seachadadh na r?omhphost. D?fh?adfach s? go nd?anfa? tascradh ar an eolas, go mbeadh s? curtha as rocht, go gcailf? n? go scriosf? ?, go mbeadh moill ar, ? easnamhach n? go mbeadh v?reas curtha leis le linn a sheachadadh. D? bhr? sin n? glacann an t? a sheol le aon mhil?an maidir le easnaimh n? but?in in ?bhar na teachtaireachta a tharla?onn le linn a sheachadadh.
+
+From Joel.Vigneau at ifremer.fr  Fri Apr 15 10:33:41 2011
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 15 Apr 2011 10:33:41 +0200
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de>
+	<80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>
+Message-ID: <4DA802E5.1030701@ifremer.fr>
+
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110415/c9a41a17/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Fri Apr 15 11:55:26 2011
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Fri, 15 Apr 2011 10:55:26 +0100
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <4DA802E5.1030701@ifremer.fr>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de><80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>
+	<4DA802E5.1030701@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>
+
+Hi Joel,  All 
+
+ 
+
+First you will have to let me know what SOP means exactly, and SOP discrepancies. I'm in the dark on that one. 
+
+As regards weight estimates we use length weight relationships to get an estimated mean weight at length which provides an estimate of the weight of the raised stock. 
+
+We are comparing this to the declared landings weight, but certainly not adjusting any N at length or N at age numbers to make the two match. 
+
+We get agreement around 95% + for most stocks, which gives us some confidence in our raised estimates and the length weight relationships. 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 15 April 2011 09:34
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Cost-project-devel Digest, Vol 25,Issue 1 - Ireland
+
+ 
+
+Hi Hans,
+
+thanks for the prompt answer. In urgence, we are going to translate the w at length so that SOP at length match the total landings. Before COST we used a black box doing something seemingly sensible, but the guy who developed it has long retired...
+
+Best
+
+Joel
+ 
+
+Le 14/04/2011 15:58, Hans Gerritsen a ?crit : 
+
+Hello Joel
+For what it's worth: we (Ireland) substitute the individual weights for the modelled weights. This is a practice we had before COST. This seems to circumvent any SOP problems.
+Hans
+ 
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of cost-project-devel-request at lists.berlios.de
+Sent: 14 April 2011 11:00
+To: cost-project-devel at lists.berlios.de
+Subject: Cost-project-devel Digest, Vol 25, Issue 1
+ 
+Send Cost-project-devel mailing list submissions to
+        cost-project-devel at lists.berlios.de
+ 
+To subscribe or unsubscribe via the World Wide Web, visit
+        https://lists.berlios.de/mailman/listinfo/cost-project-devel
+or, via email, send a message with subject or body 'help' to
+        cost-project-devel-request at lists.berlios.de
+ 
+You can reach the person managing the list at
+        cost-project-devel-owner at lists.berlios.de
+ 
+When replying, please edit your Subject line so it is more specific
+than "Re: Contents of Cost-project-devel digest..."
+ 
+ 
+Today's Topics:
+ 
+   1. COST and SOP (Joel.Vigneau at ifremer.fr)
+ 
+ 
+----------------------------------------------------------------------
+ 
+Message: 1
+Date: Wed, 13 Apr 2011 13:40:52 +0200
+From: Joel.Vigneau at ifremer.fr
+To: "hans.gerritsen at marine.ie" <mailto:hans.gerritsen at marine.ie>  <hans.gerritsen at marine.ie> <mailto:hans.gerritsen at marine.ie> ,
+        "Cost-project-devel at lists.berlios.de" <mailto:Cost-project-devel at lists.berlios.de> 
+        <Cost-project-devel at lists.berlios.de> <mailto:Cost-project-devel at lists.berlios.de> ,
+        "cost-project-users at lists.berlios.de" <mailto:cost-project-users at lists.berlios.de> 
+        <cost-project-users at lists.berlios.de> <mailto:cost-project-users at lists.berlios.de> 
+Subject: [cost-devel] COST and SOP
+Message-ID: <20110413134052.39561gkkek7i9wp0 at vdmz1mail.ifremer.fr> <mailto:20110413134052.39561gkkek7i9wp0 at vdmz1mail.ifremer.fr> 
+Content-Type: text/plain; charset=ISO-8859-1; DelSp="Yes";
+        format="flowed"
+ 
+Hi all
+ 
+we are working the French data in an internal WS in Ifremer with COST,
+and the SOP discrepancy has not been dealt with in the project.
+Indeed, the weight at length and @age are estimated independently from
+the N at length and N at age, so we see that it often leads to SOP
+discrepancies.
+ 
+My question is, did you also face this problem and of course, did you
+write some code to deal with this. IMO, there are easy solutions
+(translation on w at length) that  would prefer avoiding, and more
+complex/proper solution (do you know some papers on this issue?),
+that's why I would like your comments on this.
+ 
+Thanks in advance
+ 
+Joel
+ 
+ 
+ 
+------------------------------
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+ 
+ 
+End of Cost-project-devel Digest, Vol 25, Issue 1
+*************************************************
+ 
+This message contains confidential information and is intended only for the individual(s) named. If you are not the named addressee you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately by e-mail if you have received this e-mail by mistake and delete this e-mail from your system. E-mail transmission cannot be guaranteed to be secure or error-free as information could be intercepted, corrupted, lost, destroyed, arrive late or incomplete, or contain viruses. The sender therefore does not accept liability for any errors or omissions in the contents of this message, which arise as a result of e-mail transmission.
+ 
+Is don t? at? ainmithe an teachtaireacht seo agus inte t? eolas r?nda. Muna t? an t? at? ainmithe n?or ch?ir duit an r?omhphost seo a eis-sheacada, scaipeadh n? a choip?il. M? fuir t? an r?omhphost seo tr? thimpist cur a t? a sheol ? ar an eolas l?thaireach tr? r?omhphost agus scrios ? ? do choras f?in. N? f?idir a ch?nti? go bhfuil r?omhphost gan lucht n? s?bhailte de bharr m?dh seachadadh na r?omhphost. D'fh?adfach s? go nd?anfa? tascradh ar an eolas, go mbeadh s? curtha as rocht, go gcailf? n? go scriosf? ?, go mbeadh moill ar, ? easnamhach n? go mbeadh v?reas curtha leis le linn a sheachadadh. D? bhr? sin n? glacann an t? a sheol le aon mhil?an maidir le easnaimh n? but?in in ?bhar na teachtaireachta a tharla?onn le linn a sheachadadh.
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+ 
+
+ 
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+Station de Port-en-Bessin
+
+________________________________
+
+Ifremer
+Avenue du Gal De Gaulle
+14520 PORT-EN-BESSIN
+tel : (33)2-31-51-56-41
+fax : (33)2-31-51-56-01 
+
+m?l : Joel.Vigneau at ifremer.fr
+web : http://wwz.ifremer.fr/peche
+
+Coordinator of the GFCM Sub-Committee on Statistics
+and Information : http://www.gfcm.org <http://www.gfcm.org/> 
+
+Coordinator of the COST project :
+http://wwz.ifremer.fr/cost <http://wwz.ifremer.fr/cost> 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110415/071505e3/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Fri Apr 15 12:12:02 2011
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 15 Apr 2011 12:12:02 +0200
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de><80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>	<4DA802E5.1030701@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>
+Message-ID: <4DA819F2.4040805@ifremer.fr>
+
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110415/4186bc69/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Mon Apr 18 10:35:24 2011
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Mon, 18 Apr 2011 09:35:24 +0100
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <4DA819F2.4040805@ifremer.fr>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de><80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>	<4DA802E5.1030701@ifremer.fr><A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>
+	<4DA819F2.4040805@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C58120264994A@mail4.marlab.ac.uk>
+
+Hi Joel, All 
+
+ 
+
+Seems to me that there is a fundamental issue here. 
+
+There will always be a discrepancy between declared landed weights and the estimated landed weight derived from the sum of  the mean weight of a fish at age (or length) X the estimate of the raised number;  
+
+i.e. the sum of products 
+
+ 
+
+If this sum of products discrepancy is large there are potentially 3 possible reasons: 
+
+1.	the weights used to calculate the mean weight at age (or length) are incorrect (be they measured directly from the fish or derived using a weight length relationship). 
+2.	there are errors in the raising process. 
+3.	there are errors in the logbook landing weights data which is being raised against. 
+
+ 
+
+ 
+
+The magnitude of the discrepancy should be recorded with the raised data.  
+
+ 
+
+That is exactly the sort of thing that the WKACCU bias scorecard should pick up on, and which national labs should be checking. 
+
+ 
+
+What I don't think should be happening is that N at age or length should be adjusted so that they correspond to the declared landing weight. 
+
+This is exactly what we used to do and it seems to me it is potentially just papering over biases in the raised data. 
+
+ 
+
+All the best
+
+Alastair   
+
+ 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 15 April 2011 11:12
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Cost-project-devel Digest, Vol 25,Issue 1 - Ireland
+
+ 
+
+Hi Alastair,
+
+SOP stands for Sum Of Products (of w at age * N at age) which must match the total landings. From your email, I understand that you check this and come up with a good agreement. The question was: what to do if the agreement is not good? Mathieu is today deriving the w at age from the length weight relationship using the matrices calculated within raiseLength (he will not estimate the variances). It will only be a new function, not an update of the COSTdbe that would take too much time (writing of the help files, compilation, ...).
+
+Best regards
+
+Joel
+
+
+Le 15/04/2011 11:55, Alastair Pout a ?crit : 
+
+Hi Joel,  All 
+
+ 
+
+First you will have to let me know what SOP means exactly, and SOP discrepancies. I'm in the dark on that one. 
+
+As regards weight estimates we use length weight relationships to get an estimated mean weight at length which provides an estimate of the weight of the raised stock. 
+
+We are comparing this to the declared landings weight, but certainly not adjusting any N at length or N at age numbers to make the two match. 
+
+We get agreement around 95% + for most stocks, which gives us some confidence in our raised estimates and the length weight relationships. 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 15 April 2011 09:34
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Cost-project-devel Digest, Vol 25,Issue 1 - Ireland
+
+ 
+
+Hi Hans,
+
+thanks for the prompt answer. In urgence, we are going to translate the w at length so that SOP at length match the total landings. Before COST we used a black box doing something seemingly sensible, but the guy who developed it has long retired...
+
+Best
+
+Joel
+ 
+
+Le 14/04/2011 15:58, Hans Gerritsen a ?crit : 
+
+Hello Joel
+For what it's worth: we (Ireland) substitute the individual weights for the modelled weights. This is a practice we had before COST. This seems to circumvent any SOP problems.
+Hans
+ 
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of cost-project-devel-request at lists.berlios.de
+Sent: 14 April 2011 11:00
+To: cost-project-devel at lists.berlios.de
+Subject: Cost-project-devel Digest, Vol 25, Issue 1
+ 
+Send Cost-project-devel mailing list submissions to
+        cost-project-devel at lists.berlios.de
+ 
+To subscribe or unsubscribe via the World Wide Web, visit
+        https://lists.berlios.de/mailman/listinfo/cost-project-devel
+or, via email, send a message with subject or body 'help' to
+        cost-project-devel-request at lists.berlios.de
+ 
+You can reach the person managing the list at
+        cost-project-devel-owner at lists.berlios.de
+ 
+When replying, please edit your Subject line so it is more specific
+than "Re: Contents of Cost-project-devel digest..."
+ 
+ 
+Today's Topics:
+ 
+   1. COST and SOP (Joel.Vigneau at ifremer.fr)
+ 
+ 
+----------------------------------------------------------------------
+ 
+Message: 1
+Date: Wed, 13 Apr 2011 13:40:52 +0200
+From: Joel.Vigneau at ifremer.fr
+To: "hans.gerritsen at marine.ie" <mailto:hans.gerritsen at marine.ie>  <hans.gerritsen at marine.ie> <mailto:hans.gerritsen at marine.ie> ,
+        "Cost-project-devel at lists.berlios.de" <mailto:Cost-project-devel at lists.berlios.de> 
+        <Cost-project-devel at lists.berlios.de> <mailto:Cost-project-devel at lists.berlios.de> ,
+        "cost-project-users at lists.berlios.de" <mailto:cost-project-users at lists.berlios.de> 
+        <cost-project-users at lists.berlios.de> <mailto:cost-project-users at lists.berlios.de> 
+Subject: [cost-devel] COST and SOP
+Message-ID: <20110413134052.39561gkkek7i9wp0 at vdmz1mail.ifremer.fr> <mailto:20110413134052.39561gkkek7i9wp0 at vdmz1mail.ifremer.fr> 
+Content-Type: text/plain; charset=ISO-8859-1; DelSp="Yes";
+        format="flowed"
+ 
+Hi all
+ 
+we are working the French data in an internal WS in Ifremer with COST,
+and the SOP discrepancy has not been dealt with in the project.
+Indeed, the weight at length and @age are estimated independently from
+the N at length and N at age, so we see that it often leads to SOP
+discrepancies.
+ 
+My question is, did you also face this problem and of course, did you
+write some code to deal with this. IMO, there are easy solutions
+(translation on w at length) that  would prefer avoiding, and more
+complex/proper solution (do you know some papers on this issue?),
+that's why I would like your comments on this.
+ 
+Thanks in advance
+ 
+Joel
+ 
+ 
+ 
+------------------------------
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+ 
+ 
+End of Cost-project-devel Digest, Vol 25, Issue 1
+*************************************************
+ 
+This message contains confidential information and is intended only for the individual(s) named. If you are not the named addressee you should not disseminate, distribute or copy this e-mail. Please notify the sender immediately by e-mail if you have received this e-mail by mistake and delete this e-mail from your system. E-mail transmission cannot be guaranteed to be secure or error-free as information could be intercepted, corrupted, lost, destroyed, arrive late or incomplete, or contain viruses. The sender therefore does not accept liability for any errors or omissions in the contents of this message, which arise as a result of e-mail transmission.
+ 
+Is don t? at? ainmithe an teachtaireacht seo agus inte t? eolas r?nda. Muna t? an t? at? ainmithe n?or ch?ir duit an r?omhphost seo a eis-sheacada, scaipeadh n? a choip?il. M? fuir t? an r?omhphost seo tr? thimpist cur a t? a sheol ? ar an eolas l?thaireach tr? r?omhphost agus scrios ? ? do choras f?in. N? f?idir a ch?nti? go bhfuil r?omhphost gan lucht n? s?bhailte de bharr m?dh seachadadh na r?omhphost. D'fh?adfach s? go nd?anfa? tascradh ar an eolas, go mbeadh s? curtha as rocht, go gcailf? n? go scriosf? ?, go mbeadh moill ar, ? easnamhach n? go mbeadh v?reas 
+curtha leis le linn a sheachadadh. D? bhr? sin n? glacann an t? a sheol le aon mhil?an maidir le easnaimh n? but?in in ?bhar na teachtaireachta a tharla?onn le linn a sheachadadh.
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+ 
+
+ 
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+Station de Port-en-Bessin
+
+________________________________
+
+Ifremer
+Avenue du Gal De Gaulle
+14520 PORT-EN-BESSIN
+tel : (33)2-31-51-56-41
+fax : (33)2-31-51-56-01 
+
+m?l : Joel.Vigneau at ifremer.fr
+web : http://wwz.ifremer.fr/peche
+
+Coordinator of the GFCM Sub-Committee on Statistics
+and Information : http://www.gfcm.org <http://www.gfcm.org/> 
+
+Coordinator of the COST project :
+http://wwz.ifremer.fr/cost <http://wwz.ifremer.fr/cost> 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+ 
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+ 
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+Station de Port-en-Bessin
+
+________________________________
+
+Ifremer
+Avenue du Gal De Gaulle
+14520 PORT-EN-BESSIN
+tel : (33)2-31-51-56-41
+fax : (33)2-31-51-56-01 
+
+m?l : Joel.Vigneau at ifremer.fr
+web : http://wwz.ifremer.fr/peche
+
+Coordinator of the GFCM Sub-Committee on Statistics
+and Information : http://www.gfcm.org <http://www.gfcm.org/> 
+
+Coordinator of the COST project :
+http://wwz.ifremer.fr/cost <http://wwz.ifremer.fr/cost> 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110418/0744bd7e/attachment.html>
+
+From ernesto at ipimar.pt  Mon Apr 18 11:30:34 2011
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Mon, 18 Apr 2011 10:30:34 +0100
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C58120264994A@mail4.marlab.ac.uk>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de><80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>	<4DA802E5.1030701@ifremer.fr><A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>	<4DA819F2.4040805@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C58120264994A@mail4.marlab.ac.uk>
+Message-ID: <4DAC04BA.1030809@ipimar.pt>
+
+On 04/18/2011 09:35 AM, Alastair Pout wrote:
+>
+> Hi Joel, All
+>
+> Seems to me that there is a fundamental issue here.
+>
+> There will always be a discrepancy between declared landed weights and 
+> the estimated landed weight derived from the sum of  the mean weight 
+> of a fish at age (or length) X the estimate of the raised number;
+>
+> i.e. the sum of products
+>
+> If this sum of products discrepancy is large there are potentially 3 
+> possible reasons:
+>
+>    1. the weights used to calculate the mean weight at age (or length)
+>       are incorrect (be they measured directly from the fish or
+>       derived using a weight length relationship).
+>    2. there are errors in the raising process.
+>    3. there are errors in the logbook landing weights data which is
+>       being raised against.
+>
+> The magnitude of the discrepancy should be recorded with the raised data.
+>
+> That is exactly the sort of thing that the WKACCU bias scorecard 
+> should pick up on, and which national labs should be checking.
+>
+> What I don't think should be happening is that N at age or length 
+> should be adjusted so that they correspond to the declared landing 
+> weight.
+>
+> This is exactly what we used to do and it seems to me it is 
+> potentially just papering over biases in the raised data.
+>
+> All the best
+>
+> Alastair
+>
+Hi,
+
+I agree with Alastair. The SOP correction is done when one wants to use 
+the data in stock assessment models, to assure the biomass computation 
+isn't biased by these kind of problems. But at COST level it should be 
+kept as observed, to trigger the identification of problems in data or 
+bio models like length-weight relationships or mean weight at age.
+
+Best
+
+EJ
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110418/52c0575b/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Mon Apr 18 13:58:54 2011
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 18 Apr 2011 13:58:54 +0200
+Subject: [cost-devel] Cost-project-devel Digest, Vol 25,
+	Issue 1 - Ireland
+In-Reply-To: <4DAC04BA.1030809@ipimar.pt>
+References: <mailman.33.1302775204.24015.cost-project-devel@lists.berlios.de><80B3A3B637168240BC026CECBCE7AA662E661FBE16@MICCRMBX.Marine.ie>	<4DA802E5.1030701@ifremer.fr><A0F8DAFB525DED4ABAF6841BB11C581202649947@mail4.marlab.ac.uk>	<4DA819F2.4040805@ifremer.fr>	<A0F8DAFB525DED4ABAF6841BB11C58120264994A@mail4.marlab.ac.uk>
+	<4DAC04BA.1030809@ipimar.pt>
+Message-ID: <4DAC277E.50406@ifremer.fr>
+
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20110418/88e629ee/attachment.html>
+

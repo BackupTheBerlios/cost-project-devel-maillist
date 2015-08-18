@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] some comments and queries on FF5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20some%20comments%20and%20queries%20on%20FF5&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C58120100C90B%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000056.html">
+   <LINK REL="Next"  HREF="000068.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] some comments and queries on FF5</H1>
+    <B>Liz Clarke</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20some%20comments%20and%20queries%20on%20FF5&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C58120100C90B%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] some comments and queries on FF5">E.D.Clarke at marlab.ac.uk
+       </A><BR>
+    <I>Wed Oct 31 15:27:51 CET 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000056.html">[cost-devel] New COSTcore version (0.2-0)
+</A></li>
+        <LI>Next message: <A HREF="000068.html">[cost-devel] some comments and queries on FF5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all. 
+
+I have just been checking through the FF5 format and have several
+comments or queries or points of clarification. Apologies for not doing
+this in such detail sooner, but I think they are all probably quite
+easily resolved. I have put them in the attached word document, but have
+pasted the more important ones below.
+
+best wishes
+Liz
+
+1.	TR, CE: Days at sea. We need to specify exactly how to define
+days at sea in the comments. Is this arrival date - departure date?
+
+2.	HH: Date. What is fishing start date for a fishing trip? Comment
+2 states that for trips, it is the date of the first station number, but
+(a) there is only one station (number 999), and (b) we probably don't
+know the date of the first station. How does this work for mixed trips?
+Wouldn't departure date or landing date or sampling date be more
+suitable (but see also comment on landings statistics later).
+
+3.	HH: Rectangle. This is mandatory for a trip, when we should give
+the rectangle with the most fishing. How is this determined? By hours
+fished? Often not available. By reported landings? Not the same thing as
+the most fishing! Please clarify in comments. I'm not very happy with
+either definition as it creates the impression that we know more than we
+really do.
+
+4.	SL: Weight. Is this total landed weight by species, landings
+category and size/subsampling category? What is meant in the comments by
+&quot;For market sampling: Catch weight is per definition equal to Sample
+weight.&quot;?
+
+5.	CA, CL, CE: Quarter &amp; Month. What date are these to be taken
+from? For CA, presumably they would match the corresponding date for
+that station in HH? Please clarify in the comments. For landing
+statistics, the natural date to take these from would be date of
+landing. However, if the date in HH is date of departure, samples landed
+at the beginning month will be allocated to the previous month (when the
+trip departed) rather than the correct landings month. I think it is
+important we make sure that all our dates are consistent.
+
+6.	HH, CL, CE: Fishing activity level 5: FRS (and I suspect others)
+have not yet decided how to allocate trips/landings to this activity
+level but this field is already mandatory. Is this wise?
+ &lt;&lt;Comments &amp; Queries on FF5.doc&gt;&gt; 
+- - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - -
+
+Liz Clarke
+FRS Marine Laboratory              	Tel:  01224 295507(direct)
+PO Box 101, 375 Victoria Road          01224 876544
+Aberdeen, AB11 9DB, U.K.        Fax: 01224 295511  
+- - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - -
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Comments &amp; Queries on FF5.doc
+Type: application/msword
+Size: 44032 bytes
+Desc: Comments &amp; Queries on FF5.doc
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.doc">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071031/5e4d6f94/attachment.doc</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000056.html">[cost-devel] New COSTcore version (0.2-0)
+</A></li>
+	<LI>Next message: <A HREF="000068.html">[cost-devel] some comments and queries on FF5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#67">[ date ]</a>
+              <a href="thread.html#67">[ thread ]</a>
+              <a href="subject.html#67">[ subject ]</a>
+              <a href="author.html#67">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTdbe v.0.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20v.0.1&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8825%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000161.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTdbe v.0.1</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20v.0.1&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8825%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] COSTdbe v.0.1">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Thu Sep 25 16:02:28 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000161.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Good work Mathieu.
+I installed the library from the zip file and the examples in the help files ran successfully.
+
+MATURITY
+Something for development -  Some maturity scales are character format not 1 to n and I think there are a few species, e.g. herring, in which Stages 1 &amp; 2 are immature rather than just 1 so the current version of bpEstim code below won't work for these exceptions. 
+
+I think it's an general issue and we either need to 
+i) only accept Maturity scales with immature as 1
+ii) as part of validation convert the different Maturity scales to a common coding, at or least numeric with immature as 1
+iii) have functions that can deal with the matScale field and maybe have a immatureCodes argument, e.g. immatureCodes=c(&quot;I&quot;, 1)
+
+
+SPECIES
+Is my understanding of the functions correct? - the species argument allows a subset of the data to be used but the functions do not use species as a strata. So the correct way to use the functions for several species is to specify one at a time. Specifying more than one species e.g., species = c(&quot;Gadus morhua&quot;, &quot;Solea solea&quot;) will select cod and sole then give one output using the data for both. 
+
+DATASETS
+Another step in testing the functions is to try some more datasets. I've lost track of which datasets have been altered to meet the latest format and the COSTdata folder on CVS is empty. Please can someone update me on this? 
+
+Thanks, David 
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>]
+Sent: 22 September 2008 10:31
+To: David Maxwell (Cefas); marcel machiels; Paz Sampedro;
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>
+Subject: COSTdbe v.0.1
+
+
+
+Hi all,
+
+I've updated CVS on Berlios site. Your updated local copy of 'COSTdbe' 
+package should compile without warnings. First versions of the codes (to 
+be improved) with 'man' help files and drafts of NAMESPACE and 
+DESCRIPTION files are there.
+
+Best
+Mathieu
+
+-- 
+Mathieu Merz&#233;r&#233;aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G&#233;n&#233;ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T&#233;l : 02.31.51.56.46
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000161.html">[cost-devel] &quot;raising&quot; questions
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#157">[ date ]</a>
+              <a href="thread.html#157">[ thread ]</a>
+              <a href="subject.html#157">[ subject ]</a>
+              <a href="author.html#157">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

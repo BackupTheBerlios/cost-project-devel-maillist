@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] DEF modiif from the meeting: Survey data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B0290EA26%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000066.html">
+   <LINK REL="Next"  HREF="000060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] DEF modiif from the meeting: Survey data</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting%3A%20Survey%20data&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B0290EA26%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] DEF modiif from the meeting: Survey data">tej at difres.dk
+       </A><BR>
+    <I>Thu Oct 25 13:49:45 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000066.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+        <LI>Next message: <A HREF="000060.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+
+Comments to the requested change for getting survey data into the systems
+
+
+
+
+CS Tables- TR table - SamplingType field
+
+
+ 
+
+Background: The data processing needs fisheries independent data from research surveys to create age-length-maturity keys. [question here: does anybody need the HH, SL and HL data from surveys or is it only CA? I heard that some countries in the Mediterranean used the catches, CPUE, species and length distributions when raising the commercial fisheries data.]
+
+See also the previous mail-discussion of this topic in the appendix below.
+
+ 
+
+Remember that this is about the data exchange format, not the database (class/table) structure.
+
+ 
+
+Solution 1 (suggested solution from Lisbon): Addition of the code &quot;R&quot; = research survey in the field Sampling Type. Then the survey SMAWLs will be in the same structure as the SMAWLs from commercial fisheries.
+
+ 
+
+Solution 2 (alternative): Add the survey data in the existing survey data exchange formats (FF acoustics + DATRAS).
+
+ 
+
+Solution 3 (alternative): COST goes for solution 1 and FF for solution 2.
+
+ 
+
+Discussion:
+
+------------------
+
+Henrik &amp; Teunis (25/10):
+
+It is not an easy choice, because there are advantages and disadvantages for all solutions. We have already discussed this before the Lisbon-meeting, but there was not reached any consensus on this subject. The mails from that discussion is in the appendix at the end of this mail. We have tried to list the possible solutions with their respective advantages and disadvantages  below:
+
+ 
+
+Solution 1: 
+
+Advantages:
+
+&#183;        Fast implementation in the code that pulls out data from input files and puts it into the database (classes/tables).
+
+Disadvantages:
+
+&#183;        Double data. The survey data exist on both the designated survey formats (FF acoustic surveys and DATRAS) and on the CS format. This usually leads to decreased data quality.
+
+&#183;        National data managers shall make scripts for putting their survey data in to two different formats.
+
+&#183;        Risk of scope slide. Survey data offers much more information than what is available from commercial fisheries sampling. There is a risk that this will make the format grow increasing the inconsistency and number of notes like &quot;this field is like this for those data, unavailable for other data etc. etc.&quot;. Gear-field was mentioned by Ernesto. Should that then be added to the Ca-record or should a HH accompany the CA's? What about the big difference between HH's? I have seen this happen before.
+
+Solution 2: 
+
+Advantages:
+
+&#183;        None of the disadvantages from solution 1.
+
+Disadvantages:
+
+&#183;        More code for pulling out data from input files and puts it into the database (classes/tables) needs to be written.
+
+Solution 3:
+
+Disadvantages: 
+
+&#183;        Not one single exchange format. This is however only a code, so the format is nearly the same, although the risk of scope sliding mentioned above might add more differences in a year or two.
+
+ 
+
+We have discussed this several times among the FishFrame developers and we have come to the conclusion that we can not go for solution 1. Solution 2 is what serves the FishFrame users best in the longer run. We think that this also applies to COST.
+
+ 
+
+So we are left with solution 2 or 3. Or maybe you can come up with other angles or solutions?
+
+ 
+
+Best regards
+
+Henrik &amp; Teunis
+
+--------------------
+
+ 
+
+ Please add your contribution to the discussion here...
+
+ 
+
+------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+Appendix. 
+
+ 
+
+&gt;<i> ------------------------------------------------------
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Dear All
+</I>
+&gt;<i> 
+</I>
+&gt;<i> So it is clear that FishFrame and COST needs SMAWL data from trawl surveys, acoustic surveys and commercial fisheries samplings. COST 1 only contains full information from commercial fisheries data while FishFrame contains full information from all three. COST 2 might include all as well. 
+</I>
+&gt;<i> We now have three well defined non-overlapping exchange formats for the sampling types (FF5.CS + FF5.AS + ICES.DATRAS).
+</I>
+&gt;<i> 
+</I>
+&gt;<i> 
+</I>
+&gt;<i> So what to do?
+</I>
+&gt;<i> Option 1:
+</I>
+&gt;<i> We can create a new format for SMAWL and then use the other formats for HLs only. Then we would not need to create separate methods for reading the three formats into COST 1 (although we might have to do it in COST 2). This would be the easiest solution seen solely from the COST project side.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Option 2:
+</I>
+&gt;<i> We can use the three formats for exchanging the data including the SMAWL data, and if needed (for COST) the formats can be used without adding the HL records. FishFrame stores the whole structure while COST 1 only stores the SMAWL, this could be in one shared SMAWL table or in three separate. The storage (internal database structure) is not depending on the exchange formats.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Option 3 (a mix of 1 and 2):
+</I>
+&gt;<i> COST could use the CS format for SMAWL while additional SMAWLs from surveys would then be added in a new format. Inside COST we can keep them separate or in the same table as we want.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> What option to choose?
+</I>
+&gt;<i> In all three options FishFrame and COST applications can then let the user decide what SMAWL data to include during analysis, this is independent of exchange format and database design.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Seen from the data provider side, then option 2 is preferable because, the national data centers only needs to make sure that they extract and maintain one set of data. Having multiple versions of the same data in different overlapping formats easily leads to errors and outdated data.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Seen from the data quality perspective, I personally think data quality checking becomes more transparent and stronger when the types are kept apart in the more streamlined way (option 2). 
+</I>
+&gt;<i> By the way we will add a feature on the FishFrame, that makes users able to validate their exchange files without uploading them. This is mainly for COST users and others who use same formatting. This can only be used if we have similar formats.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> There is also some stratification issues to deal with. The age-length keys are different for different EU-size-sorting categories and for landed part vs. discarded part (see attached file). This makes the format for commercial SMAWL and survey SMAWL different pointing towards option 2 or 3.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Best regards
+</I>
+&gt;<i> Teunis
+</I>
+&gt;<i> 
+</I>
+&gt;<i> _______________________________________________
+</I>
+&gt;<i> Cost-project-members mailing list
+</I>
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-members at lists.berlios.de</A>
+</I>
+&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>&gt; 
+</I>
+&gt;<i> 
+</I>
+&gt;<i> 
+</I>
+&gt;<i>   
+</I>
+&gt;<i> 
+</I>
+&gt;<i> ----------------------------------------------------------------------
+</I>
+&gt;<i> --
+</I>
+&gt;<i> 
+</I>
+&gt;<i> ----------------------------------------------------------------------
+</I>
+&gt;<i> --
+</I>
+&gt;<i> ________________________________
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Fra: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-members-bounces at lists.berlios.de</A> 
+</I>
+&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-members-bounces at lists.berlios.de</A>] P&#229; vegne af 
+</I>
+&gt;<i> Joel VIGNEAU
+</I>
+&gt;<i> Sendt: 11. oktober 2007 16:32
+</I>
+&gt;<i> Til: ernesto
+</I>
+&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-members at lists.berlios.de</A>
+</I>
+&gt;<i> Emne: Re: [Cost-project-members] COST: SMAWL data from trawl surveys, 
+</I>
+&gt;<i> acoustic surveys and commercial fisheries samplings
+</I>
+&gt;<i> 
+</I>
+&gt;<i> 
+</I>
+&gt;<i> ernesto a &#233;crit : 
+</I>
+&gt;<i> 
+</I>
+&gt;<i>          Joel VIGNEAU wrote: 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Hi all,
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> let me summarise the situation to see if we have the same understanding
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> What we agree : 
+</I>
+&gt;<i> FF.CS + FF.AS + DATRAS make a complete and non-overlapping picture of all the fisheries information sampled. 
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> COST has based its structure on FF.CS but needs biological 
+</I>
+&gt;<i> parameters from surveys (FF.AS, DATRAS, and others...)
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> The FF/COST DEF table CA now contains biological parameters from individual fish. 
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> What remains under discussion : 
+</I>
+&gt;<i> There are still different options and even variants within the options proposed by Teunis. The option 2, which seems to gather the most advantages, makes a CA table in COST DEF independent of CS in the sense that we would not mandatorily request related information in HL. There is a variant of 3 different CA tables or a unique one. My preference goes to a unique one (I think there are not many differences). For opening to the future, we could add a field DATA_SOURCE (CS, AS, Surveys, ...). When the source is CS, we need to have a related information in HL, otherwise, for the moment there is no integrity check. 
+</I>
+&gt;<i> If we go that way, do we have sufficient information in the CA table, especially concerning the time period when the source is not HL? 
+</I>
+&gt;<i> The stratification issue 
+</I>
+&gt;<i> I'm not surprised with your graph. The CC is a stratification based on individual weight, which according to the length/weight allometry correspond approximately to a stratification by length. In the small fish category, the mean length-at-age for every ages will be smaller than in the medium fish category, which all will be smaller than in the big fish category. The only way to get out of this, is to combine all the CC into a complete matrix and multiply by the real length proportion of the population, before doing any estimates. 
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> BR
+</I>
+&gt;<i>                     
+</I>
+&gt;<i> Joel
+</I>
+&gt;<i> 
+</I>
+&gt;<i>          Hi Joel,
+</I>
+&gt;<i>          
+</I>
+&gt;<i> I think your summary is correct but I'd like to elaborate a little bit more on CA tables. 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> This information comes from 3 different sources, (i) market sampling, (ii) on-board sampling and (iii) surveys, which differ in their aggregation level. Most aggregated is market sampling where area and time units are, at the most, rectangle and day. After we have on-board sampling where sometimes its possible to have coordinates and time in hour:minutes. The most disaggregated is survey data where we have coordinates and time. The information related with the individual is the same for all, although sometimes there are some missing observations (one may sample age and not maturity, etc). 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> Based on this rationale we may create a data structure that combines area, rectangle, coordinates, day, hour with data source (this is similar to sampling type so we may use that field): 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> sampType; area, rectangle, latIni, lonIni, latFin, lonFin, dateIni, 
+</I>
+&gt;<i> dateFin, hourIni, hourFin, stock, spp, sex, etc (country, length, age, 
+</I>
+&gt;<i> blah blah blah)
+</I>
+&gt;<i>          
+</I>
+&gt;<i> area, rectangle and dateFin would be mandatory so that market sampling can be included and the other fields would be filled based on sampType. A survey could provide everything lat, lon, hour, etc, while on-board sampling could provide some of this information. This way we could develop a data structure for individual biopars and link with CS using rectangle, date, spp etc. 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> My doubts are: 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> 1) although biopars are independent from the fishery we know that the selectivity of the gear can bias the sampling, so I guess we should keep some information about the gear used to collect the sample; 
+</I>
+&gt;<i> 2) how far can we go with this and still keep compatibility with FF ? A change like this would require some adjustments to FF5 and FF5 exchange format. Are you whiling to do it ? Otherwise it makes no sense implementing only in COST and we should just keep it as it is now. 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> IMO if we go this path we should stop developing CA for now, discuss the data structure until we have an agreement and after implement FF5, FF5 exchange format and COST classes. In the mean time other packages could move on with length frequencies methods. 
+</I>
+&gt;<i>          
+</I>
+&gt;<i> Best
+</I>
+&gt;<i>          
+</I>
+&gt;<i> EJ
+</I>
+&gt;<i>          
+</I>
+&gt;<i>          
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Hi Ernesto,
+</I>
+&gt;<i> 
+</I>
+&gt;<i> it's sure we have a structural problem here that cannot be resolved at a glance. So let's not hurry to find out the best solution keeping a full convergence between COST and FF.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> I agree with your approach (Sampling type will give us the source; area, rectangle and datefin are mandatory fields, ...) and concerning your doubts, the linkage between CA and HH should provide the gear information and its basic characteristics (when the source is commercial). I think we can live for the moment without this info for the surveys.
+</I>
+&gt;<i> 
+</I>
+&gt;<i> If we can fix this (Teunis and Henrik, is it Ok for you?), I think we can begin COST development with this structure. In parallel, we can continue the work with FF and come much later with a revision of the DEF. Anyway, the development and the beta-testing will bring other issues at the surface ....
+</I>
+&gt;<i> 
+</I>
+&gt;<i> We will have to agree on the fact that from now on, and within the life of the project, we can only change the DEF once (so better be for good!).
+</I>
+&gt;<i> 
+</I>
+&gt;<i> BR
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Joel
+</I>
+&gt;<i> 
+</I>
+&gt;<i>  -----------------------------------------------------------
+</I>
+&gt;<i> 
+</I>
+&gt;<i> Hi All
+</I>
+&gt;<i>  
+</I>
+&gt;<i> I am not sure exactly what to think is OK:-) I am uncertain about what in your mails refer to exchange formats and what refer to internal database structure in COST.
+</I>
+&gt;<i> For now, lets focus on the exchange format (you might already be doing that - I was just in doubt). Remember that internal database structures can easily differ from the exch. format.
+</I>
+&gt;<i>  
+</I>
+&gt;<i> Seen from the FishFrame side, we can not go for a solution with SMAWL record in the exchange format that is shared between CS (Commercial fisheries sampling), AS (Acoustic survey) and TS (Trawl survey). The SMAWL record is however shared between on-board vessel sampling and market sampling, since both are in the CS format.
+</I>
+&gt;<i> The main reason why this is not a solution we can implement in FF (exchange format), is that the data managers we know of, keep and handle their national data linked to the way they are sampled. Data from one survey is kept gathered and quality assured after the survey has finished. Then the surveys data is uploaded. Similarly with the commercial samplings. It is often separate people who are responsible for each type of sampling. So when it comes to uploading, correcting and approving datasets, then it is natural that this is done separately for CS (Commercial fisheries sampling), AS (Acoustic survey) and TS (Trawl survey). 
+</I>
+&gt;<i>  
+</I>
+&gt;<i> So it is option 2 for FF... I would also think that this would be the most long lasting solution for COST, especially seen in the light of the possibility of a COST 2 containing survey data. 
+</I>
+&gt;<i> If you should decide in Lisbon to go for option 2 with COST as well and this requires modification / addition of single SMAWL fields, then we are ready to look into that.
+</I>
+&gt;<i>  
+</I>
+&gt;<i> Best regards
+</I>
+&gt;<i> Teunis
+</I>
+&gt;<i>   
+</I>
+ 
+
+Hi Teunis,
+
+ 
+
+I was talking about both, exchange format and database structure. R classes are trying to replicate the database structure so we need both to implement classes and io methods.
+
+ 
+
+I see the point of keeping the exchange format like it is with small adjustments but we'll need a different data structure for biopars. How do you deal with it in FF ? If you need to aggregate individual data from surveys and market sampling to build an ALK how do you do it now ?
+
+ 
+
+Best
+
+ 
+
+EJ
+
+ ----------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/b79fecd9/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071025/b79fecd9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000066.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+	<LI>Next message: <A HREF="000060.html">[cost-devel] DEF modiif from the meeting: Survey data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#59">[ date ]</a>
+              <a href="thread.html#59">[ thread ]</a>
+              <a href="subject.html#59">[ subject ]</a>
+              <a href="author.html#59">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

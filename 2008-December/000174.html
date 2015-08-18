@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Data Exchange Format 24Nov08 - Questions &amp; comments
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20Exchange%20Format%2024Nov08%20-%20Questions%20%26%20comments&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8947%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000171.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Data Exchange Format 24Nov08 - Questions &amp; comments</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20Exchange%20Format%2024Nov08%20-%20Questions%20%26%20comments&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F8947%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] Data Exchange Format 24Nov08 - Questions &amp; comments">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Tue Dec 16 13:04:22 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[cost-devel] fishing effort allocation
+</A></li>
+        <LI>Next message: <A HREF="000171.html">[cost-devel] new vslLenCat field in cl and ce tables
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#174">[ date ]</a>
+              <a href="thread.html#174">[ thread ]</a>
+              <a href="subject.html#174">[ subject ]</a>
+              <a href="author.html#174">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi to everyone involved with the data exchange format,
+
+We have a few questions &amp; comments on the data exchange format 24Nov08, please can you provide some clarification. I suggest it would be worth keeping a record of useful questions and answers along with the format so other people can refer to them.
+
+Questions 1 to 3 refer to the CE table and my email of 05 Dec 08, given below. Additional questions follow.
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of David
+Maxwell (Cefas)
+Sent: 05 December 2008 15:27
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>; Peter Robinson (Cefas)
+Subject: [cost-devel] fishing effort allocation
+
+
+Thanks for posting the data exchange format 24Nov08 on the website. We are updating our market data extraction based on it.
+
+For the CE table note 1 says:
+
+If a trip is [sic] covers more than 1 rectangle/SubPolygon, then the rectangle with the most fishing is used
+
+1) Can you confirm 'most fishing' refers to most effort.
+
+2) What is the rule if two or more statistical rectangles have the same effort?
+
+3) Is the following very small example, with only one trip and species, correct (except for the format of division and rectangle)?
+
+The trip fishes in 3 rectangles:
+division  rectangle   hours_fished  official_landings
+VIIe	     29E6        6                500
+VIIe	     29E7        6                600
+VIId	     29E8        7                 10
+
+CL table is assigned
+division  rectangle    Official Landings weight
+VIIe	     29E6                    500
+VIIe	     29E7                    600
+VIId	     29E8                     10
+
+CE table is assigned
+division  rectangle   Fishing time  Number of trips
+VIIe	     29E6        6                0
+VIIe	     29E7        6                0
+VIId	     29E8        7                1
+
+----------------------------------------------
+--- Message of 16 December 2008 continues ---
+
+4) TR(variable 10) Vessel size is in Gross register tonnes (GRT) while CE(18) GT-days is in Gross Tonnes (GT) is this difference deliberate?
+I understand that there is not a simple conversion between these two measures. Eventually GRT may be replaced by GT as vessels are reassessed but at present we have a mix of the two in our data.
+
+5) TR(13) comment 1. We do not know the number of hauls when sampling type = &quot;M&quot;
+
+6) TR(17) &quot;Observer&quot; not &quot;Oberver&quot;
+
+7) TR comment 4. &quot;Sea sampling can be done&quot; is repeated
+
+8) HH(8) Station number. For market sampling we need to use trip number as &quot;trip to the market&quot; and station number as sample number. No problems, except that our sample numbers as sequential across all samples not within trips so the acceptable range needs to be 1 to 999999.
+
+9) HH(13) Date. For market sampling we cannot provide Fishing start date. Sampling date or Landing date can be provided but we want to avoid the column containing Dates with different definitions.
+
+Thanks again for your time,
+David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[cost-devel] fishing effort allocation
+</A></li>
+	<LI>Next message: <A HREF="000171.html">[cost-devel] new vslLenCat field in cl and ce tables
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#174">[ date ]</a>
+              <a href="thread.html#174">[ thread ]</a>
+              <a href="subject.html#174">[ subject ]</a>
+              <a href="author.html#174">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

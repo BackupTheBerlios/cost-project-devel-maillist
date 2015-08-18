@@ -1,0 +1,2989 @@
+From ernesto at ipimar.pt  Mon Sep 24 13:26:33 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 24 Sep 2007 12:26:33 +0100
+Subject: [cost-devel] COSTcore
+Message-ID: <46F79EE9.9030805@ipimar.pt>
+
+Dear all,
+
+I want to develop a COSTcore beta version during this week. Mainly it 
+will be a set of S4 classes to map FishFrame tables in R, and some 
+methods for data manipulation. I also want to set up a routine procedure 
+to read data and create the objects on the fly. I'll use our mailing 
+list to keep you updated on the work. I'll use CVS for file control and 
+our file release system for package release (see below).
+
+2) CVS
+
+The Concurrent Versions System (CVS), also known as the Concurrent 
+Versioning System, is an open-source version control system that keeps 
+track of all work and all changes in a set of files, typically the 
+implementation of a software project, and allows several (potentially  
+widely-separated) developers to collaborate. We'll use it for COSTcore 
+development (I suggest the other packages also use it) and you'll need 
+to learn how to use it. Although it seams complicated we'll need only a 
+very restricted number of features and in the end you'll see it's quite 
+easy. There are some GUIs for windows (see below) and the documentation 
+is quite good (see also below).
+
+Documentation about CVS can be found here:
+
+Generics: http://en.wikipedia.org/wiki/Concurrent_Versions_System
+Main reference (you should read the introduction and second chapter): 
+http://cvsbook.red-bean.com/
+A GUI for windows: http://tortoisecvs.sourceforge.net/
+Berlios CVS:  https://developer.berlios.de/docman/?group_id=2
+
+Here you can see the modules we have, for now only core 
+https://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project and here you can 
+see within  COSTcore 
+https://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/ .
+
+To configure you're client you need the following information server: 
+cvs.cost-project.berlios.de ; repository: /cvsroot/cost-project
+
+2) File releases
+
+Check our (empty) file repository 
+https://developer.berlios.de/project/showfiles.php?group_id=7299 .
+
+Best regards
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Mon Sep 24 16:55:52 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 24 Sep 2007 15:55:52 +0100
+Subject: [cost-devel] french cs dataset
+Message-ID: <46F7CFF8.2060109@ipimar.pt>
+
+Hi Mathieu,
+
+I'm trying to import the dataset you've sent. In table sl the new format 
+has a field called "presentation" but you don't have it on you're dataset.
+
+Can you include it on your dataset ?!
+
+Thanks
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Mon Sep 24 18:03:43 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Mon, 24 Sep 2007 17:03:43 +0100
+Subject: [cost-devel] new version of data format
+Message-ID: <46F7DFDF.5070907@ipimar.pt>
+
+Hi,
+
+I've checked the data formats in use by FF and our new version and they 
+are quite different. Where is our version coming from ? Who proposed it 
+? Is there a UML representation that I can use to learn more about it ?
+
+I'm not very happy with it ! in particular some field look redundant and 
+it's not clear for me the links between tables, e.g. why do we have on 
+the same table national coding (fishing_act_nat) and eu coding 
+(fishing_act_eu) ? That's something one keeps on codification tables, 
+not together with the data.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Sep 25 09:00:54 2007
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Tue, 25 Sep 2007 09:00:54 +0200
+Subject: [cost-devel] new version of data format
+In-Reply-To: <46F7DFDF.5070907@ipimar.pt>
+References: <46F7DFDF.5070907@ipimar.pt>
+Message-ID: <20070925090054.iier7nzscgwsw4cc@www.ifremer.fr>
+
+Hi Ernesto,
+
+currently attending the RCM North Sea in Uddevala, I'll try to answer 
+your questions.
+
+The version on the WIKI should not be far from the FF format, as it 
+served as a basis. Moreover, there has not been so much 
+addition/modification. The activity coding you refer to, comes from a 
+need to cope with national coding in a national nested frame. The 
+countries are free to stratify the EU fishing activities at will, from 
+the moment they respect the stratification rules.
+
+There is no documentation on this as it was put on the WIKI for 
+discussion. Nothing is settled there. If there is a need to modify the 
+frame so that everything be smooth, let's do it. The only things that 
+matter to me is that we find all the neceessary elements to work.
+
+best regards
+
+Joel
+
+
+ernesto <ernesto at ipimar.pt> a ?crit :
+
+> Hi,
+>
+> I've checked the data formats in use by FF and our new version and they
+> are quite different. Where is our version coming from ? Who proposed it
+> ? Is there a UML representation that I can use to learn more about it ?
+>
+> I'm not very happy with it ! in particular some field look redundant and
+> it's not clear for me the links between tables, e.g. why do we have on
+> the same table national coding (fishing_act_nat) and eu coding
+> (fishing_act_eu) ? That's something one keeps on codification tables,
+> not together with the data.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+
+
+
+
+
+From tej at difres.dk  Tue Sep 25 09:01:34 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Tue, 25 Sep 2007 09:01:34 +0200
+Subject: [cost-devel] new version of data format
+In-Reply-To: <46F7DFDF.5070907@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B028188E6@ch-mail01.dfu.local>
+
+Dear All
+
+Here is the proposal for FishFrame version 5.0.
+You should compare with this, not with the FishFrame version 4.3
+presently in use.
+
+Could we not take questions to the exchange format on the wiki?
+
+BR
+Teunis
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 24. september 2007 18:04
+To: Cost-devel Mailing List
+Subject: [cost-devel] new version of data format
+
+Hi,
+
+I've checked the data formats in use by FF and our new version and they
+are quite different. Where is our version coming from ? Who proposed it
+? Is there a UML representation that I can use to learn more about it ?
+
+I'm not very happy with it ! in particular some field look redundant and
+it's not clear for me the links between tables, e.g. why do we have on
+the same table national coding (fishing_act_nat) and eu coding
+(fishing_act_eu) ? That's something one keeps on codification tables,
+not together with the data.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame exchangeformat.doc
+Type: application/msword
+Size: 1044992 bytes
+Desc: FishFrame exchangeformat.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070925/2db1b5cb/attachment.doc>
+
+From ernesto at ipimar.pt  Tue Sep 25 16:17:49 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 25 Sep 2007 15:17:49 +0100
+Subject: [cost-devel] new version of data format
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B028188E6@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B028188E6@ch-mail01.dfu.local>
+Message-ID: <46F9188D.5090006@ipimar.pt>
+
+Hi Teunis,
+
+I suggest we take a look at it and if it fits our needs we should keep it.
+
+Best
+
+EJ
+
+Teunis Jansen wrote:
+> Dear All
+>
+> Here is the proposal for FishFrame version 5.0.
+> You should compare with this, not with the FishFrame version 4.3
+> presently in use.
+>
+> Could we not take questions to the exchange format on the wiki?
+>
+> BR
+> Teunis
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 24. september 2007 18:04
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] new version of data format
+>
+> Hi,
+>
+> I've checked the data formats in use by FF and our new version and they
+> are quite different. Where is our version coming from ? Who proposed it
+> ? Is there a UML representation that I can use to learn more about it ?
+>
+> I'm not very happy with it ! in particular some field look redundant and
+> it's not clear for me the links between tables, e.g. why do we have on
+> the same table national coding (fishing_act_nat) and eu coding
+> (fishing_act_eu) ? That's something one keeps on codification tables,
+> not together with the data.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+
+From ernesto at ipimar.pt  Tue Sep 25 17:55:29 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 25 Sep 2007 16:55:29 +0100
+Subject: [cost-devel] Comments on FF data format 5
+Message-ID: <46F92F71.4040700@ipimar.pt>
+
+HI Teunis,
+
+I read the document you posted. The data structure is much better than 
+the first one and clearly shows a mature analysis of fisheries data 
+needs. I'd like to have the data dictionary if possible as I don't fully 
+understand the relations between tables. The indices like primary keys 
+and foreign keys are not clear to me, check this ones regarding CS data:
+
+1) TR primary key looks like a concatenation of Sampling Type, Year, 
+Trip number and Vessel identifier.
+
+2) If TR is correct it should constitute a foreign key in HH, however HH 
+does not have Vessel identifier. HH primary key would be a concatenation 
+of the foreign key with Station number and Date.
+
+3) SL does not have a foreign key in agreement with previous tables (no 
+vessel identifier, no date, etc) and its primary key should concatenate 
+the foreign key with fields 9-15.
+
+4) HL also does not have a complete foreign key but it's consistent with 
+SL. The primary key concatenates the foreign key with length class.
+
+5) CA stores individual information !? If so the single fish number will 
+provide a primary key concatenated with fields 1-17 !?
+
+6) I'm not sure I understand why you're including codes with 
+observations like maturity scale and maturity stage, can you explain a 
+little more !?
+
+Best
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Tue Sep 25 18:25:09 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 25 Sep 2007 17:25:09 +0100
+Subject: [cost-devel] new version of data format
+In-Reply-To: <46F9188D.5090006@ipimar.pt>
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B2694A@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi,
+As Teunis suggests I have copied the message to the wiki and added my reply.
+http://developer.berlios.de/projects/cost-project/
+DATA EXCHANGE forum
+
+David
+
+
+By: davemax ( David Maxwell ) 
+ RE: new version of data format [ reply ]   
+2007-Sep-25 17:17  
+As we have extracted and reformated some of the CEFAS data to the current COST format I notice some small differences such as how currency is treated and if presentation is included.
+
+A larger point is that we also need to include fishing survey data in COST.  
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 25 September 2007 15:18
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] new version of data format
+
+
+Hi Teunis,
+
+I suggest we take a look at it and if it fits our needs we should keep it.
+
+Best
+
+EJ
+
+Teunis Jansen wrote:
+> Dear All
+>
+> Here is the proposal for FishFrame version 5.0.
+> You should compare with this, not with the FishFrame version 4.3
+> presently in use.
+>
+> Could we not take questions to the exchange format on the wiki?
+>
+> BR
+> Teunis
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 24. september 2007 18:04
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] new version of data format
+>
+> Hi,
+>
+> I've checked the data formats in use by FF and our new version and they
+> are quite different. Where is our version coming from ? Who proposed it
+> ? Is there a UML representation that I can use to learn more about it ?
+>
+> I'm not very happy with it ! in particular some field look redundant and
+> it's not clear for me the links between tables, e.g. why do we have on
+> the same table national coding (fishing_act_nat) and eu coding
+> (fishing_act_eu) ? That's something one keeps on codification tables,
+> not together with the data.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From tej at difres.dk  Wed Sep 26 14:32:03 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Wed, 26 Sep 2007 14:32:03 +0200
+Subject: [cost-devel] FishFrame database documentation
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B028189EA@ch-mail01.dfu.local>
+
+Dear All
+ 
+Attached is the FishFrame database document for version 5.0 as promised. The document is still under development, let me know what further info you would like...
+ 
+Best regards
+Teunis
+ 
+_________________________________
+
+Teunis Jansen, M. Sc., MCSD
+
+Marine Biologist & Software Developer
+Danish Institute for Fisheries Research
+Technical University of Denmark
+
+Charlottenlund slot
+DK 2929 Charlottenlund
+   
+Mail: tej at difres.dk <mailto:tej at difresfu.min.dk> 
+Phone: +45 30 66 78 40
+Skype: Teunis Jansen
+Messenger: tej at dfu.min.dk <mailto:tej at dfu.min.dk> 
+
+   ><((((((((((?>    <?))))><
+_________________________________
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070926/ae4ee889/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame Database Documentation.doc
+Type: application/msword
+Size: 566784 bytes
+Desc: FishFrame Database Documentation.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070926/ae4ee889/attachment.doc>
+
+From ernesto at ipimar.pt  Wed Sep 26 15:15:31 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 26 Sep 2007 14:15:31 +0100
+Subject: [cost-devel] Forum discussion
+Message-ID: <46FA5B73.5070101@ipimar.pt>
+
+Hi,
+
+I'm not sure if you noticed that to be update with the discussions on 
+forums you have to "monitor" the forum. There's a button on the forum 
+that allows you to do that.
+
+I've added a new comment on the forum about data and the FF5 data format.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Wed Sep 26 15:46:50 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 26 Sep 2007 14:46:50 +0100
+Subject: [cost-devel] FF5 data call
+Message-ID: <46FA62CA.2020703@ipimar.pt>
+
+Hi,
+
+Can someone provide data following the FF5 format ? I'm testing the 
+class definition and need some data.
+
+Thanks
+
+EJ
+
+
+
+From tej at difres.dk  Wed Sep 26 15:46:18 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Wed, 26 Sep 2007 15:46:18 +0200
+Subject: [cost-devel] Forum discussion
+In-Reply-To: <46FA5B73.5070101@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B028189FA@ch-mail01.dfu.local>
+
+Hi Ernesto
+
+Thank for informing me. I had done that already, but others could very
+well have forgotten, so that's good to mail out.
+
+BR
+Teunis 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 26. september 2007 15:16
+To: Cost-devel Mailing List
+Subject: [cost-devel] Forum discussion
+
+Hi,
+
+I'm not sure if you noticed that to be update with the discussions on
+forums you have to "monitor" the forum. There's a button on the forum
+that allows you to do that.
+
+I've added a new comment on the forum about data and the FF5 data
+format.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Wed Sep 26 17:32:10 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 26 Sep 2007 16:32:10 +0100
+Subject: [cost-devel] FishFrame database documentation
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B028189EA@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B028189EA@ch-mail01.dfu.local>
+Message-ID: <46FA7B7A.6020203@ipimar.pt>
+
+Teunis Jansen wrote:
+> Dear All
+>  
+> Attached is the FishFrame database document for version 5.0 as promised. The document is still under development, let me know what further info you would like...
+>  
+> Best regards
+> Teunis
+Hi Teunis,
+
+Can you please send this doc in pdf ? I can not see the diagrams properly.
+
+Thanks
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Wed Sep 26 18:52:44 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 26 Sep 2007 17:52:44 +0100
+Subject: [cost-devel] FF5 data call
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B26955@LOWEXPRESS.corp.cefas.co.uk>
+
+
+David H and Liz, given your experience applying the catch-at-age modelling to FRS data is there enough information in the FF5 format for that?
+I expect it will be fine for design based raising calculations.
+
+For the format 
+ if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.
+
+ In our data, size category and maturity stage are string not integer.
+
+Ernesto, I'm going to wait a few days for everyone to agree the format before we extract our data again.
+
+regards, David 
+
+-----Original Message-----
+From: ernesto [mailto:ernesto at ipimar.pt]
+Sent: 26 September 2007 17:00
+To: Cost-devel Mailing List; Liz Clarke; Alastair Pout; Hans; Joel
+VIGNEAU; Marie-Joelle ROCHET; Stephanie MAHEVAS; david hirst; David
+Maxwell (Cefas); Deborah Gillatt (Cefas); Dorleta Garcia; ernesto
+JARDIM; Henrik Degel; I?aki Artetxe; Isabel Gonzalez; Leire
+Ibaibarriaga; MERZEREAUD; Paz SamPedro; Romano Baino; Richard M; Steve
+Warnes (Cefas); Sue Bramford (Cefas); Teunis Jansen; Valentin Trujillo
+IEO
+Subject: Release 0.0-1 of COSTcore
+
+
+Dear all,
+
+The first release is out. A prebeta alpha gamma release, code name "0". 
+Meaning it does nothing except providing the S4 classes. No 
+documentation, no data, nothing :-)
+
+This is a R251 release. Please download from file repository 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) and 
+install. Those using linux should use the tar.gz file, those using 
+windows use the zip file. Then try:
+
+library(COSTcore)
+showClass("csData")
+showClass("ceData")
+showClass("clData")
+new("csData")
+new("ceData")
+new("clData")
+
+Those interested on the code please check out from CVS or take a look at 
+http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/
+
+I'd like to have opinions on the doubts posted to the forum and based on 
+those finalize the S4 definitions and start working on methods, 
+validity, tests, etc.
+
+This is my last message to the group outside the mailing list. Please 
+subscribe berlios and the cost-project-devel mailing list to keep 
+updated with COSTcore development.
+
+Best
+
+EJ
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 26 September 2007 14:47
+To: Cost-devel Mailing List
+Subject: [cost-devel] FF5 data call
+
+
+Hi,
+
+Can someone provide data following the FF5 format ? I'm testing the 
+class definition and need some data.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From ernesto at ipimar.pt  Wed Sep 26 17:59:57 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 26 Sep 2007 16:59:57 +0100
+Subject: [cost-devel] Release 0.0-1 of COSTcore
+Message-ID: <46FA81FD.9010307@ipimar.pt>
+
+Dear all,
+
+The first release is out. A prebeta alpha gamma release, code name "0". 
+Meaning it does nothing except providing the S4 classes. No 
+documentation, no data, nothing :-)
+
+This is a R251 release. Please download from file repository 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) and 
+install. Those using linux should use the tar.gz file, those using 
+windows use the zip file. Then try:
+
+library(COSTcore)
+showClass("csData")
+showClass("ceData")
+showClass("clData")
+new("csData")
+new("ceData")
+new("clData")
+
+Those interested on the code please check out from CVS or take a look at 
+http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/
+
+I'd like to have opinions on the doubts posted to the forum and based on 
+those finalize the S4 definitions and start working on methods, 
+validity, tests, etc.
+
+This is my last message to the group outside the mailing list. Please 
+subscribe berlios and the cost-project-devel mailing list to keep 
+updated with COSTcore development.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Thu Sep 27 09:59:48 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 27 Sep 2007 09:59:48 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <40A15E1D8A76A949AF0271EF3133E1A9B26955@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818A3F@ch-mail01.dfu.local>
+
+Hi David
+
+RE: "In our data, size category and maturity stage are string not integer."
+I had understood that you used a number-system for "Size category" - just like the EU defined size sorting categories, except that they are nationally defined and can not be mapped to the EU categories? Could you give data examples of your "Size category" and "Maturity stage"?
+
+RE: "if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency."
+Why in different currencies? Is it not more useful to have the data in the same unit?
+
+BR
+Teunis
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David Maxwell (Cefas)
+Sent: 26. september 2007 18:53
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+
+David H and Liz, given your experience applying the catch-at-age modelling to FRS data is there enough information in the FF5 format for that?
+I expect it will be fine for design based raising calculations.
+
+For the format
+ if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.
+
+ In our data, size category and maturity stage are string not integer.
+
+Ernesto, I'm going to wait a few days for everyone to agree the format before we extract our data again.
+
+regards, David 
+
+-----Original Message-----
+From: ernesto [mailto:ernesto at ipimar.pt]
+Sent: 26 September 2007 17:00
+To: Cost-devel Mailing List; Liz Clarke; Alastair Pout; Hans; Joel VIGNEAU; Marie-Joelle ROCHET; Stephanie MAHEVAS; david hirst; David Maxwell (Cefas); Deborah Gillatt (Cefas); Dorleta Garcia; ernesto JARDIM; Henrik Degel; I?aki Artetxe; Isabel Gonzalez; Leire Ibaibarriaga; MERZEREAUD; Paz SamPedro; Romano Baino; Richard M; Steve Warnes (Cefas); Sue Bramford (Cefas); Teunis Jansen; Valentin Trujillo IEO
+Subject: Release 0.0-1 of COSTcore
+
+
+Dear all,
+
+The first release is out. A prebeta alpha gamma release, code name "0". 
+Meaning it does nothing except providing the S4 classes. No documentation, no data, nothing :-)
+
+This is a R251 release. Please download from file repository
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) and install. Those using linux should use the tar.gz file, those using windows use the zip file. Then try:
+
+library(COSTcore)
+showClass("csData")
+showClass("ceData")
+showClass("clData")
+new("csData")
+new("ceData")
+new("clData")
+
+Those interested on the code please check out from CVS or take a look at http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/
+
+I'd like to have opinions on the doubts posted to the forum and based on those finalize the S4 definitions and start working on methods, validity, tests, etc.
+
+This is my last message to the group outside the mailing list. Please subscribe berlios and the cost-project-devel mailing list to keep updated with COSTcore development.
+
+Best
+
+EJ
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 26 September 2007 14:47
+To: Cost-devel Mailing List
+Subject: [cost-devel] FF5 data call
+
+
+Hi,
+
+Can someone provide data following the FF5 format ? I'm testing the class definition and need some data.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From tej at difres.dk  Thu Sep 27 10:06:06 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 27 Sep 2007 10:06:06 +0200
+Subject: [cost-devel] FishFrame database documentation
+In-Reply-To: <46FA7B7A.6020203@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818A45@ch-mail01.dfu.local>
+
+ FishFrame database document for version 5.0 in pdf.
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 26. september 2007 17:32
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FishFrame database documentation
+
+Teunis Jansen wrote:
+> Dear All
+>  
+> Attached is the FishFrame database document for version 5.0 as
+promised. The document is still under development, let me know what
+further info you would like...
+>  
+> Best regards
+> Teunis
+Hi Teunis,
+
+Can you please send this doc in pdf ? I can not see the diagrams
+properly.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame Datawarehouse documentation.pdf
+Type: application/octet-stream
+Size: 207652 bytes
+Desc: FishFrame Datawarehouse documentation.pdf
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070927/892013d3/attachment.obj>
+
+From ernesto at ipimar.pt  Thu Sep 27 10:44:34 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 09:44:34 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818A3F@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818A3F@ch-mail01.dfu.local>
+Message-ID: <46FB6D72.6020701@ipimar.pt>
+
+Hi David,
+
+I agree with Teunis, why do you need currency ? we should convert 
+everything to euro, with the advantage of using the correct conversion rate.
+
+Best
+
+EJ
+
+Teunis Jansen wrote:
+> Hi David
+>
+> RE: "In our data, size category and maturity stage are string not integer."
+> I had understood that you used a number-system for "Size category" - just like the EU defined size sorting categories, except that they are nationally defined and can not be mapped to the EU categories? Could you give data examples of your "Size category" and "Maturity stage"?
+>
+> RE: "if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency."
+> Why in different currencies? Is it not more useful to have the data in the same unit?
+>
+> BR
+> Teunis
+>
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David Maxwell (Cefas)
+> Sent: 26. september 2007 18:53
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] FF5 data call
+>
+>
+> David H and Liz, given your experience applying the catch-at-age modelling to FRS data is there enough information in the FF5 format for that?
+> I expect it will be fine for design based raising calculations.
+>
+> For the format
+>  if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.
+>
+>  In our data, size category and maturity stage are string not integer.
+>
+> Ernesto, I'm going to wait a few days for everyone to agree the format before we extract our data again.
+>
+> regards, David 
+>
+> -----Original Message-----
+> From: ernesto [mailto:ernesto at ipimar.pt]
+> Sent: 26 September 2007 17:00
+> To: Cost-devel Mailing List; Liz Clarke; Alastair Pout; Hans; Joel VIGNEAU; Marie-Joelle ROCHET; Stephanie MAHEVAS; david hirst; David Maxwell (Cefas); Deborah Gillatt (Cefas); Dorleta Garcia; ernesto JARDIM; Henrik Degel; I?aki Artetxe; Isabel Gonzalez; Leire Ibaibarriaga; MERZEREAUD; Paz SamPedro; Romano Baino; Richard M; Steve Warnes (Cefas); Sue Bramford (Cefas); Teunis Jansen; Valentin Trujillo IEO
+> Subject: Release 0.0-1 of COSTcore
+>
+>
+> Dear all,
+>
+> The first release is out. A prebeta alpha gamma release, code name "0". 
+> Meaning it does nothing except providing the S4 classes. No documentation, no data, nothing :-)
+>
+> This is a R251 release. Please download from file repository
+> (https://developer.berlios.de/project/showfiles.php?group_id=7299) and install. Those using linux should use the tar.gz file, those using windows use the zip file. Then try:
+>
+> library(COSTcore)
+> showClass("csData")
+> showClass("ceData")
+> showClass("clData")
+> new("csData")
+> new("ceData")
+> new("clData")
+>
+> Those interested on the code please check out from CVS or take a look at http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/
+>
+> I'd like to have opinions on the doubts posted to the forum and based on those finalize the S4 definitions and start working on methods, validity, tests, etc.
+>
+> This is my last message to the group outside the mailing list. Please subscribe berlios and the cost-project-devel mailing list to keep updated with COSTcore development.
+>
+> Best
+>
+> EJ
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+> Sent: 26 September 2007 14:47
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] FF5 data call
+>
+>
+> Hi,
+>
+> Can someone provide data following the FF5 format ? I'm testing the class definition and need some data.
+>
+> Thanks
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+>
+>
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+
+From ernesto at ipimar.pt  Thu Sep 27 10:48:42 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 09:48:42 +0100
+Subject: [cost-devel] FishFrame database documentation
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818A45@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818A45@ch-mail01.dfu.local>
+Message-ID: <46FB6E6A.9040006@ipimar.pt>
+
+Thanks,
+
+Maybe you could add the FF5 documentation to our berlios site.
+
+https://developer.berlios.de/docman/?group_id=7299
+
+EJ
+
+Teunis Jansen wrote:
+>  FishFrame database document for version 5.0 in pdf.
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> ernesto
+> Sent: 26. september 2007 17:32
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] FishFrame database documentation
+>
+> Teunis Jansen wrote:
+>   
+>> Dear All
+>>  
+>> Attached is the FishFrame database document for version 5.0 as
+>>     
+> promised. The document is still under development, let me know what
+> further info you would like...
+>   
+>>  
+>> Best regards
+>> Teunis
+>>     
+> Hi Teunis,
+>
+> Can you please send this doc in pdf ? I can not see the diagrams
+> properly.
+>
+> Thanks
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+
+From david.maxwell at cefas.co.uk  Thu Sep 27 12:42:06 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 27 Sep 2007 11:42:06 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818A3F@ch-mail01.dfu.local>
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B26956@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Teunis , Ernesto
+thanks for your quick replies.
+
+The attached document (maturity keys example.doc) gives some maturity stage examples.
+
+At our markets the categories are only consistent within a landing (which is why we use vessel raising) it's not even a nationally fixed scaled. 
+The character format is because the field contains either category numbers 0 to 99 or it might contain EU grades coded as 
+grade            gradename
+99                COLLECTIVE GRADE
+A1           
+A2           
+A3           
+A4           
+A5           
+B1           
+B2           
+B3           
+B4           
+B5           
+E1           
+E2           
+E3           
+E4           
+E5           
+G9                GRADED BUT DETAILS UNKNOWN
+N9                UNKNOWN
+U9                UNGRADED
+X9                QUALITY LOWER THAN EC STANDARDS
+
+I don't know why it is this combination of integer and character codes.
+
+For landings value the data will be recorded in national currency, I can't change that, so the question is at what point to convert them. I would prefer the format to be based on values collected and the COST code convert them so that
+ i) the conversion factors are stored
+ ii) for analyses run within a lab, which may be most of them given the political aspects of if and how to share landings data at vessel level, the values don't have to be re-converted to national currency (with the risk of a different conversion factor being used).
+
+BR, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Teunis
+Jansen
+Sent: 27 September 2007 09:00
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+
+Hi David
+
+RE: "In our data, size category and maturity stage are string not integer."
+I had understood that you used a number-system for "Size category" - just like the EU defined size sorting categories, except that they are nationally defined and can not be mapped to the EU categories? Could you give data examples of your "Size category" and "Maturity stage"?
+
+RE: "if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency."
+Why in different currencies? Is it not more useful to have the data in the same unit?
+
+BR
+Teunis
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David Maxwell (Cefas)
+Sent: 26. september 2007 18:53
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+
+David H and Liz, given your experience applying the catch-at-age modelling to FRS data is there enough information in the FF5 format for that?
+I expect it will be fine for design based raising calculations.
+
+For the format
+ if we are going to supply landings value I think we'll need the format be like the one on the wiki with it in national currency.
+
+ In our data, size category and maturity stage are string not integer.
+
+Ernesto, I'm going to wait a few days for everyone to agree the format before we extract our data again.
+
+regards, David 
+
+-----Original Message-----
+From: ernesto [mailto:ernesto at ipimar.pt]
+Sent: 26 September 2007 17:00
+To: Cost-devel Mailing List; Liz Clarke; Alastair Pout; Hans; Joel VIGNEAU; Marie-Joelle ROCHET; Stephanie MAHEVAS; david hirst; David Maxwell (Cefas); Deborah Gillatt (Cefas); Dorleta Garcia; ernesto JARDIM; Henrik Degel; I?aki Artetxe; Isabel Gonzalez; Leire Ibaibarriaga; MERZEREAUD; Paz SamPedro; Romano Baino; Richard M; Steve Warnes (Cefas); Sue Bramford (Cefas); Teunis Jansen; Valentin Trujillo IEO
+Subject: Release 0.0-1 of COSTcore
+
+
+Dear all,
+
+The first release is out. A prebeta alpha gamma release, code name "0". 
+Meaning it does nothing except providing the S4 classes. No documentation, no data, nothing :-)
+
+This is a R251 release. Please download from file repository
+(https://developer.berlios.de/project/showfiles.php?group_id=7299) and install. Those using linux should use the tar.gz file, those using windows use the zip file. Then try:
+
+library(COSTcore)
+showClass("csData")
+showClass("ceData")
+showClass("clData")
+new("csData")
+new("ceData")
+new("clData")
+
+Those interested on the code please check out from CVS or take a look at http://cvs.berlios.de/cgi-bin/viewcvs.cgi/cost-project/COSTcore/
+
+I'd like to have opinions on the doubts posted to the forum and based on those finalize the S4 definitions and start working on methods, validity, tests, etc.
+
+This is my last message to the group outside the mailing list. Please subscribe berlios and the cost-project-devel mailing list to keep updated with COSTcore development.
+
+Best
+
+EJ
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 26 September 2007 14:47
+To: Cost-devel Mailing List
+Subject: [cost-devel] FF5 data call
+
+
+Hi,
+
+Can someone provide data following the FF5 format ? I'm testing the class definition and need some data.
+
+Thanks
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: maturity keys example.doc
+Type: application/msword
+Size: 41472 bytes
+Desc: maturity keys example.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070927/6f6ea147/attachment.doc>
+
+From ernesto at ipimar.pt  Thu Sep 27 12:55:04 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 11:55:04 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <40A15E1D8A76A949AF0271EF3133E1A9B26956@LOWEXPRESS.corp.cefas.co.uk>
+References: <40A15E1D8A76A949AF0271EF3133E1A9B26956@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <46FB8C08.6010200@ipimar.pt>
+
+David Maxwell (Cefas) wrote:
+> Hi Teunis , Ernesto
+> thanks for your quick replies.
+>
+> The attached document (maturity keys example.doc) gives some maturity stage examples.
+>
+> At our markets the categories are only consistent within a landing (which is why we use vessel raising) it's not even a nationally fixed scaled. 
+> The character format is because the field contains either category numbers 0 to 99 or it might contain EU grades coded as 
+> grade            gradename
+> 99                COLLECTIVE GRADE
+> A1           
+> A2           
+> A3           
+> A4           
+> A5           
+> B1           
+> B2           
+> B3           
+> B4           
+> B5           
+> E1           
+> E2           
+> E3           
+> E4           
+> E5           
+> G9                GRADED BUT DETAILS UNKNOWN
+> N9                UNKNOWN
+> U9                UNGRADED
+> X9                QUALITY LOWER THAN EC STANDARDS
+>
+> I don't know why it is this combination of integer and character codes.
+>
+> For landings value the data will be recorded in national currency, I can't change that, so the question is at what point to convert them. I would prefer the format to be based on values collected and the COST code convert them so that
+>  i) the conversion factors are stored
+>  ii) for analyses run within a lab, which may be most of them given the political aspects of if and how to share landings data at vessel level, the values don't have to be re-converted to national currency (with the risk of a different conversion factor being used).
+>
+> BR, David
+
+Hi,
+
+IMO categories should be stored as factors in R. If the category is 
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It 
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Thu Sep 27 15:00:19 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 27 Sep 2007 15:00:19 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FB8C08.6010200@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818AC0@ch-mail01.dfu.local>
+
+Look for the mail at the bottom of the text... 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 27. september 2007 12:55
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+David Maxwell (Cefas) wrote:
+> Hi Teunis , Ernesto
+> thanks for your quick replies.
+>
+> The attached document (maturity keys example.doc) gives some maturity
+stage examples.
+>
+> At our markets the categories are only consistent within a landing
+(which is why we use vessel raising) it's not even a nationally fixed
+scaled. 
+> The character format is because the field contains either category
+numbers 0 to 99 or it might contain EU grades coded as 
+> grade            gradename
+> 99                COLLECTIVE GRADE
+> A1           
+> A2           
+> A3           
+> A4           
+> A5           
+> B1           
+> B2           
+> B3           
+> B4           
+> B5           
+> E1           
+> E2           
+> E3           
+> E4           
+> E5           
+> G9                GRADED BUT DETAILS UNKNOWN
+> N9                UNKNOWN
+> U9                UNGRADED
+> X9                QUALITY LOWER THAN EC STANDARDS
+>
+> I don't know why it is this combination of integer and character
+codes.
+>
+> For landings value the data will be recorded in national currency, I 
+> can't change that, so the question is at what point to convert them. I
+
+> would prefer the format to be based on values collected and the COST 
+> code convert them so that
+>  i) the conversion factors are stored
+>  ii) for analyses run within a lab, which may be most of them given
+the political aspects of if and how to share landings data at vessel
+level, the values don't have to be re-converted to national currency
+(with the risk of a different conversion factor being used).
+>
+> BR, David
+
+Hi,
+
+IMO categories should be stored as factors in R. If the category is
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+------------------------------------------------------------------------
+------------------------------------------------------------------
+Hi
+
+As I see it then the last four (G9, N9, U9, X9) should either be
+uploaded without any size category (unsorted) or the category should be
+estimated. We have Danish data where we know it was sorted, but the
+information is not available for some reason. What we do then is to
+split the landings up according to some distribution key we make out of
+the available data. If you can do the same, then it is just A1-5, B1-5,
+E1-5 that are left. You write that they are EU grades, so it must be
+possible to convert them to the integer EU size sortings, or?
+
+Br Teunis
+
+
+
+From ernesto at ipimar.pt  Thu Sep 27 16:07:17 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 15:07:17 +0100
+Subject: [cost-devel] COSTcore tasks.
+Message-ID: <46FBB915.408@ipimar.pt>
+
+Hi,
+
+I've set up a list of tasks I want to perform shortly. Check it and comment.
+
+https://developer.berlios.de/pm/task.php?group_id=7299&group_project_id=1736&func=browse&set=my&order=priority
+
+This set of tasks will be required for the other classes also.
+
+Best
+
+EJ
+
+ps: I'm cc'ing this to the general list. It looks like some of you are 
+having trouble subscribing berlios.
+
+
+From ernesto at ipimar.pt  Thu Sep 27 17:11:07 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 16:11:07 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FBBDDD.2040600@ifremer.fr>
+References: <46FA67BA.4070506@ifremer.fr> <46FA6B27.7080404@ipimar.pt>
+	<46FB6458.1090706@ifremer.fr> <46FB6BB8.8000700@ipimar.pt>
+	<46FB6CE3.8080803@ifremer.fr> <46FB6F77.6070906@ipimar.pt>
+	<46FBBDDD.2040600@ifremer.fr>
+Message-ID: <46FBC80B.8070306@ipimar.pt>
+
+Mathieu MERZEREAUD wrote:
+> I've just finished this procedure that generates a list with the 3 
+> classes (cs,cl,ce).
+> You just have to unzip the folder, change the directory in the code, 
+> and source.
+> I've only tested it for those files, but it must be working for all 
+> types of files.
+> It's just a draft, so I send it to you directly. Is that close to your 
+> idea concerning the use and the outcome?
+>
+> Best
+> Mathieu
+> #COST (pour ernesto)
+> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper tous les fichiers de travail, et construction des objets en cons?quence
+>
+> CSimport <- function(object,df){         #'object' de classe 'csData'
+> tabnames <- c("TR","HH","SL","HL","CA")
+> RecordType <- unique(as.character(df[,1]))
+> if (length(RecordType)>1) stop("RecordType is not unique!!")
+> if (!(RecordType%in%tabnames)) stop("RecordType is not valid!!")
+> dimTest <- c(16,28,19,17,28)
+> names(dimTest) <- tabnames
+> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!")
+> df <- df[,2:dim(df)[2]]
+> eval(parse('',text=paste("names(df) <- names(object@",tolower(RecordType),")",sep="")))
+> eval(parse('',text=paste("object@",tolower(RecordType)," <- df",sep="")))
+> return(object)
+> }
+>
+> CEimport <- function(object,df){         #'object' de classe 'ceData'
+> if (dim(df)[2]!=16) stop("Wrong size!!")
+> df <- df[,2:dim(df)[2]]
+> names(df) <- names(object at ce)
+> object at ce <- df
+> return(object)
+> }
+>
+> CLimport <- function(object,df){         #'object' de classe 'clData'
+> if (dim(df)[2]!=20) stop("Wrong size!!")
+> df <- df[,2:dim(df)[2]]
+> names(df) <- names(object at cl)
+> object at cl <- df
+> return(object)
+> }
+>
+> ApplyDataCost <- function(file,list.object){
+> df <- read.table(file,header=TRUE,sep=";")
+> vec <- c(rep("CS",5),"CL","CE")
+> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+> val <- as.character(vec[as.character(df[1,1])])
+> eval(parse('',text=paste("list.object$",tolower(val)," <- ",val,"import(list.object$",tolower(val),",df)",sep="")))
+> return(list.object)
+> }
+>
+> ####################
+> ## Main procedure ##
+> ####################
+>
+> ImportDataCOST <- function (directory,desc="My Stock") {    #directory = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets de type char()
+> require(COSTcore)
+> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+> neodesc <- rep(desc,3)
+> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc <- neodesc[3]
+> Files <- paste(directory,list.files(directory),sep="/")
+> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+> invisible(obj)
+> }
+>
+> #Example
+> #Put the .csv files in one folder 
+> directory <- "Q:/FF5_sole"   #path of the folder
+> obj <- ImportDataCOST(directory)
+> #obj$cs, obj$cl, obj$ce
+Hi,
+
+It looks ok but you were faster than me :-)
+
+These procedures should read the data but rely on the class constructor 
+to create the objects, otherwise you'll be bypassing the validity checks.
+
+You're validating based on ncol but I was about to write the validation 
+based on col names. Do you think ncol is enough ?
+
+EJ
+
+ps: do you have CVS installed already ?
+
+
+
+
+
+From tej at difres.dk  Thu Sep 27 17:14:17 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 27 Sep 2007 17:14:17 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FBC80B.8070306@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD4@ch-mail01.dfu.local>
+
+Do we have a coding convention with common guidelines for naming variables, in-line and function-header documentation etc?
+
+BR
+Teunis
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of ernesto
+Sent: 27. september 2007 17:11
+To: Cost-devel Mailing List
+Cc: Mathieu MERZEREAUD
+Subject: Re: [cost-devel] FF5 data call
+
+Mathieu MERZEREAUD wrote:
+> I've just finished this procedure that generates a list with the 3 
+> classes (cs,cl,ce).
+> You just have to unzip the folder, change the directory in the code, 
+> and source.
+> I've only tested it for those files, but it must be working for all 
+> types of files.
+> It's just a draft, so I send it to you directly. Is that close to your 
+> idea concerning the use and the outcome?
+>
+> Best
+> Mathieu
+> #COST (pour ernesto)
+> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper 
+> tous les fichiers de travail, et construction des objets en 
+> cons?quence
+>
+> CSimport <- function(object,df){         #'object' de classe 'csData'
+> tabnames <- c("TR","HH","SL","HL","CA") RecordType <- 
+> unique(as.character(df[,1])) if (length(RecordType)>1) 
+> stop("RecordType is not unique!!") if (!(RecordType%in%tabnames)) 
+> stop("RecordType is not valid!!") dimTest <- c(16,28,19,17,28)
+> names(dimTest) <- tabnames
+> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!") df <- 
+> df[,2:dim(df)[2]]
+> eval(parse('',text=paste("names(df) <- 
+> names(object@",tolower(RecordType),")",sep="")))
+> eval(parse('',text=paste("object@",tolower(RecordType)," <- 
+> df",sep="")))
+> return(object)
+> }
+>
+> CEimport <- function(object,df){         #'object' de classe 'ceData'
+> if (dim(df)[2]!=16) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+> names(df) <- names(object at ce)
+> object at ce <- df
+> return(object)
+> }
+>
+> CLimport <- function(object,df){         #'object' de classe 'clData'
+> if (dim(df)[2]!=20) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+> names(df) <- names(object at cl)
+> object at cl <- df
+> return(object)
+> }
+>
+> ApplyDataCost <- function(file,list.object){ df <- 
+> read.table(file,header=TRUE,sep=";")
+> vec <- c(rep("CS",5),"CL","CE")
+> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+> val <- as.character(vec[as.character(df[1,1])])
+> eval(parse('',text=paste("list.object$",tolower(val)," <- 
+> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+> return(list.object)
+> }
+>
+> ####################
+> ## Main procedure ##
+> ####################
+>
+> ImportDataCOST <- function (directory,desc="My Stock") {    #directory = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets de type char()
+> require(COSTcore)
+> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+> neodesc <- rep(desc,3)
+> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc <- 
+> neodesc[3] Files <- paste(directory,list.files(directory),sep="/")
+> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+> invisible(obj)
+> }
+>
+> #Example
+> #Put the .csv files in one folder 
+> directory <- "Q:/FF5_sole"   #path of the folder
+> obj <- ImportDataCOST(directory)
+> #obj$cs, obj$cl, obj$ce
+Hi,
+
+It looks ok but you were faster than me :-)
+
+These procedures should read the data but rely on the class constructor to create the objects, otherwise you'll be bypassing the validity checks.
+
+You're validating based on ncol but I was about to write the validation based on col names. Do you think ncol is enough ?
+
+EJ
+
+ps: do you have CVS installed already ?
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Thu Sep 27 17:29:21 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 16:29:21 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD4@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD4@ch-mail01.dfu.local>
+Message-ID: <46FBCC51.3050007@ipimar.pt>
+
+Teunis Jansen wrote:
+> Do we have a coding convention with common guidelines for naming variables, in-line and function-header documentation etc?
+>
+> BR
+> Teunis
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of ernesto
+> Sent: 27. september 2007 17:11
+> To: Cost-devel Mailing List
+> Cc: Mathieu MERZEREAUD
+> Subject: Re: [cost-devel] FF5 data call
+>
+> Mathieu MERZEREAUD wrote:
+>   
+>> I've just finished this procedure that generates a list with the 3 
+>> classes (cs,cl,ce).
+>> You just have to unzip the folder, change the directory in the code, 
+>> and source.
+>> I've only tested it for those files, but it must be working for all 
+>> types of files.
+>> It's just a draft, so I send it to you directly. Is that close to your 
+>> idea concerning the use and the outcome?
+>>
+>> Best
+>> Mathieu
+>> #COST (pour ernesto)
+>> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper 
+>> tous les fichiers de travail, et construction des objets en 
+>> cons?quence
+>>
+>> CSimport <- function(object,df){         #'object' de classe 'csData'
+>> tabnames <- c("TR","HH","SL","HL","CA") RecordType <- 
+>> unique(as.character(df[,1])) if (length(RecordType)>1) 
+>> stop("RecordType is not unique!!") if (!(RecordType%in%tabnames)) 
+>> stop("RecordType is not valid!!") dimTest <- c(16,28,19,17,28)
+>> names(dimTest) <- tabnames
+>> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!") df <- 
+>> df[,2:dim(df)[2]]
+>> eval(parse('',text=paste("names(df) <- 
+>> names(object@",tolower(RecordType),")",sep="")))
+>> eval(parse('',text=paste("object@",tolower(RecordType)," <- 
+>> df",sep="")))
+>> return(object)
+>> }
+>>
+>> CEimport <- function(object,df){         #'object' de classe 'ceData'
+>> if (dim(df)[2]!=16) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at ce)
+>> object at ce <- df
+>> return(object)
+>> }
+>>
+>> CLimport <- function(object,df){         #'object' de classe 'clData'
+>> if (dim(df)[2]!=20) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at cl)
+>> object at cl <- df
+>> return(object)
+>> }
+>>
+>> ApplyDataCost <- function(file,list.object){ df <- 
+>> read.table(file,header=TRUE,sep=";")
+>> vec <- c(rep("CS",5),"CL","CE")
+>> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+>> val <- as.character(vec[as.character(df[1,1])])
+>> eval(parse('',text=paste("list.object$",tolower(val)," <- 
+>> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+>> return(list.object)
+>> }
+>>
+>> ####################
+>> ## Main procedure ##
+>> ####################
+>>
+>> ImportDataCOST <- function (directory,desc="My Stock") {    #directory = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets de type char()
+>> require(COSTcore)
+>> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+>> neodesc <- rep(desc,3)
+>> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc <- 
+>> neodesc[3] Files <- paste(directory,list.files(directory),sep="/")
+>> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+>> invisible(obj)
+>> }
+>>
+>> #Example
+>> #Put the .csv files in one folder 
+>> directory <- "Q:/FF5_sole"   #path of the folder
+>> obj <- ImportDataCOST(directory)
+>> #obj$cs, obj$cl, obj$ce
+>>     
+> Hi,
+>
+> It looks ok but you were faster than me :-)
+>
+> These procedures should read the data but rely on the class constructor to create the objects, otherwise you'll be bypassing the validity checks.
+>
+> You're validating based on ncol but I was about to write the validation based on col names. Do you think ncol is enough ?
+>
+> EJ
+>
+> ps: do you have CVS installed already ?
+R does not have a name convention. I try to be consistent and keep a 
+list of acronyms (see the begining of csData.R). With regards to 
+documentation there's a latex like system. If you run 
+promptClass("csData") you'll get an empty file of a man page for class 
+csData.
+
+There's a set of manuals you can read (http://www.r-project.org/) with 
+more info about it.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Thu Sep 27 17:40:16 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Thu, 27 Sep 2007 17:40:16 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FBCC51.3050007@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD6@ch-mail01.dfu.local>
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of ernesto
+Sent: 27. september 2007 17:29
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+Teunis Jansen wrote:
+> Do we have a coding convention with common guidelines for naming variables, in-line and function-header documentation etc?
+>
+> BR
+> Teunis
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of 
+> ernesto
+> Sent: 27. september 2007 17:11
+> To: Cost-devel Mailing List
+> Cc: Mathieu MERZEREAUD
+> Subject: Re: [cost-devel] FF5 data call
+>
+> Mathieu MERZEREAUD wrote:
+>   
+>> I've just finished this procedure that generates a list with the 3 
+>> classes (cs,cl,ce).
+>> You just have to unzip the folder, change the directory in the code, 
+>> and source.
+>> I've only tested it for those files, but it must be working for all 
+>> types of files.
+>> It's just a draft, so I send it to you directly. Is that close to 
+>> your idea concerning the use and the outcome?
+>>
+>> Best
+>> Mathieu
+>> #COST (pour ernesto)
+>> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper 
+>> tous les fichiers de travail, et construction des objets en 
+>> cons?quence
+>>
+>> CSimport <- function(object,df){         #'object' de classe 'csData'
+>> tabnames <- c("TR","HH","SL","HL","CA") RecordType <-
+>> unique(as.character(df[,1])) if (length(RecordType)>1) 
+>> stop("RecordType is not unique!!") if (!(RecordType%in%tabnames)) 
+>> stop("RecordType is not valid!!") dimTest <- c(16,28,19,17,28)
+>> names(dimTest) <- tabnames
+>> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!") df <- 
+>> df[,2:dim(df)[2]]
+>> eval(parse('',text=paste("names(df) <-
+>> names(object@",tolower(RecordType),")",sep="")))
+>> eval(parse('',text=paste("object@",tolower(RecordType)," <-
+>> df",sep="")))
+>> return(object)
+>> }
+>>
+>> CEimport <- function(object,df){         #'object' de classe 'ceData'
+>> if (dim(df)[2]!=16) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at ce)
+>> object at ce <- df
+>> return(object)
+>> }
+>>
+>> CLimport <- function(object,df){         #'object' de classe 'clData'
+>> if (dim(df)[2]!=20) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>> names(df) <- names(object at cl)
+>> object at cl <- df
+>> return(object)
+>> }
+>>
+>> ApplyDataCost <- function(file,list.object){ df <-
+>> read.table(file,header=TRUE,sep=";")
+>> vec <- c(rep("CS",5),"CL","CE")
+>> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+>> val <- as.character(vec[as.character(df[1,1])])
+>> eval(parse('',text=paste("list.object$",tolower(val)," <-
+>> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+>> return(list.object)
+>> }
+>>
+>> ####################
+>> ## Main procedure ##
+>> ####################
+>>
+>> ImportDataCOST <- function (directory,desc="My Stock") {    #directory = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets de type char()
+>> require(COSTcore)
+>> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+>> neodesc <- rep(desc,3)
+>> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc 
+>> <- neodesc[3] Files <- paste(directory,list.files(directory),sep="/")
+>> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+>> invisible(obj)
+>> }
+>>
+>> #Example
+>> #Put the .csv files in one folder 
+>> directory <- "Q:/FF5_sole"   #path of the folder
+>> obj <- ImportDataCOST(directory)
+>> #obj$cs, obj$cl, obj$ce
+>>     
+> Hi,
+>
+> It looks ok but you were faster than me :-)
+>
+> These procedures should read the data but rely on the class constructor to create the objects, otherwise you'll be bypassing the validity checks.
+>
+> You're validating based on ncol but I was about to write the validation based on col names. Do you think ncol is enough ?
+>
+> EJ
+>
+> ps: do you have CVS installed already ?
+R does not have a name convention. I try to be consistent and keep a list of acronyms (see the begining of csData.R). With regards to documentation there's a latex like system. If you run
+promptClass("csData") you'll get an empty file of a man page for class csData.
+
+There's a set of manuals you can read (http://www.r-project.org/) with more info about it.
+
+Best
+
+EJ
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-----------------------------------------------------------------------------------------
+
+OK, but should we not have a common naming convention for all COST developers? It makes reading and reviewing other developers code much easier. We always have that on software development projects.
+
+Teunis
+
+
+
+
+
+From ernesto at ipimar.pt  Thu Sep 27 17:51:41 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 16:51:41 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD6@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD6@ch-mail01.dfu.local>
+Message-ID: <46FBD18D.4070701@ipimar.pt>
+
+Teunis Jansen wrote:
+>  
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of ernesto
+> Sent: 27. september 2007 17:29
+> To: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] FF5 data call
+>
+> Teunis Jansen wrote:
+>   
+>> Do we have a coding convention with common guidelines for naming variables, in-line and function-header documentation etc?
+>>
+>> BR
+>> Teunis
+>>
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de 
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of 
+>> ernesto
+>> Sent: 27. september 2007 17:11
+>> To: Cost-devel Mailing List
+>> Cc: Mathieu MERZEREAUD
+>> Subject: Re: [cost-devel] FF5 data call
+>>
+>> Mathieu MERZEREAUD wrote:
+>>   
+>>     
+>>> I've just finished this procedure that generates a list with the 3 
+>>> classes (cs,cl,ce).
+>>> You just have to unzip the folder, change the directory in the code, 
+>>> and source.
+>>> I've only tested it for those files, but it must be working for all 
+>>> types of files.
+>>> It's just a draft, so I send it to you directly. Is that close to 
+>>> your idea concerning the use and the outcome?
+>>>
+>>> Best
+>>> Mathieu
+>>> #COST (pour ernesto)
+>>> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper 
+>>> tous les fichiers de travail, et construction des objets en 
+>>> cons?quence
+>>>
+>>> CSimport <- function(object,df){         #'object' de classe 'csData'
+>>> tabnames <- c("TR","HH","SL","HL","CA") RecordType <-
+>>> unique(as.character(df[,1])) if (length(RecordType)>1) 
+>>> stop("RecordType is not unique!!") if (!(RecordType%in%tabnames)) 
+>>> stop("RecordType is not valid!!") dimTest <- c(16,28,19,17,28)
+>>> names(dimTest) <- tabnames
+>>> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!") df <- 
+>>> df[,2:dim(df)[2]]
+>>> eval(parse('',text=paste("names(df) <-
+>>> names(object@",tolower(RecordType),")",sep="")))
+>>> eval(parse('',text=paste("object@",tolower(RecordType)," <-
+>>> df",sep="")))
+>>> return(object)
+>>> }
+>>>
+>>> CEimport <- function(object,df){         #'object' de classe 'ceData'
+>>> if (dim(df)[2]!=16) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>>> names(df) <- names(object at ce)
+>>> object at ce <- df
+>>> return(object)
+>>> }
+>>>
+>>> CLimport <- function(object,df){         #'object' de classe 'clData'
+>>> if (dim(df)[2]!=20) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>>> names(df) <- names(object at cl)
+>>> object at cl <- df
+>>> return(object)
+>>> }
+>>>
+>>> ApplyDataCost <- function(file,list.object){ df <-
+>>> read.table(file,header=TRUE,sep=";")
+>>> vec <- c(rep("CS",5),"CL","CE")
+>>> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+>>> val <- as.character(vec[as.character(df[1,1])])
+>>> eval(parse('',text=paste("list.object$",tolower(val)," <-
+>>> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+>>> return(list.object)
+>>> }
+>>>
+>>> ####################
+>>> ## Main procedure ##
+>>> ####################
+>>>
+>>> ImportDataCOST <- function (directory,desc="My Stock") {    #directory = r?pertoire contenant tous les .csv  ; desc = slot 'desc' des objets de type char()
+>>> require(COSTcore)
+>>> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+>>> neodesc <- rep(desc,3)
+>>> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc 
+>>> <- neodesc[3] Files <- paste(directory,list.files(directory),sep="/")
+>>> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+>>> invisible(obj)
+>>> }
+>>>
+>>> #Example
+>>> #Put the .csv files in one folder 
+>>> directory <- "Q:/FF5_sole"   #path of the folder
+>>> obj <- ImportDataCOST(directory)
+>>> #obj$cs, obj$cl, obj$ce
+>>>     
+>>>       
+>> Hi,
+>>
+>> It looks ok but you were faster than me :-)
+>>
+>> These procedures should read the data but rely on the class constructor to create the objects, otherwise you'll be bypassing the validity checks.
+>>
+>> You're validating based on ncol but I was about to write the validation based on col names. Do you think ncol is enough ?
+>>
+>> EJ
+>>
+>> ps: do you have CVS installed already ?
+>>     
+> R does not have a name convention. I try to be consistent and keep a list of acronyms (see the begining of csData.R). With regards to documentation there's a latex like system. If you run
+> promptClass("csData") you'll get an empty file of a man page for class csData.
+>
+> There's a set of manuals you can read (http://www.r-project.org/) with more info about it.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> -----------------------------------------------------------------------------------------
+>
+> OK, but should we not have a common naming convention for all COST developers? It makes reading and reviewing other developers code much easier. We always have that on software development projects.
+>
+> Teunis
+
+That's a good idea if we don't spend lot's of effort doing it. Anyway 
+the S4 class definition sets the names of the basic variable (the name 
+of the columns in each data.frame). If other classes follow the same 
+approach I guess we've covered most of it, don't we ?
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Thu Sep 27 18:00:09 2007
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 27 Sep 2007 18:00:09 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FBD18D.4070701@ipimar.pt>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818AD6@ch-mail01.dfu.local>
+	<46FBD18D.4070701@ipimar.pt>
+Message-ID: <20070927180009.a29l7j009wwg84o4@www.ifremer.fr>
+
+Dear all,
+
+I'm in favour of a COST convention for developers (naming, graphing, 
+presentation of the outputs, message boxes, etc... ). I let you start 
+with S4 class definition as suggested by Ernesto. We'll discuss this 
+during the meeting in Lisbon.
+
+Joel
+
+
+ernesto <ernesto at ipimar.pt> a ?crit :
+
+> Teunis Jansen wrote:
+>>
+>>
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de 
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of 
+>> ernesto
+>> Sent: 27. september 2007 17:29
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: Re: [cost-devel] FF5 data call
+>>
+>> Teunis Jansen wrote:
+>>
+>>> Do we have a coding convention with common guidelines for naming 
+>>> variables, in-line and function-header documentation etc?
+>>>
+>>> BR
+>>> Teunis
+>>>
+>>> -----Original Message-----
+>>> From: cost-project-devel-bounces at lists.berlios.de
+>>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+>>> ernesto
+>>> Sent: 27. september 2007 17:11
+>>> To: Cost-devel Mailing List
+>>> Cc: Mathieu MERZEREAUD
+>>> Subject: Re: [cost-devel] FF5 data call
+>>>
+>>> Mathieu MERZEREAUD wrote:
+>>>
+>>>
+>>>> I've just finished this procedure that generates a list with the 3
+>>>> classes (cs,cl,ce).
+>>>> You just have to unzip the folder, change the directory in the code,
+>>>> and source.
+>>>> I've only tested it for those files, but it must be working for all
+>>>> types of files.
+>>>> It's just a draft, so I send it to you directly. Is that close to
+>>>> your idea concerning the use and the outcome?
+>>>>
+>>>> Best
+>>>> Mathieu
+>>>> #COST (pour ernesto)
+>>>> #Code de lecture des fichiers .csv dans un r?pertoire cens? regrouper
+>>>> tous les fichiers de travail, et construction des objets en
+>>>> cons?quence
+>>>>
+>>>> CSimport <- function(object,df){         #'object' de classe 'csData'
+>>>> tabnames <- c("TR","HH","SL","HL","CA") RecordType <-
+>>>> unique(as.character(df[,1])) if (length(RecordType)>1)
+>>>> stop("RecordType is not unique!!") if (!(RecordType%in%tabnames))
+>>>> stop("RecordType is not valid!!") dimTest <- c(16,28,19,17,28)
+>>>> names(dimTest) <- tabnames
+>>>> if (dimTest[RecordType]!=dim(df)[2]) stop("Wrong size!!") df <-
+>>>> df[,2:dim(df)[2]]
+>>>> eval(parse('',text=paste("names(df) <-
+>>>> names(object@",tolower(RecordType),")",sep="")))
+>>>> eval(parse('',text=paste("object@",tolower(RecordType)," <-
+>>>> df",sep="")))
+>>>> return(object)
+>>>> }
+>>>>
+>>>> CEimport <- function(object,df){         #'object' de classe 'ceData'
+>>>> if (dim(df)[2]!=16) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>>>> names(df) <- names(object at ce)
+>>>> object at ce <- df
+>>>> return(object)
+>>>> }
+>>>>
+>>>> CLimport <- function(object,df){         #'object' de classe 'clData'
+>>>> if (dim(df)[2]!=20) stop("Wrong size!!") df <- df[,2:dim(df)[2]]
+>>>> names(df) <- names(object at cl)
+>>>> object at cl <- df
+>>>> return(object)
+>>>> }
+>>>>
+>>>> ApplyDataCost <- function(file,list.object){ df <-
+>>>> read.table(file,header=TRUE,sep=";")
+>>>> vec <- c(rep("CS",5),"CL","CE")
+>>>> names(vec) <- c("TR","HH","SL","HL","CA","CL","CE")
+>>>> val <- as.character(vec[as.character(df[1,1])])
+>>>> eval(parse('',text=paste("list.object$",tolower(val)," <-
+>>>> ",val,"import(list.object$",tolower(val),",df)",sep="")))
+>>>> return(list.object)
+>>>> }
+>>>>
+>>>> ####################
+>>>> ## Main procedure ##
+>>>> ####################
+>>>>
+>>>> ImportDataCOST <- function (directory,desc="My Stock") {    
+>>>> #directory = r?pertoire contenant tous les .csv  ; desc = slot 
+>>>> 'desc' des objets de type char()
+>>>> require(COSTcore)
+>>>> obj <- list(cs=new("csData"),cl=new("clData"),ce=new("ceData"))
+>>>> neodesc <- rep(desc,3)
+>>>> obj$cs at desc <- neodesc[1] ; obj$cl at desc <- neodesc[2] ; obj$ce at desc
+>>>> <- neodesc[3] Files <- paste(directory,list.files(directory),sep="/")
+>>>> for (i in 1:length(Files)) obj <- ApplyDataCost(Files[i],obj)
+>>>> invisible(obj)
+>>>> }
+>>>>
+>>>> #Example
+>>>> #Put the .csv files in one folder
+>>>> directory <- "Q:/FF5_sole"   #path of the folder
+>>>> obj <- ImportDataCOST(directory)
+>>>> #obj$cs, obj$cl, obj$ce
+>>>>
+>>>>
+>>> Hi,
+>>>
+>>> It looks ok but you were faster than me :-)
+>>>
+>>> These procedures should read the data but rely on the class 
+>>> constructor to create the objects, otherwise you'll be bypassing 
+>>> the validity checks.
+>>>
+>>> You're validating based on ncol but I was about to write the 
+>>> validation based on col names. Do you think ncol is enough ?
+>>>
+>>> EJ
+>>>
+>>> ps: do you have CVS installed already ?
+>>>
+>> R does not have a name convention. I try to be consistent and keep a 
+>> list of acronyms (see the begining of csData.R). With regards to 
+>> documentation there's a latex like system. If you run
+>> promptClass("csData") you'll get an empty file of a man page for 
+>> class csData.
+>>
+>> There's a set of manuals you can read (http://www.r-project.org/) 
+>> with more info about it.
+>>
+>> Best
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>> -----------------------------------------------------------------------------------------
+>>
+>> OK, but should we not have a common naming convention for all COST 
+>> developers? It makes reading and reviewing other developers code 
+>> much easier. We always have that on software development projects.
+>>
+>> Teunis
+>
+> That's a good idea if we don't spend lot's of effort doing it. Anyway
+> the S4 class definition sets the names of the basic variable (the name
+> of the columns in each data.frame). If other classes follow the same
+> approach I guess we've covered most of it, don't we ?
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>
+
+
+
+
+
+
+From david.maxwell at cefas.co.uk  Thu Sep 27 18:31:09 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 27 Sep 2007 17:31:09 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <46FB8C08.6010200@ipimar.pt>
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B2695A@LOWEXPRESS.corp.cefas.co.uk>
+
+I agree with Categories as factors, that solves it.
+
+I don't think we can export in Euros as the database doesn't store that or conversion rates. To avoid developing more methods might have to import in pounds then multiply by a constant, not elegant or robust but simple. I don't want it to be a major issue as it's an optional field anyway.
+
+Regards, David.
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 27 September 2007 11:55
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+Hi,
+
+IMO categories should be stored as factors in R. If the category is 
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It 
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+
+David Maxwell (Cefas) wrote:
+> Hi Teunis , Ernesto
+> thanks for your quick replies.
+>
+> The attached document (maturity keys example.doc) gives some maturity stage examples.
+>
+> At our markets the categories are only consistent within a landing (which is why we use vessel raising) it's not even a nationally fixed scaled. 
+> The character format is because the field contains either category numbers 0 to 99 or it might contain EU grades coded as 
+> grade            gradename
+> 99                COLLECTIVE GRADE
+> A1           
+> A2           
+> A3           
+> A4           
+> A5           
+> B1           
+> B2           
+> B3           
+> B4           
+> B5           
+> E1           
+> E2           
+> E3           
+> E4           
+> E5           
+> G9                GRADED BUT DETAILS UNKNOWN
+> N9                UNKNOWN
+> U9                UNGRADED
+> X9                QUALITY LOWER THAN EC STANDARDS
+>
+> I don't know why it is this combination of integer and character codes.
+>
+> For landings value the data will be recorded in national currency, I can't change that, so the question is at what point to convert them. I would prefer the format to be based on values collected and the COST code convert them so that
+>  i) the conversion factors are stored
+>  ii) for analyses run within a lab, which may be most of them given the political aspects of if and how to share landings data at vessel level, the values don't have to be re-converted to national currency (with the risk of a different conversion factor being used).
+>
+> BR, David
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From ernesto at ipimar.pt  Thu Sep 27 19:16:50 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 27 Sep 2007 18:16:50 +0100
+Subject: [cost-devel] CVS updated
+Message-ID: <46FBE582.3000407@ipimar.pt>
+
+Hi,
+
+I've updated the CVS with the latest 0.0-2 version. It does some 
+checking for csData and provides a creator dispatching in a list. It 
+also has the sole data provided by Mathieu so we can play with it.
+
+Tomorrow I'd like to release version 0.0-2 with csData validity, 
+creators and accessors finalized. If things go smoothly we may release 
+also the other classes validity, creators and accessors. Mathieu is 
+working on io methods but he'll have to wait a little bit until csData 
+class is finished to follow up.
+
+This will be version 0.0-3: class definition, io, validity, creators and 
+accessors for csData, ceData and clData.
+
+Version 0.0-3 will be our starting basis for Lisbon meeting and I hope 
+you'll start playing with it.
+
+Best
+
+EJ
+
+
+
+From tej at difres.dk  Fri Sep 28 09:25:03 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Fri, 28 Sep 2007 09:25:03 +0200
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <40A15E1D8A76A949AF0271EF3133E1A9B2695A@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818AFA@ch-mail01.dfu.local>
+
+About "Size Sorting Categories"
+
+Well yes, unless there is actually a meaning of the letters. Values like
+this always turns on the alarm for database designers, because it might
+not be completely normalised. It is often two separate informations
+concatenated into some kind of code. If  that is the case and the system
+takes it in as one field, then the problem always pop up late in the
+development phase, that certain values should be handled in certain
+ways, so you either need to split up the field in two or make a special
+parser for that field - every time the field is used.
+I would say that if you can not map these values into integers, then
+that is because there is more information hidden in the code that just
+the size. That information could very well be relevant, but it should be
+pulled out into a separate field.
+
+BR
+Teunis
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David
+Maxwell (Cefas)
+Sent: 27. september 2007 18:31
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+I agree with Categories as factors, that solves it.
+
+I don't think we can export in Euros as the database doesn't store that
+or conversion rates. To avoid developing more methods might have to
+import in pounds then multiply by a constant, not elegant or robust but
+simple. I don't want it to be a major issue as it's an optional field
+anyway.
+
+Regards, David.
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 27 September 2007 11:55
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+Hi,
+
+IMO categories should be stored as factors in R. If the category is
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+
+David Maxwell (Cefas) wrote:
+> Hi Teunis , Ernesto
+> thanks for your quick replies.
+>
+> The attached document (maturity keys example.doc) gives some maturity
+stage examples.
+>
+> At our markets the categories are only consistent within a landing
+(which is why we use vessel raising) it's not even a nationally fixed
+scaled. 
+> The character format is because the field contains either category
+numbers 0 to 99 or it might contain EU grades coded as 
+> grade            gradename
+> 99                COLLECTIVE GRADE
+> A1           
+> A2           
+> A3           
+> A4           
+> A5           
+> B1           
+> B2           
+> B3           
+> B4           
+> B5           
+> E1           
+> E2           
+> E3           
+> E4           
+> E5           
+> G9                GRADED BUT DETAILS UNKNOWN
+> N9                UNKNOWN
+> U9                UNGRADED
+> X9                QUALITY LOWER THAN EC STANDARDS
+>
+> I don't know why it is this combination of integer and character
+codes.
+>
+> For landings value the data will be recorded in national currency, I 
+> can't change that, so the question is at what point to convert them. I
+
+> would prefer the format to be based on values collected and the COST 
+> code convert them so that
+>  i) the conversion factors are stored
+>  ii) for analyses run within a lab, which may be most of them given
+the political aspects of if and how to share landings data at vessel
+level, the values don't have to be re-converted to national currency
+(with the risk of a different conversion factor being used).
+>
+> BR, David
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+************************************************************************
+***********
+This email and any attachments are intended for the named recipient
+only.  Its unauthorised use, distribution, disclosure, storage or
+copying is not permitted.  If you have received it in error, please
+destroy all copies and notify the sender.  In messages of a non-business
+nature, the views and opinions expressed are the author's own and do not
+necessarily reflect those of the organisation from which it is sent.
+All emails may be subject to monitoring.
+************************************************************************
+***********
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Fri Sep 28 11:13:24 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 28 Sep 2007 10:13:24 +0100
+Subject: [cost-devel] FF5 data call
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818AFA@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818AFA@ch-mail01.dfu.local>
+Message-ID: <46FCC5B4.4040400@ipimar.pt>
+
+Teunis Jansen wrote:
+> About "Size Sorting Categories"
+>
+> Well yes, unless there is actually a meaning of the letters. Values like
+> this always turns on the alarm for database designers, because it might
+> not be completely normalised. It is often two separate informations
+> concatenated into some kind of code. If  that is the case and the system
+> takes it in as one field, then the problem always pop up late in the
+> development phase, that certain values should be handled in certain
+> ways, so you either need to split up the field in two or make a special
+> parser for that field - every time the field is used.
+> I would say that if you can not map these values into integers, then
+> that is because there is more information hidden in the code that just
+> the size. That information could very well be relevant, but it should be
+> pulled out into a separate field.
+>
+> BR
+> Teunis
+[snip]
+
+Hi,
+
+I agree with Teunis, if a code entangles more than a simple grouping 
+you'll end up having to split it into 2 different fields later on.
+
+Anyway using integers may also have more info than we desire. Factors in 
+R can be unordered on ordered. The first are used for groups like, e.g, 
+"rain" "no rain" where you don't establish a hierarchical relation 
+between levels of the factor. The second are used when you have a 
+relation between levels, e.g., age groups "0", "1", etc. My remark is 
+about having integers for factors that do not have a relation between 
+then. For size it's the correct option, as Teunis says. If more info is 
+entangled on those codes you'll have to judge if they have a relation 
+between them or not, if not they should be store as unordered factors, 
+at least in R.
+
+Please note that we don't need, and IMHO we should not use, the same 
+storage mode in R and in FF. They are different programs with different 
+aims, we simply need to clarify what we're storing and use the best 
+storage mode for it.
+
+Best
+
+EJ
+
+
+ps: please reply emails at the end of the messages, it will be easier to 
+read the discussion.
+
+
+
+From tej at difres.dk  Fri Sep 28 12:06:03 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Fri, 28 Sep 2007 12:06:03 +0200
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <46FCC5B4.4040400@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818B27@ch-mail01.dfu.local>
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format
+Description. I have changed where consensus seems so have been made on
+either the wiki or on the discussion list, plus some trivial
+improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: "duration" changed to "time" and "Haul" changed to
+"Fishing"
+2. Adding a "*" after field names to mark key fields
+3. Reordering the last fields of HL and CA, so that key fields come
+first and value fields come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used "Fishing operation" or "Fishing activity"?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human
+consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be
+specified in XML for all data types. FishFrame is able to receive the
+data in either CSV or XML. CSV is best suited when humans upload the
+data although some prefer XML. XML is best for server-to-server data
+communication. We will use the XML format later to automate the upload
+from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers,
+numbers at length, numbers at age, mean weight at length, mean weight at
+age, mean length at age). This format for raised data can include
+extrapolated data (hole-filling of biological sampling and discard
+rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs,
+but they do not appear after upload. Some kind of "Approval" is
+needed...
+
+Best regards
+Teunis
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 28. september 2007 11:13
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] FF5 data call
+
+Teunis Jansen wrote:
+> About "Size Sorting Categories"
+>
+> Well yes, unless there is actually a meaning of the letters. Values 
+> like this always turns on the alarm for database designers, because it
+
+> might not be completely normalised. It is often two separate 
+> informations concatenated into some kind of code. If  that is the case
+
+> and the system takes it in as one field, then the problem always pop 
+> up late in the development phase, that certain values should be 
+> handled in certain ways, so you either need to split up the field in 
+> two or make a special parser for that field - every time the field is
+used.
+> I would say that if you can not map these values into integers, then 
+> that is because there is more information hidden in the code that just
+
+> the size. That information could very well be relevant, but it should 
+> be pulled out into a separate field.
+>
+> BR
+> Teunis
+[snip]
+
+Hi,
+
+I agree with Teunis, if a code entangles more than a simple grouping
+you'll end up having to split it into 2 different fields later on.
+
+Anyway using integers may also have more info than we desire. Factors in
+R can be unordered on ordered. The first are used for groups like, e.g,
+"rain" "no rain" where you don't establish a hierarchical relation
+between levels of the factor. The second are used when you have a
+relation between levels, e.g., age groups "0", "1", etc. My remark is
+about having integers for factors that do not have a relation between
+then. For size it's the correct option, as Teunis says. If more info is
+entangled on those codes you'll have to judge if they have a relation
+between them or not, if not they should be store as unordered factors,
+at least in R.
+
+Please note that we don't need, and IMHO we should not use, the same
+storage mode in R and in FF. They are different programs with different
+aims, we simply need to clarify what we're storing and use the best
+storage mode for it.
+
+Best
+
+EJ
+
+
+ps: please reply emails at the end of the messages, it will be easier to
+read the discussion.
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame 5 Exchange Format Description.pdf
+Type: application/octet-stream
+Size: 203918 bytes
+Desc: FishFrame 5 Exchange Format Description.pdf
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20070928/e84033db/attachment.obj>
+
+From ernesto at ipimar.pt  Fri Sep 28 12:28:51 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 28 Sep 2007 11:28:51 +0100
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818B27@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818B27@ch-mail01.dfu.local>
+Message-ID: <46FCD763.3020404@ipimar.pt>
+
+Teunis Jansen wrote:
+> Dear All
+>
+> Attached is the latest version (28/9) of the Exchange Format
+> Description. I have changed where consensus seems so have been made on
+> either the wiki or on the discussion list, plus some trivial
+> improvements.
+>
+> Changes since ver.27/9:
+> 1. HH field renaming: "duration" changed to "time" and "Haul" changed to
+> "Fishing"
+> 2. Adding a "*" after field names to mark key fields
+> 3. Reordering the last fields of HL and CA, so that key fields come
+> first and value fields come last.
+>
+> Open discussions (correct me if I forgot any):
+> 1. What name is to be used "Fishing operation" or "Fishing activity"?
+> 2. CL.OfficialLandingsValue: Currency field or just always in euro?
+> 3. Size Sorting as a string or as an integer?
+>
+> Coming planned additions to the document:
+> 1. More detailed descriptions of the fields
+>    -"Landing category" (the nature of "industrial" landings vs. "human
+> consumption" landings)
+>    -"Age" (how different aging methods should map to this field).
+>    - The 3 fisheries fields and their coding and internal relations.
+> 2. The format is now specified for CSV. The format will also be
+> specified in XML for all data types. FishFrame is able to receive the
+> data in either CSV or XML. CSV is best suited when humans upload the
+> data although some prefer XML. XML is best for server-to-server data
+> communication. We will use the XML format later to automate the upload
+> from our national raw-database to FishFrame.
+> 2. A format for raised commercial fisheries data (total weight, numbers,
+> numbers at length, numbers at age, mean weight at length, mean weight at
+> age, mean length at age). This format for raised data can include
+> extrapolated data (hole-filling of biological sampling and discard
+> rates).
+> 3. Possibly a format for bottom trawl surveys. This will be coordinated
+> with ICES and their DATRAS database.
+>
+> I would like to upload each new version on BerliOS Developer under Docs,
+> but they do not appear after upload. Some kind of "Approval" is
+> needed...
+>
+> Best regards
+> Teunis
+
+Hi,
+
+I've looked at the docs in berlios, there's a field called "state" that 
+by default is "pending" and you need to change it to "active". Do you 
+see that field or is it just for site administrators ?
+
+Let me clarify the naming I used WRT fishing:
+
+TR field 12 "Number of hauls" = foNum (number of fishing operations)
+HH field 9 "Haul validity" = foVal
+HH field 13 "Fishing time" = foDur
+HH field 20 "Main fishing depth" = foDep
+HH field 22 "Fishing activity category national" = foCatNat
+HH field 23 "Fishing activity category european lvl 5" = foCatEu5
+HH field 24 "Fishing activity category european lvl 6" = foCatEu6
+
+It looks more consistent to me but if people feel "fishing activity" 
+should be kept I can change csData definition into faCatNat and so on.
+
+Best
+
+EJ
+
+
+
+
+
+From tej at difres.dk  Fri Sep 28 12:51:11 2007
+From: tej at difres.dk (Teunis Jansen)
+Date: Fri, 28 Sep 2007 12:51:11 +0200
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <46FCD763.3020404@ipimar.pt>
+Message-ID: <8CDDBB8CAC32F34B809EB4A677952B4B02818B32@ch-mail01.dfu.local>
+
+
+ No "state" field visible for me. Only "Language" and "Group that
+document belongs in".
+
+T
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+ernesto
+Sent: 28. september 2007 12:29
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Latest version of the exchage format
+description
+
+Teunis Jansen wrote:
+> Dear All
+>
+> Attached is the latest version (28/9) of the Exchange Format 
+> Description. I have changed where consensus seems so have been made on
+
+> either the wiki or on the discussion list, plus some trivial 
+> improvements.
+>
+> Changes since ver.27/9:
+> 1. HH field renaming: "duration" changed to "time" and "Haul" changed 
+> to "Fishing"
+> 2. Adding a "*" after field names to mark key fields 3. Reordering the
+
+> last fields of HL and CA, so that key fields come first and value 
+> fields come last.
+>
+> Open discussions (correct me if I forgot any):
+> 1. What name is to be used "Fishing operation" or "Fishing activity"?
+> 2. CL.OfficialLandingsValue: Currency field or just always in euro?
+> 3. Size Sorting as a string or as an integer?
+>
+> Coming planned additions to the document:
+> 1. More detailed descriptions of the fields
+>    -"Landing category" (the nature of "industrial" landings vs. "human
+
+> consumption" landings)
+>    -"Age" (how different aging methods should map to this field).
+>    - The 3 fisheries fields and their coding and internal relations.
+> 2. The format is now specified for CSV. The format will also be 
+> specified in XML for all data types. FishFrame is able to receive the 
+> data in either CSV or XML. CSV is best suited when humans upload the 
+> data although some prefer XML. XML is best for server-to-server data 
+> communication. We will use the XML format later to automate the upload
+
+> from our national raw-database to FishFrame.
+> 2. A format for raised commercial fisheries data (total weight, 
+> numbers, numbers at length, numbers at age, mean weight at length, 
+> mean weight at age, mean length at age). This format for raised data 
+> can include extrapolated data (hole-filling of biological sampling and
+
+> discard rates).
+> 3. Possibly a format for bottom trawl surveys. This will be 
+> coordinated with ICES and their DATRAS database.
+>
+> I would like to upload each new version on BerliOS Developer under 
+> Docs, but they do not appear after upload. Some kind of "Approval" is 
+> needed...
+>
+> Best regards
+> Teunis
+
+Hi,
+
+I've looked at the docs in berlios, there's a field called "state" that
+by default is "pending" and you need to change it to "active". Do you
+see that field or is it just for site administrators ?
+
+Let me clarify the naming I used WRT fishing:
+
+TR field 12 "Number of hauls" = foNum (number of fishing operations) HH
+field 9 "Haul validity" = foVal HH field 13 "Fishing time" = foDur HH
+field 20 "Main fishing depth" = foDep HH field 22 "Fishing activity
+category national" = foCatNat HH field 23 "Fishing activity category
+european lvl 5" = foCatEu5 HH field 24 "Fishing activity category
+european lvl 6" = foCatEu6
+
+It looks more consistent to me but if people feel "fishing activity" 
+should be kept I can change csData definition into faCatNat and so on.
+
+Best
+
+EJ
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From ernesto at ipimar.pt  Fri Sep 28 13:00:25 2007
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 28 Sep 2007 12:00:25 +0100
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818B32@ch-mail01.dfu.local>
+References: <8CDDBB8CAC32F34B809EB4A677952B4B02818B32@ch-mail01.dfu.local>
+Message-ID: <46FCDEC9.8020004@ipimar.pt>
+
+Teunis Jansen wrote:
+>  No "state" field visible for me. Only "Language" and "Group that
+> document belongs in".
+>
+> T
+[snip]
+
+Ok,
+
+That's a admin field. So me or Joel we'll have to approve docs.
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Fri Sep 28 16:00:02 2007
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 28 Sep 2007 15:00:02 +0100
+Subject: [cost-devel] Latest version of the exchage format description
+In-Reply-To: <8CDDBB8CAC32F34B809EB4A677952B4B02818B27@ch-mail01.dfu.local>
+Message-ID: <40A15E1D8A76A949AF0271EF3133E1A9B2695D@LOWEXPRESS.corp.cefas.co.uk>
+
+reply is below
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Teunis
+Jansen
+Sent: 28 September 2007 11:06
+To: cost-project-devel at lists.berlios.de
+Cc: Brian James Cowan
+Subject: [cost-devel] Latest version of the exchage format description
+
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format
+Description. I have changed where consensus seems so have been made on
+either the wiki or on the discussion list, plus some trivial
+improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: "duration" changed to "time" and "Haul" changed to
+"Fishing"
+2. Adding a "*" after field names to mark key fields
+3. Reordering the last fields of HL and CA, so that key fields come
+first and value fields come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used "Fishing operation" or "Fishing activity"?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -"Landing category" (the nature of "industrial" landings vs. "human
+consumption" landings)
+   -"Age" (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be
+specified in XML for all data types. FishFrame is able to receive the
+data in either CSV or XML. CSV is best suited when humans upload the
+data although some prefer XML. XML is best for server-to-server data
+communication. We will use the XML format later to automate the upload
+from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers,
+numbers at length, numbers at age, mean weight at length, mean weight at
+age, mean length at age). This format for raised data can include
+extrapolated data (hole-filling of biological sampling and discard
+rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs,
+but they do not appear after upload. Some kind of "Approval" is
+needed...
+
+Best regards
+Teunis
+
+ 
+---------------------------------------------
+Hi,
+a reasonably long question, hopefully with a short answer.
+
+As an example to help me get the mapping to the FF5 format suppose we have two vessels
+
+vessel 1 which splits its landings into 2 categories
+ e.g. small fish, big fish which get local category codes 0 and 1
+
+this vessel is sampled, a sampleID number generated and recorded.
+Sampling gives data
+ category 0, landed weight 50kg, sampled weight 10kg, length distribution of sample
+ category 1, landed weight 100kg, sampled weight 30kg, length distribution of sample
+
+
+Would this map to two CS SL records with record 1 as
+
+Trip number = sampleID
+Commercial Size category scale = "Landing specific" ??
+Commercial Size category = 0
+Subsampling category = NA
+Weight = 50000
+SubSample weight = 10000 
+
+and the length distribution creating CS CA records with
+
+Trip number = sampleID
+Size category scale = "Landing specific" 
+Size category = 0
+
+
+Next we have vessel 2 which is not sampled so we only have a vessel registration number and total landing.
+This does not get a CS SL record, it only contributes to a strata total in a CL record.
+
+Thanks, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+

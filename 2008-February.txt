@@ -1,0 +1,320 @@
+From Joel.Vigneau at ifremer.fr  Mon Feb 11 15:34:28 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 11 Feb 2008 15:34:28 +0100
+Subject: [cost-devel] Interim report
+Message-ID: <47B05CF4.40600@ifremer.fr>
+
+Dear COST developers,
+
+it is time to write the interim report for the Commission and I've 
+promised one month ago to respect the new deadline of next Friday 
+(16/02). In order to finalise this document I still need some inputs. 
+Here is what I need based on the structure of the report :
+
+    * Data Exchange Format : Ok
+    * CORE package : Ernesto is finalising a version 1.0 for Friday. I
+      need Alastair's review of the documentation as the doc itself will
+      not be affected by Ernesto's updates to cope with the new DEF
+      structure.
+    * EDA package : Mathieu is working on the text of the report (usage
+      and outputs) together with the man pages. He has Alastair's work
+      on mapping but is missing the check functions
+    * DESIGN-BASED functions : I need David M. bullet points on the
+      state of development and short-term task forecast
+    * MODEL-BASED functions : id above by David H.
+
+The draft circulation will be rocket-like, if exists before Friday. 
+Anyhow, this report will be very useful for all developers to understand 
+the work done so far. It is one point to send the Commission a report in 
+order to respect the terms of the contract. It is another point to make 
+this baby grow further for our own purpose and the purpose of the very 
+final report.
+
+Thank you for your help
+
+Best regards
+
+Joel
+
+
+.--
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080211/02eacc5b/attachment.html>
+
+From david.hirst at nr.no  Wed Feb 13 16:00:30 2008
+From: david.hirst at nr.no (David Hirst)
+Date: Wed, 13 Feb 2008 16:00:30 +0100
+Subject: [cost-devel] Interim report
+In-Reply-To: <47B05CF4.40600@ifremer.fr>
+References: <47B05CF4.40600@ifremer.fr>
+Message-ID: <47B3060E.9050102@nr.no>
+
+Interim report: Model based methods.
+
+Tasks:
+1) Develop model for discards
+2) Incorporate discard model with existing landings model
+3) Implement full model on COST data structures
+4) Test model
+5) Write simulation routines to simulate catch from model
+6) Test performance of model and design based methods on simulated data
+7) Document models and programs.
+
+Current status:
+1) Complete
+2) In progress. Estimated completion end April 2008
+3) Scheduled May 2008
+4) Ongoing. Finish end May 2008
+5) In progress. Estimated completion March 2008 (without discards), 
+April 2008 with discards
+6) Start at next expert meeting
+7) Ongoing.
+
+
+
+
+
+Joel VIGNEAU wrote:
+> Dear COST developers,
+>
+> it is time to write the interim report for the Commission and I've 
+> promised one month ago to respect the new deadline of next Friday 
+> (16/02). In order to finalise this document I still need some inputs. 
+> Here is what I need based on the structure of the report :
+>
+>     * Data Exchange Format : Ok
+>     * CORE package : Ernesto is finalising a version 1.0 for Friday. I
+>       need Alastair's review of the documentation as the doc itself
+>       will not be affected by Ernesto's updates to cope with the new
+>       DEF structure.
+>     * EDA package : Mathieu is working on the text of the report
+>       (usage and outputs) together with the man pages. He has
+>       Alastair's work on mapping but is missing the check functions
+>     * DESIGN-BASED functions : I need David M. bullet points on the
+>       state of development and short-term task forecast
+>     * MODEL-BASED functions : id above by David H.
+>
+> The draft circulation will be rocket-like, if exists before Friday. 
+> Anyhow, this report will be very useful for all developers to 
+> understand the work done so far. It is one point to send the 
+> Commission a report in order to respect the terms of the contract. It 
+> is another point to make this baby grow further for our own purpose 
+> and the purpose of the very final report.
+>
+> Thank you for your help
+>
+> Best regards
+>
+> Joel
+>
+>
+> .--
+>
+> /*Jo?l VIGNEAU*/
+>
+> Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+> IFREMER <http://www.ifremer.fr/>
+> 14 520 Port-en-Bessin
+>
+> T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+From ernesto at ipimar.pt  Fri Feb 15 16:50:48 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 15 Feb 2008 15:50:48 +0000
+Subject: [cost-devel] Version 1 is out !
+Message-ID: <47B5B4D8.4000900@ipimar.pt>
+
+Hi,
+
+I've just committed version one to CVS and uploaded to the file 
+repository 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299).
+
+It implements the latest FF5 format of January, 25th and has now all the 
+functionalities agreed during the expert meeting.
+
+So now I expect a lot of bug reports from all of you who are going to 
+use it extensively :-)
+
+Best regards
+
+EJ
+
+
+
+From tej at difres.dk  Mon Feb 18 11:47:47 2008
+From: tej at difres.dk (Teunis Jansen)
+Date: Mon, 18 Feb 2008 11:47:47 +0100
+Subject: [cost-devel] FishFrame-COST data exchange format MINOR CORRECTION...
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151381987@lu-mail-san.dfu.local>
+
+Dear All
+ 
+We have unfortunately found another inconsistence in the DEF, I would
+like to suggest that we correct that plus another small improvement:
+
+1.	The key fields on a record should according to the logic rules
+of the format be inherited from the parent record and be in the same
+order. This was corrected for SL recently. We have now found that there
+is an error in the field order on HL. The sex-field should be moved from
+position 10 (after species) to position 15 (between SubSamplingCategory
+and LengthClass).
+2.	The HH field "Fishing activity category European lvl 5" is
+mandatory while "Fishing activity category European lvl 6" is optional,
+this means that if you provide lvl6, then you also have to provide lvl5.
+So this opens for inconsistency. Easy to check, but unnecessary and not
+following the principles of the format. This should be changed so that
+is is "either or". One of the fields has to be given, but not both.
+
+Number 1 looks small, but it breaks our generic code.
+ 
+Best regards
+Teunis
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080218/503d6f34/attachment.html>
+
+From ernesto at ipimar.pt  Tue Feb 26 11:31:37 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 26 Feb 2008 10:31:37 +0000
+Subject: [cost-devel] FishFrame-COST data exchange format MINOR
+	CORRECTION...
+In-Reply-To: <88431FCDD055A44BA5EEE1EC14E7E151381987@lu-mail-san.dfu.local>
+References: <88431FCDD055A44BA5EEE1EC14E7E151381987@lu-mail-san.dfu.local>
+Message-ID: <47C3EA89.5080403@ipimar.pt>
+
+Teunis Jansen wrote:
+> Dear All
+>  
+> We have unfortunately found another inconsistence in the DEF, I would 
+> like to suggest that we correct that plus another small improvement:
+>
+>    1. The key fields on a record should according to the logic rules
+>       of the format be inherited from the parent record and be in the
+>       same order. This was corrected for SL recently. We have now
+>       found that there is an error in the field order on HL. The
+>       sex-field should be moved from position 10 (after species) to
+>       position 15 (between SubSamplingCategory and LengthClass).
+>    2. The HH field "Fishing activity category European lvl 5" is
+>       mandatory while "Fishing activity category European lvl 6" is
+>       optional, this means that if you provide lvl6, then you also
+>       have to provide lvl5. So this opens for inconsistency. Easy to
+>       check, but unnecessary and not following the principles of the
+>       format. This should be changed so that is is /"either or". /One
+>       of the fields /has/ to be given, but not both.
+>
+> Number 1 looks small, but it breaks our generic code.
+>  
+> Best regards
+> Teunis
+Hi Teunis,
+
+No problem about those changes. I'll have to update the COSTcore class 
+definition but the impact shouldn't be to high. I don't know when I'll 
+be able to do it ...
+
+Best
+
+EJ
+
+
+
+From tej at aqua.dtu.dk  Tue Feb 26 11:53:52 2008
+From: tej at aqua.dtu.dk (Teunis Jansen)
+Date: Tue, 26 Feb 2008 11:53:52 +0100
+Subject: [cost-devel] The 26 February 2008 version of FishFrame5/COST1 DEF
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E15145821B@lu-mail-san.dfu.local>
+
+Dear All
+
+Attached is the 26 February 2008 version of FishFrame5/COST1 DEF in both MS word and PDF. 
+The minor modifications compared to the 25 January version are described in the mail correspondence below.
+
+Best regards & happy formatting
+
+Teunis 
+
+___________________________________________
+
+Teunis Jansen, M. Sc., MCSD
+
+Marine Biologist & Software Developer
+Department for Marine Fisheries
+Section of Population-& ecosystem dynamics
+DTU  AQUA - National Institute of Aquatic Resources
+Technical University of Denmark
+
+Charlottenlund castle
+DK 2920 Charlottenlund
+   
+Mail: tej at Aqua.dtu.dk <blocked::mailto:tej at Aqua.dtu.dk> 
+Phone: +45 30 66 78 40
+Fax: +45 33 96 33 33
+Skype: Teunis Jansen
+Messenger: tej at dfu.min.dk <blocked::mailto:tej at dfu.min.dk> 
+
+   ><((((((((((?>    <?))))><
+___________________________________________ 
+
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Teunis Jansen
+Sent: 18. februar 2008 11:48
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] FishFrame-COST data exchange format MINOR CORRECTION...
+
+
+Dear All
+ 
+We have unfortunately found another inconsistence in the DEF, I would like to suggest that we correct that plus another small improvement:
+
+1.	The key fields on a record should according to the logic rules of the format be inherited from the parent record and be in the same order. This was corrected for SL recently. We have now found that there is an error in the field order on HL. The sex-field should be moved from position 10 (after species) to position 15 (between SubSamplingCategory and LengthClass). 
+2.	The HH field "Fishing activity category European lvl 5" is mandatory while "Fishing activity category European lvl 6" is optional, this means that if you provide lvl6, then you also have to provide lvl5. So this opens for inconsistency. Easy to check, but unnecessary and not following the principles of the format. This should be changed so that is is "either or". One of the fields has to be given, but not both.
+
+Number 1 looks small, but it breaks our generic code.
+ 
+Best regards
+Teunis 
+------------------------------------------------
+Hi Teunis,
+
+No problem about those changes. I'll have to update the COSTcore class definition but the impact shouldn't be to high. I don't know when I'll be able to do it ...
+
+Best
+
+EJ
+
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080226/b8034e0a/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: FishFrame-COST data exchange format description.zip
+Type: application/x-zip-compressed
+Size: 587790 bytes
+Desc: FishFrame-COST data exchange format description.zip
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080226/b8034e0a/attachment.bin>
+

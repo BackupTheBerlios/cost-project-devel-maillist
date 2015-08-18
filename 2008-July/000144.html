@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Summer progress
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Summer%20progress&In-Reply-To=%3C48916E65.4010509%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000143.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Summer progress</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Summer%20progress&In-Reply-To=%3C48916E65.4010509%40ifremer.fr%3E"
+       TITLE="[cost-devel] Summer progress">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Thu Jul 31 09:48:53 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000143.html">[cost-devel] Data Exchange Format Modifications
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear COST developers,
+
+Mathieu has posted yesterday the new release of COSTcore, taking into 
+account the definitive DEF structure. The specifications of this DEF 
+will be writen in early August and Ernesto, when coming back from 
+holidays, will take care of reviewing the code of COSTcore to make it 
+more robust (if needed) and more complete in term of internal controls. 
+ From a developer point of view, you can work already upon this version 
+of COSTcore with the internal Sole dataset.
+
+In a further step, transforming the other datasets into this new DEF is 
+just a matter of adding the new fields with NA values or the correct 
+values if available. This can be done relatively quickly, and should not 
+delay the implementation of the ongoing packages.
+
+The major modifs of the new DEF authorises the consideration of (i) the 
+distinction of sex in a sampled box of one species (Nephrops case) and 
+(ii) the distinction of different species in a sampled box of a taxon 
+(Lophius case). There is no datasets on these cases today, so I ask the 
+developers to take into consideration such possibility when implementing 
+a function but for the September deadline, only functions developed on 
+the &quot;normal&quot; case : one taxon = One species without sex will be taken 
+into account. The variants will have to be developed/tested later, when 
+some datasets will be available.
+
+Let's concentrate on having raising methods and precision estimates for 
+end of September and a Bayesian model ready for beginning of September 
+for the start of COSTsim.
+
+In the meeting schedule table, Mathieu had to develop 4 functions 
+(0-value, sampling strategy, gaps in ALK and outcome object). These 4 
+functions have been implemented and distributed to the leaders of 
+COSTdbe and COST mbe.
+What's remaining for End of July is the investigation on a hybrid 
+bootstrap (David M. and me) and the Bootstrap Estimates of empirical 
+variables-at-length and variances (Paz).
+
+I wish nice holidays for those about to leave.
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+/*Jo&#235;l VIGNEAU*/
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080731/d0796ee5/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080731/d0796ee5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000143.html">[cost-devel] Data Exchange Format Modifications
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#144">[ date ]</a>
+              <a href="thread.html#144">[ thread ]</a>
+              <a href="subject.html#144">[ subject ]</a>
+              <a href="author.html#144">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

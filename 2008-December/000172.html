@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Landings and value adjustments
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-December/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Landings%20and%20value%20adjustments&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F892A%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000171.html">
+   <LINK REL="Next"  HREF="000173.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Landings and value adjustments</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Landings%20and%20value%20adjustments&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B5F892A%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] Landings and value adjustments">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Wed Dec 10 15:36:46 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000171.html">[cost-devel] new vslLenCat field in cl and ce tables
+</A></li>
+        <LI>Next message: <A HREF="000173.html">[cost-devel] Landings and value adjustments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#172">[ date ]</a>
+              <a href="thread.html#172">[ thread ]</a>
+              <a href="subject.html#172">[ subject ]</a>
+              <a href="author.html#172">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Henrik &amp; Teunis,
+
+Please can you confirm/explain how the Landings and Values adjustment fields are used.
+(Mathieu I think what you have is ok)
+
+Thanks, David
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>]
+Sent: 10 December 2008 14:11
+To: David Maxwell (Cefas)
+Subject: Re: Cefas
+
+
+Hi David,
+
+Concerning COSTdbe, I have a question ; when calculating total landings 
+from CL, is that formula still valid :
+
+TotLand = OffLand*Multi + UnallocCat + MisallocCat ?
+
+Best
+Mathieu
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Joel VIGNEAU
+Sent: 19 September 2008 13:32
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] &quot;raising&quot; questions
+
+David Maxwell (Cefas) a &#233;crit : 
+	Hi all,
+
+	In landings data (CL)
+	1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+
+	2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+
+	 [...] Regards, David
+Dear David,
+
+Concerning your questions
+
+1) This is coming from the original FF DEF, so Henrik or Teunis would be the ones to answer. To my understanding
+Total Landings = Official Landings * Multiplier + Unallocated Catch + Misallocated Catch
+
+Although I would be reluctant to do both multiplier and addition of the Unallocated. This is something to discuss.
+
+2) The Landings Value corresponds to the Official Landings, so we should find
+Total Value = Total Landings * Landings Value / Official Landings
+
+Best regards
+Joel
+- 
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000171.html">[cost-devel] new vslLenCat field in cl and ce tables
+</A></li>
+	<LI>Next message: <A HREF="000173.html">[cost-devel] Landings and value adjustments
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#172">[ date ]</a>
+              <a href="thread.html#172">[ thread ]</a>
+              <a href="subject.html#172">[ subject ]</a>
+              <a href="author.html#172">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

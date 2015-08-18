@@ -1,0 +1,31 @@
+From Joel.Vigneau at ifremer.fr  Mon Aug  4 15:52:20 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 04 Aug 2008 15:52:20 +0200
+Subject: [cost-devel] Datasets in the new format
+Message-ID: <48970994.7030802@ifremer.fr>
+
+Dear all,
+
+thanks to Alastair, the dataset package on the BerliOS website is now 
+updated to the new DEF.
+
+Best regards
+
+Joel
+
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080804/c871a6e1/attachment.html>
+

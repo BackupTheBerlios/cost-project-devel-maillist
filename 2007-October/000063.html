@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] DEF modiif from the meeting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B0290EB3C%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000058.html">
+   <LINK REL="Next"  HREF="000064.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] DEF modiif from the meeting</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20DEF%20modiif%20from%20the%20meeting&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B0290EB3C%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] DEF modiif from the meeting">tej at difres.dk
+       </A><BR>
+    <I>Fri Oct 26 13:42:38 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000058.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+        <LI>Next message: <A HREF="000064.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+-----Oprindelig meddelelse-----
+Fra: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] P&#229; vegne af ernesto
+Sendt: 24. oktober 2007 16:01
+Til: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Cc: Brian James Cowan; J&#248;rgen Dalskov
+Emne: Re: [cost-devel] DEF modiif from the meeting
+
+Teunis Jansen wrote:
+&gt;<i> Dear All
+</I>&gt;<i>  
+</I>&gt;<i> Thanks for the minutes. Here are most of our comments to the minutes about the exchange format (attached in word and pdf).
+</I>&gt;<i> Comments to the survey data follow in a separate mail.
+</I>&gt;<i>  
+</I>&gt;<i> We should then have a final-final version within a week. That will be good because changes this late in the development process leads to double work in the code.
+</I>&gt;<i>  
+</I>&gt;<i> BR
+</I>&gt;<i> Teunis
+</I>
+Hi Teunis,
+
+Below are my comments. Note that none of these comments are related with R, we're trying to generalize the FF5 exchange format so that others can used it and that means getting as much platform independent as possible.
+
+1) CS tables and vessels id
+    Our concern is that we need to identify the trip and in the case of a &quot;trip to the market&quot; we can't, unless vessel id is included in the PK. 
+One trip to the market can sample several fishing trips. As you say it can be encrypted or some kind of codification can be used, is just a matter of identifying the trip.
+
+2) TR table and sampling type
+    The 2 new codes are used for biological sampling only, so you should have related records in CA and eventually in HH (at least in the case of surveys you should), not in SL/HL.
+
+3) SL/HL tables and sex
+    Removing from SL and keeping sex in HL can be a good way through. In HL it must be included in the PK and it must have the &quot;Unsexed&quot; code included (discussion about optional fields and PK later on).
+
+4) CA table
+    Ok, no comments.
+
+5) General cases
+
+5.1) Optional vs Mandatory
+    It does not make sense to have fields labeled as mandatory for which you may not provide information. It's confusing and if you have the opportunity to leave this fields blank then they are not mandatory anymore. The only way to run checks on null fields is to assume &quot;null&quot; 
+mean something, in that case &quot;something&quot; must be provided and the field is mandatory.
+
+5.2) Fields in PK must be mandatory
+    If you look at SQL92 definition
+(<A HREF="http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt">http://www.contrib.andrew.cmu.edu/~shadow/sql/sql1992.txt</A>) it's clearly stated that &quot;if the unique constraint was defined with PRIMARY KEY, then it requires that none of the values in the specified column or columns be the null value.&quot; (page 42). Following your example about sex, note that null means you don't have information about it while &quot;unsexed&quot; mean you did not identified the individual's gender.
+
+5.3) Taxa mixture
+    Ok, no comments.
+
+Best
+
+EJ
+--------------------------------------------------------
+
+Remaining issues for exchange format (not classes) is then: 1, 5.1, 5.2 (2 is in another thread)
+
+
+1) CS tables and vessels id
+The core of this is actually that there are two different sampling schemes for market samplings. We (Denmark) do not have the vessel-information, and there is no way we can get it. What we do is that we stratify on the commercial size sorting. Check the note 3 on CS.TR about the definition of a trip:
+&quot;A trip is defined for
+	a. Sea sampling as: The period between a vessel departs from a port (or factory ship) and arrives to a port (or factory ship) for discharge.
+	b. Market sampling as: A sampling trip to a market. This would typically be just one day. If this grouping information is not available nationally, then any other grouping of market samples that gives sense can be used. The time span of the journey has no implication for the raising of the market samples&quot;
+
+We would therefore suggest that:
+- We change this, so that market sampling &quot;M&quot; has the same definition as sea sampling &quot;S&quot;. Then you can use this for your market samplings and you do not have mixed trips. 
+AND
+- We also add a new sampling type &quot;D&quot; that will we just like &quot;M&quot;, just with the Market sampling definition of a trip adding the information that it can be from a mix of fishing trips. We will then use &quot;D&quot; for our market samplings.
+(&quot;D&quot; is for Day-trip-to-market or Danish market sampling , not particularly good! If anybody can propose a more meaningful letter, then feel free).
+
+5.1) Optional vs. Mandatory
+Mandatory is mandatory. A mandatory field should always have a value, not NULL or &quot;unknown&quot; or &quot;unsexed&quot;.
+Optional is optional - you do not have this information for some reason, the discussion here as I see it is how to represent &quot;nothing&quot;.
+The question is how to handle it in the exchange format when the information is missing for some reason. Some prefer &quot;Unknown&quot; while other prefers just to leave the field blank.
+I consider this partly a matter of taste. Only &quot;partly&quot; because the first solution with having a specific code for &quot;unknown&quot; tends to evolve into more codes for &quot;unknown&quot; (&quot;otholit lost&quot;, &quot;otholit crystalline&quot; etc.). Some even argue that this information is of relevance. It is not relevant at the level we operate on. It might in some cases be relevant in a national database, because you want to know how many otholits that was sampled for reporting the work done, this could include the crystalline, and so you would get paid for sampling them as well.
+We have used the second option with blank field during the last 6 years with FishFrame. The majority of users we have discussed this with are happy for this.
+Again this can be done in any of the two ways in the COST-classes, but we would be reluctant to change this policy in the exchange format. It should also be respected that the users are used to do it this way.
+
+
+5.2) Fields in PK must be mandatory
+SQl92 is correct for primary keys in a database. The primary key in a modern database should always be a unique auto generated integer that gives no sense in itself - it is just the Id of a record. This can not be NULL. The compound natural key however can include NULL's. In any case this is a database discussion we can save for the class design.
+For the exchange format it does not matter if the field is a part of compound natural key or not, the result from 5.1 would apply here as well.
+
+
+PS. There was an error in the last version of the exchange format. The note 1 and 4 on the CS.HL table should be deleted; it was a simple copy-paste error.
+
+Best regards
+Henrik and Teunis
+
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000058.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+	<LI>Next message: <A HREF="000064.html">[cost-devel] DEF modiif from the meeting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#63">[ date ]</a>
+              <a href="thread.html#63">[ thread ]</a>
+              <a href="subject.html#63">[ subject ]</a>
+              <a href="author.html#63">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

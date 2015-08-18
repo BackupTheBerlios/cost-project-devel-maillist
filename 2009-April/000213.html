@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] MBE results
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20MBE%20results&In-Reply-To=%3C49DB35E2.8030100%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000212.html">
+   <LINK REL="Next"  HREF="000214.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] MBE results</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20MBE%20results&In-Reply-To=%3C49DB35E2.8030100%40ifremer.fr%3E"
+       TITLE="[cost-devel] MBE results">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Tue Apr  7 13:15:46 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000212.html">[cost-devel] MBE results
+</A></li>
+        <LI>Next message: <A HREF="000214.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#213">[ date ]</a>
+              <a href="thread.html#213">[ thread ]</a>
+              <a href="subject.html#213">[ subject ]</a>
+              <a href="author.html#213">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Liz,
+
+I will care of this in the text of the report and in the manual.
+
+Best
+
+Joel
+
+Liz Clarke a &#233;crit :
+&gt;<i> As long as it is documented that we do this...
+</I>&gt;<i> Liz
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> *From:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> 
+</I>&gt;<i> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] *On Behalf Of 
+</I>&gt;<i> *Joel VIGNEAU
+</I>&gt;<i> *Sent:* 07 April 2009 11:07
+</I>&gt;<i> *To:* <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> *Subject:* Re: [cost-devel] MBE results
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> yes it is the result of both the normal assumption and the fake low 
+</I>&gt;<i> values of total number of trips in the dataset. In anycase, it shows 
+</I>&gt;<i> that this can happen, and I agree we can replace the negative values 
+</I>&gt;<i> with 0.
+</I>&gt;<i>
+</I>&gt;<i> Best
+</I>&gt;<i>
+</I>&gt;<i> Joel
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Ernesto Jardim a &#233;crit :
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've noticed that the lanEstim obtained in the manual has negative inf 
+</I>&gt;&gt;<i> ci. I suppose it results from using sampling stats to estimate the CI. 
+</I>&gt;&gt;<i> I'm not sure we should include such estimates ... maybe a better 
+</I>&gt;&gt;<i> approach is to truncate the distribution and replace negative values with 0.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> EJ
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">lanEstim at ageNum</A>$ci
+</I>&gt;&gt;<i>         time space technical age        value           inf          sup
+</I>&gt;&gt;<i> 1   2006 - 1   all         1   4 1.428222e+02   -166.542583     452.1870
+</I>&gt;&gt;<i> 2   2006 - 1   all         1   5 5.451335e+03   1476.796370    9425.8730
+</I>&gt;&gt;<i> 3   2006 - 1   all         1   6 9.134738e+03   3821.179894   14448.2960
+</I>&gt;&gt;<i> 4   2006 - 1   all         1   7 9.972928e+03   4584.239969   15361.6161
+</I>&gt;&gt;<i> 5   2006 - 1   all         1   8 1.975126e+04  12938.385525   26564.1414
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;<i>   
+</I>&gt;<i>
+</I>&gt;<i> -- 
+</I>&gt;<i>
+</I>&gt;<i> */Jo&#235;l VIGNEAU
+</I>&gt;<i> /*Laboratoire &quot;Ressources Halieutiques&quot;
+</I>&gt;<i> IFREMER
+</I>&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;<i>
+</I>&gt;<i> T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;<i> <A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> This email has been scanned by the MessageLabs Email Security System.
+</I>&gt;<i> For more information please visit <A HREF="http://www.messagelabs.com/email">http://www.messagelabs.com/email</A>
+</I>&gt;<i> ______________________________________________________________________
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-devel mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;<i>   
+</I>
+-- 
+
+*/Jo&#235;l VIGNEAU
+/*Laboratoire &quot;Ressources Halieutiques&quot;
+IFREMER
+14 520 Port-en-Bessin
+
+T&#233;l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/69aae6b5/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/69aae6b5/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000212.html">[cost-devel] MBE results
+</A></li>
+	<LI>Next message: <A HREF="000214.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#213">[ date ]</a>
+              <a href="thread.html#213">[ thread ]</a>
+              <a href="subject.html#213">[ subject ]</a>
+              <a href="author.html#213">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

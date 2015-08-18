@@ -1,0 +1,5318 @@
+From Joel.Vigneau at ifremer.fr  Wed Apr  1 22:24:31 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Wed, 01 Apr 2009 22:24:31 +0200
+Subject: [cost-devel] Final report
+Message-ID: <20090401222431.43746wjgon5zfnwo@efflammail.ifremer.fr>
+
+
+Dear colleagues,
+
+please consider this frame for the final report and the task allocated  
+to each of us.
+feel free to comment/modify this very draft.
+
+Best
+
+Joel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report.doc
+Type: application/msword
+Size: 1167360 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090401/295f2acd/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Fri Apr  3 09:52:14 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 03 Apr 2009 09:52:14 +0200
+Subject: [cost-devel] Final report
+Message-ID: <49D5C02E.60601@ifremer.fr>
+
+Dear all,
+
+I finally succeeded in using correctly Sweave in the middle of the night!
+This is extremely useful and efficient for drafting the User Manual. 
+Thanks to Ernesto for the idea.
+
+The plan is then that I play with this during all the week-end, while 
+the developers concentrate on the code and the man pages.
+We'll see where we are on Monday.
+
+Best regards
+
+Joel
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/e7733395/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Fri Apr  3 11:10:49 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Fri, 3 Apr 2009 10:10:49 +0100
+Subject: [cost-devel] Final report
+In-Reply-To: <49D5C02E.60601@ifremer.fr>
+References: <49D5C02E.60601@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>
+
+Hi Joel 
+
+Attached is a bit about the spatial plotting and a few other things for the report, please edit as you see fit. 
+
+I can have a go at a Sweave version of this if that would help? 
+
+All the best
+
+Alastair 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 03 April 2009 08:52
+To: cost devel
+Subject: [cost-devel] Final report
+
+ 
+
+Dear all,
+
+I finally succeeded in using correctly Sweave in the middle of the night! 
+This is extremely useful and efficient for drafting the User Manual. Thanks to Ernesto for the idea.
+
+The plan is then that I play with this during all the week-end, while the developers concentrate on the code and the man pages.
+We'll see where we are on Monday.
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/38ea4677/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COSTeda summary p15 onwards.doc
+Type: application/msword
+Size: 167424 bytes
+Desc: COSTeda summary p15 onwards.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/38ea4677/attachment.doc>
+
+From david.hirst at nr.no  Fri Apr  3 11:08:24 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Fri, 03 Apr 2009 10:08:24 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5C02E.60601@ifremer.fr>
+References: <49D5C02E.60601@ifremer.fr>
+Message-ID: <49D5D208.3080102@nr.no>
+
+Dear All, We have been implementing the mbe package in unix, where 
+everything works fine. However, I now need to create a Windows version 
+of the library. I have never tried this, but I am told there is a 
+problem because we need to include our own compiled c code (as a dll 
+file) and several external dll files. This is easy enough in Unix, has 
+anyone tried it in Windows? If so, how do I do it?
+
+By the way, I have never succeeded in getting any of the COST unix 
+libraries to work. Has anyone else tried?
+
+David
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From ernesto at ipimar.pt  Fri Apr  3 11:45:07 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 10:45:07 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5D208.3080102@nr.no>
+References: <49D5C02E.60601@ifremer.fr> <49D5D208.3080102@nr.no>
+Message-ID: <49D5DAA3.6050509@ipimar.pt>
+
+David Hirst wrote:
+> Dear All, We have been implementing the mbe package in unix, where 
+> everything works fine. However, I now need to create a Windows version 
+> of the library. I have never tried this, but I am told there is a 
+> problem because we need to include our own compiled c code (as a dll 
+> file) and several external dll files. This is easy enough in Unix, has 
+> anyone tried it in Windows? If so, how do I do it?
+>
+> By the way, I have never succeeded in getting any of the COST unix 
+> libraries to work. Has anyone else tried?
+>
+> David
+>   
+Hi David,
+
+I use COSTcore and COSTeda without problems in linux ... you must have 
+the latest R version and maybe you'll need to download the source code 
+from CVS and compile it yourself.
+
+Regarding compiling in windows the best is to use a windows machine and 
+compile it there. There are some cross compilation manuals 
+(cran.r-project.org/doc/contrib/cross-build.pdf). You should take a look 
+at the R manual (http://cran.r-project.org/doc/manuals/R-exts.pdf).
+
+Best
+
+EJ
+
+
+
+From david.hirst at nr.no  Fri Apr  3 11:51:29 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Fri, 03 Apr 2009 10:51:29 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5DAA3.6050509@ipimar.pt>
+References: <49D5C02E.60601@ifremer.fr> <49D5D208.3080102@nr.no>
+	<49D5DAA3.6050509@ipimar.pt>
+Message-ID: <49D5DC21.5070600@nr.no>
+
+Hi Ernesto,
+
+I do have the latest R version. If I have to compile it myself (and I 
+think I probably do) doesn't that rather defeat the object of having a 
+library in the first place?
+
+I have the cvs system installed on my pc, but not on the unix machine. 
+Any idea how I might go about this? Or do I need to do everything from 
+Windows then copy the files across to the other machine?
+
+David
+
+Ernesto Jardim wrote:
+> David Hirst wrote:
+>   
+>> Dear All, We have been implementing the mbe package in unix, where 
+>> everything works fine. However, I now need to create a Windows version 
+>> of the library. I have never tried this, but I am told there is a 
+>> problem because we need to include our own compiled c code (as a dll 
+>> file) and several external dll files. This is easy enough in Unix, has 
+>> anyone tried it in Windows? If so, how do I do it?
+>>
+>> By the way, I have never succeeded in getting any of the COST unix 
+>> libraries to work. Has anyone else tried?
+>>
+>> David
+>>   
+>>     
+> Hi David,
+>
+> I use COSTcore and COSTeda without problems in linux ... you must have 
+> the latest R version and maybe you'll need to download the source code 
+> from CVS and compile it yourself.
+>
+> Regarding compiling in windows the best is to use a windows machine and 
+> compile it there. There are some cross compilation manuals 
+> (cran.r-project.org/doc/contrib/cross-build.pdf). You should take a look 
+> at the R manual (http://cran.r-project.org/doc/manuals/R-exts.pdf).
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From ernesto at ipimar.pt  Fri Apr  3 12:06:29 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 11:06:29 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5DC21.5070600@nr.no>
+References: <49D5C02E.60601@ifremer.fr>
+	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>
+	<49D5DC21.5070600@nr.no>
+Message-ID: <49D5DFA5.8070501@ipimar.pt>
+
+David Hirst wrote:
+> Hi Ernesto,
+>
+> I do have the latest R version. If I have to compile it myself (and I 
+> think I probably do) doesn't that rather defeat the object of having a 
+> library in the first place?
+>
+> I have the cvs system installed on my pc, but not on the unix machine. 
+> Any idea how I might go about this? Or do I need to do everything from 
+> Windows then copy the files across to the other machine?
+>
+> David
+
+Hi David,
+
+Which unix are you using ? Have you tried to install the COSTcore for 
+linux 
+(https://portail.ifremer.fr/get/uri/http://prdownload.berlios.de/cost-project/COSTcore_1.3-3.tar.gz) 
+? What went wrong ?
+
+I don't think you need to compile these packages, there is no C or 
+fortran code, they depend only on R. So as long as you have R working 
+properly you should not have a problem installing.
+
+Send me the result of your install command please.
+
+Best
+
+EJ
+ 
+
+
+From Joel.Vigneau at ifremer.fr  Fri Apr  3 12:03:49 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 03 Apr 2009 12:03:49 +0200
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5DFA5.8070501@ipimar.pt>
+References: <49D5C02E.60601@ifremer.fr>	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>	<49D5DC21.5070600@nr.no>
+	<49D5DFA5.8070501@ipimar.pt>
+Message-ID: <49D5DF05.5020008@ifremer.fr>
+
+
+
+Ernesto Jardim a ?crit :
+> David Hirst wrote:
+>   
+>> Hi Ernesto,
+>>
+>> I do have the latest R version. If I have to compile it myself (and I 
+>> think I probably do) doesn't that rather defeat the object of having a 
+>> library in the first place?
+>>
+>> I have the cvs system installed on my pc, but not on the unix machine. 
+>> Any idea how I might go about this? Or do I need to do everything from 
+>> Windows then copy the files across to the other machine?
+>>
+>> David
+>>     
+>
+> Hi David,
+>
+> Which unix are you using ? Have you tried to install the COSTcore for 
+> linux 
+> (https://portail.ifremer.fr/get/uri/http://prdownload.berlios.de/cost-project/COSTcore_1.3-3.tar.gz) 
+> ? What went wrong ?
+>
+> I don't think you need to compile these packages, there is no C or 
+> fortran code, they depend only on R. So as long as you have R working 
+> properly you should not have a problem installing.
+>
+> Send me the result of your install command please.
+>
+> Best
+>
+> EJ
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+Hi,
+
+just to say there is a little pb I have to fix on the path to the libraries
+it is
+
+http://prdownload.berlios.de/cost-project/COSTcore_1.3-3.tar.gz
+
+Best
+
+Joel
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/cf7cfef9/attachment.html>
+
+From david.hirst at nr.no  Fri Apr  3 12:45:03 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Fri, 03 Apr 2009 11:45:03 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5DFA5.8070501@ipimar.pt>
+References: <49D5C02E.60601@ifremer.fr>	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>	<49D5DC21.5070600@nr.no>
+	<49D5DFA5.8070501@ipimar.pt>
+Message-ID: <49D5E8AF.5050803@nr.no>
+
+Hi, I only have version 2.6.1 of R on the machine I want to install the 
+library on, and I can't do anything about that in the short term. I can 
+get the latest version installed, but it will take a while, too long for 
+the final report. I think this  is a common problem, networks don't get 
+updated as often as we might like. Anyway, I have an old version of the 
+library (COSTcore_1.2-05.tar.gz) which only needs R 2.6. This installs 
+ok, ie the command R CMD INSTALL -l Rlib COSTcore_1.2-05.tar.gz gives 
+the output:
+
+* Installing *source* package 'COSTcore' ...
+** R
+** data
+**  moving datasets to lazyload DB
+** preparing package for lazy loading
+** help
+ >>> Building/Updating help pages for package 'COSTcore'
+     Formats: text html latex example
+  accessor-methods                  text    html    latex   example
+  ceData-class                      text    html    latex   example
+  ceDataCons-class                  text    html    latex   example
+  ceDataVal-class                   text    html    latex   example
+  check-methods                     text    html    latex
+  check.fields                      text    html    latex   example
+  checkDataIntegrity-methods        text    html    latex
+  clData-class                      text    html    latex   example
+  clDataCons-class                  text    html    latex   example
+  clDataVal-class                   text    html    latex   example
+  code.list                         text    html    latex   example
+  coerceCons-methods                text    html    latex
+  coerceDataFrameColumns-methods    text    html    latex
+  csData-class                      text    html    latex   example
+  csDataCons-class                  text    html    latex   example
+  csDataVal-class                   text    html    latex   example
+  numeric.list                      text    html    latex   example
+  rbind2-methods                    text    html    latex
+  sole.ce                           text    html    latex   example
+  sole.cl                           text    html    latex   example
+  sole.cs                           text    html    latex   example
+  strIni-class                      text    html    latex   example
+  subset-methods                    text    html    latex
+  subsetSpp-method                  text    html    latex
+  test-functions                    text    html    latex
+  utils-methods                     text    html    latex
+  variable.list                     text    html    latex   example
+** building package indices ...
+* DONE (COSTcore)
+
+This looks ok to me. However, when I start R and try 
+library(COSTcore,lib.loc="Rlib"), I get this:
+
+-------------------------------------------------------------------
+Error in gzfile(file, "r") : unable to open connection
+In addition: Warning message:
+In gzfile(file, "r") : cannot open compressed file ''
+Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+Error: package/namespace load failed for 'COSTcore'
+
+Any ideas?
+
+David
+
+Ernesto Jardim wrote:
+> David Hirst wrote:
+>   
+>> Hi Ernesto,
+>>
+>> I do have the latest R version. If I have to compile it myself (and I 
+>> think I probably do) doesn't that rather defeat the object of having a 
+>> library in the first place?
+>>
+>> I have the cvs system installed on my pc, but not on the unix machine. 
+>> Any idea how I might go about this? Or do I need to do everything from 
+>> Windows then copy the files across to the other machine?
+>>
+>> David
+>>     
+>
+> Hi David,
+>
+> Which unix are you using ? Have you tried to install the COSTcore for 
+> linux 
+> (https://portail.ifremer.fr/get/uri/http://prdownload.berlios.de/cost-project/COSTcore_1.3-3.tar.gz) 
+> ? What went wrong ?
+>
+> I don't think you need to compile these packages, there is no C or 
+> fortran code, they depend only on R. So as long as you have R working 
+> properly you should not have a problem installing.
+>
+> Send me the result of your install command please.
+>
+> Best
+>
+> EJ
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From ernesto at ipimar.pt  Fri Apr  3 13:00:37 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 12:00:37 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5E8AF.5050803@nr.no>
+References: <49D5C02E.60601@ifremer.fr>	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>	<49D5DC21.5070600@nr.no>	<49D5DFA5.8070501@ipimar.pt>
+	<49D5E8AF.5050803@nr.no>
+Message-ID: <49D5EC55.2090603@ipimar.pt>
+
+David Hirst wrote:
+> Hi, I only have version 2.6.1 of R on the machine I want to install the 
+> library on, and I can't do anything about that in the short term. I can 
+> get the latest version installed, but it will take a while, too long for 
+> the final report. I think this  is a common problem, networks don't get 
+> updated as often as we might like. Anyway, I have an old version of the 
+> library (COSTcore_1.2-05.tar.gz) which only needs R 2.6. This installs 
+> ok, ie the command R CMD INSTALL -l Rlib COSTcore_1.2-05.tar.gz gives 
+> the output:
+>
+> * Installing *source* package 'COSTcore' ...
+> ** R
+> ** data
+> **  moving datasets to lazyload DB
+> ** preparing package for lazy loading
+> ** help
+>  >>> Building/Updating help pages for package 'COSTcore'
+>      Formats: text html latex example
+>   accessor-methods                  text    html    latex   example
+>   ceData-class                      text    html    latex   example
+>   ceDataCons-class                  text    html    latex   example
+>   ceDataVal-class                   text    html    latex   example
+>   check-methods                     text    html    latex
+>   check.fields                      text    html    latex   example
+>   checkDataIntegrity-methods        text    html    latex
+>   clData-class                      text    html    latex   example
+>   clDataCons-class                  text    html    latex   example
+>   clDataVal-class                   text    html    latex   example
+>   code.list                         text    html    latex   example
+>   coerceCons-methods                text    html    latex
+>   coerceDataFrameColumns-methods    text    html    latex
+>   csData-class                      text    html    latex   example
+>   csDataCons-class                  text    html    latex   example
+>   csDataVal-class                   text    html    latex   example
+>   numeric.list                      text    html    latex   example
+>   rbind2-methods                    text    html    latex
+>   sole.ce                           text    html    latex   example
+>   sole.cl                           text    html    latex   example
+>   sole.cs                           text    html    latex   example
+>   strIni-class                      text    html    latex   example
+>   subset-methods                    text    html    latex
+>   subsetSpp-method                  text    html    latex
+>   test-functions                    text    html    latex
+>   utils-methods                     text    html    latex
+>   variable.list                     text    html    latex   example
+> ** building package indices ...
+> * DONE (COSTcore)
+>
+> This looks ok to me. However, when I start R and try 
+> library(COSTcore,lib.loc="Rlib"), I get this:
+>
+> -------------------------------------------------------------------
+> Error in gzfile(file, "r") : unable to open connection
+> In addition: Warning message:
+> In gzfile(file, "r") : cannot open compressed file ''
+> Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+> Error: package/namespace load failed for 'COSTcore'
+>
+> Any ideas?
+>
+> David
+
+You are not using a full path so COSTcore is likely to be on a "Rlib" 
+folder under the folder where you run the install command.
+
+Try something like
+
+R CMD INSTALL -l ~/Rlib COSTcore_1.2-05.tar.gz
+
+and load the library with
+
+library(COSTcore,lib.loc="~/Rlib")
+
+or else use a full path to where you want to install.
+
+A more important problem. We've decided to develop for the latest 
+version of R, if your library will be written in R261 it will not run on 
+the latest versions (there were some important changes since) which 
+means that to use your library users will have to have installed on 
+their computers two R versions and keep in 261 the old versions of COST 
+packages. It will be a mess !!
+
+Besides you will not be able to use the latest enhancements of COSTcore 
+and you maybe using an old data structure.
+
+Best
+
+EJ
+
+
+
+From david.hirst at nr.no  Fri Apr  3 13:14:03 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Fri, 03 Apr 2009 12:14:03 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5EC55.2090603@ipimar.pt>
+References: <49D5C02E.60601@ifremer.fr>	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>	<49D5DC21.5070600@nr.no>	<49D5DFA5.8070501@ipimar.pt>	<49D5E8AF.5050803@nr.no>
+	<49D5EC55.2090603@ipimar.pt>
+Message-ID: <49D5EF7B.3090700@nr.no>
+
+The library is certainly in a subfolder called Rlib - this is exactly 
+where I want it, and where I have my mbe library. Using the full path 
+gives exactly the same message. The problem is not that R can't find the 
+library, if I give an entirely wrong path I get a different message. 
+Strangely however, this message depends on which wrong path I give. For 
+example:
+library(COSTcore,lib.loc="/nr/user/david")
+
+gives
+
+Error in library(COSTcore, lib.loc = "/nr/user/david") :
+  there is no package called 'COSTcore'
+
+Which is fair enough. This however:
+
+library(COSTcore,lib.loc="/nr/user/david/COST")
+
+gives
+
+Error: invalid version specification
+
+Which is a bit odd, and this:
+
+library(COSTcore,lib.loc="/nr/user/david/COST/Rlib")
+
+gives
+
+-------------------------------------------------------------------
+Error in gzfile(file, "r") : unable to open connection
+In addition: Warning message:
+In gzfile(file, "r") : cannot open compressed file ''
+Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+Error: package/namespace load failed for 'COSTcore'
+
+
+Which is where we started.
+
+Not using the most recent version of R is clearly a problem, and I'll 
+try to get the most recent version installed. It isn't a problem 
+immediately, because we are going to make a Windows version which will 
+use the most recent version (hopefully), but it will be soon.
+
+David
+
+Ernesto Jardim wrote:
+> David Hirst wrote:
+>   
+>> Hi, I only have version 2.6.1 of R on the machine I want to install the 
+>> library on, and I can't do anything about that in the short term. I can 
+>> get the latest version installed, but it will take a while, too long for 
+>> the final report. I think this  is a common problem, networks don't get 
+>> updated as often as we might like. Anyway, I have an old version of the 
+>> library (COSTcore_1.2-05.tar.gz) which only needs R 2.6. This installs 
+>> ok, ie the command R CMD INSTALL -l Rlib COSTcore_1.2-05.tar.gz gives 
+>> the output:
+>>
+>> * Installing *source* package 'COSTcore' ...
+>> ** R
+>> ** data
+>> **  moving datasets to lazyload DB
+>> ** preparing package for lazy loading
+>> ** help
+>>  >>> Building/Updating help pages for package 'COSTcore'
+>>      Formats: text html latex example
+>>   accessor-methods                  text    html    latex   example
+>>   ceData-class                      text    html    latex   example
+>>   ceDataCons-class                  text    html    latex   example
+>>   ceDataVal-class                   text    html    latex   example
+>>   check-methods                     text    html    latex
+>>   check.fields                      text    html    latex   example
+>>   checkDataIntegrity-methods        text    html    latex
+>>   clData-class                      text    html    latex   example
+>>   clDataCons-class                  text    html    latex   example
+>>   clDataVal-class                   text    html    latex   example
+>>   code.list                         text    html    latex   example
+>>   coerceCons-methods                text    html    latex
+>>   coerceDataFrameColumns-methods    text    html    latex
+>>   csData-class                      text    html    latex   example
+>>   csDataCons-class                  text    html    latex   example
+>>   csDataVal-class                   text    html    latex   example
+>>   numeric.list                      text    html    latex   example
+>>   rbind2-methods                    text    html    latex
+>>   sole.ce                           text    html    latex   example
+>>   sole.cl                           text    html    latex   example
+>>   sole.cs                           text    html    latex   example
+>>   strIni-class                      text    html    latex   example
+>>   subset-methods                    text    html    latex
+>>   subsetSpp-method                  text    html    latex
+>>   test-functions                    text    html    latex
+>>   utils-methods                     text    html    latex
+>>   variable.list                     text    html    latex   example
+>> ** building package indices ...
+>> * DONE (COSTcore)
+>>
+>> This looks ok to me. However, when I start R and try 
+>> library(COSTcore,lib.loc="Rlib"), I get this:
+>>
+>> -------------------------------------------------------------------
+>> Error in gzfile(file, "r") : unable to open connection
+>> In addition: Warning message:
+>> In gzfile(file, "r") : cannot open compressed file ''
+>> Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+>> Error: package/namespace load failed for 'COSTcore'
+>>
+>> Any ideas?
+>>
+>> David
+>>     
+>
+> You are not using a full path so COSTcore is likely to be on a "Rlib" 
+> folder under the folder where you run the install command.
+>
+> Try something like
+>
+> R CMD INSTALL -l ~/Rlib COSTcore_1.2-05.tar.gz
+>
+> and load the library with
+>
+> library(COSTcore,lib.loc="~/Rlib")
+>
+> or else use a full path to where you want to install.
+>
+> A more important problem. We've decided to develop for the latest 
+> version of R, if your library will be written in R261 it will not run on 
+> the latest versions (there were some important changes since) which 
+> means that to use your library users will have to have installed on 
+> their computers two R versions and keep in 261 the old versions of COST 
+> packages. It will be a mess !!
+>
+> Besides you will not be able to use the latest enhancements of COSTcore 
+> and you maybe using an old data structure.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From ernesto at ipimar.pt  Fri Apr  3 13:29:59 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 12:29:59 +0100
+Subject: [cost-devel] R libraries
+In-Reply-To: <49D5EF7B.3090700@nr.no>
+References: <49D5C02E.60601@ifremer.fr>	<49D5D208.3080102@nr.no>	<49D5DAA3.6050509@ipimar.pt>	<49D5DC21.5070600@nr.no>	<49D5DFA5.8070501@ipimar.pt>	<49D5E8AF.5050803@nr.no>	<49D5EC55.2090603@ipimar.pt>
+	<49D5EF7B.3090700@nr.no>
+Message-ID: <49D5F337.1040005@ipimar.pt>
+
+David Hirst wrote:
+> The library is certainly in a subfolder called Rlib - this is exactly 
+> where I want it, and where I have my mbe library. Using the full path 
+> gives exactly the same message. The problem is not that R can't find the 
+> library, if I give an entirely wrong path I get a different message. 
+> Strangely however, this message depends on which wrong path I give. For 
+> example:
+> library(COSTcore,lib.loc="/nr/user/david")
+>
+> gives
+>
+> Error in library(COSTcore, lib.loc = "/nr/user/david") :
+>   there is no package called 'COSTcore'
+>
+> Which is fair enough. This however:
+>
+> library(COSTcore,lib.loc="/nr/user/david/COST")
+>
+> gives
+>
+> Error: invalid version specification
+>
+> Which is a bit odd, and this:
+>
+> library(COSTcore,lib.loc="/nr/user/david/COST/Rlib")
+>
+> gives
+>
+> -------------------------------------------------------------------
+> Error in gzfile(file, "r") : unable to open connection
+> In addition: Warning message:
+> In gzfile(file, "r") : cannot open compressed file ''
+> Error : .onLoad failed in 'loadNamespace' for 'COSTcore'
+> Error: package/namespace load failed for 'COSTcore'
+>
+>
+> Which is where we started.
+>
+> Not using the most recent version of R is clearly a problem, and I'll 
+> try to get the most recent version installed. It isn't a problem 
+> immediately, because we are going to make a Windows version which will 
+> use the most recent version (hopefully), but it will be soon.
+>
+> David
+
+You're hitting version problems which are very difficult to sort out 
+now. The version you're using is for R251 and you're getting a problem 
+with namespaces, which have changed in R.
+
+The latest stable version of COSTcore "one" is 126 which runs on R271.
+
+The newest version is COSTcore133 that runs on R281. All packages should 
+be developed for this platform !! Otherwise we may get into serious 
+trouble regarding maintenance and for users it will be hell, if they'll 
+need to use several R versions with several COST package versions to run 
+each analysis.
+
+Best
+
+EJ
+
+
+
+
+
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Fri Apr  3 13:51:06 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 03 Apr 2009 13:51:06 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>
+References: <49D5C02E.60601@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>
+Message-ID: <49D5F82A.3030401@ifremer.fr>
+
+Hi Alastair,
+
+I see your user manual is almost there!
+to use Sweave, look at what I did for the beginning of your manual
+
+to go from Section3c.Rnw to Section3c.pdf
+
+I have typed under R
+Sweave("Section3c.Rnw")   # <--- that creates the Section3c.tex
+system("pdflatex Section3c.tex")  # <--- that creates the Section3c.pdf
+
+That's it. Of course the longest is to write the LaTeX file on which you 
+change the extension from .tex to .Rnw
+
+I would be happy if you can provide me with the full Rnw document, not 
+the pdf because I'll have to adapt the numbering at some point.
+
+Best
+
+Joel
+
+
+Alastair Pout a ?crit :
+>
+> Hi Joel
+>
+> Attached is a bit about the spatial plotting and a few other things 
+> for the report, please edit as you see fit.
+>
+> I can have a go at a Sweave version of this if that would help?
+>
+> All the best
+>
+> Alastair
+>
+>  
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> *From:* cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] *On Behalf Of 
+> *Joel VIGNEAU
+> *Sent:* 03 April 2009 08:52
+> *To:* cost devel
+> *Subject:* [cost-devel] Final report
+>
+>  
+>
+> Dear all,
+>
+> I finally succeeded in using correctly Sweave in the middle of the night!
+> This is extremely useful and efficient for drafting the User Manual. 
+> Thanks to Ernesto for the idea.
+>
+> The plan is then that I play with this during all the week-end, while 
+> the developers concentrate on the code and the man pages.
+> We'll see where we are on Monday.
+>
+> Best regards
+>
+> Joel
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email
+> ______________________________________________________________________
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/4e170f30/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: section3c.Rnw
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/4e170f30/attachment.ksh>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Section3c.pdf
+Type: application/pdf
+Size: 416151 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/4e170f30/attachment.pdf>
+
+From ernesto at ipimar.pt  Fri Apr  3 14:00:21 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 13:00:21 +0100
+Subject: [cost-devel] Final report
+In-Reply-To: <49D5F82A.3030401@ifremer.fr>
+References: <49D5C02E.60601@ifremer.fr>	<A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>
+	<49D5F82A.3030401@ifremer.fr>
+Message-ID: <49D5FA55.2000809@ipimar.pt>
+
+Joel,
+
+The best is to include Alastair's in the general document, LaTeX will 
+sort out the numbering for you.
+
+EJ
+
+
+Joel VIGNEAU wrote:
+> Hi Alastair,
+>
+> I see your user manual is almost there!
+> to use Sweave, look at what I did for the beginning of your manual
+>
+> to go from Section3c.Rnw to Section3c.pdf
+>
+> I have typed under R
+> Sweave("Section3c.Rnw")   # <--- that creates the Section3c.tex
+> system("pdflatex Section3c.tex")  # <--- that creates the Section3c.pdf
+>
+> That's it. Of course the longest is to write the LaTeX file on which 
+> you change the extension from .tex to .Rnw
+>
+> I would be happy if you can provide me with the full Rnw document, not 
+> the pdf because I'll have to adapt the numbering at some point.
+>
+> Best
+>
+> Joel
+>
+>
+> Alastair Pout a ?crit :
+>>
+>> Hi Joel
+>>
+>> Attached is a bit about the spatial plotting and a few other things 
+>> for the report, please edit as you see fit.
+>>
+>> I can have a go at a Sweave version of this if that would help?
+>>
+>> All the best
+>>
+>> Alastair
+>>
+>>  
+>>
+>>  
+>>
+>> ------------------------------------------------------------------------
+>>
+>> *From:* cost-project-devel-bounces at lists.berlios.de 
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] *On Behalf Of 
+>> *Joel VIGNEAU
+>> *Sent:* 03 April 2009 08:52
+>> *To:* cost devel
+>> *Subject:* [cost-devel] Final report
+>>
+>>  
+>>
+>> Dear all,
+>>
+>> I finally succeeded in using correctly Sweave in the middle of the 
+>> night!
+>> This is extremely useful and efficient for drafting the User Manual. 
+>> Thanks to Ernesto for the idea.
+>>
+>> The plan is then that I play with this during all the week-end, while 
+>> the developers concentrate on the code and the man pages.
+>> We'll see where we are on Monday.
+>>
+>> Best regards
+>>
+>> Joel
+>>
+>> -- 
+>>
+>> */Jo?l VIGNEAU
+>> /*Laboratoire "Ressources Halieutiques"
+>> IFREMER
+>> 14 520 Port-en-Bessin
+>>
+>> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>> http://www.ifremer.fr/drvpbessin/
+>>
+>>
+>> ______________________________________________________________________
+>> This email has been scanned by the MessageLabs Email Security System.
+>> For more information please visit http://www.messagelabs.com/email
+>> ______________________________________________________________________
+>>
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From Joel.Vigneau at ifremer.fr  Fri Apr  3 13:58:35 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 03 Apr 2009 13:58:35 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <49D5FA55.2000809@ipimar.pt>
+References: <49D5C02E.60601@ifremer.fr>	<A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>	<49D5F82A.3030401@ifremer.fr>
+	<49D5FA55.2000809@ipimar.pt>
+Message-ID: <49D5F9EB.5080306@ifremer.fr>
+
+Hi Ernesto,
+
+yes, I agree, and we'll need everything to go gently at the ultimate pdf 
+creation!
+
+Best
+
+Joel
+
+
+Ernesto Jardim a ?crit :
+> Joel,
+>
+> The best is to include Alastair's in the general document, LaTeX will 
+> sort out the numbering for you.
+>
+> EJ
+>
+>
+> Joel VIGNEAU wrote:
+>   
+>> Hi Alastair,
+>>
+>> I see your user manual is almost there!
+>> to use Sweave, look at what I did for the beginning of your manual
+>>
+>> to go from Section3c.Rnw to Section3c.pdf
+>>
+>> I have typed under R
+>> Sweave("Section3c.Rnw")   # <--- that creates the Section3c.tex
+>> system("pdflatex Section3c.tex")  # <--- that creates the Section3c.pdf
+>>
+>> That's it. Of course the longest is to write the LaTeX file on which 
+>> you change the extension from .tex to .Rnw
+>>
+>> I would be happy if you can provide me with the full Rnw document, not 
+>> the pdf because I'll have to adapt the numbering at some point.
+>>
+>> Best
+>>
+>> Joel
+>>
+>>
+>> Alastair Pout a ?crit :
+>>     
+>>> Hi Joel
+>>>
+>>> Attached is a bit about the spatial plotting and a few other things 
+>>> for the report, please edit as you see fit.
+>>>
+>>> I can have a go at a Sweave version of this if that would help?
+>>>
+>>> All the best
+>>>
+>>> Alastair
+>>>
+>>>  
+>>>
+>>>  
+>>>
+>>> ------------------------------------------------------------------------
+>>>
+>>> *From:* cost-project-devel-bounces at lists.berlios.de 
+>>> [mailto:cost-project-devel-bounces at lists.berlios.de] *On Behalf Of 
+>>> *Joel VIGNEAU
+>>> *Sent:* 03 April 2009 08:52
+>>> *To:* cost devel
+>>> *Subject:* [cost-devel] Final report
+>>>
+>>>  
+>>>
+>>> Dear all,
+>>>
+>>> I finally succeeded in using correctly Sweave in the middle of the 
+>>> night!
+>>> This is extremely useful and efficient for drafting the User Manual. 
+>>> Thanks to Ernesto for the idea.
+>>>
+>>> The plan is then that I play with this during all the week-end, while 
+>>> the developers concentrate on the code and the man pages.
+>>> We'll see where we are on Monday.
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>
+>>> -- 
+>>>
+>>> */Jo?l VIGNEAU
+>>> /*Laboratoire "Ressources Halieutiques"
+>>> IFREMER
+>>> 14 520 Port-en-Bessin
+>>>
+>>> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>>> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>>> http://www.ifremer.fr/drvpbessin/
+>>>
+>>>
+>>> ______________________________________________________________________
+>>> This email has been scanned by the MessageLabs Email Security System.
+>>> For more information please visit http://www.messagelabs.com/email
+>>> ______________________________________________________________________
+>>>
+>>> ------------------------------------------------------------------------
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>       
+>> -- 
+>>
+>> */Jo?l VIGNEAU
+>> /*Laboratoire "Ressources Halieutiques"
+>> IFREMER
+>> 14 520 Port-en-Bessin
+>>
+>> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+>> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+>> http://www.ifremer.fr/drvpbessin/
+>>
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>     
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/5303342b/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Fri Apr  3 16:52:48 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Fri, 3 Apr 2009 15:52:48 +0100
+Subject: [cost-devel] getting Sweave working
+In-Reply-To: <49D5F82A.3030401@ifremer.fr>
+References: <49D5C02E.60601@ifremer.fr><A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>
+	<49D5F82A.3030401@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581202649627@mail4.marlab.ac.uk>
+
+Hi Joel, All
+
+Taken ages to get Latex installed properly but I can get this working now
+
+ 
+
+(I changed the name to newSection3c to make sure all was working on a local copy)
+
+ 
+
+Sweave(newSection3c.rnw)
+
+ 
+
+Worked OK  but 
+
+system("pdflatex newSection3c.tex") 
+
+does not work for me whole load of error messages, pertinent one seeming to be 
+
+ 
+
+! LaTeX Error: File `Sweave.sty' not found.
+
+ 
+
+But then from the help file for Sweave 
+
+ 
+
+tools::texi2dvi("newSection3c.tex", pdf=TRUE)
+
+ 
+
+worked OK 
+
+ 
+
+All the best
+
+Alastair 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 03 April 2009 12:51
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Final report
+
+ 
+
+Hi Alastair, 
+
+I see your user manual is almost there!
+to use Sweave, look at what I did for the beginning of your manual
+
+to go from Section3c.Rnw to Section3c.pdf
+
+I have typed under R
+Sweave("Section3c.Rnw")   # <--- that creates the Section3c.tex
+system("pdflatex Section3c.tex")  # <--- that creates the Section3c.pdf
+
+That's it. Of course the longest is to write the LaTeX file on which you change the extension from .tex to .Rnw
+
+I would be happy if you can provide me with the full Rnw document, not the pdf because I'll have to adapt the numbering at some point.
+
+Best
+
+Joel
+
+
+Alastair Pout a ?crit : 
+
+Hi Joel 
+
+Attached is a bit about the spatial plotting and a few other things for the report, please edit as you see fit. 
+
+I can have a go at a Sweave version of this if that would help? 
+
+All the best
+
+Alastair 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 03 April 2009 08:52
+To: cost devel
+Subject: [cost-devel] Final report
+
+ 
+
+Dear all,
+
+I finally succeeded in using correctly Sweave in the middle of the night! 
+This is extremely useful and efficient for drafting the User Manual. Thanks to Ernesto for the idea.
+
+The plan is then that I play with this during all the week-end, while the developers concentrate on the code and the man pages.
+We'll see where we are on Monday.
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+ 
+
+
+
+________________________________
+
+
+
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+ 
+
+-- 
+
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090403/27cafff9/attachment.html>
+
+From ernesto at ipimar.pt  Fri Apr  3 17:03:16 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Fri, 03 Apr 2009 16:03:16 +0100
+Subject: [cost-devel] getting Sweave working
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581202649627@mail4.marlab.ac.uk>
+References: <49D5C02E.60601@ifremer.fr><A0F8DAFB525DED4ABAF6841BB11C581202649625@mail4.marlab.ac.uk>	<49D5F82A.3030401@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C581202649627@mail4.marlab.ac.uk>
+Message-ID: <49D62534.1010800@ipimar.pt>
+
+Alastair Pout wrote:
+>
+> Hi Joel, All
+>
+> Taken ages to get Latex installed properly but I can get this working now
+>
+> (I changed the name to newSection3c to make sure all was working on a 
+> local copy)
+>
+> Sweave(newSection3c.rnw)
+>
+> Worked OK but
+>
+> system("pdflatex newSection3c.tex")
+>
+> does not work for me whole load of error messages, pertinent one 
+> seeming to be
+>
+> ! LaTeX Error: File `Sweave.sty' not found.
+>
+> But then from the help file for Sweave
+>
+> tools::texi2dvi("newSection3c.tex", pdf=TRUE)
+>
+> worked OK
+>
+> All the best
+>
+> Alastair
+>
+
+That's because Sweave.sty is not on LaTeX search path. From the Sweave 
+manual:
+
+A.12 Running latex fails on Windows
+If you can create the ?.tex? file by running Sweave() in R, but cannot 
+convert the ?.tex? file to
+?.dvi? or ?.pdf?, this is most likely caused by a space in the path of 
+your R installation. If the path
+of your R installation contains any blank characters (like the default 
+"c:\Program Files\..."
+in English versions of Windows), this may cause problems, because 
+programs like tex or latex
+cannot handle blanks in paths properly.
+Two possible solutions:
+1. Install R in a path not containing any blanks.
+2. Copy the file ?Sweave.sty? to a directory in your tex path or the 
+directory containing the
+Sweave file and put a \usepackage{Sweave} into the preamble of your 
+Sweave file.
+
+Best
+
+EJ
+
+
+
+From tej at aqua.dtu.dk  Fri Apr  3 20:55:11 2009
+From: tej at aqua.dtu.dk (Teunis Jansen)
+Date: Fri, 3 Apr 2009 20:55:11 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <20090401222431.43746wjgon5zfnwo@efflammail.ifremer.fr>
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151012066C3@lu-mail-san.dfu.local>
+
+Dear All R experts
+
+Does anybody have a R script that converts a geographical position to an
+ICES division (like 4a or 7d).
+
+There must be such a script somewhere...
+
+Best regards
+Teunis
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+Joel.Vigneau at ifremer.fr
+Sent: 1. april 2009 22:25
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] Final report
+
+
+Dear colleagues,
+
+please consider this frame for the final report and the task allocated
+to each of us.
+feel free to comment/modify this very draft.
+
+Best
+
+Joel
+
+______________________________________________________
+New MSc Program in Aquatic Science and Technology
+
+The new MSc program offers a unique combination of biology, mathematics and technology and addresses global challenges in climate, environment and food resources. The program starts in September 2009 and is being developed collaboratively by the Technical University of Denmark and University of Copenhagen. 
+Further information from http://aquascience.dtu.dk
+
+
+
+From Joel.Vigneau at ifremer.fr  Sat Apr  4 14:47:02 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Sat, 04 Apr 2009 14:47:02 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <88431FCDD055A44BA5EEE1EC14E7E151012066C3@lu-mail-san.dfu.local>
+References: <88431FCDD055A44BA5EEE1EC14E7E151012066C3@lu-mail-san.dfu.local>
+Message-ID: <20090404144702.13714n7aurkqwzs4@efflammail.ifremer.fr>
+
+Hi Teunis,
+
+look at the convert.lon.lat.statsq() in the COSTeda
+
+Best
+
+Joel
+
+
+
+Teunis Jansen <tej at aqua.dtu.dk> a ?crit?:
+
+> Dear All R experts
+>
+> Does anybody have a R script that converts a geographical position to an
+> ICES division (like 4a or 7d).
+>
+> There must be such a script somewhere...
+>
+> Best regards
+> Teunis
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of
+> Joel.Vigneau at ifremer.fr
+> Sent: 1. april 2009 22:25
+> To: cost-project-devel at lists.berlios.de
+> Subject: [cost-devel] Final report
+>
+>
+> Dear colleagues,
+>
+> please consider this frame for the final report and the task allocated
+> to each of us.
+> feel free to comment/modify this very draft.
+>
+> Best
+>
+> Joel
+>
+> ______________________________________________________
+> New MSc Program in Aquatic Science and Technology
+>
+> The new MSc program offers a unique combination of biology,  
+> mathematics and technology and addresses global challenges in  
+> climate, environment and food resources. The program starts in  
+> September 2009 and is being developed collaboratively by the  
+> Technical University of Denmark and University of Copenhagen.
+> Further information from http://aquascience.dtu.dk
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+
+
+
+From tej at aqua.dtu.dk  Mon Apr  6 08:28:57 2009
+From: tej at aqua.dtu.dk (Teunis Jansen)
+Date: Mon, 6 Apr 2009 08:28:57 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <20090404144702.13714n7aurkqwzs4@efflammail.ifremer.fr>
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151012066DC@lu-mail-san.dfu.local>
+
+Dear All
+
+The naming of that function leads me to think that it is from position to stat.square not from position to an ICES division (like 4a or 7d), is this correct? If so, is there also a function that calcs division (or from rectangle to division)?
+
+Best regards
+Teunis 
+
+-----Original Message-----
+From: Joel.Vigneau at ifremer.fr [mailto:Joel.Vigneau at ifremer.fr] 
+Sent: 4. april 2009 14:47
+To: Teunis Jansen
+Cc: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Final report
+
+Hi Teunis,
+
+look at the convert.lon.lat.statsq() in the COSTeda
+
+Best
+
+Joel
+
+
+
+Teunis Jansen <tej at aqua.dtu.dk> a ?crit?:
+
+> Dear All R experts
+>
+> Does anybody have a R script that converts a geographical position to 
+> an ICES division (like 4a or 7d).
+>
+> There must be such a script somewhere...
+>
+> Best regards
+> Teunis
+>
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of 
+> Joel.Vigneau at ifremer.fr
+> Sent: 1. april 2009 22:25
+> To: cost-project-devel at lists.berlios.de
+> Subject: [cost-devel] Final report
+>
+>
+> Dear colleagues,
+>
+> please consider this frame for the final report and the task allocated 
+> to each of us.
+> feel free to comment/modify this very draft.
+>
+> Best
+>
+> Joel
+>
+> ______________________________________________________
+> New MSc Program in Aquatic Science and Technology
+>
+> The new MSc program offers a unique combination of biology, 
+> mathematics and technology and addresses global challenges in climate, 
+> environment and food resources. The program starts in September 2009 
+> and is being developed collaboratively by the Technical University of 
+> Denmark and University of Copenhagen.
+> Further information from http://aquascience.dtu.dk
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+
+
+
+
+______________________________________________________
+New MSc Program in Aquatic Science and Technology
+
+The new MSc program offers a unique combination of biology, mathematics and technology and addresses global challenges in climate, environment and food resources. The program starts in September 2009 and is being developed collaboratively by the Technical University of Denmark and University of Copenhagen. 
+Further information from http://aquascience.dtu.dk
+
+
+
+From Joel.Vigneau at ifremer.fr  Mon Apr  6 09:14:56 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Mon, 06 Apr 2009 09:14:56 +0200
+Subject: [cost-devel] Final report
+In-Reply-To: <88431FCDD055A44BA5EEE1EC14E7E151012066DC@lu-mail-san.dfu.local>
+References: <88431FCDD055A44BA5EEE1EC14E7E151012066DC@lu-mail-san.dfu.local>
+Message-ID: <49D9ABF0.1000305@ifremer.fr>
+
+Hi Teunis,
+
+look in the HTML help of R in the COSTeda package all the methods 
+beginning by convert.
+you should find what you need
+
+Best
+
+Joel
+
+Teunis Jansen a ?crit :
+> Dear All
+>
+> The naming of that function leads me to think that it is from position to stat.square not from position to an ICES division (like 4a or 7d), is this correct? If so, is there also a function that calcs division (or from rectangle to division)?
+>
+> Best regards
+> Teunis 
+>
+> -----Original Message-----
+> From: Joel.Vigneau at ifremer.fr [mailto:Joel.Vigneau at ifremer.fr] 
+> Sent: 4. april 2009 14:47
+> To: Teunis Jansen
+> Cc: cost-project-devel at lists.berlios.de
+> Subject: Re: [cost-devel] Final report
+>
+> Hi Teunis,
+>
+> look at the convert.lon.lat.statsq() in the COSTeda
+>
+> Best
+>
+> Joel
+>
+>
+>
+> Teunis Jansen <tej at aqua.dtu.dk> a ?crit :
+>
+>   
+>> Dear All R experts
+>>
+>> Does anybody have a R script that converts a geographical position to 
+>> an ICES division (like 4a or 7d).
+>>
+>> There must be such a script somewhere...
+>>
+>> Best regards
+>> Teunis
+>>
+>>
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of 
+>> Joel.Vigneau at ifremer.fr
+>> Sent: 1. april 2009 22:25
+>> To: cost-project-devel at lists.berlios.de
+>> Subject: [cost-devel] Final report
+>>
+>>
+>> Dear colleagues,
+>>
+>> please consider this frame for the final report and the task allocated 
+>> to each of us.
+>> feel free to comment/modify this very draft.
+>>
+>> Best
+>>
+>> Joel
+>>
+>> ______________________________________________________
+>> New MSc Program in Aquatic Science and Technology
+>>
+>> The new MSc program offers a unique combination of biology, 
+>> mathematics and technology and addresses global challenges in climate, 
+>> environment and food resources. The program starts in September 2009 
+>> and is being developed collaboratively by the Technical University of 
+>> Denmark and University of Copenhagen.
+>> Further information from http://aquascience.dtu.dk
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>     
+>
+>
+>
+>
+> ______________________________________________________
+> New MSc Program in Aquatic Science and Technology
+>
+> The new MSc program offers a unique combination of biology, mathematics and technology and addresses global challenges in climate, environment and food resources. The program starts in September 2009 and is being developed collaboratively by the Technical University of Denmark and University of Copenhagen. 
+> Further information from http://aquascience.dtu.dk
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090406/c83b40f7/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  7 00:03:27 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Tue, 07 Apr 2009 00:03:27 +0200
+Subject: [cost-devel] User Manual Version 0.1
+Message-ID: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>
+
+Dear developers,
+
+hopefully, things are progressing! here is the first go on the user  
+manual following Ernesto's advice to use the potential of R to help us  
+in this. Not only it helps formatting, but it helps also debugging the  
+small things since the code needs to run to be part of the manual...
+
+Everyday will see this version gets new sections, and those you see  
+have been drafted like automatic writing, so the text must be reviewed  
+deeply. One candidate for this? I join also the LaTeX file and the  
+datasets imported page 2 (you must create a subfolder called figs  
+under the one where you store those files to create the pdf).
+
+Today, I'll work on the final report itself and get to you by the end  
+of the day to show you where I am.
+What are the others doing:
+David Hirst is drafting his part of the text for the report and  
+providing a workable example of Bayesian analysis. He succeeded in  
+simulating a sample from a virtual population for COSTsim so Dorleta  
+will test some dbe methods and provide us with an example before  
+tomorrow. Alastair is working on the spatial plot manual.
+David  Maxwell will provide a workable method for bootstrapping.  
+Mathieu will complete the manual for bpEstim and exporting to csv  
+files and Intercatch (from David's code), Ernesto, can you have a look  
+at the exportation to FLR ?
+
+And we'll all need to have a last review of the final text of the  
+report, but that will not be the end of the story... we'll have some  
+time to refine all this properly and propose the complete COST  
+packages by mid-May??
+
+With the help of everyone, we'll get somewhere near a readable COST by  
+the end of the week.
+
+Thank you.
+
+Best regards
+
+Joel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST User Manual V_0-1.pdf
+Type: application/pdf
+Size: 1967711 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/94d2ad2e/attachment.pdf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: UserManual_accessories.zip
+Type: application/x-zip-compressed
+Size: 51573 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/94d2ad2e/attachment.bin>
+
+From ernesto at ipimar.pt  Tue Apr  7 10:47:33 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 07 Apr 2009 09:47:33 +0100
+Subject: [cost-devel] User Manual Version 0.1
+In-Reply-To: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>
+References: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>
+Message-ID: <49DB1325.2010202@ipimar.pt>
+
+Joel.Vigneau at ifremer.fr wrote:
+> Dear developers,
+>
+> hopefully, things are progressing! here is the first go on the user 
+> manual following Ernesto's advice to use the potential of R to help us 
+> in this. Not only it helps formatting, but it helps also debugging the 
+> small things since the code needs to run to be part of the manual...
+>
+> Everyday will see this version gets new sections, and those you see 
+> have been drafted like automatic writing, so the text must be reviewed 
+> deeply. One candidate for this? I join also the LaTeX file and the 
+> datasets imported page 2 (you must create a subfolder called figs 
+> under the one where you store those files to create the pdf).
+>
+> Today, I'll work on the final report itself and get to you by the end 
+> of the day to show you where I am.
+> What are the others doing:
+> David Hirst is drafting his part of the text for the report and 
+> providing a workable example of Bayesian analysis. He succeeded in 
+> simulating a sample from a virtual population for COSTsim so Dorleta 
+> will test some dbe methods and provide us with an example before 
+> tomorrow. Alastair is working on the spatial plot manual.
+> David  Maxwell will provide a workable method for bootstrapping. 
+> Mathieu will complete the manual for bpEstim and exporting to csv 
+> files and Intercatch (from David's code), Ernesto, can you have a look 
+> at the exportation to FLR ?
+>
+> And we'll all need to have a last review of the final text of the 
+> report, but that will not be the end of the story... we'll have some 
+> time to refine all this properly and propose the complete COST 
+> packages by mid-May??
+>
+> With the help of everyone, we'll get somewhere near a readable COST by 
+> the end of the week.
+>
+> Thank you.
+>
+> Best regards
+>
+> Joel 
+
+Hi Joel,
+
+I'm impressed how fast you and Alastair managed Sweave/LaTeX. I have to 
+confess it took me a lot longer ...
+
+I'm running the sweave file but I get an error about missing sole_tr.csv 
+file.
+
+BTW for those new Sweave monks there's a function called "Stangle" that 
+extracts the R commands from the Sweave file. It's very good for 
+debugging manual code.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  7 10:49:51 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 07 Apr 2009 10:49:51 +0200
+Subject: [cost-devel] User Manual Version 0.1
+In-Reply-To: <49DB1325.2010202@ipimar.pt>
+References: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>
+	<49DB1325.2010202@ipimar.pt>
+Message-ID: <49DB13AF.3080308@ifremer.fr>
+
+
+Ernesto Jardim a ?crit :
+> Joel.Vigneau at ifremer.fr wrote:
+>   
+>> Dear developers,
+>>
+>> hopefully, things are progressing! here is the first go on the user 
+>> manual following Ernesto's advice to use the potential of R to help us 
+>> in this. Not only it helps formatting, but it helps also debugging the 
+>> small things since the code needs to run to be part of the manual...
+>>
+>> Everyday will see this version gets new sections, and those you see 
+>> have been drafted like automatic writing, so the text must be reviewed 
+>> deeply. One candidate for this? I join also the LaTeX file and the 
+>> datasets imported page 2 (you must create a subfolder called figs 
+>> under the one where you store those files to create the pdf).
+>>
+>> Today, I'll work on the final report itself and get to you by the end 
+>> of the day to show you where I am.
+>> What are the others doing:
+>> David Hirst is drafting his part of the text for the report and 
+>> providing a workable example of Bayesian analysis. He succeeded in 
+>> simulating a sample from a virtual population for COSTsim so Dorleta 
+>> will test some dbe methods and provide us with an example before 
+>> tomorrow. Alastair is working on the spatial plot manual.
+>> David  Maxwell will provide a workable method for bootstrapping. 
+>> Mathieu will complete the manual for bpEstim and exporting to csv 
+>> files and Intercatch (from David's code), Ernesto, can you have a look 
+>> at the exportation to FLR ?
+>>
+>> And we'll all need to have a last review of the final text of the 
+>> report, but that will not be the end of the story... we'll have some 
+>> time to refine all this properly and propose the complete COST 
+>> packages by mid-May??
+>>
+>> With the help of everyone, we'll get somewhere near a readable COST by 
+>> the end of the week.
+>>
+>> Thank you.
+>>
+>> Best regards
+>>
+>> Joel 
+>>     
+>
+> Hi Joel,
+>
+> I'm impressed how fast you and Alastair managed Sweave/LaTeX. I have to 
+> confess it took me a lot longer ...
+>
+> I'm running the sweave file but I get an error about missing sole_tr.csv 
+> file.
+>
+> BTW for those new Sweave monks there's a function called "Stangle" that 
+> extracts the R commands from the Sweave file. It's very good for 
+> debugging manual code.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+Hi Ernesto,
+
+true, the file was missing in the zip file!
+here it is. Everything should go smoothly now. You'll see that, for the 
+delta plots, the only trick Mathieu found to make it work is to impose 
+clicking on the same dots in two successive windows!! at least it works!
+
+Best
+
+Joel
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/a53c7d52/attachment.html>
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: sole_tr.csv
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/a53c7d52/attachment.ksh>
+
+From ernesto at ipimar.pt  Tue Apr  7 11:36:54 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 07 Apr 2009 10:36:54 +0100
+Subject: [cost-devel] User Manual Version 0.1
+In-Reply-To: <49DB13AF.3080308@ifremer.fr>
+References: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>	<49DB1325.2010202@ipimar.pt>
+	<49DB13AF.3080308@ifremer.fr>
+Message-ID: <49DB1EB6.3060809@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+> Ernesto Jardim a ?crit :
+>> Joel.Vigneau at ifremer.fr wrote:
+>>   
+>>> Dear developers,
+>>>
+>>> hopefully, things are progressing! here is the first go on the user 
+>>> manual following Ernesto's advice to use the potential of R to help us 
+>>> in this. Not only it helps formatting, but it helps also debugging the 
+>>> small things since the code needs to run to be part of the manual...
+>>>
+>>> Everyday will see this version gets new sections, and those you see 
+>>> have been drafted like automatic writing, so the text must be reviewed 
+>>> deeply. One candidate for this? I join also the LaTeX file and the 
+>>> datasets imported page 2 (you must create a subfolder called figs 
+>>> under the one where you store those files to create the pdf).
+>>>
+>>> Today, I'll work on the final report itself and get to you by the end 
+>>> of the day to show you where I am.
+>>> What are the others doing:
+>>> David Hirst is drafting his part of the text for the report and 
+>>> providing a workable example of Bayesian analysis. He succeeded in 
+>>> simulating a sample from a virtual population for COSTsim so Dorleta 
+>>> will test some dbe methods and provide us with an example before 
+>>> tomorrow. Alastair is working on the spatial plot manual.
+>>> David  Maxwell will provide a workable method for bootstrapping. 
+>>> Mathieu will complete the manual for bpEstim and exporting to csv 
+>>> files and Intercatch (from David's code), Ernesto, can you have a look 
+>>> at the exportation to FLR ?
+>>>
+>>> And we'll all need to have a last review of the final text of the 
+>>> report, but that will not be the end of the story... we'll have some 
+>>> time to refine all this properly and propose the complete COST 
+>>> packages by mid-May??
+>>>
+>>> With the help of everyone, we'll get somewhere near a readable COST by 
+>>> the end of the week.
+>>>
+>>> Thank you.
+>>>
+>>> Best regards
+>>>
+>>> Joel 
+>>>     
+>>
+>> Hi Joel,
+>>
+>> I'm impressed how fast you and Alastair managed Sweave/LaTeX. I have to 
+>> confess it took me a lot longer ...
+>>
+>> I'm running the sweave file but I get an error about missing sole_tr.csv 
+>> file.
+>>
+>> BTW for those new Sweave monks there's a function called "Stangle" that 
+>> extracts the R commands from the Sweave file. It's very good for 
+>> debugging manual code.
+>>
+>> Best
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+>
+> Hi Ernesto,
+>
+> true, the file was missing in the zip file!
+> here it is. Everything should go smoothly now. You'll see that, for 
+> the delta plots, the only trick Mathieu found to make it work is to 
+> impose clicking on the same dots in two successive windows!! at least 
+> it works!
+>
+> Best
+>
+> Joel
+
+Hi,
+
+I'm getting the following errors on the manual. The iterative plots are 
+a problem ...
+
+line 302: csPlot.design(csDataVal(sole_cs)) instead of 
+csPlot.design(sole_cs)
+line 530: x <- bioPar.plot(s7d_cs,type="wl", selection=FALSE) instead of 
+x <- bioPar.plot(s7d_cs,type="wl", selection=TRUE)
+
+lines536-537: savePlot is giving an error (note that I can produce pdf 
+and ps files)
+Error: chunk 23
+Error in match.arg(type) :
+'arg' should be one of ?png?, ?jpeg?, ?tiff?, ?bmp?
+
+I've replaced by type="png" and type="jpeg"
+
+line 630 and 637-638: delta plots must have selection=FALSE
+line 679-680: delta.out is not a S4 do you mean "deltas" ? also 
+delta.out at outPut$sampID does not exist but delta.out$samp does.
+Error: chunk 29
+Error in eval.with.vis(expr, .GlobalEnv, baseenv()) :
+trying to get slot "outPut" from an object (class "data.frame") that is 
+not an S4 object
+
+This breaks the next code. I've fixed it blindly and the rest runs ok. 
+I'm looking at FLR compatibility.
+
+Run Sweave from an empty workspace so that old objects are not used.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  7 11:38:47 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 07 Apr 2009 11:38:47 +0200
+Subject: [cost-devel] User Manual Version 0.1
+In-Reply-To: <49DB1EB6.3060809@ipimar.pt>
+References: <20090407000327.20431voutit0pxy8@efflammail.ifremer.fr>	<49DB1325.2010202@ipimar.pt>	<49DB13AF.3080308@ifremer.fr>
+	<49DB1EB6.3060809@ipimar.pt>
+Message-ID: <49DB1F27.4030204@ifremer.fr>
+
+
+
+Ernesto Jardim a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> Ernesto Jardim a ?crit :
+>>     
+>>> Joel.Vigneau at ifremer.fr wrote:
+>>>   
+>>>       
+>>>> Dear developers,
+>>>>
+>>>> hopefully, things are progressing! here is the first go on the user 
+>>>> manual following Ernesto's advice to use the potential of R to help us 
+>>>> in this. Not only it helps formatting, but it helps also debugging the 
+>>>> small things since the code needs to run to be part of the manual...
+>>>>
+>>>> Everyday will see this version gets new sections, and those you see 
+>>>> have been drafted like automatic writing, so the text must be reviewed 
+>>>> deeply. One candidate for this? I join also the LaTeX file and the 
+>>>> datasets imported page 2 (you must create a subfolder called figs 
+>>>> under the one where you store those files to create the pdf).
+>>>>
+>>>> Today, I'll work on the final report itself and get to you by the end 
+>>>> of the day to show you where I am.
+>>>> What are the others doing:
+>>>> David Hirst is drafting his part of the text for the report and 
+>>>> providing a workable example of Bayesian analysis. He succeeded in 
+>>>> simulating a sample from a virtual population for COSTsim so Dorleta 
+>>>> will test some dbe methods and provide us with an example before 
+>>>> tomorrow. Alastair is working on the spatial plot manual.
+>>>> David  Maxwell will provide a workable method for bootstrapping. 
+>>>> Mathieu will complete the manual for bpEstim and exporting to csv 
+>>>> files and Intercatch (from David's code), Ernesto, can you have a look 
+>>>> at the exportation to FLR ?
+>>>>
+>>>> And we'll all need to have a last review of the final text of the 
+>>>> report, but that will not be the end of the story... we'll have some 
+>>>> time to refine all this properly and propose the complete COST 
+>>>> packages by mid-May??
+>>>>
+>>>> With the help of everyone, we'll get somewhere near a readable COST by 
+>>>> the end of the week.
+>>>>
+>>>> Thank you.
+>>>>
+>>>> Best regards
+>>>>
+>>>> Joel 
+>>>>     
+>>>>         
+>>> Hi Joel,
+>>>
+>>> I'm impressed how fast you and Alastair managed Sweave/LaTeX. I have to 
+>>> confess it took me a lot longer ...
+>>>
+>>> I'm running the sweave file but I get an error about missing sole_tr.csv 
+>>> file.
+>>>
+>>> BTW for those new Sweave monks there's a function called "Stangle" that 
+>>> extracts the R commands from the Sweave file. It's very good for 
+>>> debugging manual code.
+>>>
+>>> Best
+>>>
+>>> EJ
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>   
+>>>       
+>> Hi Ernesto,
+>>
+>> true, the file was missing in the zip file!
+>> here it is. Everything should go smoothly now. You'll see that, for 
+>> the delta plots, the only trick Mathieu found to make it work is to 
+>> impose clicking on the same dots in two successive windows!! at least 
+>> it works!
+>>
+>> Best
+>>
+>> Joel
+>>     
+>
+> Hi,
+>
+> I'm getting the following errors on the manual. The iterative plots are 
+> a problem ...
+>
+> line 302: csPlot.design(csDataVal(sole_cs)) instead of 
+> csPlot.design(sole_cs)
+> line 530: x <- bioPar.plot(s7d_cs,type="wl", selection=FALSE) instead of 
+> x <- bioPar.plot(s7d_cs,type="wl", selection=TRUE)
+>
+> lines536-537: savePlot is giving an error (note that I can produce pdf 
+> and ps files)
+> Error: chunk 23
+> Error in match.arg(type) :
+> 'arg' should be one of ?png?, ?jpeg?, ?tiff?, ?bmp?
+>
+> I've replaced by type="png" and type="jpeg"
+>
+> line 630 and 637-638: delta plots must have selection=FALSE
+> line 679-680: delta.out is not a S4 do you mean "deltas" ? also 
+> delta.out at outPut$sampID does not exist but delta.out$samp does.
+> Error: chunk 29
+> Error in eval.with.vis(expr, .GlobalEnv, baseenv()) :
+> trying to get slot "outPut" from an object (class "data.frame") that is 
+> not an S4 object
+>
+> This breaks the next code. I've fixed it blindly and the rest runs ok. 
+> I'm looking at FLR compatibility.
+>
+> Run Sweave from an empty workspace so that old objects are not used.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+Hi,
+
+strange! I've run also this code with an empty R session, but maybe it 
+is another Windows/Linux non compatibilities??
+Anyway, you got it run and it's nice.
+
+Don't hesitate to improve the text and code, and thank you for looking 
+at FLR linkage.
+
+Best
+
+Joel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/b2e8860e/attachment.html>
+
+From ernesto at ipimar.pt  Tue Apr  7 12:08:21 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 07 Apr 2009 11:08:21 +0100
+Subject: [cost-devel] MBE results
+Message-ID: <49DB2615.4030005@ipimar.pt>
+
+Hi,
+
+I've noticed that the lanEstim obtained in the manual has negative inf 
+ci. I suppose it results from using sampling stats to estimate the CI. 
+I'm not sure we should include such estimates ... maybe a better 
+approach is to truncate the distribution and replace negative values with 0.
+
+Best
+
+EJ
+
+ > lanEstim at ageNum$ci
+        time space technical age        value           inf          sup
+1   2006 - 1   all         1   4 1.428222e+02   -166.542583     452.1870
+2   2006 - 1   all         1   5 5.451335e+03   1476.796370    9425.8730
+3   2006 - 1   all         1   6 9.134738e+03   3821.179894   14448.2960
+4   2006 - 1   all         1   7 9.972928e+03   4584.239969   15361.6161
+5   2006 - 1   all         1   8 1.975126e+04  12938.385525   26564.1414
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  7 12:06:41 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 07 Apr 2009 12:06:41 +0200
+Subject: [cost-devel] MBE results
+In-Reply-To: <49DB2615.4030005@ipimar.pt>
+References: <49DB2615.4030005@ipimar.pt>
+Message-ID: <49DB25B1.1020800@ifremer.fr>
+
+Hi,
+
+yes it is the result of both the normal assumption and the fake low 
+values of total number of trips in the dataset. In anycase, it shows 
+that this can happen, and I agree we can replace the negative values with 0.
+
+Best
+
+Joel
+
+
+Ernesto Jardim a ?crit :
+> Hi,
+>
+> I've noticed that the lanEstim obtained in the manual has negative inf 
+> ci. I suppose it results from using sampling stats to estimate the CI. 
+> I'm not sure we should include such estimates ... maybe a better 
+> approach is to truncate the distribution and replace negative values with 0.
+>
+> Best
+>
+> EJ
+>
+>  > lanEstim at ageNum$ci
+>         time space technical age        value           inf          sup
+> 1   2006 - 1   all         1   4 1.428222e+02   -166.542583     452.1870
+> 2   2006 - 1   all         1   5 5.451335e+03   1476.796370    9425.8730
+> 3   2006 - 1   all         1   6 9.134738e+03   3821.179894   14448.2960
+> 4   2006 - 1   all         1   7 9.972928e+03   4584.239969   15361.6161
+> 5   2006 - 1   all         1   8 1.975126e+04  12938.385525   26564.1414
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/c11b89f0/attachment.html>
+
+From E.D.Clarke at marlab.ac.uk  Tue Apr  7 12:31:35 2009
+From: E.D.Clarke at marlab.ac.uk (Liz Clarke)
+Date: Tue, 7 Apr 2009 11:31:35 +0100
+Subject: [cost-devel] MBE results
+In-Reply-To: <49DB25B1.1020800@ifremer.fr>
+References: <49DB2615.4030005@ipimar.pt> <49DB25B1.1020800@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C5812033360D4@mail4.marlab.ac.uk>
+
+As long as it is documented that we do this...
+Liz
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 07 April 2009 11:07
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] MBE results
+
+
+Hi,
+
+yes it is the result of both the normal assumption and the fake low values of total number of trips in the dataset. In anycase, it shows that this can happen, and I agree we can replace the negative values with 0.
+
+Best
+
+Joel
+
+
+Ernesto Jardim a ?crit : 
+
+	Hi,
+	
+	I've noticed that the lanEstim obtained in the manual has negative inf 
+	ci. I suppose it results from using sampling stats to estimate the CI. 
+	I'm not sure we should include such estimates ... maybe a better 
+	approach is to truncate the distribution and replace negative values with 0.
+	
+	Best
+	
+	EJ
+	
+	 > lanEstim at ageNum$ci
+	        time space technical age        value           inf          sup
+	1   2006 - 1   all         1   4 1.428222e+02   -166.542583     452.1870
+	2   2006 - 1   all         1   5 5.451335e+03   1476.796370    9425.8730
+	3   2006 - 1   all         1   6 9.134738e+03   3821.179894   14448.2960
+	4   2006 - 1   all         1   7 9.972928e+03   4584.239969   15361.6161
+	5   2006 - 1   all         1   8 1.975126e+04  12938.385525   26564.1414
+	
+	_______________________________________________
+	Cost-project-devel mailing list
+	Cost-project-devel at lists.berlios.de
+	https://lists.berlios.de/mailman/listinfo/cost-project-devel
+	  
+
+
+-- 
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/573efdfb/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  7 13:15:46 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 07 Apr 2009 13:15:46 +0200
+Subject: [cost-devel] MBE results
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C5812033360D4@mail4.marlab.ac.uk>
+References: <49DB2615.4030005@ipimar.pt> <49DB25B1.1020800@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C5812033360D4@mail4.marlab.ac.uk>
+Message-ID: <49DB35E2.8030100@ifremer.fr>
+
+Hi Liz,
+
+I will care of this in the text of the report and in the manual.
+
+Best
+
+Joel
+
+Liz Clarke a ?crit :
+> As long as it is documented that we do this...
+> Liz
+>
+> ------------------------------------------------------------------------
+> *From:* cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] *On Behalf Of 
+> *Joel VIGNEAU
+> *Sent:* 07 April 2009 11:07
+> *To:* cost-project-devel at lists.berlios.de
+> *Subject:* Re: [cost-devel] MBE results
+>
+> Hi,
+>
+> yes it is the result of both the normal assumption and the fake low 
+> values of total number of trips in the dataset. In anycase, it shows 
+> that this can happen, and I agree we can replace the negative values 
+> with 0.
+>
+> Best
+>
+> Joel
+>
+>
+> Ernesto Jardim a ?crit :
+>> Hi,
+>>
+>> I've noticed that the lanEstim obtained in the manual has negative inf 
+>> ci. I suppose it results from using sampling stats to estimate the CI. 
+>> I'm not sure we should include such estimates ... maybe a better 
+>> approach is to truncate the distribution and replace negative values with 0.
+>>
+>> Best
+>>
+>> EJ
+>>
+>>  > lanEstim at ageNum$ci
+>>         time space technical age        value           inf          sup
+>> 1   2006 - 1   all         1   4 1.428222e+02   -166.542583     452.1870
+>> 2   2006 - 1   all         1   5 5.451335e+03   1476.796370    9425.8730
+>> 3   2006 - 1   all         1   6 9.134738e+03   3821.179894   14448.2960
+>> 4   2006 - 1   all         1   7 9.972928e+03   4584.239969   15361.6161
+>> 5   2006 - 1   all         1   8 1.975126e+04  12938.385525   26564.1414
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email
+> ______________________________________________________________________
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/69aae6b5/attachment.html>
+
+From ernesto at ipimar.pt  Tue Apr  7 19:10:37 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 07 Apr 2009 18:10:37 +0100
+Subject: [cost-devel] COST/FLR interface
+Message-ID: <49DB890D.30400@ipimar.pt>
+
+Hi,
+
+I've a method to produce a FLQuant from a dbeOutput object. It works fine.
+
+Load FLCore, copy paste the code below, run the examples on the manual 
+(we need the lanEstim to test) and run
+
+flq <- FLQuant(lanEstim)
+
+You can check the results
+
+head(lanEstim at ageStruc)
+
+flq["4","2006","1","1","all",]
+flq["9","2006","1","1","all",]
+
+ > head(lanEstim at ageStruc$estim)
+      time space technical age      value
+1 2006 - 1   all         1   4   142.8222
+2 2006 - 1   all         1   5  5451.3347
+3 2006 - 1   all         1   6  9134.7380
+4 2006 - 1   all         1   7  9972.9280
+5 2006 - 1   all         1   8 19751.2635
+6 2006 - 1   all         1   9  7239.5636
+ > flq["4","2006","1","1","all",]
+An object of class "FLQuant"
+, , unit = 1, season = 1, area = all
+
+   year
+age 2006 
+  4 142.82
+
+units:  NA
+ > flq["9","2006","1","1","all",]
+An object of class "FLQuant"
+, , unit = 1, season = 1, area = all
+
+   year
+age 2006 
+  9 7239.6
+
+units:  NA
+
+Welcome to the wonderful world of FLR ;-)
+
+xyplot(data~age|season,groups=unit, data=flq, auto.key=list(points=F, 
+lines=T, space="right"), type="l", as.table=T)
+
+I'm not sure where this method should be included by I suppose COSTdbe 
+is the candidate for now.
+
+This method can be applied to other parameters, but I need examples to 
+check the code. Like mean weight, etc. I suppose all dbe methods will 
+produce dbeOutput objects.
+
+Best
+
+EJ
+
+
+
+
+
+
+From ernesto at ipimar.pt  Tue Apr  7 19:11:24 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 07 Apr 2009 18:11:24 +0100
+Subject: [cost-devel] COST/FLR interface
+Message-ID: <49DB893C.3030703@ipimar.pt>
+
+Hi,
+
+I've a method to produce a FLQuant from a dbeOutput object. It works fine.
+
+Load FLCore, copy paste the code attached, run the examples on the manual
+(we need the lanEstim to test) and run
+
+flq <- FLQuant(lanEstim)
+
+You can check the results
+
+head(lanEstim at ageStruc)
+
+flq["4","2006","1","1","all",]
+flq["9","2006","1","1","all",]
+
+> head(lanEstim at ageStruc$estim)
+      time space technical age      value
+1 2006 - 1   all         1   4   142.8222
+2 2006 - 1   all         1   5  5451.3347
+3 2006 - 1   all         1   6  9134.7380
+4 2006 - 1   all         1   7  9972.9280
+5 2006 - 1   all         1   8 19751.2635
+6 2006 - 1   all         1   9  7239.5636
+> flq["4","2006","1","1","all",]
+An object of class "FLQuant"
+, , unit = 1, season = 1, area = all
+
+   year
+age 2006
+  4 142.82
+
+units:  NA
+> flq["9","2006","1","1","all",]
+An object of class "FLQuant"
+, , unit = 1, season = 1, area = all
+
+   year
+age 2006
+  9 7239.6
+
+units:  NA
+
+Welcome to the wonderful world of FLR ;-)
+
+xyplot(data~age|season,groups=unit, data=flq, auto.key=list(points=F,
+lines=T, space="right"), type="l", as.table=T)
+
+I'm not sure where this method should be included by I suppose COSTdbe
+is the candidate for now.
+
+This method can be applied to other parameters, but I need examples to
+check the code. Like mean weight, etc. I suppose all dbe methods will
+produce dbeOutput objects.
+
+Best
+
+EJ
+
+
+
+
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: flquant4dbe.R
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090407/6f6066c9/attachment.ksh>
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 00:15:25 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Wed, 08 Apr 2009 00:15:25 +0200
+Subject: [cost-devel] (no subject)
+Message-ID: <20090408001525.119045p0hsqnyc2s@efflammail.ifremer.fr>
+
+
+Dear developers,
+
+after the first draft of the user manual, here is the first draft of  
+the final report. I send both a doc generated by OpenOffice and a pdf,  
+as I 'm not sure Microsoft word will be respectful of my formating.
+
+I need to make the point on who's doing what for the remaining days in  
+order to organise the workload.
+
+I need also references for the biological parameters estimates from  
+Paz, or better some text to copy and paste.
+
+Best
+
+Joel
+
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report V_1-0.pdf
+Type: application/download
+Size: 554832 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/f67882ab/attachment.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report V_1-0.doc
+Type: application/msword
+Size: 964096 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/f67882ab/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 10:48:53 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 08 Apr 2009 10:48:53 +0200
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DB893C.3030703@ipimar.pt>
+References: <49DB893C.3030703@ipimar.pt>
+Message-ID: <49DC64F5.6090601@ifremer.fr>
+
+Hi Ernesto,
+
+your code is Ok, thanks for this. Mathieu is working on the manual for 
+the biological parameter estimates, so you should be able to see a 
+dbeObject with bp estimates early this afternoon.
+
+I have a question regarding the compilation of COSTdbe including your 
+code. You need the library FLCore to run the FLQuant creator, which is 
+logical, but do we want the COST user to install systematically the 
+FLCore library for loading COSTdbe? Is there an alternative to this, 
+like forcing the compilation and put an error message like  'this method 
+needs the library FLCore' that appears when you run FLQuant method. The 
+problem would be similar in case of including this method in FLCore, it 
+would necessitate COSdbe library to know about a dbeOutput!
+
+Best
+
+Joel
+
+
+
+Ernesto Jardim a ?crit :
+> Hi,
+>
+> I've a method to produce a FLQuant from a dbeOutput object. It works 
+> fine.
+>
+> Load FLCore, copy paste the code attached, run the examples on the manual
+> (we need the lanEstim to test) and run
+>
+> flq <- FLQuant(lanEstim)
+>
+> You can check the results
+>
+> head(lanEstim at ageStruc)
+>
+> flq["4","2006","1","1","all",]
+> flq["9","2006","1","1","all",]
+>
+>> head(lanEstim at ageStruc$estim)
+>      time space technical age      value
+> 1 2006 - 1   all         1   4   142.8222
+> 2 2006 - 1   all         1   5  5451.3347
+> 3 2006 - 1   all         1   6  9134.7380
+> 4 2006 - 1   all         1   7  9972.9280
+> 5 2006 - 1   all         1   8 19751.2635
+> 6 2006 - 1   all         1   9  7239.5636
+>> flq["4","2006","1","1","all",]
+> An object of class "FLQuant"
+> , , unit = 1, season = 1, area = all
+>
+>   year
+> age 2006
+>  4 142.82
+>
+> units:  NA
+>> flq["9","2006","1","1","all",]
+> An object of class "FLQuant"
+> , , unit = 1, season = 1, area = all
+>
+>   year
+> age 2006
+>  9 7239.6
+>
+> units:  NA
+>
+> Welcome to the wonderful world of FLR ;-)
+>
+> xyplot(data~age|season,groups=unit, data=flq, auto.key=list(points=F,
+> lines=T, space="right"), type="l", as.table=T)
+>
+> I'm not sure where this method should be included by I suppose COSTdbe
+> is the candidate for now.
+>
+> This method can be applied to other parameters, but I need examples to
+> check the code. Like mean weight, etc. I suppose all dbe methods will
+> produce dbeOutput objects.
+>
+> Best
+>
+> EJ
+>
+>
+>
+>
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/5d24dbb6/attachment.html>
+
+From ernesto at ipimar.pt  Wed Apr  8 11:22:29 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 08 Apr 2009 10:22:29 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC64F5.6090601@ifremer.fr>
+References: <49DB893C.3030703@ipimar.pt> <49DC64F5.6090601@ifremer.fr>
+Message-ID: <49DC6CD5.2090608@ipimar.pt>
+
+Joel VIGNEAU wrote:
+> Hi Ernesto,
+>
+> your code is Ok, thanks for this. Mathieu is working on the manual for 
+> the biological parameter estimates, so you should be able to see a 
+> dbeObject with bp estimates early this afternoon.
+>
+> I have a question regarding the compilation of COSTdbe including your 
+> code. You need the library FLCore to run the FLQuant creator, which is 
+> logical, but do we want the COST user to install systematically the 
+> FLCore library for loading COSTdbe? Is there an alternative to this, 
+> like forcing the compilation and put an error message like  'this 
+> method needs the library FLCore' that appears when you run FLQuant 
+> method. The problem would be similar in case of including this method 
+> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>
+> Best
+>
+> Joel
+
+Hi Joel,
+
+I see two alternatves:
+
+(i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+means including the R files and the man pages from FLQuant into our 
+packages (that's the beauty of open source). The problem will be with 
+new developments of FLCore that must be included.
+
+(ii) Create a new package COSTimex to deal with import/export methods. 
+In that case only this package will depend on both FLR and COST 
+libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+
+I guess ii) is the safest.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 11:57:21 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 08 Apr 2009 11:57:21 +0200
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC6CD5.2090608@ipimar.pt>
+References: <49DB893C.3030703@ipimar.pt> <49DC64F5.6090601@ifremer.fr>
+	<49DC6CD5.2090608@ipimar.pt>
+Message-ID: <49DC7501.3080508@ifremer.fr>
+
+Ernesto Jardim a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> Hi Ernesto,
+>>
+>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>> the biological parameter estimates, so you should be able to see a 
+>> dbeObject with bp estimates early this afternoon.
+>>
+>> I have a question regarding the compilation of COSTdbe including your 
+>> code. You need the library FLCore to run the FLQuant creator, which is 
+>> logical, but do we want the COST user to install systematically the 
+>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>> like forcing the compilation and put an error message like  'this 
+>> method needs the library FLCore' that appears when you run FLQuant 
+>> method. The problem would be similar in case of including this method 
+>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>
+>> Best
+>>
+>> Joel
+>>     
+>
+> Hi Joel,
+>
+> I see two alternatves:
+>
+> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+> means including the R files and the man pages from FLQuant into our 
+> packages (that's the beauty of open source). The problem will be with 
+> new developments of FLCore that must be included.
+>
+> (ii) Create a new package COSTimex to deal with import/export methods. 
+> In that case only this package will depend on both FLR and COST 
+> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>
+> I guess ii) is the safest.
+>
+> Best
+>
+> EJ
+>   
+
+Hi Ernesto,
+
+(ii) was Mathieu's proposal this morning...
+
+Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+export to InterCatch where there's no need. Everything we can do by 
+ourselves should be kept in the COST original packages. Would it be a 
+better option to create a COSTtoFLR package with your code in and the 
+dynamic link? that's a tiny package, and there would be a COSTtoANYTHING 
+if there is a need to connect to .. anything.
+Is it agreeable by everyone?
+
+Best
+
+Joel
+
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/ecaee0b8/attachment.html>
+
+From david.maxwell at cefas.co.uk  Wed Apr  8 12:24:52 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 8 Apr 2009 11:24:52 +0100
+Subject: [cost-devel] report text
+In-Reply-To: <20090408001525.119045p0hsqnyc2s@efflammail.ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A16@LOWEXPRESS.corp.cefas.co.uk>
+
+Joel,
+here's some text for biological parameters analytical. Still need a short description for bootstrap please Paz.
+regards, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Joel.Vigneau at ifremer.fr
+Sent: 07 April 2009 23:15
+To: Cost-devel Mailing List
+Subject: [cost-devel] (no subject)
+
+
+
+Dear developers,
+
+after the first draft of the user manual, here is the first draft of  
+the final report. I send both a doc generated by OpenOffice and a pdf,  
+as I 'm not sure Microsoft word will be respectful of my formating.
+
+I need to make the point on who's doing what for the remaining days in  
+order to organise the workload.
+
+I need also references for the biological parameters estimates from  
+Paz, or better some text to copy and paste.
+
+Best
+
+Joel
+
+
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Estimation of biological parameters - analytical.doc
+Type: application/msword
+Size: 26624 bytes
+Desc: Estimation of biological parameters - analytical.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/b8c87d3e/attachment.doc>
+
+From david.hirst at nr.no  Wed Apr  8 12:29:19 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Wed, 08 Apr 2009 11:29:19 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC7501.3080508@ifremer.fr>
+References: <49DB893C.3030703@ipimar.pt>
+	<49DC64F5.6090601@ifremer.fr>	<49DC6CD5.2090608@ipimar.pt>
+	<49DC7501.3080508@ifremer.fr>
+Message-ID: <49DC7C7F.6070806@nr.no>
+
+Just so I stop wondering, can anyone tell me what FLQuant does?
+
+Joel VIGNEAU wrote:
+> Ernesto Jardim a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> Hi Ernesto,
+>>>
+>>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>>> the biological parameter estimates, so you should be able to see a 
+>>> dbeObject with bp estimates early this afternoon.
+>>>
+>>> I have a question regarding the compilation of COSTdbe including your 
+>>> code. You need the library FLCore to run the FLQuant creator, which is 
+>>> logical, but do we want the COST user to install systematically the 
+>>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>>> like forcing the compilation and put an error message like  'this 
+>>> method needs the library FLCore' that appears when you run FLQuant 
+>>> method. The problem would be similar in case of including this method 
+>>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>>
+>>> Best
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel,
+>>
+>> I see two alternatves:
+>>
+>> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+>> means including the R files and the man pages from FLQuant into our 
+>> packages (that's the beauty of open source). The problem will be with 
+>> new developments of FLCore that must be included.
+>>
+>> (ii) Create a new package COSTimex to deal with import/export methods. 
+>> In that case only this package will depend on both FLR and COST 
+>> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>>
+>> I guess ii) is the safest.
+>>
+>> Best
+>>
+>> EJ
+>>   
+>
+> Hi Ernesto,
+>
+> (ii) was Mathieu's proposal this morning...
+>
+> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+> export to InterCatch where there's no need. Everything we can do by 
+> ourselves should be kept in the COST original packages. Would it be a 
+> better option to create a COSTtoFLR package with your code in and the 
+> dynamic link? that's a tiny package, and there would be a 
+> COSTtoANYTHING if there is a need to connect to .. anything.
+> Is it agreeable by everyone?
+>
+> Best
+>
+> Joel
+>
+>
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 12:28:33 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 08 Apr 2009 12:28:33 +0200
+Subject: [cost-devel] report text
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B01257A16@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B01257A16@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <49DC7C51.1080302@ifremer.fr>
+
+Hi David,
+
+thank you for this, it will be included in the report. Paz answered me 
+this morning she was taking care of her part of the text.
+
+Best
+
+Joel
+
+
+David Maxwell (Cefas) a ?crit :
+> Joel,
+> here's some text for biological parameters analytical. Still need a short description for bootstrap please Paz.
+> regards, David
+>
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+> Joel.Vigneau at ifremer.fr
+> Sent: 07 April 2009 23:15
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] (no subject)
+>
+>
+>
+> Dear developers,
+>
+> after the first draft of the user manual, here is the first draft of  
+> the final report. I send both a doc generated by OpenOffice and a pdf,  
+> as I 'm not sure Microsoft word will be respectful of my formating.
+>
+> I need to make the point on who's doing what for the remaining days in  
+> order to organise the workload.
+>
+> I need also references for the biological parameters estimates from  
+> Paz, or better some text to copy and paste.
+>
+> Best
+>
+> Joel
+>
+>
+>
+>
+>
+>
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/e65d0331/attachment.html>
+
+From david.maxwell at cefas.co.uk  Wed Apr  8 12:39:10 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 8 Apr 2009 11:39:10 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC7C7F.6070806@nr.no>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A17@LOWEXPRESS.corp.cefas.co.uk>
+
+David See
+http://flr-project.org/wiki/doku.php?id=documentation:tutorials:flq
+
+for insight into the wonderful world of this fisheries project and its acronyms!
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of David
+Hirst
+Sent: 08 April 2009 11:29
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] COST/FLR interface
+
+
+Just so I stop wondering, can anyone tell me what FLQuant does?
+
+Joel VIGNEAU wrote:
+> Ernesto Jardim a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> Hi Ernesto,
+>>>
+>>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>>> the biological parameter estimates, so you should be able to see a 
+>>> dbeObject with bp estimates early this afternoon.
+>>>
+>>> I have a question regarding the compilation of COSTdbe including your 
+>>> code. You need the library FLCore to run the FLQuant creator, which is 
+>>> logical, but do we want the COST user to install systematically the 
+>>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>>> like forcing the compilation and put an error message like  'this 
+>>> method needs the library FLCore' that appears when you run FLQuant 
+>>> method. The problem would be similar in case of including this method 
+>>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>>
+>>> Best
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel,
+>>
+>> I see two alternatves:
+>>
+>> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+>> means including the R files and the man pages from FLQuant into our 
+>> packages (that's the beauty of open source). The problem will be with 
+>> new developments of FLCore that must be included.
+>>
+>> (ii) Create a new package COSTimex to deal with import/export methods. 
+>> In that case only this package will depend on both FLR and COST 
+>> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>>
+>> I guess ii) is the safest.
+>>
+>> Best
+>>
+>> EJ
+>>   
+>
+> Hi Ernesto,
+>
+> (ii) was Mathieu's proposal this morning...
+>
+> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+> export to InterCatch where there's no need. Everything we can do by 
+> ourselves should be kept in the COST original packages. Would it be a 
+> better option to create a COSTtoFLR package with your code in and the 
+> dynamic link? that's a tiny package, and there would be a 
+> COSTtoANYTHING if there is a need to connect to .. anything.
+> Is it agreeable by everyone?
+>
+> Best
+>
+> Joel
+>
+>
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From ernesto at ipimar.pt  Wed Apr  8 16:05:24 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 08 Apr 2009 15:05:24 +0100
+Subject: [cost-devel] (no subject)
+In-Reply-To: <20090408001525.119045p0hsqnyc2s@efflammail.ifremer.fr>
+References: <20090408001525.119045p0hsqnyc2s@efflammail.ifremer.fr>
+Message-ID: <49DCAF24.70007@ipimar.pt>
+
+Joel.Vigneau at ifremer.fr wrote:
+>
+> Dear developers,
+>
+> after the first draft of the user manual, here is the first draft of 
+> the final report. I send both a doc generated by OpenOffice and a pdf, 
+> as I 'm not sure Microsoft word will be respectful of my formating.
+>
+> I need to make the point on who's doing what for the remaining days in 
+> order to organise the workload.
+>
+> I need also references for the biological parameters estimates from 
+> Paz, or better some text to copy and paste.
+>
+> Best
+>
+> Joel 
+Joel,
+
+Attached is the report with my corrections in section 4.4 and 6. I used 
+track changes.
+
+Best
+
+EJ
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report V_1-0.doc
+Type: application/msword
+Size: 973312 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/cc4ef9d1/attachment.doc>
+
+From paz.sampedro at co.ieo.es  Wed Apr  8 15:53:29 2009
+From: paz.sampedro at co.ieo.es (Paz Sampedro)
+Date: Wed, 8 Apr 2009 15:53:29 +0200 
+Subject: [cost-devel] report text
+Message-ID: <4B4C7D394FD73F4490408D9706A296A64EEE68@ieocoruna.co.ieo.es>
+
+
+Hi Joel, 
+ 
+I'm sending the text for bootstrap estimates of biological parameters to be
+included in the final report.
+ 
+Best wishes,
+ 
+Paz
+ 
+ 
+ 
+
+M. Paz Sampedro Pastor 
+Instituto Espa?ol de Oceanograf?a 
+C. O. A Coru?a 
+Paseo Mar?timo Alcalde Francisco V?zquez n? 10 
+15001 A Coru?a, SPAIN 
+Tel.: +34 98 1218253 (ext 23253) 
+Fax: +34 981 22 90 77 
+http://www.ieo.es <http://www.ieo.es/>  
+
+
+ 
+
+  _____  
+
+De: Joel VIGNEAU [mailto:Joel.Vigneau at ifremer.fr] 
+Enviado el: mi?rcoles, 08 de abril de 2009 12:29
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] report text
+
+
+Hi David,
+
+thank you for this, it will be included in the report. Paz answered me this
+morning she was taking care of her part of the text.
+
+Best
+
+Joel
+
+
+David Maxwell (Cefas) a ?crit : 
+
+Joel,
+
+here's some text for biological parameters analytical. Still need a short
+description for bootstrap please Paz.
+
+regards, David
+
+
+
+-----Original Message-----
+
+From: cost-project-devel-bounces at lists.berlios.de
+<mailto:cost-project-devel-bounces at lists.berlios.de> 
+
+[mailto:cost-project-devel-bounces at lists.berlios.de
+<mailto:cost-project-devel-bounces at lists.berlios.de> ]On Behalf Of
+
+Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr> 
+
+Sent: 07 April 2009 23:15
+
+To: Cost-devel Mailing List
+
+Subject: [cost-devel] (no subject)
+
+
+
+
+
+
+
+Dear developers,
+
+
+
+after the first draft of the user manual, here is the first draft of  
+
+the final report. I send both a doc generated by OpenOffice and a pdf,  
+
+as I 'm not sure Microsoft word will be respectful of my formating.
+
+
+
+I need to make the point on who's doing what for the remaining days in  
+
+order to organise the workload.
+
+
+
+I need also references for the biological parameters estimates from  
+
+Paz, or better some text to copy and paste.
+
+
+
+Best
+
+
+
+Joel
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************************************************************************
+*******
+
+This email and any attachments are intended for the named recipient only.
+Its unauthorised use, distribution, disclosure, storage or copying is not
+permitted.  If you have received it in error, please destroy all copies and
+notify the sender.  In messages of a non-business nature, the views and
+opinions expressed are the author's own and do not necessarily reflect those
+of the organisation from which it is sent.  All emails may be subject to
+monitoring.
+
+****************************************************************************
+*******
+
+  
+
+
+  _____  
+
+
+_______________________________________________
+
+Cost-project-devel mailing list
+
+Cost-project-devel at lists.berlios.de
+<mailto:Cost-project-devel at lists.berlios.de> 
+
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+<https://lists.berlios.de/mailman/listinfo/cost-project-devel> 
+
+
+-- 
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l :  <mailto:Joel.Vigneau at ifremer.fr> Joel.Vigneau at ifremer.fr 
+http://www.ifremer.fr/drvpbessin/ <http://www.ifremer.fr/drvpbessin/> 
+
+
+
+La informaci?n contenida en este e-mail y sus ficheros adjuntos es totalmente confidencial y no deber?a ser usado si no fuera usted alguno de los destinatarios. Si ha recibido este e-mail por error, por favor avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de almacenamiento.   This email is confidential and should not be used by anyone who is not the original intended  recipient. If you have received this e-mail in  error please inform the sender and delete it from  your mailbox or any other storage mechanism.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/f41c555d/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Estimation of biological parameters - bootstrap.doc
+Type: application/msword
+Size: 82944 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/f41c555d/attachment.doc>
+
+From ernesto at ipimar.pt  Wed Apr  8 16:13:33 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 08 Apr 2009 15:13:33 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC7C7F.6070806@nr.no>
+References: <49DB893C.3030703@ipimar.pt>	<49DC64F5.6090601@ifremer.fr>	<49DC6CD5.2090608@ipimar.pt>	<49DC7501.3080508@ifremer.fr>
+	<49DC7C7F.6070806@nr.no>
+Message-ID: <49DCB10D.2050801@ipimar.pt>
+
+David Hirst wrote:
+> Just so I stop wondering, can anyone tell me what FLQuant does?
+
+FLQuant stands for "Fisheries Library Quantity". Its the smaller unit in 
+FLR. We use this class to build (most) of our classes, representing 
+stocks, fleets, abundance indices, etc.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Wed Apr  8 16:20:36 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 08 Apr 2009 15:20:36 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DC7501.3080508@ifremer.fr>
+References: <49DB893C.3030703@ipimar.pt>
+	<49DC64F5.6090601@ifremer.fr>	<49DC6CD5.2090608@ipimar.pt>
+	<49DC7501.3080508@ifremer.fr>
+Message-ID: <49DCB2B4.5000206@ipimar.pt>
+
+Joel VIGNEAU wrote:
+> Ernesto Jardim a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> Hi Ernesto,
+>>>
+>>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>>> the biological parameter estimates, so you should be able to see a 
+>>> dbeObject with bp estimates early this afternoon.
+>>>
+>>> I have a question regarding the compilation of COSTdbe including your 
+>>> code. You need the library FLCore to run the FLQuant creator, which is 
+>>> logical, but do we want the COST user to install systematically the 
+>>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>>> like forcing the compilation and put an error message like  'this 
+>>> method needs the library FLCore' that appears when you run FLQuant 
+>>> method. The problem would be similar in case of including this method 
+>>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>>
+>>> Best
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel,
+>>
+>> I see two alternatves:
+>>
+>> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+>> means including the R files and the man pages from FLQuant into our 
+>> packages (that's the beauty of open source). The problem will be with 
+>> new developments of FLCore that must be included.
+>>
+>> (ii) Create a new package COSTimex to deal with import/export methods. 
+>> In that case only this package will depend on both FLR and COST 
+>> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>>
+>> I guess ii) is the safest.
+>>
+>> Best
+>>
+>> EJ
+>>   
+>
+> Hi Ernesto,
+>
+> (ii) was Mathieu's proposal this morning...
+>
+> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+> export to InterCatch where there's no need. Everything we can do by 
+> ourselves should be kept in the COST original packages. Would it be a 
+> better option to create a COSTtoFLR package with your code in and the 
+> dynamic link? that's a tiny package, and there would be a 
+> COSTtoANYTHING if there is a need to connect to .. anything.
+> Is it agreeable by everyone?
+>
+> Best
+>
+> Joel
+
+Hi Joel,
+
+I don't think it will be a problem to have FLCore installed to export 
+FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+which mean more maintenance, documenting, examples, etc. We may start 
+with a single package and, if necessary, we'll fork it into distinct 
+packages by system. What do you think ?
+
+Best
+
+EJ
+
+
+
+
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 16:24:54 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 08 Apr 2009 16:24:54 +0200
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DCB2B4.5000206@ipimar.pt>
+References: <49DB893C.3030703@ipimar.pt>	<49DC64F5.6090601@ifremer.fr>	<49DC6CD5.2090608@ipimar.pt>	<49DC7501.3080508@ifremer.fr>
+	<49DCB2B4.5000206@ipimar.pt>
+Message-ID: <49DCB3B6.8020904@ifremer.fr>
+
+
+
+Ernesto Jardim a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> Ernesto Jardim a ?crit :
+>>     
+>>> Joel VIGNEAU wrote:
+>>>   
+>>>       
+>>>> Hi Ernesto,
+>>>>
+>>>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>>>> the biological parameter estimates, so you should be able to see a 
+>>>> dbeObject with bp estimates early this afternoon.
+>>>>
+>>>> I have a question regarding the compilation of COSTdbe including your 
+>>>> code. You need the library FLCore to run the FLQuant creator, which is 
+>>>> logical, but do we want the COST user to install systematically the 
+>>>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>>>> like forcing the compilation and put an error message like  'this 
+>>>> method needs the library FLCore' that appears when you run FLQuant 
+>>>> method. The problem would be similar in case of including this method 
+>>>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>>>
+>>>> Best
+>>>>
+>>>> Joel
+>>>>     
+>>>>         
+>>> Hi Joel,
+>>>
+>>> I see two alternatves:
+>>>
+>>> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+>>> means including the R files and the man pages from FLQuant into our 
+>>> packages (that's the beauty of open source). The problem will be with 
+>>> new developments of FLCore that must be included.
+>>>
+>>> (ii) Create a new package COSTimex to deal with import/export methods. 
+>>> In that case only this package will depend on both FLR and COST 
+>>> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>>>
+>>> I guess ii) is the safest.
+>>>
+>>> Best
+>>>
+>>> EJ
+>>>   
+>>>       
+>> Hi Ernesto,
+>>
+>> (ii) was Mathieu's proposal this morning...
+>>
+>> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+>> export to InterCatch where there's no need. Everything we can do by 
+>> ourselves should be kept in the COST original packages. Would it be a 
+>> better option to create a COSTtoFLR package with your code in and the 
+>> dynamic link? that's a tiny package, and there would be a 
+>> COSTtoANYTHING if there is a need to connect to .. anything.
+>> Is it agreeable by everyone?
+>>
+>> Best
+>>
+>> Joel
+>>     
+>
+> Hi Joel,
+>
+> I don't think it will be a problem to have FLCore installed to export 
+> FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+> which mean more maintenance, documenting, examples, etc. We may start 
+> with a single package and, if necessary, we'll fork it into distinct 
+> packages by system. What do you think ?
+>
+> Best
+>
+> EJ
+>
+>
+>   
+Hi Ernesto,
+
+exporting to FF is  : write.csv(validated tables)
+as we have the same format.
+
+That's why today, there would be the InterCatch export which is also a 
+write.csv of a dbe object with some preparational work before and the 
+FLQuant which needs FLCore. I was thinking also of letting the 
+InterCatch method in COSTdbe and creating a COSTlink package where we 
+would put all the methods needing an external package. Like this, there 
+would be only one such a package.
+
+Regards
+
+Joel
+
+
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/682d84b8/attachment.html>
+
+From ernesto at ipimar.pt  Wed Apr  8 16:38:03 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 08 Apr 2009 15:38:03 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DCB3B6.8020904@ifremer.fr>
+References: <49DB893C.3030703@ipimar.pt>	<49DC64F5.6090601@ifremer.fr>	<49DC6CD5.2090608@ipimar.pt>	<49DC7501.3080508@ifremer.fr>	<49DCB2B4.5000206@ipimar.pt>
+	<49DCB3B6.8020904@ifremer.fr>
+Message-ID: <49DCB6CB.8000204@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+>
+> Ernesto Jardim a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> Ernesto Jardim a ?crit :
+>>>     
+>>>> Joel VIGNEAU wrote:
+>>>>   
+>>>>       
+>>>>> Hi Ernesto,
+>>>>>
+>>>>> your code is Ok, thanks for this. Mathieu is working on the manual for 
+>>>>> the biological parameter estimates, so you should be able to see a 
+>>>>> dbeObject with bp estimates early this afternoon.
+>>>>>
+>>>>> I have a question regarding the compilation of COSTdbe including your 
+>>>>> code. You need the library FLCore to run the FLQuant creator, which is 
+>>>>> logical, but do we want the COST user to install systematically the 
+>>>>> FLCore library for loading COSTdbe? Is there an alternative to this, 
+>>>>> like forcing the compilation and put an error message like  'this 
+>>>>> method needs the library FLCore' that appears when you run FLQuant 
+>>>>> method. The problem would be similar in case of including this method 
+>>>>> in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+>>>>>
+>>>>> Best
+>>>>>
+>>>>> Joel
+>>>>>     
+>>>>>         
+>>>> Hi Joel,
+>>>>
+>>>> I see two alternatves:
+>>>>
+>>>> (i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+>>>> means including the R files and the man pages from FLQuant into our 
+>>>> packages (that's the beauty of open source). The problem will be with 
+>>>> new developments of FLCore that must be included.
+>>>>
+>>>> (ii) Create a new package COSTimex to deal with import/export methods. 
+>>>> In that case only this package will depend on both FLR and COST 
+>>>> libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+>>>>
+>>>> I guess ii) is the safest.
+>>>>
+>>>> Best
+>>>>
+>>>> EJ
+>>>>   
+>>>>       
+>>> Hi Ernesto,
+>>>
+>>> (ii) was Mathieu's proposal this morning...
+>>>
+>>> Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+>>> export to InterCatch where there's no need. Everything we can do by 
+>>> ourselves should be kept in the COST original packages. Would it be a 
+>>> better option to create a COSTtoFLR package with your code in and the 
+>>> dynamic link? that's a tiny package, and there would be a 
+>>> COSTtoANYTHING if there is a need to connect to .. anything.
+>>> Is it agreeable by everyone?
+>>>
+>>> Best
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel,
+>>
+>> I don't think it will be a problem to have FLCore installed to export 
+>> FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+>> which mean more maintenance, documenting, examples, etc. We may start 
+>> with a single package and, if necessary, we'll fork it into distinct 
+>> packages by system. What do you think ?
+>>
+>> Best
+>>
+>> EJ
+>>
+>>
+>>   
+> Hi Ernesto,
+>
+> exporting to FF is  : write.csv(validated tables)
+> as we have the same format.
+>
+> That's why today, there would be the InterCatch export which is also a 
+> write.csv of a dbe object with some preparational work before and the 
+> FLQuant which needs FLCore. I was thinking also of letting the 
+> InterCatch method in COSTdbe and creating a COSTlink package where we 
+> would put all the methods needing an external package. Like this, 
+> there would be only one such a package.
+>
+> Regards
+>
+> Joel
+
+Ok,
+
+So I guess only FLR will require importing class specifications. In that 
+case a COST2FLR package as suggested by you before can be developed.
+
+Best
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Wed Apr  8 16:33:54 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 8 Apr 2009 15:33:54 +0100
+Subject: [cost-devel] COST/FLR interface
+In-Reply-To: <49DCB3B6.8020904@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A1A@LOWEXPRESS.corp.cefas.co.uk>
+
+ 
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 08 April 2009 15:25
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] COST/FLR interface
+
+
+
+
+Ernesto Jardim a ?crit : 
+
+Joel VIGNEAU wrote:
+
+  
+
+Ernesto Jardim a ?crit :
+
+    
+
+Joel VIGNEAU wrote:
+
+  
+
+      
+
+Hi Ernesto,
+
+
+
+your code is Ok, thanks for this. Mathieu is working on the manual for 
+
+the biological parameter estimates, so you should be able to see a 
+
+dbeObject with bp estimates early this afternoon.
+
+
+
+I have a question regarding the compilation of COSTdbe including your 
+
+code. You need the library FLCore to run the FLQuant creator, which is 
+
+logical, but do we want the COST user to install systematically the 
+
+FLCore library for loading COSTdbe? Is there an alternative to this, 
+
+like forcing the compilation and put an error message like  'this 
+
+method needs the library FLCore' that appears when you run FLQuant 
+
+method. The problem would be similar in case of including this method 
+
+in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+
+
+
+Best
+
+
+
+Joel
+
+    
+
+        
+
+Hi Joel,
+
+
+
+I see two alternatves:
+
+
+
+(i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+
+means including the R files and the man pages from FLQuant into our 
+
+packages (that's the beauty of open source). The problem will be with 
+
+new developments of FLCore that must be included.
+
+
+
+(ii) Create a new package COSTimex to deal with import/export methods. 
+
+In that case only this package will depend on both FLR and COST 
+
+libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+
+
+
+I guess ii) is the safest.
+
+
+
+Best
+
+
+
+EJ
+
+  
+
+      
+
+Hi Ernesto,
+
+
+
+(ii) was Mathieu's proposal this morning...
+
+
+
+Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+
+export to InterCatch where there's no need. Everything we can do by 
+
+ourselves should be kept in the COST original packages. Would it be a 
+
+better option to create a COSTtoFLR package with your code in and the 
+
+dynamic link? that's a tiny package, and there would be a 
+
+COSTtoANYTHING if there is a need to connect to .. anything.
+
+Is it agreeable by everyone?
+
+
+
+Best
+
+
+
+Joel
+
+    
+
+
+
+Hi Joel,
+
+
+
+I don't think it will be a problem to have FLCore installed to export 
+
+FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+
+which mean more maintenance, documenting, examples, etc. We may start 
+
+with a single package and, if necessary, we'll fork it into distinct 
+
+packages by system. What do you think ?
+
+
+
+Best
+
+
+
+EJ
+
+
+
+
+
+  
+
+Hi Ernesto,
+
+exporting to FF is  : write.csv(validated tables)
+as we have the same format.
+
+That's why today, there would be the InterCatch export which is also a write.csv of a dbe object with some preparational work before and the FLQuant which needs FLCore. I was thinking also of letting the InterCatch method in COSTdbe and creating a COSTlink package where we would put all the methods needing an external package. Like this, there would be only one such a package.
+
+Regards
+
+Joel
+
+
+-- 
+[David Maxwell (Cefas)] 
+Is exporting to FF this easy or does FF need all the record types in the same file (as InterCatch does)?
+
+ 
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/7caefe36/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Wed Apr  8 16:39:58 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 08 Apr 2009 16:39:58 +0200
+Subject: [cost-devel] report text
+In-Reply-To: <4B4C7D394FD73F4490408D9706A296A64EEE68@ieocoruna.co.ieo.es>
+References: <4B4C7D394FD73F4490408D9706A296A64EEE68@ieocoruna.co.ieo.es>
+Message-ID: <49DCB73E.80301@ifremer.fr>
+
+Thank you Paz,
+
+I'm gathering all the pieces of the puzzle together and assembling them, 
+and I begin to recognize the shape of COST !!
+Still plenty of issues to solve, though
+
+Best
+
+Joel
+
+
+
+Paz Sampedro a ?crit :
+> Hi Joel,
+>  
+> I'm sending the text for bootstrap estimates of biological parameters 
+> to be included in the final report.
+>  
+> Best wishes,
+>  
+> Paz
+>  
+>  
+>  
+>
+> M. Paz Sampedro Pastor
+> Instituto Espa?ol de Oceanograf?a
+> C. O. A Coru?a
+> Paseo Mar?timo Alcalde Francisco V?zquez n? 10
+> 15001 A Coru?a, SPAIN
+> Tel.: +34 98 1218253 (ext 23253)
+> Fax: +34 981 22 90 77
+> http://www.ieo.es <http://www.ieo.es/>
+>
+>
+>  
+>
+> ------------------------------------------------------------------------
+> *De:* Joel VIGNEAU [mailto:Joel.Vigneau at ifremer.fr]
+> *Enviado el:* mi?rcoles, 08 de abril de 2009 12:29
+> *Para:* cost-project-devel at lists.berlios.de
+> *Asunto:* Re: [cost-devel] report text
+>
+> Hi David,
+>
+> thank you for this, it will be included in the report. Paz answered me 
+> this morning she was taking care of her part of the text.
+>
+> Best
+>
+> Joel
+>
+>
+> David Maxwell (Cefas) a ?crit :
+>> Joel,
+>> here's some text for biological parameters analytical. Still need a short description for bootstrap please Paz.
+>> regards, David
+>>
+>> -----Original Message-----
+>> From: cost-project-devel-bounces at lists.berlios.de
+>> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+>> Joel.Vigneau at ifremer.fr
+>> Sent: 07 April 2009 23:15
+>> To: Cost-devel Mailing List
+>> Subject: [cost-devel] (no subject)
+>>
+>>
+>>
+>> Dear developers,
+>>
+>> after the first draft of the user manual, here is the first draft of  
+>> the final report. I send both a doc generated by OpenOffice and a pdf,  
+>> as I 'm not sure Microsoft word will be respectful of my formating.
+>>
+>> I need to make the point on who's doing what for the remaining days in  
+>> order to organise the workload.
+>>
+>> I need also references for the biological parameters estimates from  
+>> Paz, or better some text to copy and paste.
+>>
+>> Best
+>>
+>> Joel
+>>
+>>
+>>
+>>
+>>
+>>
+>> ***********************************************************************************
+>> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+>> ***********************************************************************************
+>>   
+>> ------------------------------------------------------------------------
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> La informaci?n contenida en este e-mail y sus ficheros adjuntos es 
+> totalmente confidencial y no deber?a ser usado si no fuera usted 
+> alguno de los destinatarios. Si ha recibido este e-mail por error, por 
+> favor avise al remitente y b?rrelo de su buz?n o de cualquier otro 
+> medio de almacenamiento. This email is confidential and should not be 
+> used by anyone who is not the original intended recipient. If you have 
+> received this e-mail in error please inform the sender and delete it 
+> from your mailbox or any other storage mechanism.
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/c2225e2e/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Thu Apr  9 14:09:34 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 9 Apr 2009 13:09:34 +0100
+Subject: [cost-devel] report text
+In-Reply-To: <49DCB73E.80301@ifremer.fr>
+References: <4B4C7D394FD73F4490408D9706A296A64EEE68@ieocoruna.co.ieo.es>
+	<49DCB73E.80301@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C58120264962B@mail4.marlab.ac.uk>
+
+Hi Joel, Mathieu, Paz
+
+Attached is a bit on COSTeda for section 7 of the report. 
+
+I am not as familiar with most of these functions as those that have done them so please edit as required if you wish. 
+
+Also, the number formatting in word has defeated me, so I just typed the numbers for now!
+
+All the best
+
+Alastair  
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 08 April 2009 15:40
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] report text
+
+ 
+
+Thank you Paz,
+
+I'm gathering all the pieces of the puzzle together and assembling them, and I begin to recognize the shape of COST !!
+Still plenty of issues to solve, though
+
+Best
+
+Joel
+
+
+
+Paz Sampedro a ?crit : 
+
+Hi Joel, 
+
+ 
+
+I'm sending the text for bootstrap estimates of biological parameters to be included in the final report.
+
+ 
+
+Best wishes,
+
+ 
+
+Paz
+
+ 
+
+ 
+
+ 
+
+M. Paz Sampedro Pastor 
+Instituto Espa?ol de Oceanograf?a 
+C. O. A Coru?a 
+Paseo Mar?timo Alcalde Francisco V?zquez n? 10 
+15001 A Coru?a, SPAIN 
+Tel.: +34 98 1218253 (ext 23253) 
+Fax: +34 981 22 90 77 
+http://www.ieo.es <http://www.ieo.es/>  
+
+ 
+
+ 
+
+ 
+
+________________________________
+
+De: Joel VIGNEAU [mailto:Joel.Vigneau at ifremer.fr] 
+Enviado el: mi?rcoles, 08 de abril de 2009 12:29
+Para: cost-project-devel at lists.berlios.de
+Asunto: Re: [cost-devel] report text
+
+Hi David,
+
+thank you for this, it will be included in the report. Paz answered me this morning she was taking care of her part of the text.
+
+Best
+
+Joel
+
+
+David Maxwell (Cefas) a ?crit : 
+
+Joel,
+here's some text for biological parameters analytical. Still need a short description for bootstrap please Paz.
+regards, David
+ 
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Joel.Vigneau at ifremer.fr
+Sent: 07 April 2009 23:15
+To: Cost-devel Mailing List
+Subject: [cost-devel] (no subject)
+ 
+ 
+ 
+Dear developers,
+ 
+after the first draft of the user manual, here is the first draft of  
+the final report. I send both a doc generated by OpenOffice and a pdf,  
+as I 'm not sure Microsoft word will be respectful of my formating.
+ 
+I need to make the point on who's doing what for the remaining days in  
+order to organise the workload.
+ 
+I need also references for the biological parameters estimates from  
+Paz, or better some text to copy and paste.
+ 
+Best
+ 
+Joel
+ 
+ 
+ 
+ 
+ 
+ 
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+  
+
+
+
+________________________________
+
+
+
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+ 
+
+-- 
+
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+La informaci?n contenida en este e-mail y sus ficheros adjuntos es totalmente confidencial y no deber?a ser usado si no fuera usted alguno de los destinatarios. Si ha recibido este e-mail por error, por favor avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de almacenamiento. This email is confidential and should not be used by anyone who is not the original intended recipient. If you have received this e-mail in error please inform the sender and delete it from your mailbox or any other storage mechanism.
+
+ 
+
+
+
+________________________________
+
+
+
+ 
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+ 
+
+-- 
+
+
+
+Jo?l VIGNEAU
+Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>  
+http://www.ifremer.fr/drvpbessin/
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090409/e284a63d/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Description of COSTeda ap edits.doc
+Type: application/msword
+Size: 57344 bytes
+Desc: Description of COSTeda ap edits.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090409/e284a63d/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Thu Apr  9 14:12:55 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Thu, 09 Apr 2009 14:12:55 +0200
+Subject: [cost-devel] report text
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C58120264962B@mail4.marlab.ac.uk>
+References: <4B4C7D394FD73F4490408D9706A296A64EEE68@ieocoruna.co.ieo.es>	<49DCB73E.80301@ifremer.fr>
+	<A0F8DAFB525DED4ABAF6841BB11C58120264962B@mail4.marlab.ac.uk>
+Message-ID: <49DDE647.2010101@ifremer.fr>
+
+Hi Alastair,
+
+thanks a lot for this. Don't worry with the formatting, I'm using 
+OpenOffice because there was so many mathematical formulas to write. 
+I'll manage this in a minute.
+
+We're getting there!
+
+Best
+
+Joel
+
+Alastair Pout a ?crit :
+>
+> Hi Joel, Mathieu, Paz
+>
+> Attached is a bit on COSTeda for section 7 of the report.
+>
+> I am not as familiar with most of these functions as those that have 
+> done them so please edit as required if you wish.
+>
+> Also, the number formatting in word has defeated me, so I just typed 
+> the numbers for now!
+>
+> All the best
+>
+> Alastair  
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> *From:* cost-project-devel-bounces at lists.berlios.de 
+> [mailto:cost-project-devel-bounces at lists.berlios.de] *On Behalf Of 
+> *Joel VIGNEAU
+> *Sent:* 08 April 2009 15:40
+> *To:* cost-project-devel at lists.berlios.de
+> *Subject:* Re: [cost-devel] report text
+>
+>  
+>
+> Thank you Paz,
+>
+> I'm gathering all the pieces of the puzzle together and assembling 
+> them, and I begin to recognize the shape of COST !!
+> Still plenty of issues to solve, though
+>
+> Best
+>
+> Joel
+>
+>
+>
+> Paz Sampedro a ?crit :
+>
+> Hi Joel,
+>
+>  
+>
+> I'm sending the text for bootstrap estimates of biological parameters 
+> to be included in the final report.
+>
+>  
+>
+> Best wishes,
+>
+>  
+>
+> Paz
+>
+>  
+>
+>  
+>
+>  
+>
+> M. Paz Sampedro Pastor
+> Instituto Espa?ol de Oceanograf?a
+> C. O. A Coru?a
+> Paseo Mar?timo Alcalde Francisco V?zquez n? 10
+> 15001 A Coru?a, SPAIN
+> Tel.: +34 98 1218253 (ext 23253)
+> Fax: +34 981 22 90 77
+> http://www.ieo.es <http://www.ieo.es/>
+>
+>  
+>
+>  
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> *De:* Joel VIGNEAU [mailto:Joel.Vigneau at ifremer.fr]
+> *Enviado el:* mi?rcoles, 08 de abril de 2009 12:29
+> *Para:* cost-project-devel at lists.berlios.de 
+> <mailto:cost-project-devel at lists.berlios.de>
+> *Asunto:* Re: [cost-devel] report text
+>
+> Hi David,
+>
+> thank you for this, it will be included in the report. Paz answered me 
+> this morning she was taking care of her part of the text.
+>
+> Best
+>
+> Joel
+>
+>
+> David Maxwell (Cefas) a ?crit :
+>
+> Joel,
+> here's some text for biological parameters analytical. Still need a short description for bootstrap please Paz.
+> regards, David
+>  
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de <mailto:cost-project-devel-bounces at lists.berlios.de>
+> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+> Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> Sent: 07 April 2009 23:15
+> To: Cost-devel Mailing List
+> Subject: [cost-devel] (no subject)
+>  
+>  
+>  
+> Dear developers,
+>  
+> after the first draft of the user manual, here is the first draft of  
+> the final report. I send both a doc generated by OpenOffice and a pdf,  
+> as I 'm not sure Microsoft word will be respectful of my formating.
+>  
+> I need to make the point on who's doing what for the remaining days in  
+> order to organise the workload.
+>  
+> I need also references for the biological parameters estimates from  
+> Paz, or better some text to copy and paste.
+>  
+> Best
+>  
+> Joel
+>  
+>  
+>  
+>  
+>  
+>  
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>   
+>
+>
+> ------------------------------------------------------------------------
+>
+>
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de <mailto:Cost-project-devel at lists.berlios.de>
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>  
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+> La informaci?n contenida en este e-mail y sus ficheros adjuntos es 
+> totalmente confidencial y no deber?a ser usado si no fuera usted 
+> alguno de los destinatarios. Si ha recibido este e-mail por error, por 
+> favor avise al remitente y b?rrelo de su buz?n o de cualquier otro 
+> medio de almacenamiento. This email is confidential and should not be 
+> used by anyone who is not the original intended recipient. If you have 
+> received this e-mail in error please inform the sender and delete it 
+> from your mailbox or any other storage mechanism.
+>
+>  
+>
+>
+> ------------------------------------------------------------------------
+>
+>
+>  
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de <mailto:Cost-project-devel at lists.berlios.de>
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>  
+>
+> -- 
+>
+> */Jo?l VIGNEAU
+> /*Laboratoire "Ressources Halieutiques"
+> IFREMER
+> 14 520 Port-en-Bessin
+>
+> T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+> m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+> http://www.ifremer.fr/drvpbessin/
+>
+>
+> ______________________________________________________________________
+> This email has been scanned by the MessageLabs Email Security System.
+> For more information please visit http://www.messagelabs.com/email
+> ______________________________________________________________________
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090409/007a9389/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Fri Apr 10 00:58:23 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Fri, 10 Apr 2009 00:58:23 +0200
+Subject: [cost-devel] Final report Draft
+Message-ID: <20090410005823.47354dzykjla9nk0@efflammail.ifremer.fr>
+
+
+Dear colleagues,
+
+here is the latest version of the report, for those courageous who  
+would be eager to help reviewing the text.
+
+I, again send a pdf version to show the formatting is not as scrappy  
+as what you see with word!
+
+The user manual is almost ready, the packages will be compiled today,  
+the man pages put together in a nice pdf document, and in the report  
+there's only 3 sections remaining to be writen, YES!
+
+best
+
+Joel
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report V_1-1.doc
+Type: application/vnd.ms-word
+Size: 1502208 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090410/9c1127bb/attachment.bin>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: COST Draft final report V_1-1.pdf
+Type: application/pdf
+Size: 675791 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090410/9c1127bb/attachment.pdf>
+
+From paz.sampedro at co.ieo.es  Fri Apr 10 15:17:37 2009
+From: paz.sampedro at co.ieo.es (M. Paz Sampedro)
+Date: Fri, 10 Apr 2009 15:17:37 +0200
+Subject: [cost-devel] Final report Draft
+In-Reply-To: <20090410005823.47354dzykjla9nk0@efflammail.ifremer.fr>
+References: <20090410005823.47354dzykjla9nk0@efflammail.ifremer.fr>
+Message-ID: <1239369457.49df46f12fec8@webmail.ieo.es>
+
+
+Hi Joel,
+
+I was reading the Final Report Draft, and I want to propose a small change if it
+is still possible. Fot the biological parameter estimates-bootstrap the part of
+raising factor in the "8.8.2. Paramater at age" is the same that analytical
+part, so I made a reference to section 8.7 instead to repeat the formulas
+again.
+
+I send a file with the text.
+
+Best wishes,
+
+Paz
+
+
+----------------------------------------------------------------
+Este Mensaje fue enviado a traves de https://webmail.ieo.es
+
+
+La informaci?n contenida en este e-mail y sus ficheros adjuntos es totalmente confidencial y no deber?a ser usado si no fuera usted alguno de los destinatarios. Si ha recibido este e-mail por error, por favor avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de almacenamiento.   This email is confidential and should not be used by anyone who is not the original intended  recipient. If you have received this e-mail in  error please inform the sender and delete it from  your mailbox or any other storage mechanism.
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Estimation of biological parameters-bootstrap_2.doc
+Type: application/msword
+Size: 116736 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090410/4187a9ad/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Fri Apr 10 15:27:13 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 10 Apr 2009 15:27:13 +0200
+Subject: [cost-devel] Final report Draft
+In-Reply-To: <1239369457.49df46f12fec8@webmail.ieo.es>
+References: <20090410005823.47354dzykjla9nk0@efflammail.ifremer.fr>
+	<1239369457.49df46f12fec8@webmail.ieo.es>
+Message-ID: <49DF4931.5040106@ifremer.fr>
+
+Hi Paz,
+
+it's Ok, I have received the permission from the Commission to send the 
+whole thing on Monday in order to let time for a last reviewing of the 
+text. Within less than one hour, I should be able to provide you withe 
+the current version.
+
+Best regards
+
+Joel
+
+M. Paz Sampedro a ?crit :
+> Hi Joel,
+>
+> I was reading the Final Report Draft, and I want to propose a small change if it
+> is still possible. Fot the biological parameter estimates-bootstrap the part of
+> raising factor in the "8.8.2. Paramater at age" is the same that analytical
+> part, so I made a reference to section 8.7 instead to repeat the formulas
+> again.
+>
+> I send a file with the text.
+>
+> Best wishes,
+>
+> Paz
+>
+>
+> ----------------------------------------------------------------
+> Este Mensaje fue enviado a traves de https://webmail.ieo.es
+>
+>
+> La informaci?n contenida en este e-mail y sus ficheros adjuntos es totalmente confidencial y no deber?a ser usado si no fuera usted alguno de los destinatarios. Si ha recibido este e-mail por error, por favor avise al remitente y b?rrelo de su buz?n o de cualquier otro medio de almacenamiento.   This email is confidential and should not be used by anyone who is not the original intended  recipient. If you have received this e-mail in  error please inform the sender and delete it from  your mailbox or any other storage mechanism.
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU
+/*Laboratoire "Ressources Halieutiques"
+IFREMER
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+http://www.ifremer.fr/drvpbessin/
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090410/349bb0ad/attachment.html>
+
+From dgarcia at azti.es  Wed Apr 29 14:08:30 2009
+From: dgarcia at azti.es (Dorleta Garcia)
+Date: Wed, 29 Apr 2009 14:08:30 +0200
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+Message-ID: <5CD78996B8F8844D963C875D3159B94A64AE46@dsrcorreo>
+
+	Hi all,
+	 
+	In COSTsim package I've created simulation version of
+RaiseAgeBoot method RaiseAgeBootSim, This method uses a simulation
+version of dbeObject class dbeObjectSim, which is a pseudocopy of the
+original but with one extra column in each data frame, sample. Thus with
+boostrap methods the replicates have dimension nsamples*nboot
+(~100*1000). I have try with 10 samples and 1000 bootstrap iterations
+and the RaigeAgeBoot method crashes due to memory allocation problem. I
+was thinking on not saving the replicates, but Joel told me that length
+replicates are needed to raise Age. I have 4Gb memory limit (windows).
+	 
+	Someone knows how can I overcome this problem? One option could
+be to run length and age raising in parallel and not save the
+replicates, but my idea is to copy as far as possible the way dbe works.
+
+	 
+	Regards,
+	 
+	Dorleta
+	 
+	 
+
+	    
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090429/636d748d/attachment.html>
+
+From david.maxwell at cefas.co.uk  Wed Apr 29 16:42:27 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 29 Apr 2009 15:42:27 +0100
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+In-Reply-To: <5CD78996B8F8844D963C875D3159B94A64AE46@dsrcorreo>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A5B@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Dorleta,
+ 
+If you want to assess the bootstrap estimates then I don't think you need to save the replicates but you will need to run the whole dbe process for each simulation sample because RaiseAgeBoot needs the replicates from RaiseLenBoot and dbeCalc needs the replicates to calculate the CI e.g. something like
+for i in 1:nsamples
+{
+out = RaiseLen sample i
+out = RaiseAge out
+out = dbeCalc (out, update=T)
+alloutput [[i]] = out..$estim <mailto:out at estim> , out..$ci <mailto:out..$@ci> , etc. but not out..$rep
+}
+ 
+where alloutput is a dbeOutputSim object or a list which you convert to a dbeOutputSim object after the loop.
+Maybe this is what you meant by running length and age raising in parallel.
+ 
+If this 'one sample at a time' approach is too slow (maybe hours is ok? but days is not!) then we will need to consider how to speed up the methods or how to modify RaiseAgeBootSim. If your method is trying to run all the samples and iterations in one go then as well as the size of the outputs, there may be memory issues because RaiseLen and RaiseAge (and therefore the bootstrap versions) create some big arrays during processing. I think there are functions to deal with big, sparse arrays but as you say it's better to simulate the functions as they currently are. 
+ 
+Hope that's some help,
+Regards, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Dorleta Garcia
+Sent: 29 April 2009 13:09
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+
+
+
+Hi all,
+ 
+In COSTsim package I've created simulation version of RaiseAgeBoot method RaiseAgeBootSim, This method uses a simulation version of dbeObject class dbeObjectSim, which is a pseudocopy of the original but with one extra column in each data frame, sample. Thus with boostrap methods the replicates have dimension nsamples*nboot (~100*1000). I have try with 10 samples and 1000 bootstrap iterations and the RaigeAgeBoot method crashes due to memory allocation problem. I was thinking on not saving the replicates, but Joel told me that length replicates are needed to raise Age. I have 4Gb memory limit (windows).
+ 
+Someone knows how can I overcome this problem? One option could be to run length and age raising in parallel and not save the replicates, but my idea is to copy as far as possible the way dbe works. 
+ 
+Regards,
+ 
+Dorleta
+ 
+ 
+
+    
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090429/dc9b8f27/attachment.html>
+
+From ernesto at ipimar.pt  Wed Apr 29 17:10:01 2009
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Wed, 29 Apr 2009 16:10:01 +0100
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B01257A5B@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B01257A5B@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <49F86DC9.2000709@ipimar.pt>
+
+Hi,
+
+There's a lot of improvements that can be done to simulation methods 
+before going into sparse matrices.
+
+Dorleta, can you profile RaiseAgeBootSim ? It will give us an idea about 
+the major bottlenecks and show us where the code needs improvement.
+
+IMO there's a lot to gain by running all the resampling/simulation on 
+indices and compute results in the end.
+
+David, can you send me a working example of RaiseAgeBoot ?
+
+Hope it helps.
+
+Best
+
+EJ
+
+David Maxwell (Cefas) wrote:
+> Hi Dorleta,
+>  
+> If you want to assess the bootstrap estimates then I don't think you 
+> need to save the replicates but you will need to run the whole dbe 
+> process for each simulation sample because RaiseAgeBoot needs the 
+> replicates from RaiseLenBoot and dbeCalc needs the replicates to 
+> calculate the CI e.g. something like
+> for i in 1:nsamples
+> {
+> out = RaiseLen sample i
+> out = RaiseAge out
+> out = dbeCalc (out, update=T)
+> alloutput [[i]] = out..$estim <mailto:out at estim>, out..$ci 
+> <mailto:out..$@ci>, etc. but not out..$rep
+> }
+>  
+> where alloutput is a dbeOutputSim object or a list which you 
+> convert to a dbeOutputSim object after the loop.
+> Maybe this is what you meant by running length and age raising in 
+> parallel.
+>  
+> If this 'one sample at a time' approach is too slow (maybe hours is 
+> ok? but days is not!) then we will need to consider how to speed up 
+> the methods or how to modify RaiseAgeBootSim. If your method is trying 
+> to run all the samples and iterations in one go then as well as the 
+> size of the outputs, there may be memory issues because RaiseLen and 
+> RaiseAge (and therefore the bootstrap versions) create some big arrays 
+> during processing. I think there are functions to deal with big, 
+> sparse arrays but as you say it's better to simulate the functions as 
+> they currently are. 
+>  
+> Hope that's some help,
+> Regards, David
+>
+>     -----Original Message-----
+>     *From:* cost-project-devel-bounces at lists.berlios.de
+>     [mailto:cost-project-devel-bounces at lists.berlios.de]*On Behalf Of
+>     *Dorleta Garcia
+>     *Sent:* 29 April 2009 13:09
+>     *To:* cost-project-devel at lists.berlios.de
+>     *Subject:* [cost-devel] memory allocation problem in RaiseAgeBoot
+>
+>         Hi all,
+>
+>          
+>
+>         In COSTsim package I've created simulation version of RaiseAgeBoot method RaiseAgeBootSim, This method uses a simulation version of dbeObject class dbeObjectSim, which is a pseudocopy of the original but with one extra column in each data frame, sample. Thus with boostrap methods the replicates have dimension nsamples*nboot (~100*1000). I have try with 10 samples and 1000 bootstrap iterations and the RaigeAgeBoot method crashes due to memory allocation problem. I was thinking on not saving the replicates, but Joel told me that length replicates are needed to raise Age. I have 4Gb memory limit (windows).
+>
+>          
+>
+>         Someone knows how can I overcome this problem? One option could be to run length and age raising in parallel and not save the replicates, but my idea is to copy as far as possible the way dbe works. 
+>
+>          
+>
+>         Regards,
+>
+>          
+>
+>         Dorleta
+>
+>          
+>
+>          
+>
+>             
+>
+>  
+>
+> ***********************************************************************************
+>
+> This email and any attachments are intended for the named recipient 
+> only. Its unauthorised use, distribution, disclosure, storage or 
+> copying is not permitted. If you have received it in error, please 
+> destroy all copies and notify the sender. In messages of a 
+> non-business nature, the views and opinions expressed are the author's 
+> own and do not necessarily reflect those of the organisation from 
+> which it is sent. All emails may be subject to monitoring.
+>
+> ***********************************************************************************
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+
+
+From david.maxwell at cefas.co.uk  Wed Apr 29 17:28:16 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 29 Apr 2009 16:28:16 +0100
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+In-Reply-To: <49F86DC9.2000709@ipimar.pt>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257A5C@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Ernesto,
+try the example in the help file or at the top of Raise_Age_Boot.r from CVS
+Note I still need to add code in RaiseAgeBoot to call the functions for filling gaps in the alk.
+Regards, David
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Ernesto
+Jardim
+Sent: 29 April 2009 16:10
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] memory allocation problem in RaiseAgeBoot
+
+
+Hi,
+
+There's a lot of improvements that can be done to simulation methods 
+before going into sparse matrices.
+
+Dorleta, can you profile RaiseAgeBootSim ? It will give us an idea about 
+the major bottlenecks and show us where the code needs improvement.
+
+IMO there's a lot to gain by running all the resampling/simulation on 
+indices and compute results in the end.
+
+David, can you send me a working example of RaiseAgeBoot ?
+
+Hope it helps.
+
+Best
+
+EJ
+
+David Maxwell (Cefas) wrote:
+> Hi Dorleta,
+>  
+> If you want to assess the bootstrap estimates then I don't think you 
+> need to save the replicates but you will need to run the whole dbe 
+> process for each simulation sample because RaiseAgeBoot needs the 
+> replicates from RaiseLenBoot and dbeCalc needs the replicates to 
+> calculate the CI e.g. something like
+> for i in 1:nsamples
+> {
+> out = RaiseLen sample i
+> out = RaiseAge out
+> out = dbeCalc (out, update=T)
+> alloutput [[i]] = out..$estim <mailto:out at estim>, out..$ci 
+> <mailto:out..$@ci>, etc. but not out..$rep
+> }
+>  
+> where alloutput is a dbeOutputSim object or a list which you 
+> convert to a dbeOutputSim object after the loop.
+> Maybe this is what you meant by running length and age raising in 
+> parallel.
+>  
+> If this 'one sample at a time' approach is too slow (maybe hours is 
+> ok? but days is not!) then we will need to consider how to speed up 
+> the methods or how to modify RaiseAgeBootSim. If your method is trying 
+> to run all the samples and iterations in one go then as well as the 
+> size of the outputs, there may be memory issues because RaiseLen and 
+> RaiseAge (and therefore the bootstrap versions) create some big arrays 
+> during processing. I think there are functions to deal with big, 
+> sparse arrays but as you say it's better to simulate the functions as 
+> they currently are. 
+>  
+> Hope that's some help,
+> Regards, David
+>
+>     -----Original Message-----
+>     *From:* cost-project-devel-bounces at lists.berlios.de
+>     [mailto:cost-project-devel-bounces at lists.berlios.de]*On Behalf Of
+>     *Dorleta Garcia
+>     *Sent:* 29 April 2009 13:09
+>     *To:* cost-project-devel at lists.berlios.de
+>     *Subject:* [cost-devel] memory allocation problem in RaiseAgeBoot
+>
+>         Hi all,
+>
+>          
+>
+>         In COSTsim package I've created simulation version of RaiseAgeBoot method RaiseAgeBootSim, This method uses a simulation version of dbeObject class dbeObjectSim, which is a pseudocopy of the original but with one extra column in each data frame, sample. Thus with boostrap methods the replicates have dimension nsamples*nboot (~100*1000). I have try with 10 samples and 1000 bootstrap iterations and the RaigeAgeBoot method crashes due to memory allocation problem. I was thinking on not saving the replicates, but Joel told me that length replicates are needed to raise Age. I have 4Gb memory limit (windows).
+>
+>          
+>
+>         Someone knows how can I overcome this problem? One option could be to run length and age raising in parallel and not save the replicates, but my idea is to copy as far as possible the way dbe works. 
+>
+>          
+>
+>         Regards,
+>
+>          
+>
+>         Dorleta
+>
+>          
+>
+>          
+>
+>             
+>
+>  
+>
+> ***********************************************************************************
+>
+> This email and any attachments are intended for the named recipient 
+> only. Its unauthorised use, distribution, disclosure, storage or 
+> copying is not permitted. If you have received it in error, please 
+> destroy all copies and notify the sender. In messages of a 
+> non-business nature, the views and opinions expressed are the author's 
+> own and do not necessarily reflect those of the organisation from 
+> which it is sent. All emails may be subject to monitoring.
+>
+> ***********************************************************************************
+>
+>  
+>
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+

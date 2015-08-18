@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Cefas market sampling data in FF5 format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Cefas%20market%20sampling%20data%20in%20FF5%20format&In-Reply-To=%3C40A15E1D8A76A949AF0271EF3133E1A9B26981%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000049.html">
+   <LINK REL="Next"  HREF="000051.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Cefas market sampling data in FF5 format</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Cefas%20market%20sampling%20data%20in%20FF5%20format&In-Reply-To=%3C40A15E1D8A76A949AF0271EF3133E1A9B26981%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] Cefas market sampling data in FF5 format">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Mon Oct  8 18:20:49 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000049.html">[cost-devel] FF5 format
+</A></li>
+        <LI>Next message: <A HREF="000051.html">[cost-devel] Cefas market sampling data in FF5 format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everyone,
+
+The attached zip file (Cefas_2006_ff5_cs.zip) contains some data to try out the input methods. It has csv files of Cefas market sampling data from 2006 for the five CS tables in the Fishframe5 format. The data set should be large enough to look at the fields in detail and to provide a realistic test of later functions. We will need to study if there is sufficient information in the tables or if the missing fields will cause problems for processing. 
+
+Although all the code for this project is open source, please remember that these data are not (see below).
+
+The attached spreadsheet shows our processing (Information on Cefas data to Fishframe5 format.xls). It is a copy of the FF5 table definitions with our comments. It can easily be extended so may be useful for other labs' data extractions.   
+
+Notice that the CS SL data provided does not fully match the FF5 format:
+
+# For Cefas cssl data we will need to account for some extra information.
+# In the data set there are two extra columns:
+# 20. presentationname e.g. gutted, whole,..
+# 21. discarded, defined as Number of fish in sample weight not measured for each one that is,
+# therefore I'd describe it as sub-sub-sampling.
+# To start with, I suggest we simply drop the two columns so we can test input code.
+
+# directory to read data from
+indir = &quot;C:\\temp\\&quot;
+# directory to write data to
+outdir = &quot;C:\\temp\\&quot;
+
+# read in data
+Cefas21.cssl = read.csv (paste (indir, &quot;Cefas_2006_21columns_ff5_cssl.dat&quot;, sep=&quot;&quot;))
+# subset
+Cefas19.cssl = Cefas21.cssl[,1:19]
+# write data with correct number of columns
+write.csv (Cefas19.cssl, file = paste (outdir, &quot;Cefas_2006_19columns_ff5_cssl.dat&quot;, sep=&quot;&quot;), row.names = FALSE)
+
+# start COST input functions...
+
+-----------
+Cefas data provided for COST (EU FISH/2006/15 Lot 2)
+The data are not official statistics. Please contact the Marine Fisheries Agency if official catch or landings statistics are required.
+The data are not to be used outside the current project (EU FISH/2006/15 Lot 2) or stored after the project.
+Defra must be acknowledged when the data are used.
+Cefas must give permission for any publication involving the data. 
+-----------
+
+Regards, David
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">david.maxwell at cefas.co.uk</A>
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cefas_2006_ff5_cs.zip
+Type: application/x-zip-compressed
+Size: 610746 bytes
+Desc: Cefas_2006_ff5_cs.zip
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.bin">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.bin</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Information on Cefas data to Fishframe5 format.xls
+Type: application/vnd.ms-excel
+Size: 65536 bytes
+Desc: Information on Cefas data to Fishframe5 format.xls
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.xls">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20071008/7faa0438/attachment.xls</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000049.html">[cost-devel] FF5 format
+</A></li>
+	<LI>Next message: <A HREF="000051.html">[cost-devel] Cefas market sampling data in FF5 format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#50">[ date ]</a>
+              <a href="thread.html#50">[ thread ]</a>
+              <a href="subject.html#50">[ subject ]</a>
+              <a href="author.html#50">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

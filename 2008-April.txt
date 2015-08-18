@@ -1,0 +1,1733 @@
+From david.maxwell at cefas.co.uk  Wed Apr  2 11:13:51 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 2 Apr 2008 10:13:51 +0100
+Subject: [cost-devel] Data for COST
+In-Reply-To: <47E23BB1.5010005@ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B0956C1@LOWEXPRESS.corp.cefas.co.uk>
+
+Reply is below
+
+-----Original Message-----
+From: cost-project-members-bounces at lists.berlios.de [mailto:cost-project-members-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 20 March 2008 10:26
+To: cost member
+Subject: [Cost-project-members] Meeting date
+
+
+Dear all,
+
+the result of the poll has shown that no week in June could gather all the leaders of the tasks. Moreover, I don't want to postpone this meeting further because of summer holidays and I don't want to make it earlier because of the amount of work to do before the meeting.
+
+The dates where most of the leaders are available are 24 - 26 June, as all the leaders of tasks 1, 3, 4, 5 and 6 will be present. 
+
+The meeting will be held in the premises of AZTI (exact location to be defined) from 24 June 9:00 to 26 June 18:00
+
+This means that we'll have to work without Ernesto who was the most active in the project until now. If we want that meeting to be efficient, we have to work very hard until the meeting to finish task 3 and develop as much as possible tasks 4 and 5.
+
+Here is a planned agenda
+
+
+1.	It is urgent that all experts involved in the project export datasets of their own in the FishFrame/COST echange format and make these datasets available for the developers. We're still working on one only dataset.
+
+
+2.	On their own datasets, I would like the COST experts to use all the functions available and beta-test the functions from now on. 
+
+
+3.	In the very beginning of April, there must be a COSTeda package version 0.1 available on the web site. 
+
+4.	There was a discussion ongoing on the raising procedures that I have to resume in the coming days. 
+
+5.	The leaders of tasks 4 and 5 must release their first functions in the CVS repository at the latest in the beginning of May (for beta testing) 
+
+Another important point is that the COST expert meeting is opened to all COST members, not only the leaders of the tasks. 
+
+Thank you for your contibution
+
+Best regards
+
+Joel
+
+
+Jo?l VIGNEAU
+
+Laboratoire " Ressources  <http://www.ifremer.fr/drvpbessin/> Halieutiques"
+IFREMER <http://www.ifremer.fr/> 
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr 
+
+
+
+-------[David Maxwell (Cefas)] ---------------------------------------------
+ 
+Dear COST developers,
+The attached zip file contains a fairly large set of market sampling data to test the import and EDA functions. See the file Cefas BSS to FF_COST 26Feb08 formatting.doc for more information on the data. 
+I do not expect it to directly read in and pass all the validation checks but you should be able to read it in to R then create the COST objects. I found a few odd records in an earlier version of the data but I haven't edited any records in the attached, I don't want to take the fun out of your exploratory analysis!
+(Cefas market data 2006 for COST.zip)
+ 
+Regards, David
+ 
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080402/9896aea2/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Cefas market data 2006 for COST.zip
+Type: application/x-zip-compressed
+Size: 1798477 bytes
+Desc: Cefas market data 2006 for COST.zip
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080402/9896aea2/attachment.bin>
+
+From ernesto at ipimar.pt  Thu Apr  3 17:46:13 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 03 Apr 2008 16:46:13 +0100
+Subject: [cost-devel] COSTcore now with ceDataCons and clDataCons
+Message-ID: <47F4FBC5.5010808@ipimar.pt>
+
+Hi,
+
+Now in CVS the new version with the same default post stratification for 
+ceDataVal and clDataVal objects.
+
+Please note that this post stratification is simply concatenating fields 
+so if you want to use it you should put a lot of effort on EDA so that 
+your codifications make sense.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Thu Apr  3 17:08:37 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Thu, 03 Apr 2008 16:08:37 +0100
+Subject: [cost-devel] New post stratification method for creating csDataCons.
+Message-ID: <47F4F2F5.1020602@ipimar.pt>
+
+Hi,
+
+I've uploaded to CVS a new COSTcore version that includes a default 
+method for post stratification, so that you can create csDataCons 
+objects. Some other small bugfixes were done and a last (I hope) change 
+in the data structure was included to deal with the problem of the order 
+of sex in sl. Please read the NEWS file to get the full picture.
+
+Run _after_ install
+
+library(COSTcore)
+data(sole)
+csv <- csDataVal(sole.cs)
+csc <- csDataCons(csv)
+tr(csc)$time
+hh(csc)$time
+sl(csc)$time
+hl(csc)$time
+ca(csc)$time
+
+the same with technical, space and sort. I'm working now in ceData and 
+clData.
+
+Please note that this is _ugly_, _untested_, _undocumented_, etc. The 
+old good opensource dev paradigma "jungle coding"
+
+"Code what you want, code whenever you want, code in whatever language 
+you want and maybe write some documentation"
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Fri Apr  4 11:38:06 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 04 Apr 2008 10:38:06 +0100
+Subject: [cost-devel] New version 1.1-0 on repository.
+Message-ID: <47F5F6FE.1020902@ipimar.pt>
+
+Hi,
+
+The new 1.1-0 version is now on the COST repository 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299).
+
+Read the NEWS file to get the full picture.
+
+Best
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Fri Apr  4 14:00:18 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 04 Apr 2008 13:00:18 +0100
+Subject: [cost-devel] Bug fixed in COSTcore 1.1-0 new version 1.1-1 now in
+	CVS
+Message-ID: <47F61852.60000@ipimar.pt>
+
+Hi,
+
+Alastair found a bug in the createSUid method that I've fixed. The new 
+version 1.1-1 is now in CVS. It will be in the repository as soon.
+
+Mathiew can you please provide a windows version of the package.
+
+Best and thanks Alastair for your prompt package testing :-)
+
+EJ
+
+
+
+From ernesto at ipimar.pt  Fri Apr  4 15:27:09 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Fri, 04 Apr 2008 14:27:09 +0100
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+Message-ID: <47F62CAD.2010100@ipimar.pt>
+
+Check here for files
+
+https://developer.berlios.de/project/showfiles.php?group_id=7299
+
+
+and here for NEWS
+
+https://developer.berlios.de/project/shownotes.php?release_id=14191
+
+EJ
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  8 09:43:25 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 08 Apr 2008 09:43:25 +0200
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47F62CAD.2010100@ipimar.pt>
+References: <47F62CAD.2010100@ipimar.pt>
+Message-ID: <47FB221D.3010101@ifremer.fr>
+
+
+
+ernesto a ?crit :
+> Check here for files
+>
+> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>
+>
+> and here for NEWS
+>
+> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>
+> EJ
+> _______________________________________________
+> Cost-project-members mailing list
+> Cost-project-members at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>   
+Hi Ernesto and COST developers,
+
+we've looked at your last code with Mathieu and I think we saw what you 
+called "ugly" coding! In order to use it for precision calculation, we 
+need to agree on what remains to be done and who would do it.
+
+What we saw is that you've created the three stratification fields by 
+concatening all the related information. This (i) is not the rationale 
+discussed during the meeting when we said (it's not clear from the 
+minutes) that the user would choose one option, and (ii) it makes the cs 
+object impossible to link to a ce or cl object for raising purpose.
+There is also the need to specify the sampling strategy for raising purpose.
+
+Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+wanted to be sure that we agree on the way this code should be improved 
+and that Mathieu does not overlap with work you could be doing.
+
+Best regards
+
+Joel
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080408/b06f48bd/attachment.html>
+
+From ernesto at ipimar.pt  Tue Apr  8 10:42:37 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 08 Apr 2008 09:42:37 +0100
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB221D.3010101@ifremer.fr>
+References: <47F62CAD.2010100@ipimar.pt> <47FB221D.3010101@ifremer.fr>
+Message-ID: <47FB2FFD.3050605@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+>
+> ernesto a ?crit :
+>> Check here for files
+>>
+>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>
+>>
+>> and here for NEWS
+>>
+>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>
+>> EJ
+>> _______________________________________________
+>> Cost-project-members mailing list
+>> Cost-project-members at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>   
+> Hi Ernesto and COST developers,
+>
+> we've looked at your last code with Mathieu and I think we saw what 
+> you called "ugly" coding! In order to use it for precision 
+> calculation, we need to agree on what remains to be done and who would 
+> do it.
+>
+> What we saw is that you've created the three stratification fields by 
+> concatening all the related information. This (i) is not the rationale 
+> discussed during the meeting when we said (it's not clear from the 
+> minutes) that the user would choose one option, and (ii) it makes the 
+> cs object impossible to link to a ce or cl object for raising purpose.
+> There is also the need to specify the sampling strategy for raising 
+> purpose.
+>
+> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+> wanted to be sure that we agree on the way this code should be 
+> improved and that Mathieu does not overlap with work you could be doing.
+>
+> Best regards
+>
+> Joel
+
+Hi Joel and Mathieu,
+
+The default was build based on my personal notes from the meeting and 
+follows the same rationale used for defining the csDataCons class. The 
+minutes were not explicit.
+
+I agree we need to link the cs and cl and ce. The problem with that is 
+the different information that exists on ce, cl and cs tables regarding 
+tech, which is the main problem. We can simply use the foCatEu5 or 
+foCatEu6 for tech. If these were correctly build it should do the work. 
+The other issue is about using waterDep for space. If we remove it space 
+will be the same for all objects.
+
+Major problems are the links between hh and tr and ca. These have 
+different information and we need to make them consistent. My approach 
+was to include everything and link whatever is possible.
+
+Anyway my ugly coding was not so bad once that you were able to read and 
+understand it. Feel free to change and adjust whatever you'd like. 
+Obviously the user inputs will have to be considered for other methods, 
+the default should work without user input.
+
+Best regards
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Tue Apr  8 11:30:08 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 8 Apr 2008 10:30:08 +0100
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB2FFD.3050605@ipimar.pt>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B0956D5@LOWEXPRESS.corp.cefas.co.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of ernesto
+Sent: 08 April 2008 09:43
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] COSTcore 1.1-1 now in file repository
+
+
+Joel VIGNEAU wrote:
+>
+>
+> ernesto a ?crit :
+>> Check here for files
+>>
+>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>
+>>
+>> and here for NEWS
+>>
+>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>
+>> EJ
+>> _______________________________________________
+>> Cost-project-members mailing list
+>> Cost-project-members at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>   
+> Hi Ernesto and COST developers,
+>
+> we've looked at your last code with Mathieu and I think we saw what 
+> you called "ugly" coding! In order to use it for precision 
+> calculation, we need to agree on what remains to be done and who would 
+> do it.
+>
+> What we saw is that you've created the three stratification fields by 
+> concatening all the related information. This (i) is not the rationale 
+> discussed during the meeting when we said (it's not clear from the 
+> minutes) that the user would choose one option, and (ii) it makes the 
+> cs object impossible to link to a ce or cl object for raising purpose.
+> There is also the need to specify the sampling strategy for raising 
+> purpose.
+>
+> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+> wanted to be sure that we agree on the way this code should be 
+> improved and that Mathieu does not overlap with work you could be doing.
+>
+> Best regards
+>
+> Joel
+
+Hi Joel and Mathieu,
+
+The default was build based on my personal notes from the meeting and 
+follows the same rationale used for defining the csDataCons class. The 
+minutes were not explicit.
+
+I agree we need to link the cs and cl and ce. The problem with that is 
+the different information that exists on ce, cl and cs tables regarding 
+tech, which is the main problem. We can simply use the foCatEu5 or 
+foCatEu6 for tech. If these were correctly build it should do the work. 
+The other issue is about using waterDep for space. If we remove it space 
+will be the same for all objects.
+
+Major problems are the links between hh and tr and ca. These have 
+different information and we need to make them consistent. My approach 
+was to include everything and link whatever is possible.
+
+Anyway my ugly coding was not so bad once that you were able to read and 
+understand it. Feel free to change and adjust whatever you'd like. 
+Obviously the user inputs will have to be considered for other methods, 
+the default should work without user input.
+
+Best regards
+
+EJ
+
+---------
+Hi,
+We also need the option to link ce, cl and cs on Fishing activity category National.
+David
+----------
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  8 11:40:26 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 08 Apr 2008 11:40:26 +0200
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB2FFD.3050605@ipimar.pt>
+References: <47F62CAD.2010100@ipimar.pt> <47FB221D.3010101@ifremer.fr>
+	<47FB2FFD.3050605@ipimar.pt>
+Message-ID: <47FB3D8A.4050306@ifremer.fr>
+
+
+
+ernesto a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> ernesto a ?crit :
+>>     
+>>> Check here for files
+>>>
+>>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>>
+>>>
+>>> and here for NEWS
+>>>
+>>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>>
+>>> EJ
+>>> _______________________________________________
+>>> Cost-project-members mailing list
+>>> Cost-project-members at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>>   
+>>>       
+>> Hi Ernesto and COST developers,
+>>
+>> we've looked at your last code with Mathieu and I think we saw what 
+>> you called "ugly" coding! In order to use it for precision 
+>> calculation, we need to agree on what remains to be done and who would 
+>> do it.
+>>
+>> What we saw is that you've created the three stratification fields by 
+>> concatening all the related information. This (i) is not the rationale 
+>> discussed during the meeting when we said (it's not clear from the 
+>> minutes) that the user would choose one option, and (ii) it makes the 
+>> cs object impossible to link to a ce or cl object for raising purpose.
+>> There is also the need to specify the sampling strategy for raising 
+>> purpose.
+>>
+>> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+>> wanted to be sure that we agree on the way this code should be 
+>> improved and that Mathieu does not overlap with work you could be doing.
+>>
+>> Best regards
+>>
+>> Joel
+>>     
+>
+> Hi Joel and Mathieu,
+>
+> The default was build based on my personal notes from the meeting and 
+> follows the same rationale used for defining the csDataCons class. The 
+> minutes were not explicit.
+>
+> I agree we need to link the cs and cl and ce. The problem with that is 
+> the different information that exists on ce, cl and cs tables regarding 
+> tech, which is the main problem. We can simply use the foCatEu5 or 
+> foCatEu6 for tech. If these were correctly build it should do the work. 
+> The other issue is about using waterDep for space. If we remove it space 
+> will be the same for all objects.
+>
+> Major problems are the links between hh and tr and ca. These have 
+> different information and we need to make them consistent. My approach 
+> was to include everything and link whatever is possible.
+>
+> Anyway my ugly coding was not so bad once that you were able to read and 
+> understand it. Feel free to change and adjust whatever you'd like. 
+> Obviously the user inputs will have to be considered for other methods, 
+> the default should work without user input.
+>
+> Best regards
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+Ernesto,
+
+First, I want to make it clear that I'm more than happy with your 
+coding. There must not be any ambiguity on this.
+
+I have the same approach as you have concerning the restriction on the 
+fields to use for tech and space. In addition, we have the Commercial 
+categories that can be linked only to cl and not to ce, wich 
+complexifies a bit the stuff. This answers to David's concern, I think.
+
+I don't see the inconsistencies between tr, hh and ca. Your approach to 
+link each ca information to tr (PSUid) and hh (SSUid) is exactly how it 
+should be. Am I missing some issues about this?
+
+Mathieu is working on it and it should not take too long. He is also 
+willing to release the first COSTeda package by the end of the week, but 
+let's relax a bit of the pressure on him and say that the COSTeda 
+package should be available next week!
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080408/e33e36b5/attachment.html>
+
+From ernesto at ipimar.pt  Tue Apr  8 11:50:05 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 08 Apr 2008 10:50:05 +0100
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB3D8A.4050306@ifremer.fr>
+References: <47F62CAD.2010100@ipimar.pt>
+	<47FB221D.3010101@ifremer.fr>	<47FB2FFD.3050605@ipimar.pt>
+	<47FB3D8A.4050306@ifremer.fr>
+Message-ID: <47FB3FCD.2040801@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+>
+> ernesto a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> ernesto a ?crit :
+>>>     
+>>>> Check here for files
+>>>>
+>>>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>>>
+>>>>
+>>>> and here for NEWS
+>>>>
+>>>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>>>
+>>>> EJ
+>>>> _______________________________________________
+>>>> Cost-project-members mailing list
+>>>> Cost-project-members at lists.berlios.de
+>>>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>>>   
+>>>>       
+>>> Hi Ernesto and COST developers,
+>>>
+>>> we've looked at your last code with Mathieu and I think we saw what 
+>>> you called "ugly" coding! In order to use it for precision 
+>>> calculation, we need to agree on what remains to be done and who would 
+>>> do it.
+>>>
+>>> What we saw is that you've created the three stratification fields by 
+>>> concatening all the related information. This (i) is not the rationale 
+>>> discussed during the meeting when we said (it's not clear from the 
+>>> minutes) that the user would choose one option, and (ii) it makes the 
+>>> cs object impossible to link to a ce or cl object for raising purpose.
+>>> There is also the need to specify the sampling strategy for raising 
+>>> purpose.
+>>>
+>>> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+>>> wanted to be sure that we agree on the way this code should be 
+>>> improved and that Mathieu does not overlap with work you could be doing.
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel and Mathieu,
+>>
+>> The default was build based on my personal notes from the meeting and 
+>> follows the same rationale used for defining the csDataCons class. The 
+>> minutes were not explicit.
+>>
+>> I agree we need to link the cs and cl and ce. The problem with that is 
+>> the different information that exists on ce, cl and cs tables regarding 
+>> tech, which is the main problem. We can simply use the foCatEu5 or 
+>> foCatEu6 for tech. If these were correctly build it should do the work. 
+>> The other issue is about using waterDep for space. If we remove it space 
+>> will be the same for all objects.
+>>
+>> Major problems are the links between hh and tr and ca. These have 
+>> different information and we need to make them consistent. My approach 
+>> was to include everything and link whatever is possible.
+>>
+>> Anyway my ugly coding was not so bad once that you were able to read and 
+>> understand it. Feel free to change and adjust whatever you'd like. 
+>> Obviously the user inputs will have to be considered for other methods, 
+>> the default should work without user input.
+>>
+>> Best regards
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>   
+> Ernesto,
+>
+> First, I want to make it clear that I'm more than happy with your 
+> coding. There must not be any ambiguity on this.
+>
+> I have the same approach as you have concerning the restriction on the 
+> fields to use for tech and space. In addition, we have the Commercial 
+> categories that can be linked only to cl and not to ce, wich 
+> complexifies a bit the stuff. This answers to David's concern, I think.
+>
+> I don't see the inconsistencies between tr, hh and ca. Your approach 
+> to link each ca information to tr (PSUid) and hh (SSUid) is exactly 
+> how it should be. Am I missing some issues about this?
+>
+> Mathieu is working on it and it should not take too long. He is also 
+> willing to release the first COSTeda package by the end of the week, 
+> but let's relax a bit of the pressure on him and say that the COSTeda 
+> package should be available next week!
+>
+> Best regards
+>
+> Joel
+
+Hi Joel,
+
+No problems with your comments. They are extremely relevant.
+
+Commercial categories are concatenated in "sort" that exists at the sl 
+and ca levels. I guess David is concerned with the tech strata having 
+national information _together_ with the European categories (level 5 
+and level 6).
+
+The problem with tr, hh and ca is that if you have a trip that crosses 
+your time strata, e.g. two quarters, you'll end up with 2 duplicates in 
+tr, which breaks the primary key. WRT ca the link with hh is done by 
+name matching which is subject to a lot of errors. It's very easy to 
+have situations where you don't have any rows matching. If you look at 
+the example we have now, sole, you'll notice that there are no matches 
+between these tow tables
+
+ > library(COSTcore)
+ > csc <- csDataCons(csDataVal(sole.cs))
+ > sum(csc at ca$SSUid %in% csc at hh$SSUid)
+[1] 0
+
+The extend of the problem will depend on a good EDA and good recoding of 
+factors.
+
+Best
+
+EJ
+
+
+
+From Joel.Vigneau at ifremer.fr  Tue Apr  8 15:00:34 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 08 Apr 2008 15:00:34 +0200
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB3FCD.2040801@ipimar.pt>
+References: <47F62CAD.2010100@ipimar.pt>	<47FB221D.3010101@ifremer.fr>	<47FB2FFD.3050605@ipimar.pt>	<47FB3D8A.4050306@ifremer.fr>
+	<47FB3FCD.2040801@ipimar.pt>
+Message-ID: <47FB6C72.5030608@ifremer.fr>
+
+
+
+ernesto a ?crit :
+> Joel VIGNEAU wrote:
+>   
+>> ernesto a ?crit :
+>>     
+>>> Joel VIGNEAU wrote:
+>>>   
+>>>       
+>>>> ernesto a ?crit :
+>>>>     
+>>>>         
+>>>>> Check here for files
+>>>>>
+>>>>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>>>>
+>>>>>
+>>>>> and here for NEWS
+>>>>>
+>>>>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>>>>
+>>>>> EJ
+>>>>> _______________________________________________
+>>>>> Cost-project-members mailing list
+>>>>> Cost-project-members at lists.berlios.de
+>>>>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>>>>   
+>>>>>       
+>>>>>           
+>>>> Hi Ernesto and COST developers,
+>>>>
+>>>> we've looked at your last code with Mathieu and I think we saw what 
+>>>> you called "ugly" coding! In order to use it for precision 
+>>>> calculation, we need to agree on what remains to be done and who would 
+>>>> do it.
+>>>>
+>>>> What we saw is that you've created the three stratification fields by 
+>>>> concatening all the related information. This (i) is not the rationale 
+>>>> discussed during the meeting when we said (it's not clear from the 
+>>>> minutes) that the user would choose one option, and (ii) it makes the 
+>>>> cs object impossible to link to a ce or cl object for raising purpose.
+>>>> There is also the need to specify the sampling strategy for raising 
+>>>> purpose.
+>>>>
+>>>> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+>>>> wanted to be sure that we agree on the way this code should be 
+>>>> improved and that Mathieu does not overlap with work you could be doing.
+>>>>
+>>>> Best regards
+>>>>
+>>>> Joel
+>>>>     
+>>>>         
+>>> Hi Joel and Mathieu,
+>>>
+>>> The default was build based on my personal notes from the meeting and 
+>>> follows the same rationale used for defining the csDataCons class. The 
+>>> minutes were not explicit.
+>>>
+>>> I agree we need to link the cs and cl and ce. The problem with that is 
+>>> the different information that exists on ce, cl and cs tables regarding 
+>>> tech, which is the main problem. We can simply use the foCatEu5 or 
+>>> foCatEu6 for tech. If these were correctly build it should do the work. 
+>>> The other issue is about using waterDep for space. If we remove it space 
+>>> will be the same for all objects.
+>>>
+>>> Major problems are the links between hh and tr and ca. These have 
+>>> different information and we need to make them consistent. My approach 
+>>> was to include everything and link whatever is possible.
+>>>
+>>> Anyway my ugly coding was not so bad once that you were able to read and 
+>>> understand it. Feel free to change and adjust whatever you'd like. 
+>>> Obviously the user inputs will have to be considered for other methods, 
+>>> the default should work without user input.
+>>>
+>>> Best regards
+>>>
+>>> EJ
+>>>
+>>> _______________________________________________
+>>> Cost-project-devel mailing list
+>>> Cost-project-devel at lists.berlios.de
+>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>
+>>>   
+>>>       
+>> Ernesto,
+>>
+>> First, I want to make it clear that I'm more than happy with your 
+>> coding. There must not be any ambiguity on this.
+>>
+>> I have the same approach as you have concerning the restriction on the 
+>> fields to use for tech and space. In addition, we have the Commercial 
+>> categories that can be linked only to cl and not to ce, wich 
+>> complexifies a bit the stuff. This answers to David's concern, I think.
+>>
+>> I don't see the inconsistencies between tr, hh and ca. Your approach 
+>> to link each ca information to tr (PSUid) and hh (SSUid) is exactly 
+>> how it should be. Am I missing some issues about this?
+>>
+>> Mathieu is working on it and it should not take too long. He is also 
+>> willing to release the first COSTeda package by the end of the week, 
+>> but let's relax a bit of the pressure on him and say that the COSTeda 
+>> package should be available next week!
+>>
+>> Best regards
+>>
+>> Joel
+>>     
+>
+> Hi Joel,
+>
+> No problems with your comments. They are extremely relevant.
+>
+> Commercial categories are concatenated in "sort" that exists at the sl 
+> and ca levels. I guess David is concerned with the tech strata having 
+> national information _together_ with the European categories (level 5 
+> and level 6).
+>
+> The problem with tr, hh and ca is that if you have a trip that crosses 
+> your time strata, e.g. two quarters, you'll end up with 2 duplicates in 
+> tr, which breaks the primary key. WRT ca the link with hh is done by 
+> name matching which is subject to a lot of errors. It's very easy to 
+> have situations where you don't have any rows matching. If you look at 
+> the example we have now, sole, you'll notice that there are no matches 
+> between these tow tables
+>
+>  > library(COSTcore)
+>  > csc <- csDataCons(csDataVal(sole.cs))
+>  > sum(csc at ca$SSUid %in% csc at hh$SSUid)
+> [1] 0
+>
+> The extend of the problem will depend on a good EDA and good recoding of 
+> factors.
+>
+> Best
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>
+>   
+Hi,
+
+the trip that covers 2 quarters opens a big box. Here is the rationale 
+we should follow:
+
+the user is free to define the stratification (quarter, space, tech). 
+Obviously, this stratification should match with the stratification used 
+for sampling but there is the possibility to substratify, either to cope 
+with a specific problem, or to have a specific focus on a certain level 
+of disaggregation (month rather than quarter, rectangle rather than 
+division, ...).
+
+The PSU reflects the sample id in a given strata (time * space * tec) 
+dynamically specified by the user.
+
+In the case a fishing trip has crossed different strata (be it temporal, 
+spatial, technical or a combination of the three), it should account to 
+one PSU for each occurence of strata.
+
+let's take head(csc) where you see that the trip ARY178 is stratified as 
+follows :
+
+the user specifies the rectangle as a spatial stratification
+PSUid1 = Q2 *  27.7.d.29F1, OTB_DEF_80_0_0
+PSUid2 = Q2 *  27.4.c.31F1, OTB_DEF_80_0_0
+PSUid3 = Q2 * 27.4.c.31F1, OTB_MOL_40_0_0
+PSUid4 = Q2 * 27.4.c.31F1, OTB_MOL_80_0_0
+PSUid5 = Q2 * 27.7.d.30F1, OTB_MOL_80_0_0
+PSUid6 = Q2 * 27.7.d.29F1, OTB_MOL_80_0_0
+
+the user specifices the division as a spatial stratification
+PSUid1 = Q2 *  27.7.d, OTB_DEF_80_0_0
+PSUid2 = Q2 *  27.4.c, OTB_DEF_80_0_0
+PSUid3 = Q2 * 27.4.c, OTB_MOL_40_0_0
+PSUid4 = Q2 * 27.4.c, OTB_MOL_80_0_0
+PSUid5 = Q2 * 27.7.d, OTB_MOL_80_0_0
+
+the user specifies the division as a spatial strat and the gear and mesh 
+size as tec
+PSUid1 = Q2 *  27.7.d, OTB_80_0_0
+PSUid2 = Q2 *  27.4.c, OTB_80_0_0
+PSUid3 = Q2 * 27.4.c, OTB_40_0_0
+
+the user says the space strata combines VIId and IVc
+PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0
+PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+PSUid3 = Q2 * 27.7.d + 27.4.c * OTB_MOL_80_0_0
+
+the user says the space strata combines VIId and IVc and OTB_DEF and 
+OTB_MOL have the same exploitation pattern
+PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0 + OTB_MOL_80_0_0
+PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+
+etc....
+
+So, at the end, there should be as many PSUid as number of combination 
+of strata used and there should not be the field technical in csc at tr. 
+The qualification of the stratification should be found only in hh and ca.
+The key between hh and sl is SSUid.
+The key between sl and hl is SSUid + spp
+The key between tr and ca is PSUid. There is the possibility to link ca 
+to hh with SSUid and to sl with SSUid + spp
+TSUid remains the sorting stratification.
+
+Yo build this kind of dynamic approach will certainly not be easy, but 
+do we agree on this scheme?
+
+Best
+
+Joel
+
+
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080408/d7b8d4fe/attachment.html>
+
+From ernesto at ipimar.pt  Tue Apr  8 15:13:50 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Tue, 08 Apr 2008 14:13:50 +0100
+Subject: [cost-devel] COSTcore 1.1-1 now in file repository
+In-Reply-To: <47FB6C72.5030608@ifremer.fr>
+References: <47F62CAD.2010100@ipimar.pt>	<47FB221D.3010101@ifremer.fr>	<47FB2FFD.3050605@ipimar.pt>	<47FB3D8A.4050306@ifremer.fr>	<47FB3FCD.2040801@ipimar.pt>
+	<47FB6C72.5030608@ifremer.fr>
+Message-ID: <47FB6F8E.4030902@ipimar.pt>
+
+Joel VIGNEAU wrote:
+>
+>
+> ernesto a ?crit :
+>> Joel VIGNEAU wrote:
+>>   
+>>> ernesto a ?crit :
+>>>     
+>>>> Joel VIGNEAU wrote:
+>>>>   
+>>>>       
+>>>>> ernesto a ?crit :
+>>>>>     
+>>>>>         
+>>>>>> Check here for files
+>>>>>>
+>>>>>> https://developer.berlios.de/project/showfiles.php?group_id=7299
+>>>>>>
+>>>>>>
+>>>>>> and here for NEWS
+>>>>>>
+>>>>>> https://developer.berlios.de/project/shownotes.php?release_id=14191
+>>>>>>
+>>>>>> EJ
+>>>>>> _______________________________________________
+>>>>>> Cost-project-members mailing list
+>>>>>> Cost-project-members at lists.berlios.de
+>>>>>> https://lists.berlios.de/mailman/listinfo/cost-project-members
+>>>>>>   
+>>>>>>       
+>>>>>>           
+>>>>> Hi Ernesto and COST developers,
+>>>>>
+>>>>> we've looked at your last code with Mathieu and I think we saw what 
+>>>>> you called "ugly" coding! In order to use it for precision 
+>>>>> calculation, we need to agree on what remains to be done and who would 
+>>>>> do it.
+>>>>>
+>>>>> What we saw is that you've created the three stratification fields by 
+>>>>> concatening all the related information. This (i) is not the rationale 
+>>>>> discussed during the meeting when we said (it's not clear from the 
+>>>>> minutes) that the user would choose one option, and (ii) it makes the 
+>>>>> cs object impossible to link to a ce or cl object for raising purpose.
+>>>>> There is also the need to specify the sampling strategy for raising 
+>>>>> purpose.
+>>>>>
+>>>>> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+>>>>> wanted to be sure that we agree on the way this code should be 
+>>>>> improved and that Mathieu does not overlap with work you could be doing.
+>>>>>
+>>>>> Best regards
+>>>>>
+>>>>> Joel
+>>>>>     
+>>>>>         
+>>>> Hi Joel and Mathieu,
+>>>>
+>>>> The default was build based on my personal notes from the meeting and 
+>>>> follows the same rationale used for defining the csDataCons class. The 
+>>>> minutes were not explicit.
+>>>>
+>>>> I agree we need to link the cs and cl and ce. The problem with that is 
+>>>> the different information that exists on ce, cl and cs tables regarding 
+>>>> tech, which is the main problem. We can simply use the foCatEu5 or 
+>>>> foCatEu6 for tech. If these were correctly build it should do the work. 
+>>>> The other issue is about using waterDep for space. If we remove it space 
+>>>> will be the same for all objects.
+>>>>
+>>>> Major problems are the links between hh and tr and ca. These have 
+>>>> different information and we need to make them consistent. My approach 
+>>>> was to include everything and link whatever is possible.
+>>>>
+>>>> Anyway my ugly coding was not so bad once that you were able to read and 
+>>>> understand it. Feel free to change and adjust whatever you'd like. 
+>>>> Obviously the user inputs will have to be considered for other methods, 
+>>>> the default should work without user input.
+>>>>
+>>>> Best regards
+>>>>
+>>>> EJ
+>>>>
+>>>> _______________________________________________
+>>>> Cost-project-devel mailing list
+>>>> Cost-project-devel at lists.berlios.de
+>>>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>>>
+>>>>   
+>>>>       
+>>> Ernesto,
+>>>
+>>> First, I want to make it clear that I'm more than happy with your 
+>>> coding. There must not be any ambiguity on this.
+>>>
+>>> I have the same approach as you have concerning the restriction on the 
+>>> fields to use for tech and space. In addition, we have the Commercial 
+>>> categories that can be linked only to cl and not to ce, wich 
+>>> complexifies a bit the stuff. This answers to David's concern, I think.
+>>>
+>>> I don't see the inconsistencies between tr, hh and ca. Your approach 
+>>> to link each ca information to tr (PSUid) and hh (SSUid) is exactly 
+>>> how it should be. Am I missing some issues about this?
+>>>
+>>> Mathieu is working on it and it should not take too long. He is also 
+>>> willing to release the first COSTeda package by the end of the week, 
+>>> but let's relax a bit of the pressure on him and say that the COSTeda 
+>>> package should be available next week!
+>>>
+>>> Best regards
+>>>
+>>> Joel
+>>>     
+>>
+>> Hi Joel,
+>>
+>> No problems with your comments. They are extremely relevant.
+>>
+>> Commercial categories are concatenated in "sort" that exists at the sl 
+>> and ca levels. I guess David is concerned with the tech strata having 
+>> national information _together_ with the European categories (level 5 
+>> and level 6).
+>>
+>> The problem with tr, hh and ca is that if you have a trip that crosses 
+>> your time strata, e.g. two quarters, you'll end up with 2 duplicates in 
+>> tr, which breaks the primary key. WRT ca the link with hh is done by 
+>> name matching which is subject to a lot of errors. It's very easy to 
+>> have situations where you don't have any rows matching. If you look at 
+>> the example we have now, sole, you'll notice that there are no matches 
+>> between these tow tables
+>>
+>>  > library(COSTcore)
+>>  > csc <- csDataCons(csDataVal(sole.cs))
+>>  > sum(csc at ca$SSUid %in% csc at hh$SSUid)
+>> [1] 0
+>>
+>> The extend of the problem will depend on a good EDA and good recoding of 
+>> factors.
+>>
+>> Best
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>
+>>   
+> Hi,
+>
+> the trip that covers 2 quarters opens a big box. Here is the rationale 
+> we should follow:
+>
+> the user is free to define the stratification (quarter, space, tech). 
+> Obviously, this stratification should match with the stratification 
+> used for sampling but there is the possibility to substratify, either 
+> to cope with a specific problem, or to have a specific focus on a 
+> certain level of disaggregation (month rather than quarter, rectangle 
+> rather than division, ...).
+>
+> The PSU reflects the sample id in a given strata (time * space * tec) 
+> dynamically specified by the user.
+>
+> In the case a fishing trip has crossed different strata (be it 
+> temporal, spatial, technical or a combination of the three), it should 
+> account to one PSU for each occurence of strata.
+>
+> let's take head(csc) where you see that the trip ARY178 is stratified 
+> as follows :
+>
+> the user specifies the rectangle as a spatial stratification
+> PSUid1 = Q2 *  27.7.d.29F1, OTB_DEF_80_0_0
+> PSUid2 = Q2 *  27.4.c.31F1, OTB_DEF_80_0_0
+> PSUid3 = Q2 * 27.4.c.31F1, OTB_MOL_40_0_0
+> PSUid4 = Q2 * 27.4.c.31F1, OTB_MOL_80_0_0
+> PSUid5 = Q2 * 27.7.d.30F1, OTB_MOL_80_0_0
+> PSUid6 = Q2 * 27.7.d.29F1, OTB_MOL_80_0_0
+>
+> the user specifices the division as a spatial stratification
+> PSUid1 = Q2 *  27.7.d, OTB_DEF_80_0_0
+> PSUid2 = Q2 *  27.4.c, OTB_DEF_80_0_0
+> PSUid3 = Q2 * 27.4.c, OTB_MOL_40_0_0
+> PSUid4 = Q2 * 27.4.c, OTB_MOL_80_0_0
+> PSUid5 = Q2 * 27.7.d, OTB_MOL_80_0_0
+>
+> the user specifies the division as a spatial strat and the gear and 
+> mesh size as tec
+> PSUid1 = Q2 *  27.7.d, OTB_80_0_0
+> PSUid2 = Q2 *  27.4.c, OTB_80_0_0
+> PSUid3 = Q2 * 27.4.c, OTB_40_0_0
+>
+> the user says the space strata combines VIId and IVc
+> PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0
+> PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+> PSUid3 = Q2 * 27.7.d + 27.4.c * OTB_MOL_80_0_0
+>
+> the user says the space strata combines VIId and IVc and OTB_DEF and 
+> OTB_MOL have the same exploitation pattern
+> PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0 + OTB_MOL_80_0_0
+> PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+>
+> etc....
+>
+> So, at the end, there should be as many PSUid as number of combination 
+> of strata used and there should not be the field technical in csc at tr. 
+> The qualification of the stratification should be found only in hh and ca.
+> The key between hh and sl is SSUid.
+> The key between sl and hl is SSUid + spp
+> The key between tr and ca is PSUid. There is the possibility to link 
+> ca to hh with SSUid and to sl with SSUid + spp
+> TSUid remains the sorting stratification.
+>
+> Yo build this kind of dynamic approach will certainly not be easy, but 
+> do we agree on this scheme?
+>
+> Best
+>
+> Joel
+
+Hi,
+
+It looks ok to me. The best way to test is to implement the code and see 
+how it works.
+
+Best
+
+EJ
+
+
+
+From A.Pout at MARLAB.AC.UK  Thu Apr 17 10:37:14 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 17 Apr 2008 09:37:14 +0100
+Subject: [cost-devel] Data for COST
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B0956C1@LOWEXPRESS.corp.cefas.co.uk>
+References: <47E23BB1.5010005@ifremer.fr>
+	<8F90BAFE30CE2D458953FC0F1709830B0956C1@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D1B4@mail4.marlab.ac.uk>
+
+ 
+
+	-------[David Maxwell (Cefas)]
+---------------------------------------------
+
+	 
+
+	Dear COST developers,
+
+	The attached zip file contains a fairly large set of market
+sampling data to test the import and EDA functions. See the file Cefas
+BSS to FF_COST 26Feb08 formatting.doc for more information on the data. 
+
+	I do not expect it to directly read in and pass all the
+validation checks but you should be able to read it in to R then create
+the COST objects. I found a few odd records in an earlier version of the
+data but I haven't edited any records in the attached, I don't want to
+take the fun out of your exploratory analysis!
+
+	(Cefas market data 2006 for COST.zip)
+
+	 
+
+	Regards, David
+
+	 
+
+	 
+
+	Hi David 
+
+	Idle moment and I thought I would have a play around with your
+data
+
+	 
+
+	library(COSTcore)
+
+	 
+
+	# attached costtest2 package is my stuff until COSTeda is ready
+to go 
+
+	# save with same name, install from local zip and load from the
+package list  
+
+	library(costtest2)
+
+	 
+
+	            # reading your files into R 
+
+	filename <-"C:\\"where ever they are saved"\\2006_csca.dat"
+
+	 
+
+	ca <-read.table(filename,sep=",",header=T)
+
+	 
+
+	# etc for each of the cl ce and all the cs tables 
+
+	 
+
+	# then converting to COST objects
+
+	 
+
+	cefascl <-clData(cl[,-1], desc="")
+
+	 
+
+	cefasce <-ceData(ce[,-1], desc="")
+
+	 
+
+	cefascs <-csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1],ca[,-1],
+desc="") 
+
+	 
+
+	# this fails I'm getting:
+
+	# Error in validityMethod(object) : 
+
+	#  Data integrity problem in table "sl". Missing related records
+in "hh".
+
+	# which is back to you, Ernesto might elaborate on this.  
+
+	 
+
+	 
+
+	# these are the incompatibilities with what we have in the
+code.list which is based on 
+
+	# the last FISH FRAME doc. 
+
+	 
+
+	 
+
+	check.fields(cefascl)
+
+	 
+
+	check.fields(cefasce)
+
+	 
+
+	 
+
+	# taking out the entries where there are no $rect (this seems to
+be just blanks rather than NA's) 
+
+	 
+
+	 
+
+	cefasce2 <-cefasce at ce[-which(cefasce at ce$rect %in%
+code.list$rect$statsq==FALSE),]
+
+	 
+
+	# number of trips by rect
+
+	 
+
+	space.plot(cefasce2$trpNum,cefasce2$rect,length)
+
+	 
+
+	 
+
+	# removing the missing $rect for the cl
+
+	 
+
+	cefascl2 <-cefascl at cl[-which(cefascl at cl$rect %in%
+code.list$rect$statsq==FALSE),]
+
+	# total landed wt by rect
+
+	 
+
+	space.plot(cefascl2$landWt,cefascl2$rect,sum,scale=T)
+
+	 
+
+	# total landed wt for cod by rect
+
+	
+space.plot(cefascl2$landWt[cefascl2$spp=="COD"],cefascl2$rect[cefascl2$s
+pp=="COD"],sum,scale=T,
+
+	scale.title="Landed wgt for CEFAS cod 2006 (KG)")
+
+	 
+
+	# different plot types
+
+	
+space.plot(cefascl2$landWt,cefascl2$rect,sum,maptype="bubble",col.pch=1,
+cex.max.bubble=4
+
+	,scaleplace="topleft",scale=T)
+
+	 
+
+	 
+
+	# getting rid of missing $area  
+
+	 
+
+	cefascl3 <-cefascl at cl[-which(cefascl at cl$area %in%
+toupper(code.list$area$code)==FALSE),]
+
+	 
+
+	# total landed wt by area, seems to have some distant locations
+in this which would need to be 
+
+	            # checked e.g. you have some $area == "I" in there
+which dont tally with your $rect values 
+
+	# also this needs a bit of work on my part 
+
+	 
+
+	
+space.plot(cefascl3$landWt,cefascl3$area,sum,maptype="image",scale=T,
+
+	scale.title="Landed wgt (kg) by ICES area")
+
+	 
+
+	 
+
+	# and redoing as a cl object 
+
+	cefas.cl2 <-clData(cefascl2,desc="")
+
+	# and by quarter
+
+	
+strata.space.plot(cefas.cl2,"landWt","rect",TimeStrat="quarter",TechStra
+t=NULL,sum,nplots=4)
+
+	# I need to do some work on the scale of this function. 
+
+	 
+
+	# would be interested to know if you can reproduce this little
+script.  
+
+	            
+
+	All the best
+
+	Alastair 
+
+	 
+
+	 
+
+	 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+************************************************************************
+***********
+
+This email and any attachments are intended for the named recipient
+only. Its unauthorised use, distribution, disclosure, storage or copying
+is not permitted. If you have received it in error, please destroy all
+copies and notify the sender. In messages of a non-business nature, the
+views and opinions expressed are the author's own and do not necessarily
+reflect those of the organisation from which it is sent. All emails may
+be subject to monitoring.
+
+************************************************************************
+***********
+
+ 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: costtest2_1.0.zip
+Type: application/x-zip-compressed
+Size: 3133132 bytes
+Desc: costtest2_1.0.zip
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080417/b82ba240/attachment.bin>
+
+From david.maxwell at cefas.co.uk  Thu Apr 17 11:05:57 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Thu, 17 Apr 2008 10:05:57 +0100
+Subject: [cost-devel] Data for COST
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D1B4@mail4.marlab.ac.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F866A@LOWEXPRESS.corp.cefas.co.uk>
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Alastair Pout
+Sent: 17 April 2008 09:37
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] Data for COST
+
+
+ 
+-------[David Maxwell (Cefas)] ---------------------------------------------
+ 
+Dear COST developers,
+The attached zip file contains a fairly large set of market sampling data to test the import and EDA functions. See the file Cefas BSS to FF_COST 26Feb08 formatting.doc for more information on the data. 
+I do not expect it to directly read in and pass all the validation checks but you should be able to read it in to R then create the COST objects. I found a few odd records in an earlier version of the data but I haven't edited any records in the attached, I don't want to take the fun out of your exploratory analysis!
+(Cefas market data 2006 for COST.zip)
+ 
+Regards, David
+ 
+ 
+Hi David 
+Idle moment and I thought I would have a play around with your data
+ 
+library(COSTcore)
+ 
+# attached costtest2 package is my stuff until COSTeda is ready to go 
+# save with same name, install from local zip and load from the package list  
+library(costtest2)
+ 
+            # reading your files into R 
+filename <-"C:\\"where ever they are saved"\\2006_csca.dat"
+ 
+ca <-read.table(filename,sep=",",header=T)
+ 
+# etc for each of the cl ce and all the cs tables 
+ 
+# then converting to COST objects
+ 
+cefascl <-clData(cl[,-1], desc="")
+ 
+cefasce <-ceData(ce[,-1], desc="")
+ 
+cefascs <-csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1],ca[,-1], desc="") 
+ 
+# this fails I'm getting:
+# Error in validityMethod(object) : 
+#  Data integrity problem in table "sl". Missing related records in "hh".
+# which is back to you, Ernesto might elaborate on this.  
+ 
+ 
+# these are the incompatibilities with what we have in the code.list which is based on 
+# the last FISH FRAME doc. 
+ 
+ 
+check.fields(cefascl)
+ 
+check.fields(cefasce)
+ 
+ 
+# taking out the entries where there are no $rect (this seems to be just blanks rather than NA's) 
+ 
+ 
+cefasce2 <-cefasce at ce[-which(cefasce at ce$rect %in% code.list$rect$statsq==FALSE),]
+ 
+# number of trips by rect
+ 
+space.plot(cefasce2$trpNum,cefasce2$rect,length)
+ 
+ 
+# removing the missing $rect for the cl
+ 
+cefascl2 <-cefascl at cl[-which(cefascl at cl$rect %in% code.list$rect$statsq==FALSE),]
+# total landed wt by rect
+ 
+space.plot(cefascl2$landWt,cefascl2$rect,sum,scale=T)
+ 
+# total landed wt for cod by rect
+space.plot(cefascl2$landWt[cefascl2$spp=="COD"],cefascl2$rect[cefascl2$spp=="COD"],sum,scale=T,
+scale.title="Landed wgt for CEFAS cod 2006 (KG)")
+ 
+# different plot types
+space.plot(cefascl2$landWt,cefascl2$rect,sum,maptype="bubble",col.pch=1,cex.max.bubble=4
+,scaleplace="topleft",scale=T)
+ 
+ 
+# getting rid of missing $area  
+ 
+cefascl3 <-cefascl at cl[-which(cefascl at cl$area %in% toupper(code.list$area$code)==FALSE),]
+ 
+# total landed wt by area, seems to have some distant locations in this which would need to be 
+            # checked e.g. you have some $area == "I" in there which dont tally with your $rect values 
+# also this needs a bit of work on my part 
+ 
+space.plot(cefascl3$landWt,cefascl3$area,sum,maptype="image",scale=T,
+scale.title="Landed wgt (kg) by ICES area")
+ 
+ 
+# and redoing as a cl object 
+cefas.cl2 <-clData(cefascl2,desc="")
+# and by quarter
+strata.space.plot(cefas.cl2,"landWt","rect",TimeStrat="quarter",TechStrat=NULL,sum,nplots=4)
+# I need to do some work on the scale of this function. 
+ 
+# would be interested to know if you can reproduce this little script.  
+            
+All the best
+Alastair 
+ 
+ << File: costtest2_1.0.zip >>  << File: ATT16737650.txt >> 
+
+----------------------------------------
+
+Thanks Alastair,
+we will try reproducing your results.
+
+# Error in validityMethod(object) : 
+#  Data integrity problem in table "sl". Missing related records in "hh".
+# which is back to you,  
+
+The warning message indicates that there are some 'orphans' in the data i.e. lengths without matching haul information. I don't know if there is a function to find them but some time ago Ernesto provided me with a couple of lines of code to pick these out and my temporary fix will be to delete them.
+
+David
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From ernesto at ipimar.pt  Tue Apr 29 11:00:05 2008
+From: ernesto at ipimar.pt (Ernesto Jardim)
+Date: Tue, 29 Apr 2008 10:00:05 +0100
+Subject: [cost-devel] New COSTcore 1.2 is out !!
+Message-ID: <4816E395.9000703@ipimar.pt>
+
+Hi,
+
+A new version of COSTcore is out, 1.2-0, and can be downloaded from the 
+usual place 
+(https://developer.berlios.de/project/showfiles.php?group_id=7299).
+
+The major improvement is the poststratification method implemented by 
+Mathieu that replaces the previous one and includes the possibility of 
+defining specific poststratification by the user.
+
+Mathieu will send around an example asap demonstrating how it can be done.
+
+Best
+
+EJ
+
+
+
+From A.Pout at MARLAB.AC.UK  Tue Apr 29 11:07:35 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Tue, 29 Apr 2008 10:07:35 +0100
+Subject: [cost-devel] First thoughts on COSTeda package
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F866A@LOWEXPRESS.corp.cefas.co.uk>
+References: <A0F8DAFB525DED4ABAF6841BB11C581221D1B4@mail4.marlab.ac.uk>
+	<8F90BAFE30CE2D458953FC0F1709830B5F866A@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D1CB@mail4.marlab.ac.uk>
+
+Dear All 
+
+First thoughts on working through the COSTeda package. Overall I think
+this is very good and am impressed by the level of expertise. However
+without wishing to be negative there are things we need to improve and
+if we don't point these out to ourselves then others will do it. So
+please nothing personal and my stuff is by far the scrappiest in there
+(and I need to do some methods) but.....
+
+Data sets
+I agree which Joel's recent message that there is an urgent need to get
+a range of data sets organised and read into R as at least raw classes:
+csData clData and ceData. 
+
+Is the problem with the CEFAS csData easily fixable? Do the few lines of
+code that Ernesto provided still exist? If so then that is the sole
+data, the FRS cod data and the big CEFAS data set in a usable state so
+we are not writing code that works on our own data but nobody else's. 
+
+e.g. sole.cs fails in my strata.space.plot (I think due to the lack of
+links between hh and ca tables, lack of rect in hh and FOA area rather
+than ICES areas) and check.fileds (which used to work in this) and
+cod2004cs fails in bioPar.boxplot and bioPar.plot, and csPlot.design
+(assume this is a lack of maturity and age information) 
+
+Is it worth having a COSTdata package with just the data sets in? 
+
+
+Classes
+We now have three each csData, csDataVal csDataCons for the cs ce and cl
+data 9 in all, and also ageLenMult, dltId and landisVol 
+That seems a lot of classes to me, do we need that many? 
+Any scope in, for example, including a class definition and plot within
+the ageLenMulti function so that a single function returns an object of
+this class but the user need to concern themselves with such things
+unless they want to? Potentially it could be quite confusing depending
+on who it is that is envisaged to end up using this code.
+
+csData csDataVal and csDataCons
+we obviously still need to make the distinction between csData and
+csDataVal otherwise there is no point in having the class. As a minimum
+I would say it has to mean that the data is going to work as a
+structure, so in priority 
+
+1.  that there are unique keys that link the tr hh sl hl tables and the
+tr and ca tables so that the table can be manipulated to get at the
+variables that are needed e.g. you can map lengths to ages etc, dates
+and areas to numbers at length. (I think there is a problem mapping
+sole.cs hh hl sl tables with the sole.cs ca tables). 
+This basically goes back to the Lisbon discussion about making key
+fields mandatory
+(though what is put in them could be trivial if it is not collected). 
+ 
+2.  that cl and ce data frames are dealing in the same currency as cs
+data so a case from my FRS data commCat in ce and cs has to match, ditto
+$area in cs and $area in ce and cl     
+
+3. lesser problem (I think) is that field entries match those defined in
+code.list and numeric.list (which are from FishFrame) or that we augment
+the fields within those lists to be more in keeping with the COST data
+sets. So there are relatively trivial things like Solea vulgaris which
+would need to be Solea solea (?), cod needs to be Gadus morhua etc but
+more importantly (my + the CEFAS) gear codes need sorting so that we all
+have at least a common foCatEu5 field and for area codes we build
+conversions into the methods for ICES to FOA or we standardise on FOA
+areas, or we have a conversion function and have a common format in
+DataVal classes).   
+
+** fishing duration: we have $foDur in hh table measured in minutes and
+$foDur in the ce table measured in hours **
+
+All the best
+Alastair
+
+

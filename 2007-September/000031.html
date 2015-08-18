@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] FF5 data call
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-September/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818AFA%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000029.html">
+   <LINK REL="Next"  HREF="000032.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] FF5 data call</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20FF5%20data%20call&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818AFA%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] FF5 data call">tej at difres.dk
+       </A><BR>
+    <I>Fri Sep 28 09:25:03 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000029.html">[cost-devel] FF5 data call
+</A></li>
+        <LI>Next message: <A HREF="000032.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>About &quot;Size Sorting Categories&quot;
+
+Well yes, unless there is actually a meaning of the letters. Values like
+this always turns on the alarm for database designers, because it might
+not be completely normalised. It is often two separate informations
+concatenated into some kind of code. If  that is the case and the system
+takes it in as one field, then the problem always pop up late in the
+development phase, that certain values should be handled in certain
+ways, so you either need to split up the field in two or make a special
+parser for that field - every time the field is used.
+I would say that if you can not map these values into integers, then
+that is because there is more information hidden in the code that just
+the size. That information could very well be relevant, but it should be
+pulled out into a separate field.
+
+BR
+Teunis
+
+ 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>] On Behalf Of David
+Maxwell (Cefas)
+Sent: 27. september 2007 18:31
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] FF5 data call
+
+I agree with Categories as factors, that solves it.
+
+I don't think we can export in Euros as the database doesn't store that
+or conversion rates. To avoid developing more methods might have to
+import in pounds then multiply by a constant, not elegant or robust but
+simple. I don't want it to be a major issue as it's an optional field
+anyway.
+
+Regards, David.
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of ernesto
+Sent: 27 September 2007 11:55
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] FF5 data call
+
+Hi,
+
+IMO categories should be stored as factors in R. If the category is
+labeled by numbers it does not matter, the idea is the same.
+
+WRT currency, you can export from you're database the converted data. It
+avoids developing more methods and store more data in R.
+
+Best
+
+EJ
+
+
+David Maxwell (Cefas) wrote:
+&gt;<i> Hi Teunis , Ernesto
+</I>&gt;<i> thanks for your quick replies.
+</I>&gt;<i>
+</I>&gt;<i> The attached document (maturity keys example.doc) gives some maturity
+</I>stage examples.
+&gt;<i>
+</I>&gt;<i> At our markets the categories are only consistent within a landing
+</I>(which is why we use vessel raising) it's not even a nationally fixed
+scaled. 
+&gt;<i> The character format is because the field contains either category
+</I>numbers 0 to 99 or it might contain EU grades coded as 
+&gt;<i> grade            gradename
+</I>&gt;<i> 99                COLLECTIVE GRADE
+</I>&gt;<i> A1           
+</I>&gt;<i> A2           
+</I>&gt;<i> A3           
+</I>&gt;<i> A4           
+</I>&gt;<i> A5           
+</I>&gt;<i> B1           
+</I>&gt;<i> B2           
+</I>&gt;<i> B3           
+</I>&gt;<i> B4           
+</I>&gt;<i> B5           
+</I>&gt;<i> E1           
+</I>&gt;<i> E2           
+</I>&gt;<i> E3           
+</I>&gt;<i> E4           
+</I>&gt;<i> E5           
+</I>&gt;<i> G9                GRADED BUT DETAILS UNKNOWN
+</I>&gt;<i> N9                UNKNOWN
+</I>&gt;<i> U9                UNGRADED
+</I>&gt;<i> X9                QUALITY LOWER THAN EC STANDARDS
+</I>&gt;<i>
+</I>&gt;<i> I don't know why it is this combination of integer and character
+</I>codes.
+&gt;<i>
+</I>&gt;<i> For landings value the data will be recorded in national currency, I 
+</I>&gt;<i> can't change that, so the question is at what point to convert them. I
+</I>
+&gt;<i> would prefer the format to be based on values collected and the COST 
+</I>&gt;<i> code convert them so that
+</I>&gt;<i>  i) the conversion factors are stored
+</I>&gt;<i>  ii) for analyses run within a lab, which may be most of them given
+</I>the political aspects of if and how to share landings data at vessel
+level, the values don't have to be re-converted to national currency
+(with the risk of a different conversion factor being used).
+&gt;<i>
+</I>&gt;<i> BR, David
+</I>
+
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+
+************************************************************************
+***********
+This email and any attachments are intended for the named recipient
+only.  Its unauthorised use, distribution, disclosure, storage or
+copying is not permitted.  If you have received it in error, please
+destroy all copies and notify the sender.  In messages of a non-business
+nature, the views and opinions expressed are the author's own and do not
+necessarily reflect those of the organisation from which it is sent.
+All emails may be subject to monitoring.
+************************************************************************
+***********
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000029.html">[cost-devel] FF5 data call
+</A></li>
+	<LI>Next message: <A HREF="000032.html">[cost-devel] FF5 data call
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#31">[ date ]</a>
+              <a href="thread.html#31">[ thread ]</a>
+              <a href="subject.html#31">[ subject ]</a>
+              <a href="author.html#31">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

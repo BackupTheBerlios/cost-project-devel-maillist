@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTcore release 0.0-3 is out.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%20release%200.0-3%20is%20out.&In-Reply-To=%3C470369AB.6090307%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000044.html">
+   <LINK REL="Next"  HREF="000049.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTcore release 0.0-3 is out.</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%20release%200.0-3%20is%20out.&In-Reply-To=%3C470369AB.6090307%40ipimar.pt%3E"
+       TITLE="[cost-devel] COSTcore release 0.0-3 is out.">ernesto at ipimar.pt
+       </A><BR>
+    <I>Wed Oct  3 12:06:35 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000044.html">[cost-devel] io method
+</A></li>
+        <LI>Next message: <A HREF="000049.html">[cost-devel] FF5 format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+This release is a milestone. It has the basic features of S4 programming
+(I hope): class definitions, validity checks, creator methods and
+accessor methods for CS, CE and CL data. Download from here:
+<A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7299">https://developer.berlios.de/project/showfiles.php?group_id=7299</A> ,
+install and try:
+
+library(COSTcore)
+help(package=COSTcore)
+?csData
+?ceData
+?clData
+data(soleData)
+csobj &lt;- new(&quot;csData&quot;)
+is(csobj, &quot;csData&quot;)
+csobj &lt;- csData()
+is(csobj, &quot;csData&quot;)
+csobj &lt;- csData(tr[,-1], hh[,-1], sl[,-1], hl[,-1], desc=&quot;My stock is
+better than yours!&quot;)
+is(csobj, &quot;csData&quot;)
+tr(csobj)
+hh(csobj)
+sl(csobj)
+hl(csobj)
+ca(csobj)
+desc(csobj)
+
+ceobj &lt;- new(&quot;ceData&quot;)
+is(ceobj, &quot;ceData&quot;)
+ceobj &lt;- ceData()
+is(ceobj, &quot;ceData&quot;)
+ce(ceobj)
+
+clobj &lt;- new(&quot;clData&quot;)
+is(clobj, &quot;clData&quot;)
+clobj &lt;- clData()
+is(clobj, &quot;clData&quot;)
+cl(clobj)
+
+The R check is below. Some problems with documentation and comments on
+the data file. Quite easy to sort out.
+
+Best
+
+EJ
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">ernesto at gandalf</A>:~/ipimar/devel/R/COST$ R CMD check COSTcore
+* checking for working latex ... OK
+* using log directory '/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck'
+* using R version 2.5.1 (2007-06-27)
+* checking for file 'COSTcore/DESCRIPTION' ... OK
+* this is package 'COSTcore' version '0.0-3'
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking whether package 'COSTcore' can be installed ... OK
+* checking package directory ... OK
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking DESCRIPTION meta-information ... OK
+* checking top-level files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the name space can be loaded with stated dependencies
+... OK
+* checking for unstated dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  checkEqual checkFail checkFalse checkIdentical checkRun checkTrue
+  finishTest setCon startTest tagTest
+All user-level objects in a package should have documentation entries.
+See the chapter 'Writing R documentation files' in manual 'Writing R
+Extensions'.
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking data for non-ASCII characters ... WARNING
+  Warning: found non-ASCII string(s)
+  '8B-OTB-C&lt;e9&gt;teau'  'abim&lt;e9&gt;e'  'Cassign&lt;e9&gt; nu'
+  'Chaque poisson lune p&lt;e8&gt;se 6-7 kg'  'Nombre estim&lt;e9&gt;'
+  'Non tri&lt;e9&gt;'  'pas de pes&lt;e9&gt;e'
+  'Pas de pes&lt;e9&gt;e, 65 individus &lt;e9&gt;cras&lt;e9&gt;s.'  'pas de pes&lt;e9&gt;es'
+  'poids estim&lt;e9&gt;'  'Poids estim&lt;e9&gt; [AT]'  'poisson abim&lt;e9&gt;'
+  'poissons abim&lt;e9&gt;s'  'Poissons abim&lt;e9&gt;s'
+  'prel&lt;e8&gt;vements pour Ifremer'
+  'Rejet&lt;e9&gt; car p&lt;ea&gt;che thon rouge interdite'
+  'Rejet&lt;e9&gt;s car abim&lt;e9&gt;s'  '1/2 panier de juv&lt;e9&gt;niles : 15/20 cm'
+  '2 fl&lt;e9&gt;tans de 25 et 50 kg (vid&lt;e9&gt;)'
+  '2 tours de cul de chalut. 600 kg abim&lt;e9&gt;s.'
+  '3 fl&lt;e9&gt;tan de 30 kg (chacun) &amp;1fl&lt;e9&gt;tan de 20 kg'
+  '50 kg &lt;e9&gt;toile (Echinodermes) et 50 kg de Araign&lt;e9&gt;e'
+  'cat 1/2 vid&lt;e9&gt;=10'  'cat 1/2vid&lt;e9&gt;=10'  '&lt;e9&gt;ponge (spongiaire)'
+  'et 1000 KG &lt;e9&gt;ponge (spongiaire)'
+  'et 800 kg &lt;e9&gt;ponge (spongiaire)'  'Femelle. pr&lt;e9&gt;sence d_oeufs'
+  'individus &lt;e9&gt;cras&lt;e9&gt;s'  'individus &lt;e9&gt;cras&lt;e9&gt;s.'
+  'Individus &lt;e9&gt;cras&lt;e9&gt;s.'
+  'Naissain. poids estim&lt;e9&gt; 1g pi&lt;e8&gt;ce [AT]'  'nombre estim&lt;e9&gt;'
+  'Nombre estim&lt;e9&gt;.'  'Non &lt;e9&gt;chantillonn&lt;e9&gt;e'  'non mesur&lt;e9&gt;'
+  'non mesur&lt;e9&gt;s'  'non sex&lt;e9&gt;'  'non sex&lt;e9&gt; . avarie .'
+  'non sex&lt;e9&gt;s'  'non sex&lt;e9&gt;s . maill&lt;e9&gt;s dans le cul de chalut .'
+  'pas de  pes&lt;e9&gt;e ni de mesure'  'pas de  pes&lt;e9&gt;es ni de mesures'
+  'pas de mesures ni de pes&lt;e9&gt;e'  'pas de mesures ni de pes&lt;e9&gt;es'
+  'pas de mesures. &lt;e9&gt;galement rejet de poissons lunes'
+  'pas de pes&lt;e9&gt;e ni de mesure'  'pas de pes&lt;e9&gt;e ni de mesures'
+  'Pas de pes&lt;e9&gt;e. 65 individus &lt;e9&gt;cras&lt;e9&gt;s.'
+  'pas de pes&lt;e9&gt;es ni de mesures'  'remont&lt;e9&gt; sur autre bateau'
+  'remont&lt;e9&gt;s sur autre bateau. rejet de poisson lunes'
+  'vat 1/2vid&lt;e9&gt;=10'
+Portable packages use only ASCII characters in their datasets.
+* creating COSTcore-Ex.R ... OK
+* checking examples ... OK
+* checking tests ...
+make[1]: Entering directory
+`/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/tests'
+  Running 'ceDataTest.R'
+  Running 'clDataTest.R'
+  Running 'csDataTest.R'
+make[1]: Leaving directory
+`/home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/tests'
+OK
+* creating COSTcore-manual.tex ... OK
+* checking COSTcore-manual.tex ... OK
+
+WARNING: There were 2 warnings, see
+  /home/ernesto/ipimar/devel/R/COST/COSTcore.Rcheck/00check.log
+for details
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000044.html">[cost-devel] io method
+</A></li>
+	<LI>Next message: <A HREF="000049.html">[cost-devel] FF5 format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#45">[ date ]</a>
+              <a href="thread.html#45">[ thread ]</a>
+              <a href="subject.html#45">[ subject ]</a>
+              <a href="author.html#45">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

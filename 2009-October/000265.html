@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTdbe and memory limits
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20and%20memory%20limits&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649709%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000266.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTdbe and memory limits</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTdbe%20and%20memory%20limits&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581202649709%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] COSTdbe and memory limits">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Wed Oct 14 14:13:36 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000266.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#265">[ date ]</a>
+              <a href="thread.html#265">[ thread ]</a>
+              <a href="subject.html#265">[ subject ]</a>
+              <a href="author.html#265">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi David, All 
+
+ 
+
+Playing around with raising COSTdbe
+
+ 
+
+I'm trying in the first instance to raise our 2008 North Sea haddock 
+
+and with stratification of 1 area, 4 quarter and 4 gear types i.e. 16
+cells in total and I run into memory problems 
+
+ 
+
+Error: cannot allocate vector of size 295.6 Mb
+
+ 
+
+ 
+
+I can raise by gear type over the year, 
+
+I can raise by quarter over all gears 
+
+i.e. 4 cells for each of the above, 
+
+ 
+
+I can split my area into 2 and raise by area x quarter and by area x
+gear as well, i.e. 8 cells 
+
+ 
+
+but not the 16 cells required to raise by quarter and gear. 
+
+ 
+
+Any suggestions ? 
+
+ 
+
+What is the greatest number of cells anyone has managed to raise by? 
+
+ 
+
+Cheers
+
+Alastair  
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20091014/185f9bf4/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20091014/185f9bf4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000266.html">[cost-devel] COSTdbe and memory limits
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#265">[ date ]</a>
+              <a href="thread.html#265">[ thread ]</a>
+              <a href="subject.html#265">[ subject ]</a>
+              <a href="author.html#265">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

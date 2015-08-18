@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] First thoughts on COSTeda package
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20First%20thoughts%20on%20COSTeda%20package&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D1CB%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000135.html">
+   <LINK REL="Next"  HREF="000123.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] First thoughts on COSTeda package</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20First%20thoughts%20on%20COSTeda%20package&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D1CB%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] First thoughts on COSTeda package">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Tue Apr 29 11:07:35 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000135.html">[cost-devel] Data for COST
+</A></li>
+        <LI>Next message: <A HREF="000123.html">[cost-devel] New post stratification method for creating csDataCons.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear All 
+
+First thoughts on working through the COSTeda package. Overall I think
+this is very good and am impressed by the level of expertise. However
+without wishing to be negative there are things we need to improve and
+if we don't point these out to ourselves then others will do it. So
+please nothing personal and my stuff is by far the scrappiest in there
+(and I need to do some methods) but.....
+
+Data sets
+I agree which Joel's recent message that there is an urgent need to get
+a range of data sets organised and read into R as at least raw classes:
+csData clData and ceData. 
+
+Is the problem with the CEFAS csData easily fixable? Do the few lines of
+code that Ernesto provided still exist? If so then that is the sole
+data, the FRS cod data and the big CEFAS data set in a usable state so
+we are not writing code that works on our own data but nobody else's. 
+
+e.g. sole.cs fails in my strata.space.plot (I think due to the lack of
+links between hh and ca tables, lack of rect in hh and FOA area rather
+than ICES areas) and check.fileds (which used to work in this) and
+cod2004cs fails in bioPar.boxplot and bioPar.plot, and csPlot.design
+(assume this is a lack of maturity and age information) 
+
+Is it worth having a COSTdata package with just the data sets in? 
+
+
+Classes
+We now have three each csData, csDataVal csDataCons for the cs ce and cl
+data 9 in all, and also ageLenMult, dltId and landisVol 
+That seems a lot of classes to me, do we need that many? 
+Any scope in, for example, including a class definition and plot within
+the ageLenMulti function so that a single function returns an object of
+this class but the user need to concern themselves with such things
+unless they want to? Potentially it could be quite confusing depending
+on who it is that is envisaged to end up using this code.
+
+csData csDataVal and csDataCons
+we obviously still need to make the distinction between csData and
+csDataVal otherwise there is no point in having the class. As a minimum
+I would say it has to mean that the data is going to work as a
+structure, so in priority 
+
+1.  that there are unique keys that link the tr hh sl hl tables and the
+tr and ca tables so that the table can be manipulated to get at the
+variables that are needed e.g. you can map lengths to ages etc, dates
+and areas to numbers at length. (I think there is a problem mapping
+sole.cs hh hl sl tables with the sole.cs ca tables). 
+This basically goes back to the Lisbon discussion about making key
+fields mandatory
+(though what is put in them could be trivial if it is not collected). 
+ 
+2.  that cl and ce data frames are dealing in the same currency as cs
+data so a case from my FRS data commCat in ce and cs has to match, ditto
+$area in cs and $area in ce and cl     
+
+3. lesser problem (I think) is that field entries match those defined in
+code.list and numeric.list (which are from FishFrame) or that we augment
+the fields within those lists to be more in keeping with the COST data
+sets. So there are relatively trivial things like Solea vulgaris which
+would need to be Solea solea (?), cod needs to be Gadus morhua etc but
+more importantly (my + the CEFAS) gear codes need sorting so that we all
+have at least a common foCatEu5 field and for area codes we build
+conversions into the methods for ICES to FOA or we standardise on FOA
+areas, or we have a conversion function and have a common format in
+DataVal classes).   
+
+** fishing duration: we have $foDur in hh table measured in minutes and
+$foDur in the ce table measured in hours **
+
+All the best
+Alastair
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000135.html">[cost-devel] Data for COST
+</A></li>
+	<LI>Next message: <A HREF="000123.html">[cost-devel] New post stratification method for creating csDataCons.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

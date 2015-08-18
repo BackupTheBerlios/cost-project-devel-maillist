@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Data Exchange Format Modifications
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20Exchange%20Format%20Modifications&In-Reply-To=%3C487370D4.3000902%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000143.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Data Exchange Format Modifications</H1>
+    <B>Joel VIGNEAU</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Data%20Exchange%20Format%20Modifications&In-Reply-To=%3C487370D4.3000902%40ifremer.fr%3E"
+       TITLE="[cost-devel] Data Exchange Format Modifications">Joel.Vigneau at ifremer.fr
+       </A><BR>
+    <I>Tue Jul  8 15:51:16 CEST 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000143.html">[cost-devel] Data Exchange Format Modifications
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+following the last COST meeting, we opened a window for changes in the 
+Data exchange Format (DEF) in order to bring a solution to the problems 
+raised during the first uploading of datasets and implementation of the 
+first packages. This window is the last for this project. From now on, 
+this DEF will be the one we use here, and the one we promote in all the 
+labs for using COST for DCR purpose in 2009.
+
+No need to stress that this is an important matter, and together with 
+Henrik and Teunis we have spent much more time on this than was 
+previously anticipated.
+
+Please find enclosed the document formalising the proposed changes. This 
+document will be included in the minutes of the meeting.
+
+I ask Mathieu to update the COSTcore methods with the proposed changes. 
+Only Mathieu (and me) will now have the opportunity to discuss the 
+structure while adjusting COSTcore. Ernesto will finish the adjustments 
+of COSTcore when he comes back from holidays in August, but a workable 
+COSTcore should be available soon. The other editorial or coding tables 
+may be discussed until the end of July.
+
+The major changes are the addition of the Sex field in SL to cope with 
+Nephrops and megrim distinction of sex while sampling, and the 
+possibility to cope with mixture of species in the samples. For the 
+later, Species field in CL has been changed to Taxon, so that CL$taxon = 
+&quot;Lophius sp.&quot; may correspond to SL$spp = &quot;Lophius piscatorius&quot; and 
+SL$spp = &quot;Lophius budegassa&quot;. The liaison between CL and SL will be done 
+either by a predefined rule (L. spp corresponds to L. pisc and L. bud) 
+or by the user.
+
+There are other addition of fields as demanded (Harbour, AgingMethod, 
+...) and one removal HH$gear
+and plenty of minor modifications to be compliant with the DCR and the 
+datasets we use.
+
+It is likely that all methods will be impacted by these changes but not 
+dramatically. The current situation where CL$taxon = SL$spp should still 
+work after editorial changes. We need to set up a Nephrops test case and 
+a Lophius test case, to be tested at a later stage, not for September.
+
+For the respect of the agenda, only the usual case CL$taxon = SL$spp 
+will be dealt with between now and September.
+
+Best regards
+
+Joel
+
+-- 
+
+/*Jo&#235;l VIGNEAU*/
+
+Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+14 520 Port-en-Bessin
+
+T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Fishframe_COST DEF change discussions and decisions final.doc
+Type: application/msword
+Size: 91136 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.doc">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.doc</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000143.html">[cost-devel] Data Exchange Format Modifications
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

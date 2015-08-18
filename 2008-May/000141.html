@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] [Cost-project-members] Design based package begins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-May/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Design%20based%20package%20begins&In-Reply-To=%3C4831A588.5070309%40ifremer.fr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000140.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] [Cost-project-members] Design based package begins</H1>
+    <B>Mathieu MERZEREAUD</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20%5BCost-project-members%5D%20Design%20based%20package%20begins&In-Reply-To=%3C4831A588.5070309%40ifremer.fr%3E"
+       TITLE="[cost-devel] [Cost-project-members] Design based package begins">Mathieu.Merzereaud at ifremer.fr
+       </A><BR>
+    <I>Mon May 19 18:06:32 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000140.html">[cost-devel] CVS and packages
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Paz Sampedro a &#233;crit :
+&gt;<i>  
+</I>&gt;<i> *De:* Joel VIGNEAU [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>]
+</I>&gt;<i> *Enviado el:* viernes, 16 de mayo de 2008 14:01
+</I>&gt;<i> *Para:* cost member
+</I>&gt;<i> *Asunto:* Re: [Cost-project-members] Design based package begins
+</I>&gt;<i> 
+</I>&gt;<i> David Maxwell (Cefas) a &#233;crit :
+</I>&gt;&gt;<i> reply below
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  -----Original Message-----
+</I>&gt;&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Joel VIGNEAU
+</I>&gt;&gt;<i> Sent: 07 May 2008 11:27
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: Re: [cost-devel] CVS and packages
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi David,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I would advise to use the packages, to be in the same conditions as the final users, and open the CVS files to understand how the functions you are using are implemented.
+</I>&gt;&gt;<i> By doing this, if you find a bug in a function you can either point out exactly where the problem is or propose a solution by testing a new code only on the given function.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> By the way, I wanted to know where the developers are, with regards design-based and model-based packages. 
+</I>&gt;&gt;<i> Do you have all the elements you need to work? 
+</I>&gt;&gt;<i> I don't have the physical time to resume the discussions we had on the raising procedures. I hope this is not too much of a problem at this stage, and that this will be sorted out before the meeting in June.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best regards
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Joel
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Jo&#235;l VIGNEAU
+</I>&gt;&gt;<i> Laboratoire &quot;Ressources Halieutiques&quot;
+</I>&gt;&gt;<i> IFREMER
+</I>&gt;&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;&gt;<i> T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ----------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Joel, I think the COSTCore and COSTeda packages now allow us to start on the design based estimates, although we need to check the post-stratification is ok to use. 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've attached the list of actions that we agreed at the first project meeting, so it's the responsibility of all members of the project to agree the methods and for me, Marcel, Paz and Mathieu to produce the code.
+</I>&gt;&gt;<i>  &lt;&lt;WP4 tasks draft v1_rev JV.xls&gt;&gt; 
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Two immediate actions
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1. Paz and Marcel please email to say if you are ready to start or if you have any questions or problems about setting up the COSTCore and COSTeda packages and Tortoise CVS and WinMerge to share code via our berlios website.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2. All, Confirm a name for the package - is COSTdbe (short for design-based estimates) ok or does anyone have other suggestions? 
+</I>&gt;&gt;<i>  (Fitting a maturity ogive is a model based estimate if we worry about the details)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Then, I think we should use the open-source coding approach - do something now then modify it:
+</I>&gt;&gt;<i>  
+</I>&gt;&gt;<i> 3. Paz, Mathieu  I would really like the proportion mature estimates to be done first so suggest we work on them together. If we can produce the code before 30th May it can be used at the WKMOG meeting.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 4. Machel, I suggest coding a prototype for the catch numbers at age rather than waiting for the discussions about how to weight the estimates to conclude. You could use either your institute's raising procedure or the one in Joel's working document.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> All the best from sunny Lowestoft!
+</I>&gt;&gt;<i> David
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> thanks David for your organisational email. I wish to read the response 
+</I>&gt;<i> to your queries from all the persons you have named in your message (be 
+</I>&gt;<i> it negative, positive, critical or even providing solutions,...).
+</I>&gt;<i> 
+</I>&gt;<i> It's Ok for me to chose COSTdbe for this package
+</I>&gt;<i> 
+</I>&gt;<i> Concerning the implementation, here are some points :
+</I>&gt;<i> 1 - For proportion mature estimates (as for sex-ratio), we need 
+</I>&gt;<i> maturity-at-length and maturity-at-age estimated at the population 
+</I>&gt;<i> level. The M-at-length estimates is straightforward as we can use the 
+</I>&gt;<i> information available in the CA table as such, but it is not always the 
+</I>&gt;<i> case for M-at-age. If the information in the CA is coming from a random 
+</I>&gt;<i> sampling of the population itself (scientific survey) then we can take 
+</I>&gt;<i> this for granted and calculate directly M-at-Age. If not, we need to 
+</I>&gt;<i> weight the M-at-Length we have in the CA by the length structure of the 
+</I>&gt;<i> population. This we don't have, but we have a length structure of the 
+</I>&gt;<i> catches (see point 2) which can be used for the ages fully recruited. My 
+</I>&gt;<i> point would be not to try to do what we cannot do or force the system, 
+</I>&gt;<i> at the exception of the assumption that under a certain L, all 
+</I>&gt;<i> individuals are considered Immature.
+</I>&gt;<i> 
+</I>&gt;<i> 2 -Mathieu has developed some analytical estimates of the length 
+</I>&gt;<i> structure from market sampling (for Ifremer use) based on the COST 
+</I>&gt;<i> objects, so I ask him to tell the group (especially for Marcel) which 
+</I>&gt;<i> functions he already wrote and provide the code to the group. As a 
+</I>&gt;<i> general statement, always make use of already defined functions in COST, 
+</I>&gt;<i> (at least internally within the package and those defined in COSTcore 
+</I>&gt;<i> and COSTeda).
+</I>&gt;<i> 
+</I>&gt;<i> 3 - We are not talking here about GLM or any kind of modelling. It is 
+</I>&gt;<i> design-based estimates of the means at length/age and the associated 
+</I>&gt;<i> variances.
+</I>&gt;<i> 
+</I>&gt;<i> Best regards
+</I>&gt;<i> 
+</I>&gt;<i> Joel
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> /*Jo&#235;l VIGNEAU*/
+</I>&gt;<i> 
+</I>&gt;<i> Laboratoire &quot;Ressources Halieutiques &lt;<A HREF="http://www.ifremer.fr/drvpbessin/">http://www.ifremer.fr/drvpbessin/</A>&gt;&quot;
+</I>&gt;<i> IFREMER &lt;<A HREF="http://www.ifremer.fr/">http://www.ifremer.fr/</A>&gt;
+</I>&gt;<i> 14 520 Port-en-Bessin
+</I>&gt;<i> 
+</I>&gt;<i> T&#233;l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+</I>&gt;<i> m&#233;l : <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Joel.Vigneau at ifremer.fr</A>&gt;
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> Hi all,
+</I>&gt;<i>  
+</I>&gt;<i> Using the same scheme from David:
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 1. I have already installed the COSTCore and COSTeda packages, no 
+</I>&gt;<i> problem, but I must remember the lessons to use of Tortoise CVS and 
+</I>&gt;<i> WinMerge to share code via our berlios website.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 2. Name of package: I agree with COSTdbe.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 3. Ok, we can start by the propotion mature estimates.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> All the best,
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Paz
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> M. Paz Sampedro Pastor
+</I>&gt;<i> Instituto Espa&#241;ol de Oceanograf&#237;a
+</I>&gt;<i> C. O. A Coru&#241;a
+</I>&gt;<i> Paseo Mar&#237;timo Alcalde Francisco V&#225;zquez n&#186; 10
+</I>&gt;<i> 15001 A Coru&#241;a, SPAIN
+</I>&gt;<i> Tel.: (+34) 981 20 53 62
+</I>&gt;<i> Fax: (+34) 981 22 90 77
+</I>&gt;<i> <A HREF="http://www.ieo.es">http://www.ieo.es</A> &lt;<A HREF="http://www.ieo.es/">http://www.ieo.es/</A>&gt;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> La informaci&#243;n contenida en este e-mail y sus ficheros adjuntos es 
+</I>&gt;<i> totalmente confidencial y no deber&#237;a ser usado si no fuera usted alguno 
+</I>&gt;<i> de los destinatarios. Si ha recibido este e-mail por error, por favor 
+</I>&gt;<i> avise al remitente y b&#243;rrelo de su buz&#243;n o de cualquier otro medio de 
+</I>&gt;<i> almacenamiento. This email is confidential and should not be used by 
+</I>&gt;<i> anyone who is not the original intended recipient. If you have received 
+</I>&gt;<i> this e-mail in error please inform the sender and delete it from your 
+</I>&gt;<i> mailbox or any other storage mechanism.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Cost-project-members mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-members at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>
+
+Hi all,
+
+please find enclosed the code that has been done for an Ifremer working 
+group on samplings. All this was made very quickly (15 days) so it's an 
+ugly code that for sure can be simplified, optimized and made more 
+robust(too many classes, too many functions,...).
+
+Implemented functions are the following : stratified ALK creator, 
+various functions for stratified total landed weight matrix, raised 
+stratified numbers at length and at age, functions for homogenization of 
+vectors dimensions, variance at length &amp; at age (Kimura methods), 
+graphical procedures...
+
+Raising factor used here is landed weight at population level ('cl' 
+table). There's still a lot of work on this to make it complete and more 
+user-friendly, but it may be a starting point. The main problem, as 
+you'll see, is that all those procedures are working with 'csData' (&amp; 
+'csDataVal') objects, and not with consolidated ones.
+
+I've also made an illustrative code that you will be able to run after 
+having sourced 'LD_AD_Estimate.r' file and loaded 
+'ArpegeSole2006CA.RData' environment (attached files).
+
+By the way, OK for COSTdbe.
+
+
+Best
+Mathieu
+
+
+
+
+
+-- 
+Mathieu Merz&#233;r&#233;aud
+Laboratoire Ressources Halieutiques
+
+IFREMER
+Avenue du G&#233;n&#233;ral de Gaulle
+B.P. 32
+14520 Port-en-Bessin
+
+T&#233;l : 02.31.51.56.46
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Mathieu.Merzereaud at ifremer.fr</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: ArpegeSole2006CA.RData
+Type: application/octet-stream
+Size: 172843 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.obj">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.obj</A>&gt;
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: LD_AD_Estimate.r
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.ksh">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment.ksh</A>&gt;
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: LD_AD_Estimate_Usage.r
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment-0001.ksh">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080519/fd16ad8e/attachment-0001.ksh</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000140.html">[cost-devel] CVS and packages
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#141">[ date ]</a>
+              <a href="thread.html#141">[ thread ]</a>
+              <a href="subject.html#141">[ subject ]</a>
+              <a href="author.html#141">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

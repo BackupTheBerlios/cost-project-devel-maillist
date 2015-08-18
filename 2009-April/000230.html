@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COST/FLR interface
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257A1A%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000228.html">
+   <LINK REL="Next"  HREF="000229.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COST/FLR interface</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COST/FLR%20interface&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257A1A%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] COST/FLR interface">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Wed Apr  8 16:33:54 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000228.html">[cost-devel] COST/FLR interface
+</A></li>
+        <LI>Next message: <A HREF="000229.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#230">[ date ]</a>
+              <a href="thread.html#230">[ thread ]</a>
+              <a href="subject.html#230">[ subject ]</a>
+              <a href="author.html#230">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Joel VIGNEAU
+Sent: 08 April 2009 15:25
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: Re: [cost-devel] COST/FLR interface
+
+
+
+
+Ernesto Jardim a &#233;crit : 
+
+Joel VIGNEAU wrote:
+
+  
+
+Ernesto Jardim a &#233;crit :
+
+    
+
+Joel VIGNEAU wrote:
+
+  
+
+      
+
+Hi Ernesto,
+
+
+
+your code is Ok, thanks for this. Mathieu is working on the manual for 
+
+the biological parameter estimates, so you should be able to see a 
+
+dbeObject with bp estimates early this afternoon.
+
+
+
+I have a question regarding the compilation of COSTdbe including your 
+
+code. You need the library FLCore to run the FLQuant creator, which is 
+
+logical, but do we want the COST user to install systematically the 
+
+FLCore library for loading COSTdbe? Is there an alternative to this, 
+
+like forcing the compilation and put an error message like  'this 
+
+method needs the library FLCore' that appears when you run FLQuant 
+
+method. The problem would be similar in case of including this method 
+
+in FLCore, it would necessitate COSdbe library to know about a dbeOutput!
+
+
+
+Best
+
+
+
+Joel
+
+    
+
+        
+
+Hi Joel,
+
+
+
+I see two alternatves:
+
+
+
+(i) Borrow the FLQuant definition from FLR and include it in COSTdbe, 
+
+means including the R files and the man pages from FLQuant into our 
+
+packages (that's the beauty of open source). The problem will be with 
+
+new developments of FLCore that must be included.
+
+
+
+(ii) Create a new package COSTimex to deal with import/export methods. 
+
+In that case only this package will depend on both FLR and COST 
+
+libraries. It could also include interfaces with Intercatch, FishFrame, etc.
+
+
+
+I guess ii) is the safest.
+
+
+
+Best
+
+
+
+EJ
+
+  
+
+      
+
+Hi Ernesto,
+
+
+
+(ii) was Mathieu's proposal this morning...
+
+
+
+Ok, I buy the concept, but I don't like the idea of loading FLCore to 
+
+export to InterCatch where there's no need. Everything we can do by 
+
+ourselves should be kept in the COST original packages. Would it be a 
+
+better option to create a COSTtoFLR package with your code in and the 
+
+dynamic link? that's a tiny package, and there would be a 
+
+COSTtoANYTHING if there is a need to connect to .. anything.
+
+Is it agreeable by everyone?
+
+
+
+Best
+
+
+
+Joel
+
+    
+
+
+
+Hi Joel,
+
+
+
+I don't think it will be a problem to have FLCore installed to export 
+
+FF. If we follow your suggestion we'll end up creating 3 or 4 packages 
+
+which mean more maintenance, documenting, examples, etc. We may start 
+
+with a single package and, if necessary, we'll fork it into distinct 
+
+packages by system. What do you think ?
+
+
+
+Best
+
+
+
+EJ
+
+
+
+
+
+  
+
+Hi Ernesto,
+
+exporting to FF is  : write.csv(validated tables)
+as we have the same format.
+
+That's why today, there would be the InterCatch export which is also a write.csv of a dbe object with some preparational work before and the FLQuant which needs FLCore. I was thinking also of letting the InterCatch method in COSTdbe and creating a COSTlink package where we would put all the methods needing an external package. Like this, there would be only one such a package.
+
+Regards
+
+Joel
+
+
+-- 
+[David Maxwell (Cefas)] 
+Is exporting to FF this easy or does FF need all the record types in the same file (as InterCatch does)?
+
+ 
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/7caefe36/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090408/7caefe36/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000228.html">[cost-devel] COST/FLR interface
+</A></li>
+	<LI>Next message: <A HREF="000229.html">[cost-devel] COST/FLR interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#230">[ date ]</a>
+              <a href="thread.html#230">[ thread ]</a>
+              <a href="subject.html#230">[ subject ]</a>
+              <a href="author.html#230">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

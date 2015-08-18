@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Cefas market sampling data in FF5 format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Cefas%20market%20sampling%20data%20in%20FF5%20format&In-Reply-To=%3C470B45BE.7010901%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000050.html">
+   <LINK REL="Next"  HREF="000052.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Cefas market sampling data in FF5 format</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Cefas%20market%20sampling%20data%20in%20FF5%20format&In-Reply-To=%3C470B45BE.7010901%40ipimar.pt%3E"
+       TITLE="[cost-devel] Cefas market sampling data in FF5 format">ernesto at ipimar.pt
+       </A><BR>
+    <I>Tue Oct  9 11:11:26 CEST 2007</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000050.html">[cost-devel] Cefas market sampling data in FF5 format
+</A></li>
+        <LI>Next message: <A HREF="000052.html">[cost-devel] New core package by the end of this week.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#51">[ date ]</a>
+              <a href="thread.html#51">[ thread ]</a>
+              <a href="subject.html#51">[ subject ]</a>
+              <a href="author.html#51">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>David Maxwell (Cefas) wrote:
+&gt;<i> Hello everyone,
+</I>&gt;<i>
+</I>&gt;<i> The attached zip file (Cefas_2006_ff5_cs.zip) contains some data to try out the input methods. It has csv files of Cefas market sampling data from 2006 for the five CS tables in the Fishframe5 format. The data set should be large enough to look at the fields in detail and to provide a realistic test of later functions. We will need to study if there is sufficient information in the tables or if the missing fields will cause problems for processing. 
+</I>&gt;<i>
+</I>&gt;<i> Although all the code for this project is open source, please remember that these data are not (see below).
+</I>&gt;<i>
+</I>&gt;<i> The attached spreadsheet shows our processing (Information on Cefas data to Fishframe5 format.xls). It is a copy of the FF5 table definitions with our comments. It can easily be extended so may be useful for other labs' data extractions.   
+</I>&gt;<i>
+</I>&gt;<i> Notice that the CS SL data provided does not fully match the FF5 format:
+</I>&gt;<i>
+</I>&gt;<i> # For Cefas cssl data we will need to account for some extra information.
+</I>&gt;<i> # In the data set there are two extra columns:
+</I>&gt;<i> # 20. presentationname e.g. gutted, whole,..
+</I>&gt;<i> # 21. discarded, defined as Number of fish in sample weight not measured for each one that is,
+</I>&gt;<i> # therefore I'd describe it as sub-sub-sampling.
+</I>&gt;<i> # To start with, I suggest we simply drop the two columns so we can test input code.
+</I>&gt;<i>
+</I>&gt;<i> # directory to read data from
+</I>&gt;<i> indir = &quot;C:\\temp\\&quot;
+</I>&gt;<i> # directory to write data to
+</I>&gt;<i> outdir = &quot;C:\\temp\\&quot;
+</I>&gt;<i>
+</I>&gt;<i> # read in data
+</I>&gt;<i> Cefas21.cssl = read.csv (paste (indir, &quot;Cefas_2006_21columns_ff5_cssl.dat&quot;, sep=&quot;&quot;))
+</I>&gt;<i> # subset
+</I>&gt;<i> Cefas19.cssl = Cefas21.cssl[,1:19]
+</I>&gt;<i> # write data with correct number of columns
+</I>&gt;<i> write.csv (Cefas19.cssl, file = paste (outdir, &quot;Cefas_2006_19columns_ff5_cssl.dat&quot;, sep=&quot;&quot;), row.names = FALSE)
+</I>&gt;<i>
+</I>&gt;<i> # start COST input functions...
+</I>&gt;<i>
+</I>&gt;<i> -----------
+</I>&gt;<i> Cefas data provided for COST (EU FISH/2006/15 Lot 2)
+</I>&gt;<i> The data are not official statistics. Please contact the Marine Fisheries Agency if official catch or landings statistics are required.
+</I>&gt;<i> The data are not to be used outside the current project (EU FISH/2006/15 Lot 2) or stored after the project.
+</I>&gt;<i> Defra must be acknowledged when the data are used.
+</I>&gt;<i> Cefas must give permission for any publication involving the data. 
+</I>&gt;<i> -----------
+</I>&gt;<i>
+</I>&gt;<i> Regards, David
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">david.maxwell at cefas.co.uk</A>
+</I>&gt;<i>   
+</I>Hi David,
+
+After reading the csv files into your R session try to create the csData 
+object with:
+
+cefas06.cs &lt;- csData(tr=Cefas.cstr, hh=Cefas.cshh, sl=Cefas19.cssl, 
+hl=Cefas.cshl)
+
+Does it work ?
+
+Best
+
+EJ
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000050.html">[cost-devel] Cefas market sampling data in FF5 format
+</A></li>
+	<LI>Next message: <A HREF="000052.html">[cost-devel] New core package by the end of this week.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#51">[ date ]</a>
+              <a href="thread.html#51">[ thread ]</a>
+              <a href="subject.html#51">[ subject ]</a>
+              <a href="author.html#51">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

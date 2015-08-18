@@ -1,0 +1,357 @@
+From david.maxwell at cefas.co.uk  Fri Dec  5 16:26:40 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 5 Dec 2008 15:26:40 -0000
+Subject: [cost-devel] fishing effort allocation
+In-Reply-To: <491D67C1.7080900@ipimar.pt>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F8913@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Teunis, Joel et al,
+
+Thanks for posting the data exchange format 24Nov08 on the website. We are updating our market data extraction based on it.
+
+For the CE table note 1 says:
+
+If a trip is [sic] covers more than 1 rectangle/SubPolygon, then the rectangle with the most fishing is used
+
+1. Can you confirm 'most fishing' refers to most effort.
+
+2. What is the rule if two or more statistical rectangles have the same effort?
+
+3. Is the following very small example, with only one trip and species, correct (except for the format of division and rectangle)?
+
+The trip fishes in 3 rectangles:
+division  rectangle   hours_fished  official_landings
+VIIe	     29E6        6                500
+VIIe	     29E7        6                600
+VIId	     29E8        7                 10
+
+CL table is assigned
+division  rectangle    Official Landings weight
+VIIe	     29E6                    500
+VIIe	     29E7                    600
+VIId	     29E8                     10
+
+CE table is assigned
+division  rectangle   Fishing time  Number of trips
+VIIe	     29E6        6                0
+VIIe	     29E7        6                0
+VIId	     29E8        7                1
+
+
+Regards, David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From A.Pout at MARLAB.AC.UK  Wed Dec 10 10:57:23 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Wed, 10 Dec 2008 09:57:23 -0000
+Subject: [cost-devel] new vslLenCat field in cl and ce tables
+In-Reply-To: <493EA4AE.1090602@ifremer.fr>
+References: <8F90BAFE30CE2D458953FC0F1709830B5F891E@LOWEXPRESS.corp.cefas.co.uk>
+	<493EA4AE.1090602@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C5812026495C2@mail4.marlab.ac.uk>
+
+
+Dear All  
+Implications of having "vslLenCat" is as a new mandatory key field in CL
+and CE are slowly sinking in. 
+
+This has codes 
+
+> code.list$vslLenCat
+   code           description
+1   <10        LOA: 0 to 10 m
+2 10<12       LOA: 10 to 12 m
+3    <6         LOA: 0 to 6 m
+4  6<12        LOA: 6 to 12 m
+5 12<18       LOA: 12 to 18 m
+6 18<24       LOA: 18 to 24 m
+7 24<40       LOA: 24 to 40 m
+8   >40 LOA: From 40 m and up
+
+So as regards how these data sets are put together we now need to be
+able to produce landings and effort at least to the resolution of
+quarter, area and vessel length class. 
+
+(And all the existing data sets need updating) 
+
+Is this right? 
+
+All the best
+Alastair  
+
+
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr] 
+Sent: 09 December 2008 17:03
+To: David Maxwell (Cefas); Machiels, Marcel; Paz Sampedro; Lisa Readdy
+(Cefas)
+Cc: Joel VIGNEAU; Alastair Pout; ernesto
+Subject: Re: COSTdbe status
+
+Hi all,
+
+here is the brand new version of COSTcore package following latest 
+COST_FF def (24 nov 2008). You will notice that Sex field in SL has been
+
+moved down to match HL key fields. By the way, thank you Lisa and David 
+for your contribution.
+David, all the utility functions (resample, spdAgreg,...) were inserted 
+in utils.R code. CVS has also been updated. Not enough testing about it,
+
+so I hope that no bug will appear.
+
+Best
+Mathieu
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+
+From david.maxwell at cefas.co.uk  Wed Dec 10 15:36:46 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Wed, 10 Dec 2008 14:36:46 -0000
+Subject: [cost-devel] Landings and value adjustments
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F892A@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Henrik & Teunis,
+
+Please can you confirm/explain how the Landings and Values adjustment fields are used.
+(Mathieu I think what you have is ok)
+
+Thanks, David
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr]
+Sent: 10 December 2008 14:11
+To: David Maxwell (Cefas)
+Subject: Re: Cefas
+
+
+Hi David,
+
+Concerning COSTdbe, I have a question ; when calculating total landings 
+from CL, is that formula still valid :
+
+TotLand = OffLand*Multi + UnallocCat + MisallocCat ?
+
+Best
+Mathieu
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 19 September 2008 13:32
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] "raising" questions
+
+David Maxwell (Cefas) a ?crit : 
+	Hi all,
+
+	In landings data (CL)
+	1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+
+	2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+
+	 [...] Regards, David
+Dear David,
+
+Concerning your questions
+
+1) This is coming from the original FF DEF, so Henrik or Teunis would be the ones to answer. To my understanding
+Total Landings = Official Landings * Multiplier + Unallocated Catch + Misallocated Catch
+
+Although I would be reluctant to do both multiplier and addition of the Unallocated. This is something to discuss.
+
+2) The Landings Value corresponds to the Official Landings, so we should find
+Total Value = Total Landings * Landings Value / Official Landings
+
+Best regards
+Joel
+- 
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From tej at aqua.dtu.dk  Wed Dec 10 15:56:56 2008
+From: tej at aqua.dtu.dk (Teunis Jansen)
+Date: Wed, 10 Dec 2008 15:56:56 +0100
+Subject: [cost-devel] Landings and value adjustments
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F892A@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <88431FCDD055A44BA5EEE1EC14E7E151E5ABBF@lu-mail-san.dfu.local>
+
+Hi David
+
+That is correct, yes.
+
+Br
+Teunis
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of David Maxwell (Cefas)
+Sent: 10. december 2008 15:37
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] Landings and value adjustments
+
+Hi Henrik & Teunis,
+
+Please can you confirm/explain how the Landings and Values adjustment fields are used.
+(Mathieu I think what you have is ok)
+
+Thanks, David
+
+
+-----Original Message-----
+From: Mathieu MERZEREAUD [mailto:Mathieu.Merzereaud at ifremer.fr]
+Sent: 10 December 2008 14:11
+To: David Maxwell (Cefas)
+Subject: Re: Cefas
+
+
+Hi David,
+
+Concerning COSTdbe, I have a question ; when calculating total landings from CL, is that formula still valid :
+
+TotLand = OffLand*Multi + UnallocCat + MisallocCat ?
+
+Best
+Mathieu
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of Joel VIGNEAU
+Sent: 19 September 2008 13:32
+To: cost-project-devel at lists.berlios.de
+Subject: Re: [cost-devel] "raising" questions
+
+David Maxwell (Cefas) a ?crit : 
+	Hi all,
+
+	In landings data (CL)
+	1) How are the fields unallocCatchWt and misRepCatchWt meant to be used?
+
+	2) Does the Landings multiplier apply to the Official Landings weight but not the Official landings value?
+
+	 [...] Regards, David
+Dear David,
+
+Concerning your questions
+
+1) This is coming from the original FF DEF, so Henrik or Teunis would be the ones to answer. To my understanding Total Landings = Official Landings * Multiplier + Unallocated Catch + Misallocated Catch
+
+Although I would be reluctant to do both multiplier and addition of the Unallocated. This is something to discuss.
+
+2) The Landings Value corresponds to the Official Landings, so we should find Total Value = Total Landings * Landings Value / Official Landings
+
+Best regards
+Joel
+- 
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+
+From david.maxwell at cefas.co.uk  Tue Dec 16 13:04:22 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Tue, 16 Dec 2008 12:04:22 -0000
+Subject: [cost-devel] Data Exchange Format 24Nov08 - Questions & comments
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B5F8913@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B5F8947@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi to everyone involved with the data exchange format,
+
+We have a few questions & comments on the data exchange format 24Nov08, please can you provide some clarification. I suggest it would be worth keeping a record of useful questions and answers along with the format so other people can refer to them.
+
+Questions 1 to 3 refer to the CE table and my email of 05 Dec 08, given below. Additional questions follow.
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of David
+Maxwell (Cefas)
+Sent: 05 December 2008 15:27
+To: cost-project-devel at lists.berlios.de; Peter Robinson (Cefas)
+Subject: [cost-devel] fishing effort allocation
+
+
+Thanks for posting the data exchange format 24Nov08 on the website. We are updating our market data extraction based on it.
+
+For the CE table note 1 says:
+
+If a trip is [sic] covers more than 1 rectangle/SubPolygon, then the rectangle with the most fishing is used
+
+1) Can you confirm 'most fishing' refers to most effort.
+
+2) What is the rule if two or more statistical rectangles have the same effort?
+
+3) Is the following very small example, with only one trip and species, correct (except for the format of division and rectangle)?
+
+The trip fishes in 3 rectangles:
+division  rectangle   hours_fished  official_landings
+VIIe	     29E6        6                500
+VIIe	     29E7        6                600
+VIId	     29E8        7                 10
+
+CL table is assigned
+division  rectangle    Official Landings weight
+VIIe	     29E6                    500
+VIIe	     29E7                    600
+VIId	     29E8                     10
+
+CE table is assigned
+division  rectangle   Fishing time  Number of trips
+VIIe	     29E6        6                0
+VIIe	     29E7        6                0
+VIId	     29E8        7                1
+
+----------------------------------------------
+--- Message of 16 December 2008 continues ---
+
+4) TR(variable 10) Vessel size is in Gross register tonnes (GRT) while CE(18) GT-days is in Gross Tonnes (GT) is this difference deliberate?
+I understand that there is not a simple conversion between these two measures. Eventually GRT may be replaced by GT as vessels are reassessed but at present we have a mix of the two in our data.
+
+5) TR(13) comment 1. We do not know the number of hauls when sampling type = "M"
+
+6) TR(17) "Observer" not "Oberver"
+
+7) TR comment 4. "Sea sampling can be done" is repeated
+
+8) HH(8) Station number. For market sampling we need to use trip number as "trip to the market" and station number as sample number. No problems, except that our sample numbers as sequential across all samples not within trips so the acceptable range needs to be 1 to 999999.
+
+9) HH(13) Date. For market sampling we cannot provide Fishing start date. Sampling date or Landing date can be provided but we want to avoid the column containing Dates with different definitions.
+
+Thanks again for your time,
+David
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+

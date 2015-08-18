@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] COSTcore 1.1-1 now in file repository
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%201.1-1%20now%20in%20file%20repository&In-Reply-To=%3C47FB6F8E.4030902%40ipimar.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000132.html">
+   <LINK REL="Next"  HREF="000136.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] COSTcore 1.1-1 now in file repository</H1>
+    <B>ernesto</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20COSTcore%201.1-1%20now%20in%20file%20repository&In-Reply-To=%3C47FB6F8E.4030902%40ipimar.pt%3E"
+       TITLE="[cost-devel] COSTcore 1.1-1 now in file repository">ernesto at ipimar.pt
+       </A><BR>
+    <I>Tue Apr  8 15:13:50 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000132.html">[cost-devel] COSTcore 1.1-1 now in file repository
+</A></li>
+        <LI>Next message: <A HREF="000136.html">[cost-devel] New COSTcore 1.2 is out !!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#133">[ date ]</a>
+              <a href="thread.html#133">[ thread ]</a>
+              <a href="subject.html#133">[ subject ]</a>
+              <a href="author.html#133">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Joel VIGNEAU wrote:
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ernesto a &#233;crit :
+</I>&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;<i>   
+</I>&gt;&gt;&gt;<i> ernesto a &#233;crit :
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;<i> Joel VIGNEAU wrote:
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;<i> ernesto a &#233;crit :
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Check here for files
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://developer.berlios.de/project/showfiles.php?group_id=7299">https://developer.berlios.de/project/showfiles.php?group_id=7299</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> and here for NEWS
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://developer.berlios.de/project/shownotes.php?release_id=14191">https://developer.berlios.de/project/shownotes.php?release_id=14191</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> EJ
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Cost-project-members mailing list
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-members at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-members">https://lists.berlios.de/mailman/listinfo/cost-project-members</A>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>           
+</I>&gt;&gt;&gt;&gt;&gt;<i> Hi Ernesto and COST developers,
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> we've looked at your last code with Mathieu and I think we saw what 
+</I>&gt;&gt;&gt;&gt;&gt;<i> you called &quot;ugly&quot; coding! In order to use it for precision 
+</I>&gt;&gt;&gt;&gt;&gt;<i> calculation, we need to agree on what remains to be done and who would 
+</I>&gt;&gt;&gt;&gt;&gt;<i> do it.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> What we saw is that you've created the three stratification fields by 
+</I>&gt;&gt;&gt;&gt;&gt;<i> concatening all the related information. This (i) is not the rationale 
+</I>&gt;&gt;&gt;&gt;&gt;<i> discussed during the meeting when we said (it's not clear from the 
+</I>&gt;&gt;&gt;&gt;&gt;<i> minutes) that the user would choose one option, and (ii) it makes the 
+</I>&gt;&gt;&gt;&gt;&gt;<i> cs object impossible to link to a ce or cl object for raising purpose.
+</I>&gt;&gt;&gt;&gt;&gt;<i> There is also the need to specify the sampling strategy for raising 
+</I>&gt;&gt;&gt;&gt;&gt;<i> purpose.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Anyhow, Mathieu agrees to work the code you provided to improve it. I 
+</I>&gt;&gt;&gt;&gt;&gt;<i> wanted to be sure that we agree on the way this code should be 
+</I>&gt;&gt;&gt;&gt;&gt;<i> improved and that Mathieu does not overlap with work you could be doing.
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Best regards
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;&gt;&gt;<i>     
+</I>&gt;&gt;&gt;&gt;&gt;<i>         
+</I>&gt;&gt;&gt;&gt;<i> Hi Joel and Mathieu,
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> The default was build based on my personal notes from the meeting and 
+</I>&gt;&gt;&gt;&gt;<i> follows the same rationale used for defining the csDataCons class. The 
+</I>&gt;&gt;&gt;&gt;<i> minutes were not explicit.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> I agree we need to link the cs and cl and ce. The problem with that is 
+</I>&gt;&gt;&gt;&gt;<i> the different information that exists on ce, cl and cs tables regarding 
+</I>&gt;&gt;&gt;&gt;<i> tech, which is the main problem. We can simply use the foCatEu5 or 
+</I>&gt;&gt;&gt;&gt;<i> foCatEu6 for tech. If these were correctly build it should do the work. 
+</I>&gt;&gt;&gt;&gt;<i> The other issue is about using waterDep for space. If we remove it space 
+</I>&gt;&gt;&gt;&gt;<i> will be the same for all objects.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Major problems are the links between hh and tr and ca. These have 
+</I>&gt;&gt;&gt;&gt;<i> different information and we need to make them consistent. My approach 
+</I>&gt;&gt;&gt;&gt;<i> was to include everything and link whatever is possible.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Anyway my ugly coding was not so bad once that you were able to read and 
+</I>&gt;&gt;&gt;&gt;<i> understand it. Feel free to change and adjust whatever you'd like. 
+</I>&gt;&gt;&gt;&gt;<i> Obviously the user inputs will have to be considered for other methods, 
+</I>&gt;&gt;&gt;&gt;<i> the default should work without user input.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Best regards
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> EJ
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i>   
+</I>&gt;&gt;&gt;&gt;<i>       
+</I>&gt;&gt;&gt;<i> Ernesto,
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> First, I want to make it clear that I'm more than happy with your 
+</I>&gt;&gt;&gt;<i> coding. There must not be any ambiguity on this.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I have the same approach as you have concerning the restriction on the 
+</I>&gt;&gt;&gt;<i> fields to use for tech and space. In addition, we have the Commercial 
+</I>&gt;&gt;&gt;<i> categories that can be linked only to cl and not to ce, wich 
+</I>&gt;&gt;&gt;<i> complexifies a bit the stuff. This answers to David's concern, I think.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I don't see the inconsistencies between tr, hh and ca. Your approach 
+</I>&gt;&gt;&gt;<i> to link each ca information to tr (PSUid) and hh (SSUid) is exactly 
+</I>&gt;&gt;&gt;<i> how it should be. Am I missing some issues about this?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Mathieu is working on it and it should not take too long. He is also 
+</I>&gt;&gt;&gt;<i> willing to release the first COSTeda package by the end of the week, 
+</I>&gt;&gt;&gt;<i> but let's relax a bit of the pressure on him and say that the COSTeda 
+</I>&gt;&gt;&gt;<i> package should be available next week!
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Best regards
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Joel
+</I>&gt;&gt;&gt;<i>     
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hi Joel,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> No problems with your comments. They are extremely relevant.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Commercial categories are concatenated in &quot;sort&quot; that exists at the sl 
+</I>&gt;&gt;<i> and ca levels. I guess David is concerned with the tech strata having 
+</I>&gt;&gt;<i> national information _together_ with the European categories (level 5 
+</I>&gt;&gt;<i> and level 6).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The problem with tr, hh and ca is that if you have a trip that crosses 
+</I>&gt;&gt;<i> your time strata, e.g. two quarters, you'll end up with 2 duplicates in 
+</I>&gt;&gt;<i> tr, which breaks the primary key. WRT ca the link with hh is done by 
+</I>&gt;&gt;<i> name matching which is subject to a lot of errors. It's very easy to 
+</I>&gt;&gt;<i> have situations where you don't have any rows matching. If you look at 
+</I>&gt;&gt;<i> the example we have now, sole, you'll notice that there are no matches 
+</I>&gt;&gt;<i> between these tow tables
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  &gt; library(COSTcore)
+</I>&gt;&gt;<i>  &gt; csc &lt;- csDataCons(csDataVal(sole.cs))
+</I>&gt;&gt;<i>  &gt; sum(<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">csc at ca</A>$SSUid %in% <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">csc at hh</A>$SSUid)
+</I>&gt;&gt;<i> [1] 0
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The extend of the problem will depend on a good EDA and good recoding of 
+</I>&gt;&gt;<i> factors.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Best
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> EJ
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> Cost-project-devel mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>   
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> the trip that covers 2 quarters opens a big box. Here is the rationale 
+</I>&gt;<i> we should follow:
+</I>&gt;<i>
+</I>&gt;<i> the user is free to define the stratification (quarter, space, tech). 
+</I>&gt;<i> Obviously, this stratification should match with the stratification 
+</I>&gt;<i> used for sampling but there is the possibility to substratify, either 
+</I>&gt;<i> to cope with a specific problem, or to have a specific focus on a 
+</I>&gt;<i> certain level of disaggregation (month rather than quarter, rectangle 
+</I>&gt;<i> rather than division, ...).
+</I>&gt;<i>
+</I>&gt;<i> The PSU reflects the sample id in a given strata (time * space * tec) 
+</I>&gt;<i> dynamically specified by the user.
+</I>&gt;<i>
+</I>&gt;<i> In the case a fishing trip has crossed different strata (be it 
+</I>&gt;<i> temporal, spatial, technical or a combination of the three), it should 
+</I>&gt;<i> account to one PSU for each occurence of strata.
+</I>&gt;<i>
+</I>&gt;<i> let's take head(csc) where you see that the trip ARY178 is stratified 
+</I>&gt;<i> as follows :
+</I>&gt;<i>
+</I>&gt;<i> the user specifies the rectangle as a spatial stratification
+</I>&gt;<i> PSUid1 = Q2 *  27.7.d.29F1, OTB_DEF_80_0_0
+</I>&gt;<i> PSUid2 = Q2 *  27.4.c.31F1, OTB_DEF_80_0_0
+</I>&gt;<i> PSUid3 = Q2 * 27.4.c.31F1, OTB_MOL_40_0_0
+</I>&gt;<i> PSUid4 = Q2 * 27.4.c.31F1, OTB_MOL_80_0_0
+</I>&gt;<i> PSUid5 = Q2 * 27.7.d.30F1, OTB_MOL_80_0_0
+</I>&gt;<i> PSUid6 = Q2 * 27.7.d.29F1, OTB_MOL_80_0_0
+</I>&gt;<i>
+</I>&gt;<i> the user specifices the division as a spatial stratification
+</I>&gt;<i> PSUid1 = Q2 *  27.7.d, OTB_DEF_80_0_0
+</I>&gt;<i> PSUid2 = Q2 *  27.4.c, OTB_DEF_80_0_0
+</I>&gt;<i> PSUid3 = Q2 * 27.4.c, OTB_MOL_40_0_0
+</I>&gt;<i> PSUid4 = Q2 * 27.4.c, OTB_MOL_80_0_0
+</I>&gt;<i> PSUid5 = Q2 * 27.7.d, OTB_MOL_80_0_0
+</I>&gt;<i>
+</I>&gt;<i> the user specifies the division as a spatial strat and the gear and 
+</I>&gt;<i> mesh size as tec
+</I>&gt;<i> PSUid1 = Q2 *  27.7.d, OTB_80_0_0
+</I>&gt;<i> PSUid2 = Q2 *  27.4.c, OTB_80_0_0
+</I>&gt;<i> PSUid3 = Q2 * 27.4.c, OTB_40_0_0
+</I>&gt;<i>
+</I>&gt;<i> the user says the space strata combines VIId and IVc
+</I>&gt;<i> PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0
+</I>&gt;<i> PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+</I>&gt;<i> PSUid3 = Q2 * 27.7.d + 27.4.c * OTB_MOL_80_0_0
+</I>&gt;<i>
+</I>&gt;<i> the user says the space strata combines VIId and IVc and OTB_DEF and 
+</I>&gt;<i> OTB_MOL have the same exploitation pattern
+</I>&gt;<i> PSUid1 = Q2 *  27.7.d + 27.4.c * OTB_DEF_80_0_0 + OTB_MOL_80_0_0
+</I>&gt;<i> PSUid2 = Q2 * 27.7.d + 27.4.c * OTB_MOL_40_0_0
+</I>&gt;<i>
+</I>&gt;<i> etc....
+</I>&gt;<i>
+</I>&gt;<i> So, at the end, there should be as many PSUid as number of combination 
+</I>&gt;<i> of strata used and there should not be the field technical in <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">csc at tr.</A> 
+</I>&gt;<i> The qualification of the stratification should be found only in hh and ca.
+</I>&gt;<i> The key between hh and sl is SSUid.
+</I>&gt;<i> The key between sl and hl is SSUid + spp
+</I>&gt;<i> The key between tr and ca is PSUid. There is the possibility to link 
+</I>&gt;<i> ca to hh with SSUid and to sl with SSUid + spp
+</I>&gt;<i> TSUid remains the sorting stratification.
+</I>&gt;<i>
+</I>&gt;<i> Yo build this kind of dynamic approach will certainly not be easy, but 
+</I>&gt;<i> do we agree on this scheme?
+</I>&gt;<i>
+</I>&gt;<i> Best
+</I>&gt;<i>
+</I>&gt;<i> Joel
+</I>
+Hi,
+
+It looks ok to me. The best way to test is to implement the code and see 
+how it works.
+
+Best
+
+EJ
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000132.html">[cost-devel] COSTcore 1.1-1 now in file repository
+</A></li>
+	<LI>Next message: <A HREF="000136.html">[cost-devel] New COSTcore 1.2 is out !!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#133">[ date ]</a>
+              <a href="thread.html#133">[ thread ]</a>
+              <a href="subject.html#133">[ subject ]</a>
+              <a href="author.html#133">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

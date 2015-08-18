@@ -1,0 +1,221 @@
+From Joel.Vigneau at ifremer.fr  Tue Jul  8 15:51:16 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Tue, 08 Jul 2008 15:51:16 +0200
+Subject: [cost-devel] Data Exchange Format Modifications
+Message-ID: <487370D4.3000902@ifremer.fr>
+
+Dear all,
+
+following the last COST meeting, we opened a window for changes in the 
+Data exchange Format (DEF) in order to bring a solution to the problems 
+raised during the first uploading of datasets and implementation of the 
+first packages. This window is the last for this project. From now on, 
+this DEF will be the one we use here, and the one we promote in all the 
+labs for using COST for DCR purpose in 2009.
+
+No need to stress that this is an important matter, and together with 
+Henrik and Teunis we have spent much more time on this than was 
+previously anticipated.
+
+Please find enclosed the document formalising the proposed changes. This 
+document will be included in the minutes of the meeting.
+
+I ask Mathieu to update the COSTcore methods with the proposed changes. 
+Only Mathieu (and me) will now have the opportunity to discuss the 
+structure while adjusting COSTcore. Ernesto will finish the adjustments 
+of COSTcore when he comes back from holidays in August, but a workable 
+COSTcore should be available soon. The other editorial or coding tables 
+may be discussed until the end of July.
+
+The major changes are the addition of the Sex field in SL to cope with 
+Nephrops and megrim distinction of sex while sampling, and the 
+possibility to cope with mixture of species in the samples. For the 
+later, Species field in CL has been changed to Taxon, so that CL$taxon = 
+"Lophius sp." may correspond to SL$spp = "Lophius piscatorius" and 
+SL$spp = "Lophius budegassa". The liaison between CL and SL will be done 
+either by a predefined rule (L. spp corresponds to L. pisc and L. bud) 
+or by the user.
+
+There are other addition of fields as demanded (Harbour, AgingMethod, 
+...) and one removal HH$gear
+and plenty of minor modifications to be compliant with the DCR and the 
+datasets we use.
+
+It is likely that all methods will be impacted by these changes but not 
+dramatically. The current situation where CL$taxon = SL$spp should still 
+work after editorial changes. We need to set up a Nephrops test case and 
+a Lophius test case, to be tested at a later stage, not for September.
+
+For the respect of the agenda, only the usual case CL$taxon = SL$spp 
+will be dealt with between now and September.
+
+Best regards
+
+Joel
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Fishframe_COST DEF change discussions and decisions final.doc
+Type: application/msword
+Size: 91136 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080708/38687cc6/attachment.doc>
+
+From A.Pout at MARLAB.AC.UK  Wed Jul 16 14:34:03 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Wed, 16 Jul 2008 13:34:03 +0100
+Subject: [cost-devel] Data Exchange Format Modifications
+In-Reply-To: <487370D4.3000902@ifremer.fr>
+References: <487370D4.3000902@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D24B@mail4.marlab.ac.uk>
+
+Dear Joel, Teunis, Henrik
+
+Quick one on this new commercialSizeCategoryScale =  "Nephrops". 
+
+To fit with the sorting practices can we make the codes for commercialSizeCategory integers 0,1, 2, 3, 4 etc for tails, and size classes of wholes (small whole, med whole, large whole etc), rather than 0 for wholes and 1 for tails.
+
+Cheers
+
+Alastair 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 08 July 2008 14:51
+To: cost devel; Henrik Degel; Teunis Jansen
+Subject: [cost-devel] Data Exchange Format Modifications
+
+ 
+
+Dear all,
+
+following the last COST meeting, we opened a window for changes in the Data exchange Format (DEF) in order to bring a solution to the problems raised during the first uploading of datasets and implementation of the first packages. This window is the last for this project. From now on, this DEF will be the one we use here, and the one we promote in all the labs for using COST for DCR purpose in 2009.
+
+No need to stress that this is an important matter, and together with Henrik and Teunis we have spent much more time on this than was previously anticipated.
+
+Please find enclosed the document formalising the proposed changes. This document will be included in the minutes of the meeting.
+
+I ask Mathieu to update the COSTcore methods with the proposed changes. Only Mathieu (and me) will now have the opportunity to discuss the structure while adjusting COSTcore. Ernesto will finish the adjustments of COSTcore when he comes back from holidays in August, but a workable COSTcore should be available soon. The other editorial or coding tables may be discussed until the end of July. 
+
+The major changes are the addition of the Sex field in SL to cope with Nephrops and megrim distinction of sex while sampling, and the possibility to cope with mixture of species in the samples. For the later, Species field in CL has been changed to Taxon, so that CL$taxon = "Lophius sp." may correspond to SL$spp = "Lophius piscatorius" and SL$spp = "Lophius budegassa". The liaison between CL and SL will be done either by a predefined rule (L. spp corresponds to L. pisc and L. bud) or by the user.
+
+There are other addition of fields as demanded (Harbour, AgingMethod, ...) and one removal HH$gear
+and plenty of minor modifications to be compliant with the DCR and the datasets we use.
+
+It is likely that all methods will be impacted by these changes but not dramatically. The current situation where CL$taxon = SL$spp should still work after editorial changes. We need to set up a Nephrops test case and a Lophius test case, to be tested at a later stage, not for September.
+
+For the respect of the agenda, only the usual case CL$taxon = SL$spp will be dealt with between now and September.
+
+Best regards
+
+Joel
+
+-- 
+
+
+
+Jo?l VIGNEAU
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/> "
+IFREMER <http://www.ifremer.fr/> 
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr 
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080716/21fcdc73/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Thu Jul 31 09:48:53 2008
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Thu, 31 Jul 2008 09:48:53 +0200
+Subject: [cost-devel] Summer progress
+Message-ID: <48916E65.4010509@ifremer.fr>
+
+Dear COST developers,
+
+Mathieu has posted yesterday the new release of COSTcore, taking into 
+account the definitive DEF structure. The specifications of this DEF 
+will be writen in early August and Ernesto, when coming back from 
+holidays, will take care of reviewing the code of COSTcore to make it 
+more robust (if needed) and more complete in term of internal controls. 
+ From a developer point of view, you can work already upon this version 
+of COSTcore with the internal Sole dataset.
+
+In a further step, transforming the other datasets into this new DEF is 
+just a matter of adding the new fields with NA values or the correct 
+values if available. This can be done relatively quickly, and should not 
+delay the implementation of the ongoing packages.
+
+The major modifs of the new DEF authorises the consideration of (i) the 
+distinction of sex in a sampled box of one species (Nephrops case) and 
+(ii) the distinction of different species in a sampled box of a taxon 
+(Lophius case). There is no datasets on these cases today, so I ask the 
+developers to take into consideration such possibility when implementing 
+a function but for the September deadline, only functions developed on 
+the "normal" case : one taxon = One species without sex will be taken 
+into account. The variants will have to be developed/tested later, when 
+some datasets will be available.
+
+Let's concentrate on having raising methods and precision estimates for 
+end of September and a Bayesian model ready for beginning of September 
+for the start of COSTsim.
+
+In the meeting schedule table, Mathieu had to develop 4 functions 
+(0-value, sampling strategy, gaps in ALK and outcome object). These 4 
+functions have been implemented and distributed to the leaders of 
+COSTdbe and COST mbe.
+What's remaining for End of July is the investigation on a hybrid 
+bootstrap (David M. and me) and the Bootstrap Estimates of empirical 
+variables-at-length and variances (Paz).
+
+I wish nice holidays for those about to leave.
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+/*Jo?l VIGNEAU*/
+
+Laboratoire "Ressources Halieutiques <http://www.ifremer.fr/drvpbessin/>"
+IFREMER <http://www.ifremer.fr/>
+14 520 Port-en-Bessin
+
+T?l : (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20080731/d0796ee5/attachment.html>
+

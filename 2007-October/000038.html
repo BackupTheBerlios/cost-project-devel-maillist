@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Latest version of the exchage format description
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2007-October/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Latest%20version%20of%20the%20exchage%20format%20description&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818C08%40ch-mail01.dfu.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000039.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Latest version of the exchage format description</H1>
+    <B>Teunis Jansen</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Latest%20version%20of%20the%20exchage%20format%20description&In-Reply-To=%3C8CDDBB8CAC32F34B809EB4A677952B4B02818C08%40ch-mail01.dfu.local%3E"
+       TITLE="[cost-devel] Latest version of the exchage format description">tej at difres.dk
+       </A><BR>
+    <I>Mon Oct  1 11:49:30 CEST 2007</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000039.html">[cost-devel] COST webpages - Mailing lists and forums
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+reply is below
+-----------------------------------------
+
+
+Dear All
+
+Attached is the latest version (28/9) of the Exchange Format
+Description. I have changed where consensus seems so have been made on
+either the wiki or on the discussion list, plus some trivial
+improvements.
+
+Changes since ver.27/9:
+1. HH field renaming: &quot;duration&quot; changed to &quot;time&quot; and &quot;Haul&quot; changed to
+&quot;Fishing&quot;
+2. Adding a &quot;*&quot; after field names to mark key fields 3. Reordering the
+last fields of HL and CA, so that key fields come first and value fields
+come last.
+
+Open discussions (correct me if I forgot any):
+1. What name is to be used &quot;Fishing operation&quot; or &quot;Fishing activity&quot;?
+2. CL.OfficialLandingsValue: Currency field or just always in euro?
+3. Size Sorting as a string or as an integer?
+
+Coming planned additions to the document:
+1. More detailed descriptions of the fields
+   -&quot;Landing category&quot; (the nature of &quot;industrial&quot; landings vs. &quot;human
+consumption&quot; landings)
+   -&quot;Age&quot; (how different aging methods should map to this field).
+   - The 3 fisheries fields and their coding and internal relations.
+2. The format is now specified for CSV. The format will also be
+specified in XML for all data types. FishFrame is able to receive the
+data in either CSV or XML. CSV is best suited when humans upload the
+data although some prefer XML. XML is best for server-to-server data
+communication. We will use the XML format later to automate the upload
+from our national raw-database to FishFrame.
+2. A format for raised commercial fisheries data (total weight, numbers,
+numbers at length, numbers at age, mean weight at length, mean weight at
+age, mean length at age). This format for raised data can include
+extrapolated data (hole-filling of biological sampling and discard
+rates).
+3. Possibly a format for bottom trawl surveys. This will be coordinated
+with ICES and their DATRAS database.
+
+I would like to upload each new version on BerliOS Developer under Docs,
+but they do not appear after upload. Some kind of &quot;Approval&quot; is
+needed...
+
+Best regards
+Teunis
+
+ 
+---------------------------------------------
+Hi,
+a reasonably long question, hopefully with a short answer.
+
+As an example to help me get the mapping to the FF5 format suppose we
+have two vessels
+
+vessel 1 which splits its landings into 2 categories  e.g. small fish,
+big fish which get local category codes 0 and 1
+
+this vessel is sampled, a sampleID number generated and recorded.
+Sampling gives data
+ category 0, landed weight 50kg, sampled weight 10kg, length
+distribution of sample  category 1, landed weight 100kg, sampled weight
+30kg, length distribution of sample
+
+
+Would this map to two CS SL records with record 1 as
+
+Trip number = sampleID
+Commercial Size category scale = &quot;Landing specific&quot; ??
+Commercial Size category = 0
+Subsampling category = NA
+Weight = 50000
+SubSample weight = 10000 
+
+and the length distribution creating CS CA records with
+
+Trip number = sampleID
+Size category scale = &quot;Landing specific&quot; 
+Size category = 0
+
+
+Next we have vessel 2 which is not sampled so we only have a vessel
+registration number and total landing.
+This does not get a CS SL record, it only contributes to a strata total
+in a CL record.
+
+Thanks, David
+
+
+************************************************************************
+***********
+This email and any attachments are intended for the named recipient
+only.  Its unauthorised use, distribution, disclosure, storage or
+copying is not permitted.  If you have received it in error, please
+destroy all copies and notify the sender.  In messages of a non-business
+nature, the views and opinions expressed are the author's own and do not
+necessarily reflect those of the organisation from which it is sent.
+All emails may be subject to monitoring.
+************************************************************************
+***********
+
+_______________________________________________
+Cost-project-devel mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">Cost-project-devel at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">https://lists.berlios.de/mailman/listinfo/cost-project-devel</A>
+------------------------------------------------------------------------
+-----------------------
+
+Hi David
+
+Yes, as I understand your sampling and raising, then that is correct,
+just with a small correction: You should have your own code for
+Commercial Size category scale. The one we use is just &quot;EU&quot;, so I
+suggest your could be called &quot;Eng&quot;.
+
+Trip number = sampleID
+Commercial Size category scale = &quot;Eng&quot;
+Commercial Size category = 0
+Subsampling category = NA
+Weight = 50000
+SubSample weight = 10000 
+
+BR
+Teunis
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000039.html">[cost-devel] COST webpages - Mailing lists and forums
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#38">[ date ]</a>
+              <a href="thread.html#38">[ thread ]</a>
+              <a href="subject.html#38">[ subject ]</a>
+              <a href="author.html#38">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

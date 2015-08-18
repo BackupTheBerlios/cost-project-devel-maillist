@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] memory allocation problem in RaiseAgeBoot
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20memory%20allocation%20problem%20in%20RaiseAgeBoot&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257A5B%40LOWEXPRESS.corp.cefas.co.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000237.html">
+   <LINK REL="Next"  HREF="000239.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] memory allocation problem in RaiseAgeBoot</H1>
+    <B>David Maxwell (Cefas)</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20memory%20allocation%20problem%20in%20RaiseAgeBoot&In-Reply-To=%3C8F90BAFE30CE2D458953FC0F1709830B01257A5B%40LOWEXPRESS.corp.cefas.co.uk%3E"
+       TITLE="[cost-devel] memory allocation problem in RaiseAgeBoot">david.maxwell at cefas.co.uk
+       </A><BR>
+    <I>Wed Apr 29 16:42:27 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000237.html">[cost-devel] memory allocation problem in RaiseAgeBoot
+</A></li>
+        <LI>Next message: <A HREF="000239.html">[cost-devel] memory allocation problem in RaiseAgeBoot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Dorleta,
+ 
+If you want to assess the bootstrap estimates then I don't think you need to save the replicates but you will need to run the whole dbe process for each simulation sample because RaiseAgeBoot needs the replicates from RaiseLenBoot and dbeCalc needs the replicates to calculate the CI e.g. something like
+for i in 1:nsamples
+{
+out = RaiseLen sample i
+out = RaiseAge out
+out = dbeCalc (out, update=T)
+alloutput [[i]] = out..$estim &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">out at estim</A>&gt; , out..$ci &lt;mailto:out..$@ci&gt; , etc. but not out..$rep
+}
+ 
+where alloutput is a dbeOutputSim object or a list which you convert to a dbeOutputSim object after the loop.
+Maybe this is what you meant by running length and age raising in parallel.
+ 
+If this 'one sample at a time' approach is too slow (maybe hours is ok? but days is not!) then we will need to consider how to speed up the methods or how to modify RaiseAgeBootSim. If your method is trying to run all the samples and iterations in one go then as well as the size of the outputs, there may be memory issues because RaiseLen and RaiseAge (and therefore the bootstrap versions) create some big arrays during processing. I think there are functions to deal with big, sparse arrays but as you say it's better to simulate the functions as they currently are. 
+ 
+Hope that's some help,
+Regards, David
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel-bounces at lists.berlios.de</A>]On Behalf Of Dorleta Garcia
+Sent: 29 April 2009 13:09
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/cost-project-devel">cost-project-devel at lists.berlios.de</A>
+Subject: [cost-devel] memory allocation problem in RaiseAgeBoot
+
+
+
+Hi all,
+ 
+In COSTsim package I've created simulation version of RaiseAgeBoot method RaiseAgeBootSim, This method uses a simulation version of dbeObject class dbeObjectSim, which is a pseudocopy of the original but with one extra column in each data frame, sample. Thus with boostrap methods the replicates have dimension nsamples*nboot (~100*1000). I have try with 10 samples and 1000 bootstrap iterations and the RaigeAgeBoot method crashes due to memory allocation problem. I was thinking on not saving the replicates, but Joel told me that length replicates are needed to raise Age. I have 4Gb memory limit (windows).
+ 
+Someone knows how can I overcome this problem? One option could be to run length and age raising in parallel and not save the replicates, but my idea is to copy as far as possible the way dbe works. 
+ 
+Regards,
+ 
+Dorleta
+ 
+ 
+
+    
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090429/dc9b8f27/attachment.html">https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090429/dc9b8f27/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000237.html">[cost-devel] memory allocation problem in RaiseAgeBoot
+</A></li>
+	<LI>Next message: <A HREF="000239.html">[cost-devel] memory allocation problem in RaiseAgeBoot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#238">[ date ]</a>
+              <a href="thread.html#238">[ thread ]</a>
+              <a href="subject.html#238">[ subject ]</a>
+              <a href="author.html#238">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

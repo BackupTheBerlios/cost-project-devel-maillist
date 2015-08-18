@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [cost-devel] Mapping area strata and the data exchange format
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/cost-project-devel/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Mapping%20area%20strata%20and%20the%20data%20exchange%20format&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D17B%40mail4.marlab.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000118.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[cost-devel] Mapping area strata and the data exchange format</H1>
+    <B>Alastair Pout</B> 
+    <A HREF="mailto:cost-project-devel%40lists.berlios.de?Subject=Re%3A%20%5Bcost-devel%5D%20Mapping%20area%20strata%20and%20the%20data%20exchange%20format&In-Reply-To=%3CA0F8DAFB525DED4ABAF6841BB11C581221D17B%40mail4.marlab.ac.uk%3E"
+       TITLE="[cost-devel] Mapping area strata and the data exchange format">A.Pout at MARLAB.AC.UK
+       </A><BR>
+    <I>Fri Mar  7 10:06:26 CET 2008</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000118.html">[cost-devel] Mapping area strata and the data exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear All 
+
+A couple of things relating to area stratification of the data (arising
+in part because I'm doing the spatial plotting functions for EDA). 
+
+1. FRS has various sampling areas (defined in terms of statistical
+rectangles) for its demersal sampling scheme, pelagic sampling scheme,
+even for some individual stocks such as herring and sprat. These differ
+from ICES areas. I would assume this is not a unique position and that
+other countries, and potential users of COST software, are likely to
+have nationally defined spatial strata.  
+
+2. Adequate assessment of spatial coverage of such national sampling
+schemes in relation to landings and/or effort needs to have the ability
+to map by area where area is less rigidly defined than ICES and FAO
+areas. 
+
+3. I can do this for FRS data at present by allowing the code list for
+the $area field in my cs cl and ce data sets to include such
+classifications and by allowing the mapping functions I'm doing for the
+EDA package to plot by area strata that can be defined in terms of
+statistical rectangles (all you need is the ability to convert from one
+to the other). Seems to me this might be of general use. 
+
+
+So, 
+Is this a common problem? Are there other national sampling schemes (and
+potential COST users) that employ spatial stratification other than ICES
+areas and or statistical rectangles?
+
+If so are these areas definable in terms of ICES statistical rectangles
+or at least in a way that would allow them to be mapped on a regular
+grid? 
+
+Would allowing such strata definitions into the data exchange format
+code list for $area, pose problems for anyone else's COST functions at
+the validated level (at the consolidated level I assume these national
+based area strata are inappropriate)? 
+
+All the best
+Alastair
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000118.html">[cost-devel] Mapping area strata and the data exchange format
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/cost-project-devel">More information about the Cost-project-devel
+mailing list</a><br>
+</body></html>

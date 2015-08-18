@@ -1,0 +1,257 @@
+From A.Pout at MARLAB.AC.UK  Fri Mar  7 10:06:26 2008
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Fri, 7 Mar 2008 09:06:26 -0000
+Subject: [cost-devel] Mapping area strata and the data exchange format
+In-Reply-To: <47C3EA89.5080403@ipimar.pt>
+References: <88431FCDD055A44BA5EEE1EC14E7E151381987@lu-mail-san.dfu.local>
+	<47C3EA89.5080403@ipimar.pt>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C581221D17B@mail4.marlab.ac.uk>
+
+Dear All 
+
+A couple of things relating to area stratification of the data (arising
+in part because I'm doing the spatial plotting functions for EDA). 
+
+1. FRS has various sampling areas (defined in terms of statistical
+rectangles) for its demersal sampling scheme, pelagic sampling scheme,
+even for some individual stocks such as herring and sprat. These differ
+from ICES areas. I would assume this is not a unique position and that
+other countries, and potential users of COST software, are likely to
+have nationally defined spatial strata.  
+
+2. Adequate assessment of spatial coverage of such national sampling
+schemes in relation to landings and/or effort needs to have the ability
+to map by area where area is less rigidly defined than ICES and FAO
+areas. 
+
+3. I can do this for FRS data at present by allowing the code list for
+the $area field in my cs cl and ce data sets to include such
+classifications and by allowing the mapping functions I'm doing for the
+EDA package to plot by area strata that can be defined in terms of
+statistical rectangles (all you need is the ability to convert from one
+to the other). Seems to me this might be of general use. 
+
+
+So, 
+Is this a common problem? Are there other national sampling schemes (and
+potential COST users) that employ spatial stratification other than ICES
+areas and or statistical rectangles?
+
+If so are these areas definable in terms of ICES statistical rectangles
+or at least in a way that would allow them to be mapped on a regular
+grid? 
+
+Would allowing such strata definitions into the data exchange format
+code list for $area, pose problems for anyone else's COST functions at
+the validated level (at the consolidated level I assume these national
+based area strata are inappropriate)? 
+
+All the best
+Alastair
+
+
+From ernesto at ipimar.pt  Mon Mar 10 00:11:28 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Sun, 09 Mar 2008 23:11:28 +0000
+Subject: [cost-devel] COST meeting dates.
+Message-ID: <47D46EA0.8000603@ipimar.pt>
+
+Joel,
+
+Can you please inform about the next COST meeting. I have some other 
+meetings in June and I'd like to know if there's already dates and place 
+decided.
+
+Best
+
+EJ
+
+
+
+From david.maxwell at cefas.co.uk  Mon Mar 10 11:02:18 2008
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Mon, 10 Mar 2008 10:02:18 -0000
+Subject: [cost-devel] Mapping area strata and the data exchange format
+In-Reply-To: <A0F8DAFB525DED4ABAF6841BB11C581221D17B@mail4.marlab.ac.uk>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B09566C@LOWEXPRESS.corp.cefas.co.uk>
+
+
+
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Alastair Pout
+Sent: 07 March 2008 11:06
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] Mapping area strata and the data exchange format
+
+
+Dear All 
+
+A couple of things relating to area stratification of the data (arising
+in part because I'm doing the spatial plotting functions for EDA). 
+
+1. FRS has various sampling areas (defined in terms of statistical
+rectangles) for its demersal sampling scheme, pelagic sampling scheme,
+even for some individual stocks such as herring and sprat. These differ
+from ICES areas. I would assume this is not a unique position and that
+other countries, and potential users of COST software, are likely to
+have nationally defined spatial strata.  
+
+2. Adequate assessment of spatial coverage of such national sampling
+schemes in relation to landings and/or effort needs to have the ability
+to map by area where area is less rigidly defined than ICES and FAO
+areas. 
+
+3. I can do this for FRS data at present by allowing the code list for
+the $area field in my cs cl and ce data sets to include such
+classifications and by allowing the mapping functions I'm doing for the
+EDA package to plot by area strata that can be defined in terms of
+statistical rectangles (all you need is the ability to convert from one
+to the other). Seems to me this might be of general use. 
+
+
+So, 
+Is this a common problem? Are there other national sampling schemes (and
+potential COST users) that employ spatial stratification other than ICES
+areas and or statistical rectangles?
+
+If so are these areas definable in terms of ICES statistical rectangles
+or at least in a way that would allow them to be mapped on a regular
+grid? 
+
+Would allowing such strata definitions into the data exchange format
+code list for $area, pose problems for anyone else's COST functions at
+the validated level (at the consolidated level I assume these national
+based area strata are inappropriate)? 
+
+All the best
+Alastair
+_______________________________________________
+Cost-project-devel mailing list
+Cost-project-devel at lists.berlios.de
+https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+
+Alastair,
+
+You ask for other schemes.
+Nephrops stocks are defined by FUs (Fishery Units?) in the DCR so that's an example at the international level.
+At Cefas, market-sampling targets are defined and monitored by regions or port offices within England and Wales but this is a different issue. I do not think calculations use non-standard strata.
+
+Some surveys do use different strata. For example we have a stratified random design for one of our beam trawl surveys and Roundfish Areas (RFAs) have been used for gadoids in the North Sea. These are defined in terms of statistical rectangles.
+
+Having a mixed definition for $area sounds like it could cause problems particularly as area is a key field. Is there a strata field that could be defined or used?
+
+By the way, Andy South here has written quite a lot of R code for mapping our survey data. You can email him (andy.south at cefas.co.uk) if you're interested as he'll be happy to share it.
+
+Regards, David
+
+
+
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+
+
+From david.hirst at nr.no  Wed Mar 19 17:54:36 2008
+From: david.hirst at nr.no (David Hirst)
+Date: Wed, 19 Mar 2008 16:54:36 +0000
+Subject: [cost-devel] Version 1 is out !
+In-Reply-To: <47B5B4D8.4000900@ipimar.pt>
+References: <47B5B4D8.4000900@ipimar.pt>
+Message-ID: <47E1454C.30403@nr.no>
+
+Ok, I admit it, I've forgotten the command to install the library on 
+Windows. Can anyone help?
+
+ernesto wrote:
+> Hi,
+>
+> I've just committed version one to CVS and uploaded to the file 
+> repository 
+> (https://developer.berlios.de/project/showfiles.php?group_id=7299).
+>
+> It implements the latest FF5 format of January, 25th and has now all the 
+> functionalities agreed during the expert meeting.
+>
+> So now I expect a lot of bug reports from all of you who are going to 
+> use it extensively :-)
+>
+> Best regards
+>
+> EJ
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>   
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
+From ernesto at ipimar.pt  Wed Mar 19 18:03:05 2008
+From: ernesto at ipimar.pt (ernesto)
+Date: Wed, 19 Mar 2008 17:03:05 +0000
+Subject: [cost-devel] Version 1 is out !
+In-Reply-To: <47E1454C.30403@nr.no>
+References: <47B5B4D8.4000900@ipimar.pt> <47E1454C.30403@nr.no>
+Message-ID: <47E14749.2040405@ipimar.pt>
+
+Hi,
+
+You may use the menu item "install from zip file", or something similar.
+
+Best
+
+EJ
+
+David Hirst wrote:
+> Ok, I admit it, I've forgotten the command to install the library on 
+> Windows. Can anyone help?
+>
+> ernesto wrote:
+>   
+>> Hi,
+>>
+>> I've just committed version one to CVS and uploaded to the file 
+>> repository 
+>> (https://developer.berlios.de/project/showfiles.php?group_id=7299).
+>>
+>> It implements the latest FF5 format of January, 25th and has now all the 
+>> functionalities agreed during the expert meeting.
+>>
+>> So now I expect a lot of bug reports from all of you who are going to 
+>> use it extensively :-)
+>>
+>> Best regards
+>>
+>> EJ
+>>
+>> _______________________________________________
+>> Cost-project-devel mailing list
+>> Cost-project-devel at lists.berlios.de
+>> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+>>   
+>>     
+>
+>   
+
+
+

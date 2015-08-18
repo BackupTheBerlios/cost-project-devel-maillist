@@ -1,0 +1,485 @@
+From Joel.Vigneau at ifremer.fr  Wed Jul 29 11:28:39 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Wed, 29 Jul 2009 11:28:39 +0200
+Subject: [cost-devel] Final version
+Message-ID: <4A701647.3050701@ifremer.fr>
+
+Dear colleagues,
+
+I'll spend the next 3 days gathering all information and preparing the 
+final version of the COST project for the Commission. To that aim, 
+please, send me all new developments, text and/or package version you have.
+
+As a bonus, we have developed here with a student and during the last 2 
+months, a reporting function which generates pdf documents, depending on 
+the arguments, for
+
+   1. a validated/consolidated object : number of samples per strata,
+      number of fish measured, aged, weighted, .....
+   2. a dbe object : the estimates and the precision obtained
+   3. the analysis script : acts like the command Sweave on your own
+      script with your comments after #
+
+We are still refining some formating details, but basically you can see 
+one example of each document enclosed.
+
+The problem is that the generic function 'report' needs a certain number 
+of extra items to be downloaded in R (package xtable) or in your 
+computer (MiKTeX). The inclusion of the function in COSTeda will then 
+necessitate these on your computer! The alternative is to create a 
+package COSTreport. What's your opinion on this?
+
+Best regards
+
+Joel
+
+
+
+-- 
+
+*/Jo?l VIGNEAU/*
+
+IFREMER
+
+Laboratoire "Ressources Halieutiques"
+
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+web : http://www.ifremer.fr <http://www.ifremer.fr/>
+
+COST project coordinator
+
+http://wwz.ifremer.fr/cost
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090729/5241702b/attachment.html>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: mainScript.pdf
+Type: application/pdf
+Size: 99501 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090729/5241702b/attachment.pdf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: mainVal.pdf
+Type: application/pdf
+Size: 135171 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090729/5241702b/attachment-0001.pdf>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: maindbe.pdf
+Type: application/pdf
+Size: 129728 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090729/5241702b/attachment-0002.pdf>
+
+From A.Pout at MARLAB.AC.UK  Wed Jul 29 16:16:05 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Wed, 29 Jul 2009 15:16:05 +0100
+Subject: [cost-devel] Final version
+In-Reply-To: <4A701647.3050701@ifremer.fr>
+References: <4A701647.3050701@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C5812026496DE@mail4.marlab.ac.uk>
+
+Hi Joel 
+
+Just on the last point I think it far better to go down the line of a COSTreport package than make the use of COSTeda dependent on MiKTeX and any other software needed for pdfs. From my experience trying to get sweave running and the struggle we have with our IT people to put anything with our computers I can foresee lots of hassle for us doing it the other way.  I suspect we would not be alone. 
+
+All the best
+
+Alastair 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 29 July 2009 10:29
+To: cost devel
+Subject: [cost-devel] Final version
+
+ 
+
+Dear colleagues,
+
+I'll spend the next 3 days gathering all information and preparing the final version of the COST project for the Commission. To that aim, please, send me all new developments, text and/or package version you have.
+
+As a bonus, we have developed here with a student and during the last 2 months, a reporting function which generates pdf documents, depending on the arguments, for
+
+1.	a validated/consolidated object : number of samples per strata, number of fish measured, aged, weighted, .....
+2.	a dbe object : the estimates and the precision obtained
+3.	the analysis script : acts like the command Sweave on your own script with your comments after #
+
+We are still refining some formating details, but basically you can see one example of each document enclosed.
+
+The problem is that the generic function 'report' needs a certain number of extra items to be downloaded in R (package xtable) or in your computer (MiKTeX). The inclusion of the function in COSTeda will then necessitate these on your computer! The alternative is to create a package COSTreport. What's your opinion on this?
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+
+
+Jo?l VIGNEAU
+
+IFREMER
+
+Laboratoire "Ressources Halieutiques"
+
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+
+m?l : Joel.Vigneau at ifremer.fr 
+
+web : http://www.ifremer.fr <http://www.ifremer.fr/>  
+
+COST project coordinator
+
+http://wwz.ifremer.fr/cost
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090729/c440c6f8/attachment.html>
+
+From A.Pout at MARLAB.AC.UK  Thu Jul 30 08:34:12 2009
+From: A.Pout at MARLAB.AC.UK (Alastair Pout)
+Date: Thu, 30 Jul 2009 07:34:12 +0100
+Subject: [cost-devel] Final version
+In-Reply-To: <4A701647.3050701@ifremer.fr>
+References: <4A701647.3050701@ifremer.fr>
+Message-ID: <A0F8DAFB525DED4ABAF6841BB11C5812026496E2@mail4.marlab.ac.uk>
+
+Hi Joel 
+
+Have committed a few last changes that I had made to the cod data sets as COSTeda 1.3.3. on CVS this morning. 
+
+All the best
+
+Alastair  
+
+ 
+
+ 
+
+ 
+
+ 
+
+________________________________
+
+From: cost-project-devel-bounces at lists.berlios.de [mailto:cost-project-devel-bounces at lists.berlios.de] On Behalf Of Joel VIGNEAU
+Sent: 29 July 2009 10:29
+To: cost devel
+Subject: [cost-devel] Final version
+
+ 
+
+Dear colleagues,
+
+I'll spend the next 3 days gathering all information and preparing the final version of the COST project for the Commission. To that aim, please, send me all new developments, text and/or package version you have.
+
+As a bonus, we have developed here with a student and during the last 2 months, a reporting function which generates pdf documents, depending on the arguments, for
+
+1.	a validated/consolidated object : number of samples per strata, number of fish measured, aged, weighted, .....
+2.	a dbe object : the estimates and the precision obtained
+3.	the analysis script : acts like the command Sweave on your own script with your comments after #
+
+We are still refining some formating details, but basically you can see one example of each document enclosed.
+
+The problem is that the generic function 'report' needs a certain number of extra items to be downloaded in R (package xtable) or in your computer (MiKTeX). The inclusion of the function in COSTeda will then necessitate these on your computer! The alternative is to create a package COSTreport. What's your opinion on this?
+
+Best regards
+
+Joel
+
+
+
+
+-- 
+
+
+
+Jo?l VIGNEAU
+
+IFREMER
+
+Laboratoire "Ressources Halieutiques"
+
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+
+m?l : Joel.Vigneau at ifremer.fr 
+
+web : http://www.ifremer.fr <http://www.ifremer.fr/>  
+
+COST project coordinator
+
+http://wwz.ifremer.fr/cost
+
+
+______________________________________________________________________
+This email has been scanned by the MessageLabs Email Security System.
+For more information please visit http://www.messagelabs.com/email 
+______________________________________________________________________
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090730/e5a3a7df/attachment.html>
+
+From Joel.Vigneau at ifremer.fr  Thu Jul 30 22:49:15 2009
+From: Joel.Vigneau at ifremer.fr (Joel.Vigneau at ifremer.fr)
+Date: Thu, 30 Jul 2009 22:49:15 +0200
+Subject: [cost-devel] Commission comments [URGENT]
+Message-ID: <20090730224915.13025i7m88rou4so@efflammail.ifremer.fr>
+
+Hi folks,
+
+please hold on what you're doing for a while and consider this  
+response to the commission comments on the COST final report.
+
+I need to finalise the report and the user manual today...
+
+Thanks for your help
+
+Best regards
+
+Joel
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Answer to Commsission comments.doc
+Type: application/msword
+Size: 19968 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090730/c02b9e6c/attachment.doc>
+
+From david.maxwell at cefas.co.uk  Fri Jul 31 11:19:09 2009
+From: david.maxwell at cefas.co.uk (David Maxwell (Cefas))
+Date: Fri, 31 Jul 2009 10:19:09 +0100
+Subject: [cost-devel] Commission comments [URGENT]
+In-Reply-To: <20090730224915.13025i7m88rou4so@efflammail.ifremer.fr>
+Message-ID: <8F90BAFE30CE2D458953FC0F1709830B01257B4C@LOWEXPRESS.corp.cefas.co.uk>
+
+Hi Joel,
+I agree to including the text on missing data in the report.
+Two pieces highlighted in blue need clarification.
+
+I've also made some changes to the style. Although just because I'm English it doesn't mean my suggestions are accurate or elegant. I always preferred Maths to English at school!
+
+I will send an edited version of Section 8 of the final report to you in a few hours. Is that ok?
+
+Regards, David
+-----Original Message-----
+From: cost-project-devel-bounces at lists.berlios.de
+[mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+Joel.Vigneau at ifremer.fr
+Sent: 30 July 2009 21:49
+To: cost-project-devel at lists.berlios.de
+Subject: [cost-devel] Commission comments [URGENT]
+
+
+Hi folks,
+
+please hold on what you're doing for a while and consider this  
+response to the commission comments on the COST final report.
+
+I need to finalise the report and the user manual today...
+
+Thanks for your help
+
+Best regards
+
+Joel
+
+
+
+***********************************************************************************
+This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+***********************************************************************************
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Answer to Commsission comments_V2_DLM.doc
+Type: application/msword
+Size: 32256 bytes
+Desc: Answer to Commsission comments_V2_DLM.doc
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090731/2a312a05/attachment.doc>
+
+From Joel.Vigneau at ifremer.fr  Fri Jul 31 12:00:53 2009
+From: Joel.Vigneau at ifremer.fr (Joel VIGNEAU)
+Date: Fri, 31 Jul 2009 12:00:53 +0200
+Subject: [cost-devel] Commission comments [URGENT]
+In-Reply-To: <8F90BAFE30CE2D458953FC0F1709830B01257B4C@LOWEXPRESS.corp.cefas.co.uk>
+References: <8F90BAFE30CE2D458953FC0F1709830B01257B4C@LOWEXPRESS.corp.cefas.co.uk>
+Message-ID: <4A72C0D5.4000700@ifremer.fr>
+
+Hi David,
+
+I have negotiated with the commission a delay until ... Monday. I cannot 
+ask for more delays, because I am desperate to take some holidays also 
+myself!
+thank you for following the last minutes of the project; what you have 
+highlighted in blue is clearly confusing. I'll manage to rewrite it.
+
+Best
+
+Joel
+
+David Maxwell (Cefas) a ?crit :
+> Hi Joel,
+> I agree to including the text on missing data in the report.
+> Two pieces highlighted in blue need clarification.
+>
+> I've also made some changes to the style. Although just because I'm English it doesn't mean my suggestions are accurate or elegant. I always preferred Maths to English at school!
+>
+> I will send an edited version of Section 8 of the final report to you in a few hours. Is that ok?
+>
+> Regards, David
+> -----Original Message-----
+> From: cost-project-devel-bounces at lists.berlios.de
+> [mailto:cost-project-devel-bounces at lists.berlios.de]On Behalf Of
+> Joel.Vigneau at ifremer.fr
+> Sent: 30 July 2009 21:49
+> To: cost-project-devel at lists.berlios.de
+> Subject: [cost-devel] Commission comments [URGENT]
+>
+>
+> Hi folks,
+>
+> please hold on what you're doing for a while and consider this  
+> response to the commission comments on the COST final report.
+>
+> I need to finalise the report and the user manual today...
+>
+> Thanks for your help
+>
+> Best regards
+>
+> Joel
+>
+>
+>
+> ***********************************************************************************
+> This email and any attachments are intended for the named recipient only.  Its unauthorised use, distribution, disclosure, storage or copying is not permitted.  If you have received it in error, please destroy all copies and notify the sender.  In messages of a non-business nature, the views and opinions expressed are the author's own and do not necessarily reflect those of the organisation from which it is sent.  All emails may be subject to monitoring.
+> ***********************************************************************************
+>   
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+
+*/Jo?l VIGNEAU/*
+
+IFREMER
+
+Laboratoire "Ressources Halieutiques"
+
+14 520 Port-en-Bessin
+
+T?l. (33)2 31 51 56 41  - Fax (33)2 31 51 56 01
+
+m?l : Joel.Vigneau at ifremer.fr <mailto:Joel.Vigneau at ifremer.fr>
+
+web : http://www.ifremer.fr <http://www.ifremer.fr/>
+
+COST project coordinator
+
+http://wwz.ifremer.fr/cost
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/cost-project-devel/attachments/20090731/634e9bce/attachment.html>
+
+From david.hirst at nr.no  Fri Jul 31 12:04:57 2009
+From: david.hirst at nr.no (David Hirst)
+Date: Fri, 31 Jul 2009 11:04:57 +0100
+Subject: [cost-devel] Commission comments [URGENT]
+In-Reply-To: <20090730224915.13025i7m88rou4so@efflammail.ifremer.fr>
+References: <20090730224915.13025i7m88rou4so@efflammail.ifremer.fr>
+Message-ID: <4A72C1C9.4080102@nr.no>
+
+Here is my attempt to rewrite the section on missing data.
+
+Accounting for missing data:
+
+The common COST format allows data from multiple countries to be 
+combined into a single analysis. For the analytical and bootstrap 
+methods it is necessary that the sampling strategies are the same, 
+though this is not necessary for the modelling approach. This merging of 
+data can help fill empty strata.
+
+If the Age-Length-Key approach is used (ie the bootstrap or analytical 
+methods), COST allows a variety of ways of imputing data. These include 
+modification of the length increments, and copying of age distributions 
+between adjacent length classes. These methods can be applied 
+automatically for bootstrapping. COST keeps track of the changes, and 
+provides visual help on the resultant ALK.
+
+If the modelling approach is used, missing data is much less of a 
+problem. There is no ALK and so no need to impute data. Empty strata are 
+also much less of a problem, since the catch parameters are estimated 
+using gear, season and area as covariates, and can therefore be 
+estimated for any combination of these covariates, even if there is no 
+data for some combinations. Different sampling strategies can also be 
+combined into a single analysis.
+
+
+
+Joel.Vigneau at ifremer.fr wrote:
+> Hi folks,
+>
+> please hold on what you're doing for a while and consider this 
+> response to the commission comments on the COST final report.
+>
+> I need to finalise the report and the user manual today...
+>
+> Thanks for your help
+>
+> Best regards
+>
+> Joel
+> ------------------------------------------------------------------------
+>
+> _______________________________________________
+> Cost-project-devel mailing list
+> Cost-project-devel at lists.berlios.de
+> https://lists.berlios.de/mailman/listinfo/cost-project-devel
+
+-- 
+David Hirst
+Norsk Regnesentral (Norwegian Computing Center)
+Strathweltie,
+Tarland,
+Aboyne AB34 4YS
+tel/fax 01339881448
+email david.hirst at nr.no
+http://www.nr.no
+
+
+
+
+
